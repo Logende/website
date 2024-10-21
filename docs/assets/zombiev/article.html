@@ -1,0 +1,262 @@
+<h2>ZombieV</h2>
+
+<p>
+  ZombieV is a Minecraft Minigame that I have invented, developed, and published
+  to thousands of players via the Snapcraft gaming network from the Netherlands.
+  It is written in Java. The concept is simple: players fight together against
+  pre-defined waves of crazy enemies. By killing those enemies, they get money,
+  which they can invest in stronger armor, weapons, and some other special
+  perks. Besides a lot of crazy fun elements (items like grenades, an
+  interactive map which, for example, changes over the course of the game, and
+  boss waves), players could also use the equipment they unlocked to challenge
+  other players in a 1v1 fight.
+</p>
+
+<h3>History</h3>
+
+<h4>First steps</h4>
+
+<figure>
+  <p>
+    <a href="/src/assets/articles/zombiev/zombiev_old_arena.png"
+      ><img
+        src="/src/assets/articles/zombiev/zombiev_old_arena.png"
+        width="300"
+    /></a>
+  </p>
+  <figcaption>The very first ZombieSurvival arena</figcaption>
+</figure>
+
+<p>
+  Around 2012, I was playing the game Minecraft and running my own minigames
+  server. I honestly do not remember how I got the idea, but I decided to
+  develop the "ZombieSurvival" minigame by coding a Java plugin with that
+  functionality. The features were: there are hardcoded enemy waves (e.g. wave 1
+  is 10 zombies with certain health spawned at certain locations, wave 2 is 4
+  endermen with a lot of health and special damage, etc.). Players can join the
+  arena at any time. If the arena is currently empty, it will start with wave 1.
+  Otherwise, the players just join at the current wave. They get money by
+  killing enemies themselves (plus some money for kills of a nearby player),
+  which they can invest in new equipment. This equipment and its cost was also
+  hardcoded and defined by me. If the players survive all waves and kill the
+  final boss (last wave) they get a lot of money as a reward. Starting out with
+  a really bad map, limited waves, and really bad code, the minigame evolved
+  over time.
+</p>
+
+<p>
+  I kept adding new waves and features every day. Eventually, I met the Swedish
+  gentleman David and merged my minigames server (custom plugins) with his
+  server (bigger player base). We created the network named "Zeuby" and had
+  around 40-90 players online at once at this point. The new ZombieSurvival map,
+  which I built, looked like the following:
+</p>
+
+<figure>
+  <p>
+    <a href="/src/assets/articles/zombiev/zombiev_second_arena.png"
+      ><img
+        src="/src/assets/articles/zombiev/zombiev_second_arena.png"
+        width="500"
+    /></a>
+  </p>
+  <figcaption>The improved ZombieSurvival arena</figcaption>
+</figure>
+
+<p>
+  I became more and more ambitious and started adding new features such as
+  artificial players (NPCs) as enemies, which behaved and moved like regular
+  players, using pathfinding algorithms and some logic to turn them into
+  autonomous entities.
+</p>
+
+<figure>
+  <p>
+    <a href="/src/assets/articles/zombiev/zombiev_crazy_enemy.png"
+      ><img
+        src="/src/assets/articles/zombiev/zombiev_crazy_enemy.png"
+        width="400"
+    /></a>
+  </p>
+  <figcaption>A crazy enemy with TNT on its head</figcaption>
+</figure>
+
+<p>
+  Many other features were implemented, such as the possibility to purchase a
+  wolf, which follows the player within the arena. The player can upgrade the
+  health, damage, and other attributes of the wolf and select one of many
+  different special abilities, which could also be upgraded (e.g., the wolf can
+  shoot fireballs), and also ride on the wolf while fighting. Players could also
+  select one of multiple different super weapons (e.g. bow with explosive ammo,
+  a sword that can shoot fireballs, an axe with extreme attack). They could give
+  their weapon a name and enhance it in the so-called Forge.
+</p>
+
+<figure>
+  <p>
+    <a href="/src/assets/articles/zombiev/zombiev_wolf_upgrade_cave.png"
+      ><img
+        src="/src/assets/articles/zombiev/zombiev_wolf_upgrade_cave.png"
+        width="600"
+    /></a>
+  </p>
+  <figcaption>The cave where players could upgrade their wolf</figcaption>
+</figure>
+
+<figure>
+  <p>
+    <a href="/src/assets/articles/zombiev/zombiev_wolf_upgrade_cave_2.png"
+      ><img
+        src="/src/assets/articles/zombiev/zombiev_wolf_upgrade_cave_2.png"
+        width="600"
+    /></a>
+  </p>
+  <figcaption>An example of the wolf upgrades</figcaption>
+</figure>
+
+<figure>
+  <p>
+    <a href="/src/assets/articles/zombiev/zombiev_weapon_forge.png"
+      ><img
+        src="/src/assets/articles/zombiev/zombiev_weapon_forge.png"
+        width="500"
+    /></a>
+  </p>
+  <figcaption>The Forge</figcaption>
+</figure>
+
+<h3>Rollout on Snapcraft</h3>
+
+<p>
+  Due to different reasons (described in more detail in the EarthGames article),
+  I joined the gaming network Snapcraft, owned by Bas and Maarten from the
+  Netherlands. There, I became Developer, Administrator, and Partner of
+  Snapcraft after some time. With the useful feedback of Bas and Maarten, I
+  improved the player experience of the game a lot.
+</p>
+
+<p>
+  In the beginning, ZombieSurvival shared its server with the minigame
+  EarthGames, but we quickly concluded that it would make sense to move
+  ZombieSurvival to its own server due to the high player count. As we had
+  anticipated a lot of ZombieSurvival changes and the original codebase was not
+  that good, I decided to rewrite ZombieSurvival from scratch. Now, with the new
+  code, multiple arenas were supported, and I realized other crazy ideas, such
+  as sound effects, fireworks (e.g. when a wave is defeated), a new shop, crazy
+  waves (such as many enemies stacked up on top of each other), and an
+  interactive map (e.g. a solid tower that moves and can shoot arrows).
+</p>
+
+<figure>
+  <p>
+    <a href="/src/assets/articles/zombiev/zombiev_map_3.png"
+      ><img src="/src/assets/articles/zombiev/zombiev_map_3.png" width="600"
+    /></a>
+  </p>
+  <figcaption>
+    New ZombieSurvival map, built by "randomguy1243" alias Noah
+  </figcaption>
+</figure>
+
+<p>
+  Then, finally, ZombieSurvival was released on its own server in 2013, being
+  called ZombieV now. It was accepted by the players quickly and ran quite
+  successfully.
+</p>
+
+<figure>
+  <p>
+    <a href="/src/assets/articles/zombiev/zombiev_player_count.png"
+      ><img
+        src="/src/assets/articles/zombiev/zombiev_player_count.png"
+        width="700"
+    /></a>
+  </p>
+  <figcaption>Snapcraft Forum message by Bas</figcaption>
+</figure>
+
+<p>
+  As more and more players joined, we added new arenas and I implemented more
+  features.
+</p>
+
+<p>
+  <a href="/src/assets/articles/zombiev/zombiev_player_count_2.png"
+    ><img
+      src="/src/assets/articles/zombiev/zombiev_player_count_2.png"
+      width="600"
+  /></a>
+</p>
+
+<h3>How the story continued</h3>
+
+<p>
+  Having achieved my goals and successfully completed my minigames, as well as
+  enjoyed a large player base, I lost interest in the game Minecraft and
+  eventually stopped playing it. I continued to update my minigames until
+  competent maintainers were found, and I must say that they have done a great
+  job. As Snapcraft kept evolving, so did ZombieV. Nowadays, it looks very
+  different and even more sophisticated:
+</p>
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/eoSg1iHQnq4"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/qCp2JzMIMK4"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
+
+<h3>A quick overview of the 1v1 fights</h3>
+
+<p>
+  Players could challenge each other to a 1v1 fight on the ZombieV server. In
+  that fight, they can use all the equipment, which they collect during playing
+  ZombieSurvival.
+</p>
+
+<figure>
+  <p>
+    <a href="/src/assets/articles/zombiev/pvp_1.png"
+      ><img src="/src/assets/articles/zombiev/pvp_1.png" width="480"
+    /></a>
+  </p>
+  <figcaption>First 1v1 map (small)</figcaption>
+</figure>
+
+<figure>
+  <p>
+    <a href="/src/assets/articles/zombiev/pvp_2.png"
+      ><img src="/src/assets/articles/zombiev/pvp_2.png" width="480"
+    /></a>
+  </p>
+  <figcaption>Section of the new 1v1 map</figcaption>
+</figure>
+
+<figure>
+  <p>
+    <a href="/src/assets/articles/zombiev/pvp_3.png"
+      ><img src="/src/assets/articles/zombiev/pvp_3.png" width="480"
+    /></a>
+  </p>
+  <figcaption>Section of the new 1v1 map</figcaption>
+</figure>
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/ky0OyJrV0OA"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
