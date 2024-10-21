@@ -12429,7 +12429,7 @@ const work_experiences = [
     role: "Software Developer and Administrator",
     organization: "Fironus",
     location: "Remote",
-    icon: "/src/assets/icon_fironus.webp",
+    icon: "/icon_fironus.webp",
     timeRange: {
       start: "2013-06-18",
       end: "2016-06-01"
@@ -12443,7 +12443,7 @@ const work_experiences = [
     role: "Dual Student",
     organization: "Robert Bosch GmbH",
     location: "Stuttgart, Chicago, Renningen",
-    icon: "/src/assets/icon_bosch.jpeg",
+    icon: "/icon_bosch.jpeg",
     timeRange: {
       start: "2016-10-01",
       end: "2019-09-30"
@@ -12460,7 +12460,7 @@ const work_experiences = [
   },
   {
     role: "Algorithm and Perception Developer",
-    icon: "/src/assets/icon_bosch.jpeg",
+    icon: "/icon_bosch.jpeg",
     organization: "Robert Bosch GmbH",
     location: "Stuttgart",
     timeRange: {
@@ -12476,7 +12476,7 @@ const work_experiences = [
   },
   {
     role: "Software Engineer (Part Time)",
-    icon: "/src/assets/icon_bosch.jpeg",
+    icon: "/icon_bosch.jpeg",
     organization: "Robert Bosch GmbH",
     location: "Stuttgart",
     timeRange: {
@@ -12499,7 +12499,7 @@ const education = [
     role: "Student",
     organization: "Rechberg-Gymnasium Donzdorf",
     location: "Donzdorf",
-    icon: "/src/assets/icon_rechberggymnasium.svg",
+    icon: "/icon_rechberggymnasium.svg",
     grade: 1.7,
     degree: "Allgemeine Hochschulreife",
     subject: "Secondary School",
@@ -12515,7 +12515,7 @@ const education = [
     role: "Bachelors Student",
     organization: "Cooperative State University Baden-Württemberg",
     location: "Stuttgart",
-    icon: "/src/assets/icon_dhbw.png",
+    icon: "/icon_dhbw.png",
     timeRange: {
       start: "2016-10-01",
       end: "2019-09-30"
@@ -12537,7 +12537,7 @@ const education = [
     role: "Masters Student",
     organization: "University of Stuttgart",
     location: "Stuttgart",
-    icon: "/src/assets/icon_university_stuttgart.jpeg",
+    icon: "/icon_university_stuttgart.jpeg",
     timeRange: {
       start: "2022-04-01",
       end: "2024-09-30"
@@ -32771,7 +32771,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-70zVKmnG.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-BT23AgYs.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
