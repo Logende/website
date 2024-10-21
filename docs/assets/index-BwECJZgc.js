@@ -16001,7 +16001,7 @@ const projects = [
     description: "A form generator and schema editor for JSON schema, making editing configuration files, research data and schemas easier and more enjoyable. Started as a research project in a group of four students. Continued for my master thesis.",
     favorite: true,
     publication: "https://link.springer.com/article/10.1007/s13222-024-00472-7",
-    icon: "/icon_metaconfigurator.gif",
+    icon: "icon_metaconfigurator.gif",
     size: "l",
     programming_language: [
       "TypeScript",
@@ -16023,7 +16023,7 @@ const projects = [
   {
     title: "ManaWars (Mobile Game)",
     description: "A mobile action sidescrolling RPG. Developed first for Desktop, then for Android in a self-made game engine and finally multi-platform using the libGDX framework. It features hundreds of unique enemies and skills and an upgrade tree. Every run the player gets stronger, until they can finally reach the last tribe and defeat the endboss.",
-    icon: "/icon_manawars.gif",
+    icon: "icon_manawars.gif",
     favorite: true,
     size: "xl",
     programming_language: [
@@ -16063,7 +16063,7 @@ const projects = [
     description: "Dynamic Python program analysis using backwards slicing.",
     favorite: false,
     size: "s",
-    icon: "/icon_slicing.png",
+    icon: "icon_slicing.png",
     programming_language: [
       "Python"
     ],
@@ -32771,7 +32771,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-BT23AgYs.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-B5z8Wz44.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
