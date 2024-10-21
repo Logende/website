@@ -12429,7 +12429,7 @@ const work_experiences = [
     role: "Software Developer and Administrator",
     organization: "Fironus",
     location: "Remote",
-    icon: "/icon_fironus.webp",
+    icon: "icon_fironus.webp",
     timeRange: {
       start: "2013-06-18",
       end: "2016-06-01"
@@ -12443,7 +12443,7 @@ const work_experiences = [
     role: "Dual Student",
     organization: "Robert Bosch GmbH",
     location: "Stuttgart, Chicago, Renningen",
-    icon: "/icon_bosch.jpeg",
+    icon: "icon_bosch.jpeg",
     timeRange: {
       start: "2016-10-01",
       end: "2019-09-30"
@@ -12460,7 +12460,7 @@ const work_experiences = [
   },
   {
     role: "Algorithm and Perception Developer",
-    icon: "/icon_bosch.jpeg",
+    icon: "icon_bosch.jpeg",
     organization: "Robert Bosch GmbH",
     location: "Stuttgart",
     timeRange: {
@@ -12476,7 +12476,7 @@ const work_experiences = [
   },
   {
     role: "Software Engineer (Part Time)",
-    icon: "/icon_bosch.jpeg",
+    icon: "icon_bosch.jpeg",
     organization: "Robert Bosch GmbH",
     location: "Stuttgart",
     timeRange: {
@@ -12499,7 +12499,7 @@ const education = [
     role: "Student",
     organization: "Rechberg-Gymnasium Donzdorf",
     location: "Donzdorf",
-    icon: "/icon_rechberggymnasium.svg",
+    icon: "icon_rechberggymnasium.svg",
     grade: 1.7,
     degree: "Allgemeine Hochschulreife",
     subject: "Secondary School",
@@ -12515,7 +12515,7 @@ const education = [
     role: "Bachelors Student",
     organization: "Cooperative State University Baden-Württemberg",
     location: "Stuttgart",
-    icon: "/icon_dhbw.png",
+    icon: "icon_dhbw.png",
     timeRange: {
       start: "2016-10-01",
       end: "2019-09-30"
@@ -12537,7 +12537,7 @@ const education = [
     role: "Masters Student",
     organization: "University of Stuttgart",
     location: "Stuttgart",
-    icon: "/icon_university_stuttgart.jpeg",
+    icon: "icon_university_stuttgart.jpeg",
     timeRange: {
       start: "2022-04-01",
       end: "2024-09-30"
@@ -16011,7 +16011,7 @@ const projects = [
       start: "2023-04-20",
       end: "2025-12-31"
     },
-    article: "/src/assets/articles/test.md",
+    article: "articles/test.md",
     where: "University of Stuttgart",
     source_code: "https://github.com/MetaConfigurator/meta-configurator",
     project_page: "https://github.com/MetaConfigurator/meta-configurator",
@@ -16040,7 +16040,7 @@ const projects = [
       "gtbftSCVcBA",
       "eI4PvR8_jdI"
     ],
-    article: "/src/assets/articles/manawars/article.html"
+    article: "articles/manawars/article.html"
   },
   {
     title: "MesaReplay (Tool Extension)",
@@ -16078,7 +16078,7 @@ const projects = [
     title: "GraphQLQueryNameConsistency (Deep Learning)",
     description: "Deep Learning project to detect whether a GraphQL (name, query) pair is consistent.",
     favorite: false,
-    icon: "/icon_graphqlconsistency.png",
+    icon: "icon_graphqlconsistency.png",
     size: "s",
     programming_language: [
       "Python"
@@ -16095,7 +16095,7 @@ const projects = [
     description: "An ALC logic quiz app implemented in Flutter/Dart and with a GoLang backend",
     favorite: false,
     size: "s",
-    icon: "/icon_alc_logic_app.png",
+    icon: "icon_alc_logic_app.png",
     programming_language: [
       "Flutter/Dart",
       "GoLang",
@@ -16111,7 +16111,7 @@ const projects = [
   {
     title: "BossShopPro (Plugin)",
     description: "One of the most player-friendly and multifunctional server-side Minecraft GUI plugins. It has over 600,000 Downloads combined. It has a dozen of Add-Ons, enabled due to its versatile API.",
-    icon: "/icon_bossshoppro.gif",
+    icon: "icon_bossshoppro.gif",
     article: "/bsp_article.html",
     source_code: "https://github.com/Blackixx/BossShopPro",
     favorite: true,
@@ -16134,8 +16134,8 @@ const projects = [
   {
     title: "EarthGames (Minigame)",
     description: "A Minecraft Minigame that I have invented, developed, and published to thousands of players via the Snapcraft gaming network from the Netherlands. At its peak, different Youtubers, who now have over 50 Million subscribers combined, have played and enjoyed EarthGames.",
-    icon: "/icon_earthgames.png",
-    article: "/src/assets/articles/earthgames/article.html",
+    icon: "icon_earthgames.png",
+    article: "articles/earthgames/article.html",
     favorite: true,
     when: {
       start: "2012-10-19",
@@ -16160,8 +16160,8 @@ const projects = [
   {
     title: "ZombieV (Minigame)",
     description: "ZombieV is a Minecraft Minigame that I have invented, developed, and published to thousands of players via the Snapcraft gaming network from the Netherlands. The concept is simple: players fight together against pre-defined waves of crazy enemies. By killing those enemies, they get money, which they can invest and stronger armor, weapons, and some other special perks. Besides a lot of crazy fun elements (items like grenades, an interactive map which, for example, changes over the course of the game, and boss waves) players could also use the equipment they unlocked to challenge other players in a 1v1 fight.",
-    icon: "/icon_zombiev.png",
-    article: "/src/assets/articles/zombiev/article.html",
+    icon: "icon_zombiev.png",
+    article: "articles/zombiev/article.html",
     favorite: true,
     when: {
       start: "2012-10-19",
@@ -16195,7 +16195,7 @@ const projects = [
   {
     title: "BSPEditor (Web Tool)",
     description: "BossShopProEditor is a web application that makes it easier to configure shops of the BossShopPro Java plugin.",
-    icon: "/icon_bspeditor.png",
+    icon: "icon_bspeditor.png",
     favorite: false,
     when: {
       start: "2018-09-30",
@@ -16209,13 +16209,13 @@ const projects = [
     project_page: "https://www.spigotmc.org/resources/bossshoppro-editor.64777/",
     source_code: "https://github.com/Logende/BossShopProEditor",
     demo: "https://logende.github.io/BossShopProEditor/#/",
-    article: "/src/assets/articles/bsp_editor/article.html"
+    article: "articles/bsp_editor/article.html"
   },
   {
     title: "BSPConfigure (Desktop Tool)",
     description: "BossShopProEditor is a Java Desktop application that makes it easier to configure shops of the BossShopPro Java plugin.",
     favorite: false,
-    icon: "/icon_bspeditor_old.png",
+    icon: "icon_bspeditor_old.png",
     when: {
       start: "2016-09-04",
       end: "2017-12-09"
@@ -16230,7 +16230,7 @@ const projects = [
     title: "ManaWar (Desktop Game)",
     description: "ManaWar is a simple Desktop game written in Java. It does not use any game engine, but just plain Java libraries. It is a 2d game, where two (human) players fight against each other. The players can select their characters (each one having different abilities) and choose a map for their fight.",
     favorite: false,
-    icon: "/icon_manawar.png",
+    icon: "icon_manawar.png",
     when: {
       start: "2013-05-01",
       end: "2013-11-11"
@@ -16242,13 +16242,13 @@ const projects = [
     videos: [
       "uvSfB7L9z-Q"
     ],
-    article: "/src/assets/articles/manawar/article.html"
+    article: "articles/manawar/article.html"
   },
   {
     title: "War (Minigame)",
     description: "A server-side plugin for Minecraft, introducing a new war game mode with two teams, many different custom weapons and purchasable skills and a custom matchmaking system.",
     favorite: false,
-    icon: "/icon_war_plugin.png",
+    icon: "icon_war_plugin.png",
     size: "l",
     programming_language: [
       "Java"
@@ -16257,7 +16257,7 @@ const projects = [
       start: "2012-05-01",
       end: "2013-06-18"
     },
-    article: "/src/assets/articles/war/article.html"
+    article: "articles/war/article.html"
   },
   {
     title: "LimitedUses (BSP Addon)",
@@ -32771,7 +32771,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-B5z8Wz44.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-DFv0zKNa.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
