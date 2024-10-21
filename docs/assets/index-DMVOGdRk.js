@@ -16111,8 +16111,8 @@ const projects = [
   {
     title: "BossShopPro (Plugin)",
     description: "One of the most player-friendly and multifunctional server-side Minecraft GUI plugins. It has over 600,000 Downloads combined. It has a dozen of Add-Ons, enabled due to its versatile API.",
-    icon: "/src/assets/icon_bossshoppro.gif",
-    article: "/src/assets/articles/bossshoppro/article.html",
+    icon: "@/assets/icon_bossshoppro.gif",
+    article: "@/assets/bsp_article.html",
     source_code: "https://github.com/Blackixx/BossShopPro",
     favorite: true,
     when: {
@@ -32771,7 +32771,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-Cnp5lp3M.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-CE3Sb5hz.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
