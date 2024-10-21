@@ -1,0 +1,65 @@
+{
+  "education": [
+    {
+      "role": "Student",
+      "organization": "Rechberg-Gymnasium Donzdorf",
+      "location": "Donzdorf",
+      "icon": "/src/assets/icon_rechberggymnasium.svg",
+      "grade": 1.7,
+      "degree": "Allgemeine Hochschulreife",
+      "subject": "Secondary School",
+      "timeRange": {
+        "start": "2016-06-28",
+        "end": "2008-09-01"
+      },
+      "programming_language": ["Java"]
+    },
+    {
+      "role": "Bachelors Student",
+      "organization": "Cooperative State University Baden-Württemberg",
+      "location": "Stuttgart",
+      "icon": "/src/assets/icon_dhbw.png",
+      "timeRange": {
+        "start": "2016-10-01",
+        "end": "2019-09-30"
+      },
+      "grade": 1.4,
+      "degree": "Bachelor of Engineering",
+      "subject": "IT Automotive",
+      "description": "Award: Best of the Year.",
+      "programming_language": [
+        "C",
+        "C++",
+        "Java",
+        "Kotlin",
+        "MatLab",
+        "Android"
+      ]
+    },
+    {
+      "role": "Masters Student",
+      "organization": "University of Stuttgart",
+      "location": "Stuttgart",
+      "icon": "/src/assets/icon_university_stuttgart.jpeg",
+      "timeRange": {
+        "start": "2022-04-01",
+        "end": "2024-09-30"
+      },
+      "grade": 1.5,
+      "degree": "Master of Science",
+      "subject": "Software Engineering",
+      "programming_language": [
+        "Kotlin",
+        "Python",
+        "TypeScript",
+        "HTML",
+        "C++",
+        "Flutter/Dart",
+        "GoLang",
+        "R",
+        "Android",
+        "CI/CD"
+      ]
+    }
+  ]
+}

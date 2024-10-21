@@ -1,0 +1,73 @@
+{
+  "$defs": {
+    "WorkExperience": {
+      "type": "object",
+      "properties": {
+        "timeRange": {
+          "$ref": "#/$defs/TimeRange"
+        },
+        "role": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "organization": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "programming_language": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Java",
+              "Kotlin",
+              "Python",
+              "JavaScript",
+              "TypeScript",
+              "HTML",
+              "C",
+              "C++",
+              "Flutter/Dart",
+              "GoLang",
+              "MatLab",
+              "R",
+              "Android",
+              "CI/CD"
+            ]
+          }
+        }
+      },
+      "required": ["role", "timeRange", "organization", "description"]
+    },
+    "TimeRange": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date"
+        },
+        "end": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "title": "Work Experiences",
+  "properties": {
+    "experiences": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/WorkExperience"
+      }
+    }
+  }
+}
