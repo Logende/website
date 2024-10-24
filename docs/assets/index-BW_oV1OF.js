@@ -16011,7 +16011,6 @@ const projects = [
       start: "2023-04-20",
       end: "2025-12-31"
     },
-    article: "articles/test.md",
     where: "University of Stuttgart",
     source_code: "https://github.com/MetaConfigurator/meta-configurator",
     project_page: "https://github.com/MetaConfigurator/meta-configurator",
@@ -16644,7 +16643,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
               target: "_blank",
               title: "Watch Video"
             }, [
-              createBaseVNode("span", _hoisted_12, "Watch " + toDisplayString(unref(videoOrVideos)), 1)
+              createBaseVNode("span", _hoisted_12, "Watch " + toDisplayString(unref(videoOrVideos)) + " (" + toDisplayString(_ctx.projectData.videos.length) + ")", 1)
             ])) : createCommentVNode("", true)
           ])
         ]),
@@ -16653,7 +16652,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const ProjectCard = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-8c27330f"]]);
+const ProjectCard = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-9f1bc38b"]]);
 var FilterMatchMode = {
   STARTS_WITH: "startsWith",
   CONTAINS: "contains",
@@ -32663,7 +32662,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
             modelValue: selectedLocations.value,
             "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => selectedLocations.value = $event),
             options: unref(locations),
-            placeholder: "Select locations",
+            placeholder: "Select affiliations",
             optionLabel: "label",
             optionValue: "value",
             multiple: ""
@@ -32683,7 +32682,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const ProjectView = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-426cd018"]]);
+const ProjectView = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-076bfbfe"]]);
 const ProjectView$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: ProjectView
@@ -32771,7 +32770,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-D139QHuo.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-DfrRx4sG.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
