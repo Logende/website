@@ -9048,7 +9048,7 @@ const _export_sfc = (sfc, props) => {
 const App = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-7ee84ad0"]]);
 const scriptRel = "modulepreload";
 const assetsURL = function(dep) {
-  return "/website/" + dep;
+  return "/" + dep;
 };
 const seen = {};
 const __vitePreload = function preload(baseModule, deps, importerUrl) {
@@ -9110,7 +9110,7 @@ const __vitePreload = function preload(baseModule, deps, importerUrl) {
     return baseModule().catch(handlePreloadError);
   });
 };
-const _imports_0 = "/website/assets/me_1-hEDRpZPB.jpeg";
+const _imports_0 = "/assets/me_1-hEDRpZPB.jpeg";
 function getDefaultExportFromCjs(x) {
   return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
 }
@@ -32757,7 +32757,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
 });
 const HomeView = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-fe1b04e4"]]);
 const router = createRouter({
-  history: createWebHistory("/website/"),
+  history: createWebHistory("/"),
   routes: [
     {
       path: "/",
@@ -32770,7 +32770,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-DfrRx4sG.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-DfElhsYR.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
