@@ -12504,8 +12504,8 @@ const education = [
     degree: "Allgemeine Hochschulreife",
     subject: "Secondary School",
     timeRange: {
-      start: "2016-06-28",
-      end: "2008-09-01"
+      end: "2016-06-28",
+      start: "2008-09-01"
     },
     programming_language: [
       "Java"
@@ -12542,7 +12542,7 @@ const education = [
       start: "2022-04-01",
       end: "2024-09-30"
     },
-    grade: 1.5,
+    grade: 1.3,
     degree: "Master of Science",
     subject: "Software Engineering",
     programming_language: [
@@ -32770,7 +32770,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-DfElhsYR.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-DDjIJfvQ.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
