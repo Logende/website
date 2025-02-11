@@ -6054,6 +6054,11 @@ function cloneVNode(vnode, extraProps, mergeRef = false, cloneTransition = false
 function createTextVNode(text3 = " ", flag = 0) {
   return createVNode(Text, null, text3, flag);
 }
+function createStaticVNode(content, numberOfNodes) {
+  const vnode = createVNode(Static, null, content);
+  vnode.staticCount = numberOfNodes;
+  return vnode;
+}
 function createCommentVNode(text3 = "", asBlock = false) {
   return asBlock ? (openBlock(), createBlock(Comment, null, text3)) : createVNode(Comment, null, text3);
 }
@@ -12409,17 +12414,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
         createBaseVNode("a", _hoisted_4$6, [
           createVNode(unref(FontAwesomeIcon), { icon: unref(faLinkedin.faLinkedin) }, null, 8, ["icon"])
         ]),
-        _cache[3] || (_cache[3] = createBaseVNode("br", null, null, -1)),
-        _cache[4] || (_cache[4] = createBaseVNode("br", null, null, -1)),
-        _cache[5] || (_cache[5] = createBaseVNode("h3", null, [
-          createTextVNode(" Hi, I'm "),
-          createBaseVNode("strong", null, "Felix Neubauer"),
-          createTextVNode(", a software engineer based in Germany. "),
-          createBaseVNode("br"),
-          createTextVNode(" I started programming in Java 2012 and have since then completed my Bachelors and Masters degree in Software Engineering. Since 2019 I am working as a software engineer professionally in the area of self-driving cars for Robert Bosch GmbH. At work I use mainly C++ for the embedded code for the vehicle, Python for tooling, or develop CI/CD pipelines. In research and free time projects I use mostly Kotlin/Java and TypeScript. I am interested in software architecture, clean code, testing, DevOps and API design. "),
-          createBaseVNode("br"),
-          createTextVNode(" Before my full-time job, I have already earned money as a freelancer and with selling my Java software. My free-time projects have more than a million downloads combined and one of my Java minigames (plugin) has been played and recorded by Youtubers with more than 50 Million subscribers combined. ")
-        ], -1))
+        _cache[3] || (_cache[3] = createStaticVNode("<br><br><h3> Hi, I&#39;m <b>Felix Neubauer</b>, a software engineer based in Germany with a passion for crafting well-architected, high-quality software. <br> I started programming in Java in 2012 and have since earned both my <b>Bachelor’s and Master’s degrees in Software Engineering</b>. After working at <b>Robert Bosch GmbH from 2019 to 2024</b> — developing software for self-driving cars with <b>C++ for embedded systems</b>, <b>Python-based tooling</b>, and <b>CI/CD pipelines</b> — I have now transitioned to full-time research as part of my <b>PhD</b>. <br> Beyond my research, I love experimenting with <b>Kotlin, Java, and TypeScript</b>, focusing on <b>software architecture</b>, <b>clean code</b>, <b>testing</b>, <b>DevOps</b>, and <b>API design</b>. My open-source projects have accumulated over a <b>million downloads</b>, and one of my Java minigames was featured by YouTubers with a combined audience of over 50 million subscribers. <br> Before transitioning to a full-time industry and then research job, I worked as a freelancer and sold my own Java software. Now, I continue to build impactful software—most recently, <b>MetaConfigurator</b>, a schema editor and form generator for JSON and YAML, developed as part of my master’s thesis. <br> Want to learn more? Check out my projects and research below! 🚀 </h3>", 3))
       ]);
     };
   }
@@ -12489,6 +12484,24 @@ const work_experiences = [
       "CI/CD"
     ],
     description: "Working in the Field of Self-Driving Cars, developing CI/CD Pipelines, Python Tooling and embedded Software for Field Data Collection in C++"
+  },
+  {
+    role: "PhD Student",
+    icon: "icon_university_stuttgart.jpeg",
+    organization: "University of Stuttgart",
+    location: "Stuttgart",
+    timeRange: {
+      start: "2024-12-01",
+      end: "2028-11-30"
+    },
+    programming_language: [
+      "TypeScript",
+      "HTML",
+      "C++",
+      "CI/CD",
+      "Python"
+    ],
+    description: "Advancing MetaConfigurator and Research Data Management as a doctoral student."
   }
 ];
 const workExperienceData = {
@@ -15990,7 +16003,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const ExperienceView = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-84448f8c"]]);
+const ExperienceView = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-5b6c2b5e"]]);
 const ExperienceView$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: ExperienceView
@@ -16652,7 +16665,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const ProjectCard = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-9f1bc38b"]]);
+const ProjectCard = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-ca197dee"]]);
 var FilterMatchMode = {
   STARTS_WITH: "startsWith",
   CONTAINS: "contains",
@@ -32770,7 +32783,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-DDjIJfvQ.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-jbVefjvC.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
