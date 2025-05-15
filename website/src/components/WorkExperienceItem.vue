@@ -38,11 +38,11 @@ defineProps<{
 
       <br />
       <span
-        v-if="workExperienceData.programming_language"
-        v-for="language in workExperienceData.programming_language"
+        v-if="workExperienceData.tags"
+        v-for="tag in workExperienceData.tags"
         class="badge"
       >
-        <span style="padding-right: 10px">{{ language }}</span>
+        <span style="padding-right: 10px">{{ tag }}</span>
       </span>
     </div>
   </div>

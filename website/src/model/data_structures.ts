@@ -4,7 +4,7 @@ export interface Project {
   icon?: string
   favorite: boolean
   size: string
-  programming_language?: string[]
+  tags?: string[]
   when: TimeRange
   where?: string
   source_code?: string
@@ -22,7 +22,7 @@ export interface WorkExperience {
   icon?: string
   organization: string
   location?: string
-  programming_language?: string[]
+  tags?: string[]
 }
 
 export interface Education {
@@ -35,7 +35,7 @@ export interface Education {
   grade: number
   degree: string
   subject: string
-  programming_language?: string[]
+  tags?: string[]
 }
 
 export interface TimeRange {

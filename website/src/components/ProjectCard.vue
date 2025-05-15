@@ -42,11 +42,11 @@ const videoOrVideos: string = props.projectData.videos
           {{ projectData.size }}
         </span>
         <span
-          v-if="projectData.programming_language"
-          v-for="language in projectData.programming_language"
+          v-if="projectData.tags"
+          v-for="tag in projectData.tags"
           class="badge"
         >
-          <span style="padding-right: 10px">{{ language }}</span>
+          <span style="padding-right: 10px">{{ tag }}</span>
         </span>
       </div>
     </template>

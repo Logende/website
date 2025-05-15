@@ -30,7 +30,7 @@
         "subject": {
           "type": "string"
         },
-        "programming_language": {
+        "tags": {
           "type": "array",
           "items": {
             "type": "string",

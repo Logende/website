@@ -9,7 +9,7 @@
         "start": "2013-06-18",
         "end": "2016-06-01"
       },
-      "programming_language": ["Java"],
+      "tags": ["Java"],
       "description": "Developing custom Java Plugins and managing a community of hundreds of thousands of players."
     },
     {
@@ -21,7 +21,7 @@
         "start": "2016-10-01",
         "end": "2019-09-30"
       },
-      "programming_language": [
+      "tags": [
         "Java",
         "Kotlin",
         "Python",
@@ -40,7 +40,7 @@
         "start": "2019-10-01",
         "end": "2022-03-31"
       },
-      "programming_language": ["Python", "C++", "CI/CD"],
+      "tags": ["Python", "C++", "CI/CD"],
       "description": "Working in the Field of Self-Driving Trucks, developing Algorithms for Radar Perception in Python and C++."
     },
     {
@@ -52,7 +52,7 @@
         "start": "2022-04-01",
         "end": "2024-11-30"
       },
-      "programming_language": ["Python", "C++", "CI/CD"],
+      "tags": ["Python", "C++", "CI/CD"],
       "description": "Working in the Field of Self-Driving Cars, developing CI/CD Pipelines, Python Tooling and embedded Software for Field Data Collection in C++"
     },
     {
@@ -64,7 +64,7 @@
         "start": "2024-12-01",
         "end": "2028-11-30"
       },
-      "programming_language": ["TypeScript", "HTML", "C++", "CI/CD", "Python"],
+      "tags": ["TypeScript", "HTML", "C++", "CI/CD", "Python"],
       "description": "Advancing MetaConfigurator and Research Data Management as a doctoral student."
     }
   ]

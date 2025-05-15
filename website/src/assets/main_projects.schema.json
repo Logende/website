@@ -19,7 +19,7 @@
           "type": "string",
           "enum": ["xs", "s", "m", "l", "xl"]
         },
-        "programming_language": {
+        "tag": {
           "type": "array",
           "items": {
             "type": "string",

@@ -7,7 +7,7 @@
       "publication": "https://link.springer.com/article/10.1007/s13222-024-00472-7",
       "icon": "icon_metaconfigurator.gif",
       "size": "l",
-      "programming_language": ["TypeScript", "HTML"],
+      "tags": ["TypeScript", "HTML"],
       "when": {
         "start": "2023-04-20",
         "end": "2025-12-31"
@@ -24,7 +24,7 @@
       "icon": "icon_manawars.gif",
       "favorite": true,
       "size": "xl",
-      "programming_language": ["Java", "Kotlin", "Android"],
+      "tags": ["Java", "Kotlin", "Android"],
       "when": {
         "start": "2014-01-01",
         "end": "2017-12-31"
@@ -37,7 +37,7 @@
       "description": "Enables caching simulations of mesa (simulation framework) models, persisting them on the file system and replaying them later.",
       "favorite": true,
       "size": "xs",
-      "programming_language": ["Python"],
+      "tags": ["Python"],
       "when": {
         "start": "2022-12-22",
         "end": "2022-12-25"
@@ -52,7 +52,7 @@
       "favorite": false,
       "size": "s",
       "icon": "icon_slicing.png",
-      "programming_language": ["Python"],
+      "tags": ["Python"],
       "when": {
         "start": "2023-11-11",
         "end": "2024-02-08"
@@ -66,7 +66,7 @@
       "favorite": false,
       "icon": "icon_graphqlconsistency.png",
       "size": "s",
-      "programming_language": ["Python"],
+      "tags": ["Python"],
       "when": {
         "start": "2023-06-13",
         "end": "2023-07-20"
@@ -80,7 +80,7 @@
       "favorite": false,
       "size": "s",
       "icon": "icon_alc_logic_app.png",
-      "programming_language": ["Flutter/Dart", "GoLang", "Android"],
+      "tags": ["Flutter/Dart", "GoLang", "Android"],
       "when": {
         "start": "2022-11-03",
         "end": "2023-05-13"
@@ -100,7 +100,7 @@
         "end": "2020-07-01"
       },
       "size": "l",
-      "programming_language": ["Java"],
+      "tags": ["Java"],
       "project_page": "https://www.spigotmc.org/resources/222/",
       "videos": ["SgTBXMgOLk4", "vx7YC4GCao4", "ahyp1uYGgp8", "XcafjVUTN8s"]
     },
@@ -115,7 +115,7 @@
         "end": "2014-08-13"
       },
       "size": "m",
-      "programming_language": ["Java"],
+      "tags": ["Java"],
       "videos": [
         "6CYQ7yjqaNQ",
         "923TrDl9CCk",
@@ -139,7 +139,7 @@
         "end": "2014-08-13"
       },
       "size": "m",
-      "programming_language": ["Java"],
+      "tags": ["Java"],
       "videos": ["IZhnWrk9BYc"],
       "where": "Snapcraft/Fironus"
     },
@@ -149,7 +149,7 @@
       "description": "Automated Drone Path Planning and Animal Detection. A drone that can autonomously fly over a field and detect animals. The DJI Matrice 100 drone is equipped with a thermal camera and the live footage sent to the phone. The mobile app on the phone uses image processing with OpenCV to detect animals. All spotted animals are marked on the map. Jointly developed with a fellow student.",
       "favorite": false,
       "size": "m",
-      "programming_language": ["Java", "Android"],
+      "tags": ["Java", "Android"],
       "when": {
         "start": "2019-03-02",
         "end": "2019-05-26"
@@ -166,7 +166,7 @@
         "end": "2020-03-07"
       },
       "size": "s",
-      "programming_language": ["TypeScript", "HTML"],
+      "tags": ["TypeScript", "HTML"],
       "project_page": "https://www.spigotmc.org/resources/bossshoppro-editor.64777/",
       "source_code": "https://github.com/Logende/BossShopProEditor",
       "demo": "https://logende.github.io/BossShopProEditor/#/",
@@ -182,7 +182,7 @@
         "end": "2017-12-09"
       },
       "size": "m",
-      "programming_language": ["Java"],
+      "tags": ["Java"],
       "project_page": "https://www.spigotmc.org/resources/bossshopproconfigure-configuration-and-setup-tool.28791/"
     },
     {
@@ -195,7 +195,7 @@
         "end": "2013-11-11"
       },
       "size": "m",
-      "programming_language": ["Java"],
+      "tags": ["Java"],
       "videos": ["uvSfB7L9z-Q"],
       "article": "articles/manawar/article.html"
     },
@@ -205,7 +205,7 @@
       "favorite": false,
       "icon": "icon_war_plugin.png",
       "size": "l",
-      "programming_language": ["Java"],
+      "tags": ["Java"],
       "when": {
         "start": "2012-05-01",
         "end": "2013-06-18"
@@ -217,7 +217,7 @@
       "description": "An addon for the server-side Minecraft plugin BossShopPro, introducing the ability to limit how often a BSP item can be used.",
       "favorite": false,
       "size": "xs",
-      "programming_language": ["Java"],
+      "tags": ["Java"],
       "when": {
         "start": "2016-07-12",
         "end": "2018-09-28"
@@ -230,7 +230,7 @@
       "description": "An addon for the server-side Minecraft plugin BossShopPro. Using this plugin players will be able to create their own virtual shop, where they can sell their items. They will be able to browse around in a public shop listing, check out other shops and purchase items from other players.",
       "favorite": false,
       "size": "s",
-      "programming_language": ["Java"],
+      "tags": ["Java"],
       "when": {
         "start": "2016-09-21",
         "end": "2020-02-28"
@@ -243,7 +243,7 @@
       "description": "An addon for the server-side Minecraft plugin BossShopPro. Using BossShopPro API and a very simple user configuration file, it creates advanced buy and sell shops for the players.",
       "favorite": false,
       "size": "xs",
-      "programming_language": ["Java"],
+      "tags": ["Java"],
       "when": {
         "start": "2016-07-19",
         "end": "2018-09-28"
@@ -256,7 +256,7 @@
       "description": "An addon for the server-side Minecraft plugin BossShopPro. Adds support for more currencies.",
       "favorite": false,
       "size": "xs",
-      "programming_language": ["Java"],
+      "tags": ["Java"],
       "when": {
         "start": "2016-07-12",
         "end": "2018-09-28"
@@ -269,7 +269,7 @@
       "description": "An addon for the server-side Minecraft plugin BossShopPro. Adds support for opening a GUI not only with a command but also by clicking custom items.",
       "favorite": false,
       "size": "xs",
-      "programming_language": ["Java"],
+      "tags": ["Java"],
       "when": {
         "start": "2016-07-12",
         "end": "2018-09-28"
@@ -282,7 +282,7 @@
       "description": "A server-side Minecraft plugin that enables players to promote themselves if they meet certain criteria. Has more than 50,000 Downloads.",
       "favorite": false,
       "size": "m",
-      "programming_language": ["Java"],
+      "tags": ["Java"],
       "when": {
         "start": "2012-01-26",
         "end": "2016-04-26"
@@ -294,7 +294,7 @@
       "description": "A server-side Minecraft plugin that introduces a second currency: Points. Has more than 150,000 Downloads. Now maintained by Mitsugaru.",
       "favorite": false,
       "size": "s",
-      "programming_language": ["Java"],
+      "tags": ["Java"],
       "when": {
         "start": "2012-03-21",
         "end": "2016-03-06"
@@ -307,7 +307,7 @@
       "description": "A server-side Minecraft plugin that allows assigning commands to blocks, triggering them on touch or interactions. Has more than 20,000 Downloads.",
       "favorite": false,
       "size": "s",
-      "programming_language": ["Java"],
+      "tags": ["Java"],
       "when": {
         "start": "2012-04-07",
         "end": "2016-09-11"
@@ -320,7 +320,7 @@
       "description": "Design and implementation of a simulation for the communication between a Connectivity Control Unit (CCU) and the backend. Developed using Java, Spring Boot and Pivotal Cloud Foundry.",
       "favorite": true,
       "size": "m",
-      "programming_language": ["Java"],
+      "tags": ["Java"],
       "when": {
         "start": "2016-12-01",
         "end": "2017-03-31"
@@ -332,7 +332,7 @@
       "description": "Development of a tool for distribution, processing and presentation of internal phishing awareness campaigns in Chicago. Developed using Python, Flask, TypeScript, VueJs, Neo4j, Docker.",
       "favorite": false,
       "size": "m",
-      "programming_language": ["Python", "TypeScript", "HTML"],
+      "tags": ["Python", "TypeScript", "HTML"],
       "when": {
         "start": "2017-06-01",
         "end": "2017-09-30"
@@ -344,7 +344,7 @@
       "description": "Working for Bosch Central Research. Design, implementation and evaluation of a standalone pedestrian simulator using different algorithms for pathfinding, collision avoidance and group dynamics. Implemented in Kotlin. The most promising algorithm was then implemented in the production simulation environment in C++ using ROS and Gazebo.",
       "favorite": true,
       "size": "l",
-      "programming_language": ["Kotlin", "C++"],
+      "tags": ["Kotlin", "C++"],
       "when": {
         "start": "2018-01-01",
         "end": "2018-09-30"
@@ -356,7 +356,7 @@
       "description": "In the area of self-driving trucks, the task was to develop a radar data processing pipeline, which detects and classifies objects, based on the provided radar point cloud.",
       "favorite": false,
       "size": "l",
-      "programming_language": ["Python"],
+      "tags": ["Python"],
       "when": {
         "start": "2019-10-01",
         "end": "2021-01-31"
@@ -368,7 +368,7 @@
       "description": "Supported a driver assistance series project into start of production, working on the C++ embedded code for radar calibration and misalignment detection.",
       "favorite": false,
       "size": "l",
-      "programming_language": ["C++"],
+      "tags": ["C++"],
       "when": {
         "start": "2021-02-01",
         "end": "2022-03-31"
@@ -380,7 +380,7 @@
       "description": "In the area of self-driving cars, we developed a solution for collecting, processing and tagging data of the vehicle fleet. I worked predominantly on the tooling in Python and DevOps using Github Action and the Robotframework.",
       "favorite": false,
       "size": "l",
-      "programming_language": ["Python", "C++"],
+      "tags": ["Python", "C++"],
       "when": {
         "start": "2022-04-01",
         "end": "2024-11-30"

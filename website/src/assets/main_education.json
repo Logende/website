@@ -12,7 +12,7 @@
         "end": "2016-06-28",
         "start": "2008-09-01"
       },
-      "programming_language": ["Java"]
+      "tags": ["Java"]
     },
     {
       "role": "Bachelors Student",
@@ -27,7 +27,7 @@
       "degree": "Bachelor of Engineering",
       "subject": "IT Automotive",
       "description": "Award: Best of the Year.",
-      "programming_language": [
+      "tags": [
         "C",
         "C++",
         "Java",
@@ -48,7 +48,7 @@
       "grade": 1.3,
       "degree": "Master of Science",
       "subject": "Software Engineering",
-      "programming_language": [
+      "tags": [
         "Kotlin",
         "Python",
         "TypeScript",
