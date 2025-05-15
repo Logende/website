@@ -63,7 +63,7 @@
   "type": "object",
   "title": "Work Experiences",
   "properties": {
-    "experiences": {
+    "work_experiences": {
       "type": "array",
       "items": {
         "$ref": "#/$defs/WorkExperience"
