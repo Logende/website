@@ -16312,7 +16312,7 @@ const projects = [
     title: "DynamicSlicing (Tool)",
     description: "Dynamic Python program analysis using backwards slicing.",
     favorite: false,
-    size: "s",
+    size: "xs",
     icon: "icon_slicing.png",
     tags: [
       "Python"
@@ -36684,7 +36684,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-f47CKtk0.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-RSILTHto.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
