@@ -32,6 +32,12 @@
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
 
+  --pub-conference-paper-bg: #e0e7ff;
+  --pub-journal-paper-bg: #e8f0ff;
+  --pub-poster-bg: #f3e8ff;
+  --pub-thesis-bg: #e8f7ef;
+  --pub-talk-bg: #fff4e5;
+
   --section-gap: 160px;
 }
 @media (prefers-color-scheme: dark) {
@@ -45,6 +51,12 @@
 
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
+
+    --pub-conference-paper-bg: #2f3b66;
+    --pub-journal-paper-bg: #2a365f;
+    --pub-poster-bg: #4b2f5e;
+    --pub-thesis-bg: #245040;
+    --pub-talk-bg: #5a4220;
   }
 }
 *,
@@ -360,49 +372,49 @@ section[data-v-5b6c2b5e] {
   gap: 16px; /* Adjust the gap between cards as needed */
 }
 
-.publication-list[data-v-d8a4199c] {
+.publication-list[data-v-4e397b10] {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
-.publication-entry[data-v-d8a4199c] {
+.publication-entry[data-v-4e397b10] {
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--color-border);
 }
-.citation[data-v-d8a4199c] {
+.citation[data-v-4e397b10] {
   line-height: 1.4;
 }
-.citation .title[data-v-d8a4199c] {
+.citation .title[data-v-4e397b10] {
   font-weight: 600;
 }
-.citation .venue[data-v-d8a4199c] {
+.citation .venue[data-v-4e397b10] {
   font-style: italic;
 }
-.citation .date[data-v-d8a4199c] {
+.citation .date[data-v-4e397b10] {
   color: var(--color-text-soft);
 }
-.citation .doi[data-v-d8a4199c],
-.citation .url[data-v-d8a4199c] {
+.citation .doi[data-v-4e397b10],
+.citation .url[data-v-4e397b10] {
   margin-left: 0.4rem;
   font-size: 0.85em;
   color: var(--color-text-soft);
   word-break: break-all;
 }
-.citation .url a[data-v-d8a4199c],
-.citation .doi a[data-v-d8a4199c] {
+.citation .url a[data-v-4e397b10],
+.citation .doi a[data-v-4e397b10] {
   color: inherit;
   text-decoration: underline;
 }
-.meta[data-v-d8a4199c] {
+.meta[data-v-4e397b10] {
   font-size: 0.85em;
   color: var(--color-text-soft);
 }
-.abstract[data-v-d8a4199c] {
+.abstract[data-v-4e397b10] {
   margin-top: 0.5rem;
   font-size: 0.9em;
   line-height: 1.4;
 }
-.pub-type[data-v-d8a4199c] {
+.pub-type[data-v-4e397b10] {
   display: inline-block;
   margin-left: 0.5rem;
   padding: 0.15em 0.45em;
@@ -413,26 +425,25 @@ section[data-v-5b6c2b5e] {
   background: var(--color-border);
   color: var(--color-text);
 }
-.pub-type--ConferencePaper[data-v-d8a4199c] {
-  background: var(--color-border-hover);
+.pub-type--ConferencePaper[data-v-4e397b10] {
+  background: var(--pub-conference-paper-bg);
 }
-.pub-type--JournalPaper[data-v-d8a4199c] {
-  background: #e8f0ff;
+.pub-type--JournalPaper[data-v-4e397b10] {
+  background: var(--pub-journal-paper-bg);
 }
-.pub-type--Poster[data-v-d8a4199c] {
-  background: #f3e8ff;
+.pub-type--Poster[data-v-4e397b10] {
+  background: var(--pub-poster-bg);
 }
-.pub-type--MasterThesis[data-v-d8a4199c],
-.pub-type--BachelorThesis[data-v-d8a4199c],
-.pub-type--ThesisSupervision[data-v-d8a4199c] {
-  background: #e8f7ef;
+.pub-type--MasterThesis[data-v-4e397b10],
+.pub-type--BachelorThesis[data-v-4e397b10],
+.pub-type--ThesisSupervision[data-v-4e397b10] {
+  background: var(--pub-thesis-bg);
 }
-.pub-type--ConferenceTalk[data-v-d8a4199c],
-.pub-type--WorkshopTalk[data-v-d8a4199c],
-.pub-type--OtherTalk[data-v-d8a4199c] {
-  background: #fff4e5;
+.pub-type--ConferenceTalk[data-v-4e397b10],
+.pub-type--WorkshopTalk[data-v-4e397b10],
+.pub-type--OtherTalk[data-v-4e397b10] {
+  background: var(--pub-talk-bg);
 }
-
 
 
 .p-card[data-v-cceab75d] {

@@ -18161,7 +18161,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const PublicationList = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-d8a4199c"]]);
+const PublicationList = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-4e397b10"]]);
 const _hoisted_1$9 = {
   key: 0,
   style: { "text-align": "center" }
@@ -36685,7 +36685,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-8CyCx9QO.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-4ivZvNrp.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
