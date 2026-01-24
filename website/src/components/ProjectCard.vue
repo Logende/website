@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import type { Project } from '@/model/data_structures'
+import type { Project, Publication} from '@/model/data_structures'
 import { formatTimeRange } from '@/utils'
 import Card from 'primevue/card'
+import Dialog from 'primevue/dialog'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { computed, ref } from 'vue'
+import type {ComputedRef} from "@vue/runtime-dom";
+import PublicationList from "@/components/PublicationList.vue";
 
 const props = defineProps<{
   projectData: Project
@@ -14,11 +18,18 @@ const emit = defineEmits<{
   (e: 'select_videos', videos: string[], title: string): void
 }>()
 
+const showPublications = ref(false)
+
+const publications: ComputedRef<Publication[]> = computed(() => {
+  return props.projectData.publication ?? []
+})
+
 const videoOrVideos: string = props.projectData.videos
   ? props.projectData.videos.length > 1
     ? 'Videos'
     : 'Video'
   : 'No Video'
+
 </script>
 
 <template>
@@ -29,7 +40,7 @@ const videoOrVideos: string = props.projectData.videos
       </h4>
     </template>
     <template #title
-      >{{ projectData.title }}
+    >{{ projectData.title }}
       <FontAwesomeIcon
         v-if="projectData.favorite"
         :icon="faStar"
@@ -75,12 +86,13 @@ const videoOrVideos: string = props.projectData.videos
           <span class="badge-link">Read More</span>
         </a>
         <a
-          v-if="projectData.publication"
-          :href="projectData.publication"
-          target="_blank"
-          title="Access Publication"
+          v-if="publications.length"
+          @click="showPublications = true"
+          title="View Publications"
         >
-          <span class="badge-link">Publication</span>
+          <span class="badge-link">
+            Publications ({{ publications.length }})
+          </span>
         </a>
         <a
           v-if="projectData.project_page"
@@ -119,12 +131,22 @@ const videoOrVideos: string = props.projectData.videos
           title="Watch Video"
         >
           <span class="badge-link"
-            >Watch {{ videoOrVideos }} ({{ projectData.videos.length }})</span
+          >Watch {{ videoOrVideos }} ({{ projectData.videos.length }})</span
           >
         </a>
       </div>
     </template>
   </Card>
+
+  <Dialog
+    v-model:visible="showPublications"
+    modal
+    dismissableMask
+    :style="{ width: '60vw' }"
+    header="Publications and Talks"
+  >
+    <PublicationList :publications="publications" />
+  </Dialog>
 </template>
 
 <style scoped>
@@ -169,4 +191,5 @@ const videoOrVideos: string = props.projectData.videos
   font-weight: 600;
   border-radius: 0.25rem;
 }
+
 </style>

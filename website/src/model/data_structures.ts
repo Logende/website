@@ -12,7 +12,18 @@ export interface Project {
   article?: string
   demo?: string
   videos?: string[]
-  publication?: string
+  publication?: Publication[]
+}
+
+export interface Publication {
+  title: string
+  abstract?: string
+  authors: string[]
+  conference: string
+  date: string
+  link?: string
+  doi?: string
+  type: "ConferencePaper"|"JournalPaper"|"MasterThesis"|"BachelorThesis"|"ConferenceTalk"|"WorkshopTalk"|"OtherTalk"|"Poster"|"ThesisSupervision"
 }
 
 export interface WorkExperience {

@@ -5,6 +5,7 @@ import ExperienceView from '@/views/ExperienceView.vue'
 import ProjectView from '@/views/ProjectView.vue'
 import { RouterLink } from 'vue-router'
 import Button from 'primevue/button'
+import PublicationsView from "@/views/PublicationsView.vue";
 
 function scrollTo(sectionId: string) {
   const section = document.getElementById(sectionId)
@@ -33,7 +34,10 @@ function scrollTo(sectionId: string) {
             >Experiences</Button
           >
           <Button class="header-button" @click="scrollTo('portfolio')"
-            >Portfolio</Button
+          >Portfolio</Button
+          >
+          <Button class="header-button" @click="scrollTo('publications')"
+          >Publications</Button
           >
         </nav>
       </div>
@@ -42,6 +46,7 @@ function scrollTo(sectionId: string) {
     <AboutView class="page-section" id="about" />
     <ExperienceView class="page-section" id="experiences" />
     <ProjectView class="page-section" id="portfolio" />
+    <PublicationsView class="page-section" id="publications" />
   </main>
 </template>
 

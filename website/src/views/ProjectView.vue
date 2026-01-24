@@ -13,7 +13,7 @@ const sizesRaw = ['xs', 's', 'm', 'l', 'xl']
 
 const sizes = sizesRaw.map(size => ({ label: size, value: size }))
 const languages = Array.from(
-  new Set(projects.flatMap(project => project.programming_language)),
+  new Set(projects.flatMap(project => project.tags)),
 ).map(lang => ({ label: lang, value: lang }))
 const favorites = ['Yes', 'No'].map(fav => ({ label: fav, value: fav }))
 const locations = Array.from(
@@ -43,7 +43,7 @@ const filteredProjects = computed(() => {
       selectedSizes.value.includes(project.size)
     const matchesLanguage =
       selectedLanguages.value.length === 0 ||
-      project.programming_language?.some(lang =>
+      project.tags?.some(lang =>
         selectedLanguages.value.includes(lang),
       )
     const matchesFavorite =
@@ -204,11 +204,11 @@ e>
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(280px, 25vw, 380px), 1fr)
+  );
   gap: 16px;
-  width: 100%;
-  padding: 0;
-  margin: 0;
 }
 
 .full-width {
