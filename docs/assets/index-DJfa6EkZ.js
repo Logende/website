@@ -16210,8 +16210,8 @@ const projects = [
   },
   {
     title: "preCICE",
-    description: "As part of the preCICE team during my PhD, I support the development of preCICE, an open-source coupling library for partitioned multi-physics simulations. My contributions are mainly regarding the standardization process and the application of MetaConfigurator.",
-    favorite: false,
+    description: "I support the development of preCICE, an open-source coupling library for partitioned multi-physics simulations. My contributions are mainly regarding the standardization process and the application of MetaConfigurator.",
+    favorite: true,
     publication: [
       {
         title: "A quick introduction to the coupling library preCICE",
@@ -16295,7 +16295,7 @@ const projects = [
   {
     title: "MesaReplay (Tool Extension)",
     description: "Enables caching simulations of mesa (simulation framework) models, persisting them on the file system and replaying them later.",
-    favorite: true,
+    favorite: false,
     size: "xs",
     tags: [
       "Python"
@@ -16631,7 +16631,7 @@ const projects = [
   {
     title: "Simulation of CCU Communication",
     description: "Design and implementation of a simulation for the communication between a Connectivity Control Unit (CCU) and the backend. Developed using Java, Spring Boot and Pivotal Cloud Foundry.",
-    favorite: true,
+    favorite: false,
     size: "m",
     tags: [
       "Java"
@@ -16661,7 +16661,7 @@ const projects = [
   {
     title: "Pedestrian Simulation",
     description: "Working for Bosch Central Research. Design, implementation and evaluation of a standalone pedestrian simulator using different algorithms for pathfinding, collision avoidance and group dynamics. Implemented in Kotlin. The most promising algorithm was then implemented in the production simulation environment in C++ using ROS and Gazebo.",
-    favorite: true,
+    favorite: false,
     size: "l",
     tags: [
       "Kotlin",
@@ -16676,7 +16676,7 @@ const projects = [
   {
     title: "Radar Data Processing",
     description: "In the area of self-driving trucks, the task was to develop a radar data processing pipeline, which detects and classifies objects, based on the provided radar point cloud.",
-    favorite: false,
+    favorite: true,
     size: "l",
     tags: [
       "Python"
@@ -36684,7 +36684,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-kFX0UJKn.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-f47CKtk0.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
