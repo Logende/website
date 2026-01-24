@@ -219,7 +219,7 @@
       "title": "DynamicSlicing (Tool)",
       "description": "Dynamic Python program analysis using backwards slicing.",
       "favorite": false,
-      "size": "s",
+      "size": "xs",
       "icon": "icon_slicing.png",
       "tags": [
         "Python"
