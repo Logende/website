@@ -16191,7 +16191,7 @@ const projects = [
       }
     ],
     icon: "icon_metaconfigurator.gif",
-    size: "l",
+    size: "xl",
     tags: [
       "TypeScript",
       "HTML"
@@ -16384,7 +16384,7 @@ const projects = [
   },
   {
     title: "EarthGames (Minigame)",
-    description: "A Minecraft Minigame that I have invented, developed, and published to thousands of players via the Snapcraft gaming network from the Netherlands. At its peak, different Youtubers, who now have over 50 Million subscribers combined, have played and enjoyed EarthGames.",
+    description: "A Minecraft Minigame that I have invented, developed, and published to thousands of players via the Snapcraft gaming network from the Netherlands. At its peak, different Youtubers, who now have over 50.000.000 subscribers combined, have played and enjoyed EarthGames.",
     icon: "icon_earthgames.png",
     article: "articles/earthgames/article.html",
     favorite: true,
@@ -18161,7 +18161,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const PublicationList = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-acc2acc7"]]);
+const PublicationList = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-d8a4199c"]]);
 const _hoisted_1$9 = {
   key: 0,
   style: { "text-align": "center" }
@@ -36670,7 +36670,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const HomeView = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-393b7655"]]);
+const HomeView = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-daf932ac"]]);
 const router = createRouter({
   history: createWebHistory("/"),
   routes: [
@@ -36685,7 +36685,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-CWIIdKZN.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-8CyCx9QO.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
