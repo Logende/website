@@ -3,11 +3,17 @@ import projectsData from '@/assets/main_projects.json'
 import type { Project } from '@/model/data_structures'
 import ProjectCard from '@/components/ProjectCard.vue'
 import MultiSelect from 'primevue/multiselect'
+import DatePicker from "primevue/datepicker";
 import Dialog from 'primevue/dialog'
 import { computed, type Ref, ref } from 'vue'
 import MarkdownArticle from '@/components/MarkdownArticle.vue'
 
+
 const projects = projectsData.projects as Project[]
+
+const selectedStartDate = ref<Date | null>(null)
+const selectedEndDate = ref<Date | null>(null)
+
 
 const sizesRaw = ['xs', 's', 'm', 'l', 'xl']
 
@@ -38,14 +44,23 @@ const videosTitle: Ref<string> = ref<string>('')
 
 const filteredProjects = computed(() => {
   const result = projects.filter(project => {
+    const projectStart = new Date(project.when.start)
+    const projectEnd = new Date(project.when.end)
+
+    const matchesDateRange =
+      (!selectedStartDate.value || projectEnd >= selectedStartDate.value) &&
+      (!selectedEndDate.value || projectStart <= selectedEndDate.value)
+
     const matchesSize =
       selectedSizes.value.length === 0 ||
       selectedSizes.value.includes(project.size)
+
     const matchesLanguage =
       selectedLanguages.value.length === 0 ||
       project.tags?.some(lang =>
         selectedLanguages.value.includes(lang),
       )
+
     const matchesFavorite =
       selectedFavorites.value.length === 0 ||
       (selectedFavorites.value.includes('Yes')
@@ -54,10 +69,20 @@ const filteredProjects = computed(() => {
 
     const matchesLocation =
       selectedLocations.value.length === 0 ||
-      selectedLocations.value.includes(project.where?.toString() || 'Leisure')
-    return matchesSize && matchesLanguage && matchesFavorite && matchesLocation
+      selectedLocations.value.includes(
+        project.where?.toString() || 'Leisure',
+      )
+
+    return (
+      matchesDateRange &&
+      matchesSize &&
+      matchesLanguage &&
+      matchesFavorite &&
+      matchesLocation
+    )
   })
-  // sort the list of projects: first prefer favorites, then by end date
+
+  // existing sort logic
   result.sort((a, b) => {
     if (a.favorite !== b.favorite) {
       return a.favorite ? -1 : 1
@@ -66,7 +91,6 @@ const filteredProjects = computed(() => {
     let dateA = new Date(a.when.end).getTime()
     let dateB = new Date(b.when.end).getTime()
 
-    // for favorite a special rule holds: for every size it is bigger, it gets more priority, as it was two years older
     if (a.favorite) {
       dateA += new Date(sizesRaw.indexOf(a.size) * 3, 0).getTime()
       dateB += new Date(sizesRaw.indexOf(b.size) * 3, 0).getTime()
@@ -74,6 +98,7 @@ const filteredProjects = computed(() => {
 
     return dateB - dateA
   })
+
   return result
 })
 
@@ -180,6 +205,21 @@ function openVideos(videos: string[], title: string) {
         optionLabel="label"
         optionValue="value"
         multiple
+      />
+      <!-- Start date -->
+      <DatePicker
+        v-model="selectedStartDate"
+        show-icon
+        placeholder="Start date"
+        date-format="yy-mm-dd"
+      />
+
+      <!-- End date -->
+      <DatePicker
+        v-model="selectedEndDate"
+        show-icon
+        placeholder="End date"
+        date-format="yy-mm-dd"
       />
     </div>
     <div class="projects-grid">
