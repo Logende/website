@@ -27,7 +27,7 @@
     <br />
 
     <h3>
-      Hi, I'm <b>Felix Neubauer</b>, a software engineer based in Germany with a
+      Hi, I'm <b>Felix Neubauer</b>, a research software engineer based in Germany with a
       passion for crafting well-architected, high-quality software.
 
       <br />
@@ -42,7 +42,7 @@
       <br />
 
       Beyond my research, I love experimenting with
-      <b>Kotlin, Java, and TypeScript</b>, focusing on
+      <b>TypeScript, Kotlin and Java</b>, focusing on <b>research data management</b>, <b>model driven engineering</b>,
       <b>software architecture</b>, <b>clean code</b>, <b>testing</b>,
       <b>DevOps</b>, and <b>API design</b>. My open-source projects have
       accumulated over a <b>million downloads</b>, and one of my Java minigames
@@ -53,9 +53,9 @@
 
       Before transitioning to a full-time industry and then research job, I
       worked as a freelancer and sold my own Java software. Now, I continue to
-      build impactful software—most recently, <b>MetaConfigurator</b>, a schema
-      editor and form generator for JSON and YAML, developed as part of my
-      master’s thesis.
+      build impactful software—most recently, <b>MetaConfigurator</b>, a JSON schema
+      editor and form generator, developed as part of my
+      master’s thesis and now developed further within the scope of my PhD.
 
       <br />
       Want to learn more? Check out my projects and research below! 🚀
