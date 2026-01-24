@@ -98,7 +98,7 @@
         }
       ],
       "icon": "icon_metaconfigurator.gif",
-      "size": "l",
+      "size": "xl",
       "tags": [
         "TypeScript",
         "HTML"
@@ -291,7 +291,7 @@
     },
     {
       "title": "EarthGames (Minigame)",
-      "description": "A Minecraft Minigame that I have invented, developed, and published to thousands of players via the Snapcraft gaming network from the Netherlands. At its peak, different Youtubers, who now have over 50 Million subscribers combined, have played and enjoyed EarthGames.",
+      "description": "A Minecraft Minigame that I have invented, developed, and published to thousands of players via the Snapcraft gaming network from the Netherlands. At its peak, different Youtubers, who now have over 50.000.000 subscribers combined, have played and enjoyed EarthGames.",
       "icon": "icon_earthgames.png",
       "article": "articles/earthgames/article.html",
       "favorite": true,

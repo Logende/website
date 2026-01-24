@@ -1,6 +1,5 @@
 <script setup lang="ts">
 
-import Dialog from "primevue/dialog";
 
 
 import type { Publication } from "@/model/data_structures";

@@ -63,6 +63,7 @@ header {
 
 .header-button {
   margin-right: 10px;
+  margin-bottom: 8px;
 }
 
 .page-section {
