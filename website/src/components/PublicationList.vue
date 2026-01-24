@@ -162,30 +162,28 @@ function publicationTypeLabel(type: Publication['type']): string {
   background: var(--color-border);
   color: var(--color-text);
 }
-
 .pub-type--ConferencePaper {
-  background: var(--color-border-hover);
+  background: var(--pub-conference-paper-bg);
 }
 
 .pub-type--JournalPaper {
-  background: #e8f0ff;
+  background: var(--pub-journal-paper-bg);
 }
 
 .pub-type--Poster {
-  background: #f3e8ff;
+  background: var(--pub-poster-bg);
 }
 
 .pub-type--MasterThesis,
 .pub-type--BachelorThesis,
 .pub-type--ThesisSupervision {
-  background: #e8f7ef;
+  background: var(--pub-thesis-bg);
 }
 
 .pub-type--ConferenceTalk,
 .pub-type--WorkshopTalk,
 .pub-type--OtherTalk {
-  background: #fff4e5;
+  background: var(--pub-talk-bg);
 }
-
 
 </style>

@@ -33,6 +33,12 @@
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
 
+  --pub-conference-paper-bg: #e0e7ff;
+  --pub-journal-paper-bg: #e8f0ff;
+  --pub-poster-bg: #f3e8ff;
+  --pub-thesis-bg: #e8f7ef;
+  --pub-talk-bg: #fff4e5;
+
   --section-gap: 160px;
 }
 
@@ -47,6 +53,12 @@
 
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
+
+    --pub-conference-paper-bg: #2f3b66;
+    --pub-journal-paper-bg: #2a365f;
+    --pub-poster-bg: #4b2f5e;
+    --pub-thesis-bg: #245040;
+    --pub-talk-bg: #5a4220;
   }
 }
 
