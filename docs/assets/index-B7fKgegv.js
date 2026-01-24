@@ -16127,6 +16127,7 @@ const projects = [
       },
       {
         title: "Data Model Creation with MetaConfigurator",
+        abstract: "In both research and industry, significant effort is devoted to the creation of standardized data models that ensure data adheres to a specific structures, enabling the development and use of common tools. These models (also called schemas) enable data validation and facilitate collaboration by making data interoperable across various systems. Tools can assist in the creation and maintenance of data models. We introduce MetaConfigurator [1], an open-source web-based schema editor and form generator for JSON schema and for JSON/YAML documents. It differs from other schema-to-UI approaches in the following ways:\n1) It allows data editing and schema editing within the same tool,\n2) It offers a unified view, which combines the benefits of a GUI, a text editor and a UML-like diagram view, and\n3) It supports advanced schema features, including conditions, constraints and composition.\n\nIn this talk, we demonstrate MetaConfigurator based on a real-world application in the field of Chemistry. We show how the tool can be used to streamline and simplify the process of data model creation. Furthermore, we use the tool to visualize and communicate data models with others. Using MetaConfigurator less mistakes are made and the entry barrier for data model creation is lowered.",
         authors: [
           "Felix Neubauer",
           "Jürgen Pleiss",
@@ -36684,7 +36685,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-RSILTHto.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-CWIIdKZN.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
