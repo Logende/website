@@ -40,6 +40,54 @@
   --pub-talk-bg: #fff4e5;
 
   --section-gap: 160px;
+
+  .vue-flow__handle {
+    opacity: 0;
+  }
+
+  .vue-flow__node {
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 0.9em;
+    transition: transform 0.2s;
+  }
+
+  .vue-flow__node:hover {
+    transform: scale(1.05);
+    cursor: grab;
+  }
+
+  .vue-flow__edge-label {
+    font-size: 0.75em;
+    background: var(--color-bg-soft);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .vue-flow__node-default {
+    background: var(--color-background-soft);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    min-width: 140px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .vue-flow__edge-path {
+    stroke: var(--color-text);
+    stroke-width: 1;
+  }
+
+  .vue-flow__edge-label {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75em;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

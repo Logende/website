@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { Project, Publication} from '@/model/data_structures'
+import type { Project, Publication } from '@/model/data_structures'
 import { formatTimeRange } from '@/utils'
 import Card from 'primevue/card'
 import Dialog from 'primevue/dialog'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { computed, ref } from 'vue'
-import type {ComputedRef} from "@vue/runtime-dom";
-import PublicationList from "@/components/PublicationList.vue";
+import type { ComputedRef } from '@vue/runtime-dom'
+import PublicationList from '@/components/PublicationList.vue'
 
 const props = defineProps<{
   projectData: Project
@@ -29,7 +29,6 @@ const videoOrVideos: string = props.projectData.videos
     ? 'Videos'
     : 'Video'
   : 'No Video'
-
 </script>
 
 <template>
@@ -40,7 +39,7 @@ const videoOrVideos: string = props.projectData.videos
       </h4>
     </template>
     <template #title
-    >{{ projectData.title }}
+      >{{ projectData.title }}
       <FontAwesomeIcon
         v-if="projectData.favorite"
         :icon="faStar"
@@ -131,7 +130,7 @@ const videoOrVideos: string = props.projectData.videos
           title="Watch Video"
         >
           <span class="badge-link"
-          >Watch {{ videoOrVideos }} ({{ projectData.videos.length }})</span
+            >Watch {{ videoOrVideos }} ({{ projectData.videos.length }})</span
           >
         </a>
       </div>
@@ -191,5 +190,4 @@ const videoOrVideos: string = props.projectData.videos
   font-weight: 600;
   border-radius: 0.25rem;
 }
-
 </style>

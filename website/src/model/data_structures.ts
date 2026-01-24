@@ -12,7 +12,21 @@ export interface Project {
   article?: string
   demo?: string
   videos?: string[]
+  relations?: ProjectRelation[]
   publication?: Publication[]
+}
+
+export interface ProjectRelation {
+  relatedProject: string // project id or title
+  label:
+    | 'predecessorOf'
+    | 'inspiredBy'
+    | 'refinementOf'
+    | 'supersedes'
+    | 'sharesConceptWith'
+    | 'reusesCodeFrom'
+    | 'proofOfConceptFor'
+    | 'relatedTo'
 }
 
 export interface Publication {
@@ -23,7 +37,16 @@ export interface Publication {
   date: string
   link?: string
   doi?: string
-  type: "ConferencePaper"|"JournalPaper"|"MasterThesis"|"BachelorThesis"|"ConferenceTalk"|"WorkshopTalk"|"OtherTalk"|"Poster"|"ThesisSupervision"
+  type:
+    | 'ConferencePaper'
+    | 'JournalPaper'
+    | 'MasterThesis'
+    | 'BachelorThesis'
+    | 'ConferenceTalk'
+    | 'WorkshopTalk'
+    | 'OtherTalk'
+    | 'Poster'
+    | 'ThesisSupervision'
 }
 
 export interface WorkExperience {

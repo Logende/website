@@ -1,25 +1,41 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
 import AboutView from '@/views/AboutView.vue'
 import ExperienceView from '@/views/ExperienceView.vue'
 import ProjectView from '@/views/ProjectView.vue'
-import { RouterLink } from 'vue-router'
+import PublicationsView from '@/views/PublicationsView.vue'
+import ProjectGraphView from '@/views/ProjectGraphView.vue'
 import Button from 'primevue/button'
-import PublicationsView from "@/views/PublicationsView.vue";
+import { nextTick, ref, watch } from 'vue'
+
+type ProjectViewMode = 'grid' | 'graph'
+const projectViewMode = ref<ProjectViewMode>('grid')
+const projectGraphRef = ref<InstanceType<typeof ProjectGraphView> | null>(null)
 
 function scrollTo(sectionId: string) {
   const section = document.getElementById(sectionId)
-  if (section) {
-    const headerOffset = 95 // Height of the header
-    const elementPosition = section.getBoundingClientRect().top
-    const offsetPosition = elementPosition + window.scrollY - headerOffset
+  if (!section) return
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth',
-    })
-  }
+  const headerOffset = 95
+  const elementPosition = section.getBoundingClientRect().top
+  const offsetPosition = elementPosition + window.scrollY - headerOffset
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: 'smooth',
+  })
 }
+
+function goToPortfolio() {
+  // ensure we always scroll to the shared project section wrapper
+  scrollTo('portfolio-section')
+}
+
+// whenever view mode switches to graph, ensure layout after render
+watch(projectViewMode, async mode => {
+  if (mode !== 'graph') return
+  await nextTick()
+  projectGraphRef.value?.runLayout()
+})
 </script>
 
 <template>
@@ -27,25 +43,54 @@ function scrollTo(sectionId: string) {
     <header class="full-width">
       <div class="menu-bar">
         <nav>
-          <Button class="header-button" @click="scrollTo('about')"
-            >About</Button
-          >
-          <Button class="header-button" @click="scrollTo('experiences')"
-            >Experiences</Button
-          >
-          <Button class="header-button" @click="scrollTo('portfolio')"
-          >Portfolio</Button
-          >
-          <Button class="header-button" @click="scrollTo('publications')"
-          >Publications</Button
-          >
+          <Button class="header-button" @click="scrollTo('about')">
+            About
+          </Button>
+          <Button class="header-button" @click="scrollTo('experiences')">
+            Experiences
+          </Button>
+          <Button class="header-button" @click="goToPortfolio">
+            Portfolio
+          </Button>
+          <Button class="header-button" @click="scrollTo('publications')">
+            Publications
+          </Button>
         </nav>
       </div>
     </header>
 
     <AboutView class="page-section" id="about" />
     <ExperienceView class="page-section" id="experiences" />
-    <ProjectView class="page-section" id="portfolio" />
+
+    <!-- Shared Portfolio section wrapper -->
+    <section class="page-section" id="portfolio-section">
+      <!-- Toggle buttons -->
+      <div class="project-toggle">
+        <Button
+          class="toggle-button"
+          :severity="projectViewMode === 'grid' ? 'primary' : 'secondary'"
+          @click="projectViewMode = 'grid'"
+        >
+          Grid view
+        </Button>
+        <Button
+          class="toggle-button"
+          :severity="projectViewMode === 'graph' ? 'primary' : 'secondary'"
+          @click="projectViewMode = 'graph'"
+        >
+          Graph view
+        </Button>
+      </div>
+
+      <!-- Views -->
+      <div v-if="projectViewMode === 'grid'">
+        <ProjectView id="portfolio" />
+      </div>
+      <div v-else>
+        <ProjectGraphView id="projectGraphView" />
+      </div>
+    </section>
+
     <PublicationsView class="page-section" id="publications" />
   </main>
 </template>
@@ -54,8 +99,8 @@ function scrollTo(sectionId: string) {
 header {
   position: fixed;
   top: 0;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  align-items: center;
   width: 100%;
   z-index: 1000;
   background: var(--color-background);
@@ -89,5 +134,15 @@ nav {
 
 :target {
   scroll-margin-top: 200px;
+}
+
+.project-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.toggle-button {
+  min-width: 120px;
 }
 </style>

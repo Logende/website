@@ -3,17 +3,15 @@ import projectsData from '@/assets/main_projects.json'
 import type { Project } from '@/model/data_structures'
 import ProjectCard from '@/components/ProjectCard.vue'
 import MultiSelect from 'primevue/multiselect'
-import DatePicker from "primevue/datepicker";
+import DatePicker from 'primevue/datepicker'
 import Dialog from 'primevue/dialog'
 import { computed, type Ref, ref } from 'vue'
 import MarkdownArticle from '@/components/MarkdownArticle.vue'
-
 
 const projects = projectsData.projects as Project[]
 
 const selectedStartDate = ref<Date | null>(null)
 const selectedEndDate = ref<Date | null>(null)
-
 
 const sizesRaw = ['xs', 's', 'm', 'l', 'xl']
 
@@ -57,9 +55,7 @@ const filteredProjects = computed(() => {
 
     const matchesLanguage =
       selectedLanguages.value.length === 0 ||
-      project.tags?.some(lang =>
-        selectedLanguages.value.includes(lang),
-      )
+      project.tags?.some(lang => selectedLanguages.value.includes(lang))
 
     const matchesFavorite =
       selectedFavorites.value.length === 0 ||
@@ -69,9 +65,7 @@ const filteredProjects = computed(() => {
 
     const matchesLocation =
       selectedLocations.value.length === 0 ||
-      selectedLocations.value.includes(
-        project.where?.toString() || 'Leisure',
-      )
+      selectedLocations.value.includes(project.where?.toString() || 'Leisure')
 
     return (
       matchesDateRange &&

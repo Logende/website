@@ -28,7 +28,6 @@ const router = createRouter({
       component: () => import('../views/ExperienceView.vue'),
     },
 
-
     {
       path: '/publications',
       name: 'publications',

@@ -17,15 +17,9 @@
         },
         "size": {
           "type": "string",
-          "enum": [
-            "xs",
-            "s",
-            "m",
-            "l",
-            "xl"
-          ]
+          "enum": ["xs", "s", "m", "l", "xl"]
         },
-        "tag": {
+        "tags": {
           "type": "array",
           "items": {
             "type": "string",
@@ -122,23 +116,37 @@
                 "format": "uri"
               }
             },
-            "required": [
-              "title",
-              "authors",
-              "conference",
-              "date",
-              "type"
-            ]
+            "required": ["title", "authors", "conference", "date", "type"]
+          }
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string",
+                "enum": [
+                  "successorOf",
+                  "inspiredBy",
+                  "supersedes",
+                  "sharesConceptWith",
+                  "proofOfConceptFor",
+                  "applies",
+                  "contains",
+                  "extensionFor",
+                  "toolFor",
+                  "relatedTo"
+                ]
+              },
+              "relatedProject": {
+                "type": "string"
+              }
+            }
           }
         }
       },
-      "required": [
-        "title",
-        "description",
-        "size",
-        "favorite",
-        "when"
-      ]
+      "required": ["title", "description", "size", "favorite", "when"]
     },
     "TimeRange": {
       "type": "object",

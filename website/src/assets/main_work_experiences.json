@@ -21,14 +21,7 @@
         "start": "2016-10-01",
         "end": "2019-09-30"
       },
-      "tags": [
-        "Java",
-        "Kotlin",
-        "Python",
-        "TypeScript",
-        "HTML",
-        "C++"
-      ],
+      "tags": ["Java", "Kotlin", "Python", "TypeScript", "HTML", "C++"],
       "description": "Internships in different Departments. Simulation of ECU Communication with Java and Spring Boot. Creation of Internal Phishing Awareness Campaign Platform with TypeScript, Neo4j, Docker, Python, Flask. Development of a Pedestrian Simulator in Kotlin for Bosch Research."
     },
     {

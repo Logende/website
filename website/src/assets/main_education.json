@@ -27,14 +27,7 @@
       "degree": "Bachelor of Engineering",
       "subject": "IT Automotive",
       "description": "Award: Best of the Year.",
-      "tags": [
-        "C",
-        "C++",
-        "Java",
-        "Kotlin",
-        "MatLab",
-        "Android"
-      ]
+      "tags": ["C", "C++", "Java", "Kotlin", "MatLab", "Android"]
     },
     {
       "role": "Masters Student",
