@@ -49,9 +49,7 @@ function publicationTypeLabel(type: Publication['type']): string {
           v-if="pub.link && !pub.link.includes(pub.doi ?? 'NO DOI!')"
           class="url"
         >
-          <a :href="pub.link" target="_blank">
-            {{ pub.link }} </a
-          >.
+          <a :href="pub.link" target="_blank"> {{ pub.link }} </a>.
         </span>
 
         <span class="pub-type" :class="`pub-type--${pub.type}`">

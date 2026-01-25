@@ -187,7 +187,7 @@
     },
     {
       "title": "MesaReplay (Tool Extension)",
-      "description": "Enables caching simulations of mesa (simulation framework) models, persisting them on the file system and replaying them later.",
+      "description": "Enables caching simulations of mesa (agent-based simulation framework) models, persisting them on the file system and replaying them later.",
       "favorite": false,
       "size": "xs",
       "tags": ["Python"],
@@ -217,7 +217,13 @@
         "end": "2024-02-08"
       },
       "source_code": "https://github.com/Logende/dynamicslicing",
-      "where": "University of Stuttgart"
+      "where": "University of Stuttgart",
+      "relations": [
+        {
+          "label": "relatedTo",
+          "relatedProject": "ALC Logic App (Mobile Quiz App)"
+        }
+      ]
     },
     {
       "title": "GraphQLQueryNameConsistency (Deep Learning)",
@@ -325,7 +331,7 @@
         "start": "2012-10-19",
         "end": "2014-08-13"
       },
-      "size": "m",
+      "size": "l",
       "tags": ["Java"],
       "videos": ["IZhnWrk9BYc"],
       "where": "Snapcraft/Fironus",
@@ -689,6 +695,14 @@
         {
           "label": "relatedTo",
           "relatedProject": "Radar Calibration and Misalignment Detection"
+        },
+        {
+          "label": "relatedTo",
+          "relatedProject": "Simulation of CCU Communication"
+        },
+        {
+          "label": "relatedTo",
+          "relatedProject": "Internal Phishing Awareness Campaigns"
         }
       ]
     }
