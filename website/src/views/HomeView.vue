@@ -34,7 +34,7 @@ function goToPortfolio() {
 watch(projectViewMode, async mode => {
   if (mode !== 'graph') return
   await nextTick()
-  projectGraphRef.value?.runLayout()
+  projectGraphRef.value?.rerunLayout()
 })
 </script>
 
