@@ -92,6 +92,7 @@ watch(projectViewMode, async mode => {
       <div v-else>
         <ProjectGraphView id="projectGraphView" />
       </div>
+      <p>*For my own projects, the size labels/graph node sizes represent the project sizes. For collaborative projects, it resembles the sizes of my contributions.</p>
     </section>
 
     <PublicationsView class="page-section" id="publications" />

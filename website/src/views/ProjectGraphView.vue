@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch, computed, type Ref } from 'vue'
-import cytoscape from 'cytoscape'
+import cytoscape, { type Core } from 'cytoscape'
 import fcose from 'cytoscape-fcose'
 import Dialog from 'primevue/dialog'
 import ProjectCard from '@/components/ProjectCard.vue'
@@ -71,7 +71,7 @@ const cytoscapeElements = computed(() => {
 })
 
 const container = ref<HTMLElement | null>(null)
-let cy: InstanceType<typeof cytoscape> | null = null
+let cy: Core | null = null
 
 const layoutOptions = {
   name: 'fcose',
