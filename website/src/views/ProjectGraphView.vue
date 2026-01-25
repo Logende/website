@@ -296,6 +296,7 @@ defineExpose({ rerunLayout, getAffiliationColor })
 
 <template>
   <div class="graph-wrapper">
+
     <div ref="container" class="graph-container" />
 
     <!-- Legend overlay -->

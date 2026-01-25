@@ -166,7 +166,6 @@ function openVideos(videos: string[], title: string) {
       </div>
     </Dialog>
 
-    <h1>Portfolio</h1>
     <div class="filters">
       <MultiSelect
         v-model="selectedSizes"

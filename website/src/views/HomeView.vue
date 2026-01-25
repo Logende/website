@@ -64,6 +64,9 @@ watch(projectViewMode, async mode => {
 
     <!-- Shared Portfolio section wrapper -->
     <section class="page-section" id="portfolio-section">
+
+      <h1>Portfolio</h1>
+
       <!-- Toggle buttons -->
       <div class="project-toggle">
         <Button
