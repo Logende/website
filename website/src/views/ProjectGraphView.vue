@@ -117,8 +117,8 @@ function getStrongTextColor(): string {
     return '#ffffff'
   }
 
-  // Otherwise keep the CSS-var value (light mode)
-  return raw || '#000000'
+  // Otherwise full black
+  return '#000000'
 }
 
 function initializeCytoscape() {
