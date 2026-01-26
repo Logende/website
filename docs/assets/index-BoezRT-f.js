@@ -18362,23 +18362,6 @@ const publications = [
       "MetaConfigurator (Web Tool)",
       "preCICe (Coupling Library)"
     ]
-  },
-  {
-    title: "Standardizing preCICE Adapters with MetaConfigurator",
-    authors: [
-      "Felix Neubauer",
-      "Gerasimos Chourdakis",
-      "Benjamin Uekermann"
-    ],
-    conference: "preCICE workshop 2025",
-    date: "2025-09-11",
-    doi: "10.5281/zenodo.17105018",
-    abstract: "Interoperability and standardization are essential for the growing ecosystem of preCICE adapters. We present a JSON Schema-based specification for preCICE adapter configurations, complemented by comprehensive guidelines for adapter development. By formalizing configuration structures, we enable automated validation, tooling support, and improved documentation, while ensuring that adapters themselves adhere to shared standards. As a central tool, MetaConfigurator provides a schema-driven web interface that simplifies the creation and validation of configuration files, lowering the entry barrier for both adapter developers and users. This approach supports the FAIR principles by promoting interoperability and reusability not only of configuration files, but of the adapters and coupling setups themselves, fostering a more robust and sustainable preCICE ecosystem.",
-    type: "Poster",
-    related_projects: [
-      "MetaConfigurator (Web Tool)",
-      "preCICe (Coupling Library)"
-    ]
   }
 ];
 const publications$1 = {
@@ -75116,7 +75099,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-DwFlOoKp.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-DKoCLDXy.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
