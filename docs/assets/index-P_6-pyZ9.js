@@ -16097,99 +16097,6 @@ const projects = [
     title: "MetaConfigurator (Web Tool)",
     description: "A form generator and schema editor for JSON schema, making editing configuration files, research data and schemas easier and more enjoyable. Started as a research project in a group of four students. Continued for my master thesis and now PhD.",
     favorite: true,
-    publication: [
-      {
-        title: "MetaConfigurator: A User-Friendly Tool for Editing Structured Data Files",
-        authors: [
-          "Felix Neubauer",
-          "Paul Bredl",
-          "Minye Xu",
-          "Keyuriben Patel",
-          "Jürgen Pleiss",
-          "Benjamin Uekermann"
-        ],
-        conference: "Datenbank-Spektrum",
-        date: "2024-05-30",
-        doi: "10.1007/s13222-024-00472-7",
-        abstract: "Textual formats to structure data, such as JSON, XML, and YAML, are widely used for structuring data in various domains, from configuration files to research data. However, manually editing data in these formats can be complex and time-consuming. Graphical user interfaces (GUIs) can significantly reduce manual efforts and assist the user in editing the files, but developing a file-format-specific GUI requires substantial development and maintenance efforts. To address this challenge, we introduce MetaConfigurator: an open-source web application that generates its GUI depending on a given schema. Our approach differs from other schema-to-UI approaches in three key ways: 1) It offers a unified view that combines the benefits of both GUIs and text editors, 2) it enables schema editing within the same tool, and 3) it supports advanced schema features, including conditions and constraints. In this paper, we discuss the design and implementation of MetaConfigurator, backed by insights from a small-scale qualitative user study. The results indicate the effectiveness of our approach in retrieving information from data and schemas and in editing them.",
-        type: "JournalPaper"
-      },
-      {
-        title: "Data model creation with MetaConfigurator",
-        authors: [
-          "Felix Neubauer"
-        ],
-        conference: "University of Stuttgart, Master Thesis",
-        date: "2024-09-30",
-        doi: "10.18419/opus-15126",
-        abstract: "In both research and industry, significant effort is devoted to the creation of standardized data models that ensure data adheres to a specific structure, enabling the development and use of common tools. These models (also called schemas), enable data validation and facilitate collaboration by making data interoperable across various systems. Tools can assist in the creation and maintenance of data models. One such tool is MetaConfigurator, a schema editor and form generator for JSON schema and for JSON/YAML documents. It offers a unified interface that combines a traditional text editor with a graphical user interface (GUI), supporting advanced schema features such as conditions and constraints. In this work, MetaConfigurator is viewed from the perspective of three exemplary real-world use case in fields such as biochemistry and ontology management. Multiple improvements and functionalities are designed and implemented to further assist the user: 1) A more user-friendly schema editor, distinguishing between an easy and an advanced mode based on a novel meta schema builder approach; 2) A CSV import feature for seamless data transition from Excel to the JSON format with schema inference; 3) Snapshot sharing for effortless collaboration; 4) Ontology integration for auto-completion of URIs; and 5) A novel graphical diagram-like schema view for visual schema manipulation. These new functionalities are then applied to the real-world use cases, demonstrating the practical utility and improved accessibility of MetaConfigurator.",
-        type: "MasterThesis"
-      },
-      {
-        title: "Data Model Creation with MetaConfigurator",
-        abstract: "In both research and industry, significant effort is devoted to the creation of standardized data models that ensure data adheres to a specific structures, enabling the development and use of common tools. These models (also called schemas) enable data validation and facilitate collaboration by making data interoperable across various systems. Tools can assist in the creation and maintenance of data models. We introduce MetaConfigurator [1], an open-source web-based schema editor and form generator for JSON schema and for JSON/YAML documents. It differs from other schema-to-UI approaches in the following ways:\n1) It allows data editing and schema editing within the same tool,\n2) It offers a unified view, which combines the benefits of a GUI, a text editor and a UML-like diagram view, and\n3) It supports advanced schema features, including conditions, constraints and composition.\n\nIn this talk, we demonstrate MetaConfigurator based on a real-world application in the field of Chemistry. We show how the tool can be used to streamline and simplify the process of data model creation. Furthermore, we use the tool to visualize and communicate data models with others. Using MetaConfigurator less mistakes are made and the entry barrier for data model creation is lowered.",
-        authors: [
-          "Felix Neubauer",
-          "Jürgen Pleiss",
-          "Benjamin Uekermann"
-        ],
-        conference: "deRSE25 - Conference for Research Software Engineering in Germany",
-        date: "2025-02-25",
-        doi: "10.5281/zenodo.14981537",
-        type: "ConferenceTalk"
-      },
-      {
-        title: "Data Model Creation with MetaConfigurator",
-        authors: [
-          "Felix Neubauer",
-          "Jürgen Pleiss",
-          "Benjamin Uekermann"
-        ],
-        conference: "Datenbanksysteme für Business, Technologie und Web (BTW 2025)",
-        date: "2025-03-05",
-        doi: "10.18420/BTW2025-60",
-        abstract: "In both research and industry, significant effort is devoted to the creation of standardized data models that ensure data adheres to a specific structure, enabling the development and use of common tools. These models (also called schemas), enable data validation and facilitate collaboration by making data interoperable across various systems. Tools can assist in the creation and maintenance of data models.  One such tool is MetaConfigurator, a schema editor and form generator for JSON schema and for JSON/YAML documents. It offers a unified interface that combines a traditional text editor with a graphical user interface (GUI), supporting advanced schema features such as conditions and constraints. Still, schema editing can be complicated for novices, since MetaConfigurator shows all options of JSON schema, which is very expressive. The following improvements and functionalities have been designed and implemented to further assist the user: 1) A more user-friendly schema editor, distinguishing between an easy and an advanced mode based on a novel meta schema builder approach; 2) A CSV import feature for seamless data transition from Excel to JSON with schema inference; 3) Snapshot sharing for effortless collaboration; 4) Ontology integration for auto-completion of URIs; and 5) A novel graphical diagram-like schema view for visual schema manipulation. These new functionalities are then applied to a real-world use case in chemistry, demonstrating the usability and improved accessibility of MetaConfigurator.",
-        type: "ConferencePaper"
-      },
-      {
-        title: "Standardizing preCICE Adapters with MetaConfigurator",
-        authors: [
-          "Felix Neubauer",
-          "Gerasimos Chourdakis",
-          "Benjamin Uekermann"
-        ],
-        conference: "preCICE workshop 2025",
-        date: "2025-09-11",
-        doi: "10.5281/zenodo.17105018",
-        abstract: "Interoperability and standardization are essential for the growing ecosystem of preCICE adapters. We present a JSON Schema-based specification for preCICE adapter configurations, complemented by comprehensive guidelines for adapter development. By formalizing configuration structures, we enable automated validation, tooling support, and improved documentation, while ensuring that adapters themselves adhere to shared standards. As a central tool, MetaConfigurator provides a schema-driven web interface that simplifies the creation and validation of configuration files, lowering the entry barrier for both adapter developers and users. This approach supports the FAIR principles by promoting interoperability and reusability not only of configuration files, but of the adapters and coupling setups themselves, fostering a more robust and sustainable preCICE ecosystem.",
-        type: "Poster"
-      },
-      {
-        title: "AI-assisted JSON Schema Creation and Mapping",
-        authors: [
-          "Felix Neubauer",
-          "Jürgen Pleiss",
-          "Benjamin Uekermann"
-        ],
-        conference: "ACM/IEEE 28th International Conference on Model Driven Engineering Languages and Systems",
-        date: "2025-10-08",
-        doi: "10.1109/MODELS-C68889.2025.00019",
-        abstract: "Model-Driven Engineering (MDE) places models at the core of system and data engineering processes. In the context of research data, these models are typically expressed as schemas that define the structure and semantics of datasets. However, many domains still lack standardized models, and creating them remains a significant barrier, especially for non-experts. We present a hybrid approach that combines large language models (LLMs) with deterministic techniques to enable JSON Schema creation, modification, and schema mapping based on natural language inputs by the user. These capabilities are integrated into the open-source tool MetaConfigurator, which already provides visual model editing, validation, code generation, and form generation from models. For data integration, we generate schema mappings from heterogeneous JSON, CSV, XML, and YAML data using LLMs, while ensuring scalability and reliability through deterministic execution of generated mapping rules. The applicability of our work is demonstrated in an application example in the field of chemistry. By combining natural language interaction with deterministic safeguards, this work significantly lowers the barrier to structured data modeling and data integration for non-experts.",
-        type: "ConferencePaper"
-      },
-      {
-        title: "AI-assisted JSON Schema Creation and Mapping",
-        authors: [
-          "Felix Neubauer",
-          "Jürgen Pleiss",
-          "Benjamin Uekermann"
-        ],
-        conference: "Allotrope Connect Fall 2025 Workshop",
-        date: "2025-10-29",
-        link: "https://www.youtube.com/watch?v=DfS6PgMr1q0",
-        type: "WorkshopTalk"
-      }
-    ],
     icon: "icon_metaconfigurator.gif",
     size: "xl",
     tags: [
@@ -16219,47 +16126,6 @@ const projects = [
     title: "preCICe (Coupling Library)",
     description: "I support the development of preCICE, an open-source coupling library for partitioned multi-physics simulations. My contributions are mainly regarding the standardization process and the application of MetaConfigurator.",
     favorite: true,
-    publication: [
-      {
-        title: "A quick introduction to the coupling library preCICE",
-        authors: [
-          "Felix Neubauer",
-          "Gerasimos Chourdakis",
-          "Benjamin Uekermann"
-        ],
-        conference: "COUPLED PROBLEMS 2025",
-        date: "2025-05-27",
-        link: "https://coupled2025.cimne.com/event/contribution/39120852-c766-11ef-94cb-000c29ddfc0c",
-        abstract: "This talk will open the minisymposium and introduce the main concepts of the open-source preCICE coupling library for partitioned, black-box, multi-physics and multiscale simulations. preCICE enables the efficient, robust, and parallel coupling of separate single-physics solvers. This includes, but is not restricted to fluid-structure interaction. preCICE treats these solvers as black-boxes and, thus, only minimally-invasive changes are necessary to prepare a solver for coupling. Ready-to-use adapters for well known open-source solvers, including OpenFOAM, SU2, CalculiX, FEniCS, and deal.II, are available, while the core library is included in the xSDK ecosystem. The software offers methods for equation coupling, fully parallel communication, data mapping, and time interpolation schemes. For more information, please visit https://precice.org/.",
-        type: "ConferenceTalk"
-      },
-      {
-        title: "preCICE Tooling Overview & News",
-        authors: [
-          "Felix Neubauer",
-          "Frédéric Simonis",
-          "Benjamin Uekermann"
-        ],
-        conference: "preCICE workshop 2025",
-        date: "2025-09-11",
-        doi: "10.5281/zenodo.17104911",
-        abstract: "Overview of new automation tools such as the preCICE command-line interface, configuration generator, configuration checker, and more.",
-        type: "WorkshopTalk"
-      },
-      {
-        title: "Standardizing preCICE Adapters with MetaConfigurator",
-        authors: [
-          "Felix Neubauer",
-          "Gerasimos Chourdakis",
-          "Benjamin Uekermann"
-        ],
-        conference: "preCICE workshop 2025",
-        date: "2025-09-11",
-        doi: "10.5281/zenodo.17105018",
-        abstract: "Interoperability and standardization are essential for the growing ecosystem of preCICE adapters. We present a JSON Schema-based specification for preCICE adapter configurations, complemented by comprehensive guidelines for adapter development. By formalizing configuration structures, we enable automated validation, tooling support, and improved documentation, while ensuring that adapters themselves adhere to shared standards. As a central tool, MetaConfigurator provides a schema-driven web interface that simplifies the creation and validation of configuration files, lowering the entry barrier for both adapter developers and users. This approach supports the FAIR principles by promoting interoperability and reusability not only of configuration files, but of the adapters and coupling setups themselves, fostering a more robust and sustainable preCICE ecosystem.",
-        type: "Poster"
-      }
-    ],
     icon: "icon_precice.svg",
     size: "m",
     tags: [
@@ -18296,8 +18162,8 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
     publications: {}
   },
   setup(__props) {
-    function sortPublications(publications) {
-      return publications.sort((a2, b) => {
+    function sortPublications(publications2) {
+      return publications2.sort((a2, b) => {
         return new Date(b.date).getTime() - new Date(a2.date).getTime();
       });
     }
@@ -18350,6 +18216,174 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
   }
 });
 const PublicationList = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-7c7c36df"]]);
+const publications = [
+  {
+    title: "MetaConfigurator: A User-Friendly Tool for Editing Structured Data Files",
+    authors: [
+      "Felix Neubauer",
+      "Paul Bredl",
+      "Minye Xu",
+      "Keyuriben Patel",
+      "Jürgen Pleiss",
+      "Benjamin Uekermann"
+    ],
+    conference: "Datenbank-Spektrum",
+    date: "2024-05-30",
+    doi: "10.1007/s13222-024-00472-7",
+    abstract: "Textual formats to structure data, such as JSON, XML, and YAML, are widely used for structuring data in various domains, from configuration files to research data. However, manually editing data in these formats can be complex and time-consuming. Graphical user interfaces (GUIs) can significantly reduce manual efforts and assist the user in editing the files, but developing a file-format-specific GUI requires substantial development and maintenance efforts. To address this challenge, we introduce MetaConfigurator: an open-source web application that generates its GUI depending on a given schema. Our approach differs from other schema-to-UI approaches in three key ways: 1) It offers a unified view that combines the benefits of both GUIs and text editors, 2) it enables schema editing within the same tool, and 3) it supports advanced schema features, including conditions and constraints. In this paper, we discuss the design and implementation of MetaConfigurator, backed by insights from a small-scale qualitative user study. The results indicate the effectiveness of our approach in retrieving information from data and schemas and in editing them.",
+    type: "JournalPaper",
+    related_projects: [
+      "MetaConfigurator (Web Tool)"
+    ]
+  },
+  {
+    title: "Data model creation with MetaConfigurator",
+    authors: [
+      "Felix Neubauer"
+    ],
+    conference: "University of Stuttgart, Master Thesis",
+    date: "2024-09-30",
+    doi: "10.18419/opus-15126",
+    abstract: "In both research and industry, significant effort is devoted to the creation of standardized data models that ensure data adheres to a specific structure, enabling the development and use of common tools. These models (also called schemas), enable data validation and facilitate collaboration by making data interoperable across various systems. Tools can assist in the creation and maintenance of data models. One such tool is MetaConfigurator, a schema editor and form generator for JSON schema and for JSON/YAML documents. It offers a unified interface that combines a traditional text editor with a graphical user interface (GUI), supporting advanced schema features such as conditions and constraints. In this work, MetaConfigurator is viewed from the perspective of three exemplary real-world use case in fields such as biochemistry and ontology management. Multiple improvements and functionalities are designed and implemented to further assist the user: 1) A more user-friendly schema editor, distinguishing between an easy and an advanced mode based on a novel meta schema builder approach; 2) A CSV import feature for seamless data transition from Excel to the JSON format with schema inference; 3) Snapshot sharing for effortless collaboration; 4) Ontology integration for auto-completion of URIs; and 5) A novel graphical diagram-like schema view for visual schema manipulation. These new functionalities are then applied to the real-world use cases, demonstrating the practical utility and improved accessibility of MetaConfigurator.",
+    type: "MasterThesis",
+    related_projects: [
+      "MetaConfigurator (Web Tool)"
+    ]
+  },
+  {
+    title: "Data Model Creation with MetaConfigurator",
+    abstract: "In both research and industry, significant effort is devoted to the creation of standardized data models that ensure data adheres to a specific structures, enabling the development and use of common tools. These models (also called schemas) enable data validation and facilitate collaboration by making data interoperable across various systems. Tools can assist in the creation and maintenance of data models. We introduce MetaConfigurator [1], an open-source web-based schema editor and form generator for JSON schema and for JSON/YAML documents. It differs from other schema-to-UI approaches in the following ways:\n1) It allows data editing and schema editing within the same tool,\n2) It offers a unified view, which combines the benefits of a GUI, a text editor and a UML-like diagram view, and\n3) It supports advanced schema features, including conditions, constraints and composition.\n\nIn this talk, we demonstrate MetaConfigurator based on a real-world application in the field of Chemistry. We show how the tool can be used to streamline and simplify the process of data model creation. Furthermore, we use the tool to visualize and communicate data models with others. Using MetaConfigurator less mistakes are made and the entry barrier for data model creation is lowered.",
+    authors: [
+      "Felix Neubauer",
+      "Jürgen Pleiss",
+      "Benjamin Uekermann"
+    ],
+    conference: "deRSE25 - Conference for Research Software Engineering in Germany",
+    date: "2025-02-25",
+    doi: "10.5281/zenodo.14981537",
+    type: "ConferenceTalk",
+    related_projects: [
+      "MetaConfigurator (Web Tool)"
+    ]
+  },
+  {
+    title: "Data Model Creation with MetaConfigurator",
+    authors: [
+      "Felix Neubauer",
+      "Jürgen Pleiss",
+      "Benjamin Uekermann"
+    ],
+    conference: "Datenbanksysteme für Business, Technologie und Web (BTW 2025)",
+    date: "2025-03-05",
+    doi: "10.18420/BTW2025-60",
+    abstract: "In both research and industry, significant effort is devoted to the creation of standardized data models that ensure data adheres to a specific structure, enabling the development and use of common tools. These models (also called schemas), enable data validation and facilitate collaboration by making data interoperable across various systems. Tools can assist in the creation and maintenance of data models.  One such tool is MetaConfigurator, a schema editor and form generator for JSON schema and for JSON/YAML documents. It offers a unified interface that combines a traditional text editor with a graphical user interface (GUI), supporting advanced schema features such as conditions and constraints. Still, schema editing can be complicated for novices, since MetaConfigurator shows all options of JSON schema, which is very expressive. The following improvements and functionalities have been designed and implemented to further assist the user: 1) A more user-friendly schema editor, distinguishing between an easy and an advanced mode based on a novel meta schema builder approach; 2) A CSV import feature for seamless data transition from Excel to JSON with schema inference; 3) Snapshot sharing for effortless collaboration; 4) Ontology integration for auto-completion of URIs; and 5) A novel graphical diagram-like schema view for visual schema manipulation. These new functionalities are then applied to a real-world use case in chemistry, demonstrating the usability and improved accessibility of MetaConfigurator.",
+    type: "ConferencePaper",
+    related_projects: [
+      "MetaConfigurator (Web Tool)"
+    ]
+  },
+  {
+    title: "Standardizing preCICE Adapters with MetaConfigurator",
+    authors: [
+      "Felix Neubauer",
+      "Gerasimos Chourdakis",
+      "Benjamin Uekermann"
+    ],
+    conference: "preCICE workshop 2025",
+    date: "2025-09-11",
+    doi: "10.5281/zenodo.17105018",
+    abstract: "Interoperability and standardization are essential for the growing ecosystem of preCICE adapters. We present a JSON Schema-based specification for preCICE adapter configurations, complemented by comprehensive guidelines for adapter development. By formalizing configuration structures, we enable automated validation, tooling support, and improved documentation, while ensuring that adapters themselves adhere to shared standards. As a central tool, MetaConfigurator provides a schema-driven web interface that simplifies the creation and validation of configuration files, lowering the entry barrier for both adapter developers and users. This approach supports the FAIR principles by promoting interoperability and reusability not only of configuration files, but of the adapters and coupling setups themselves, fostering a more robust and sustainable preCICE ecosystem.",
+    type: "Poster",
+    related_projects: [
+      "MetaConfigurator (Web Tool)",
+      "preCICe (Coupling Library)"
+    ]
+  },
+  {
+    title: "AI-assisted JSON Schema Creation and Mapping",
+    authors: [
+      "Felix Neubauer",
+      "Jürgen Pleiss",
+      "Benjamin Uekermann"
+    ],
+    conference: "ACM/IEEE 28th International Conference on Model Driven Engineering Languages and Systems",
+    date: "2025-10-08",
+    doi: "10.1109/MODELS-C68889.2025.00019",
+    abstract: "Model-Driven Engineering (MDE) places models at the core of system and data engineering processes. In the context of research data, these models are typically expressed as schemas that define the structure and semantics of datasets. However, many domains still lack standardized models, and creating them remains a significant barrier, especially for non-experts. We present a hybrid approach that combines large language models (LLMs) with deterministic techniques to enable JSON Schema creation, modification, and schema mapping based on natural language inputs by the user. These capabilities are integrated into the open-source tool MetaConfigurator, which already provides visual model editing, validation, code generation, and form generation from models. For data integration, we generate schema mappings from heterogeneous JSON, CSV, XML, and YAML data using LLMs, while ensuring scalability and reliability through deterministic execution of generated mapping rules. The applicability of our work is demonstrated in an application example in the field of chemistry. By combining natural language interaction with deterministic safeguards, this work significantly lowers the barrier to structured data modeling and data integration for non-experts.",
+    type: "ConferencePaper",
+    related_projects: [
+      "MetaConfigurator (Web Tool)"
+    ]
+  },
+  {
+    title: "AI-assisted JSON Schema Creation and Mapping",
+    authors: [
+      "Felix Neubauer",
+      "Jürgen Pleiss",
+      "Benjamin Uekermann"
+    ],
+    conference: "Allotrope Connect Fall 2025 Workshop",
+    date: "2025-10-29",
+    link: "https://www.youtube.com/watch?v=DfS6PgMr1q0",
+    type: "WorkshopTalk",
+    related_projects: [
+      "MetaConfigurator (Web Tool)"
+    ]
+  },
+  {
+    title: "A quick introduction to the coupling library preCICE",
+    authors: [
+      "Felix Neubauer",
+      "Gerasimos Chourdakis",
+      "Benjamin Uekermann"
+    ],
+    conference: "COUPLED PROBLEMS 2025",
+    date: "2025-05-27",
+    link: "https://coupled2025.cimne.com/event/contribution/39120852-c766-11ef-94cb-000c29ddfc0c",
+    abstract: "This talk will open the minisymposium and introduce the main concepts of the open-source preCICE coupling library for partitioned, black-box, multi-physics and multiscale simulations. preCICE enables the efficient, robust, and parallel coupling of separate single-physics solvers. This includes, but is not restricted to fluid-structure interaction. preCICE treats these solvers as black-boxes and, thus, only minimally-invasive changes are necessary to prepare a solver for coupling. Ready-to-use adapters for well known open-source solvers, including OpenFOAM, SU2, CalculiX, FEniCS, and deal.II, are available, while the core library is included in the xSDK ecosystem. The software offers methods for equation coupling, fully parallel communication, data mapping, and time interpolation schemes. For more information, please visit https://precice.org/.",
+    type: "ConferenceTalk",
+    related_projects: [
+      "preCICe (Coupling Library)"
+    ]
+  },
+  {
+    title: "preCICE Tooling Overview & News",
+    authors: [
+      "Felix Neubauer",
+      "Frédéric Simonis",
+      "Benjamin Uekermann"
+    ],
+    conference: "preCICE workshop 2025",
+    date: "2025-09-11",
+    doi: "10.5281/zenodo.17104911",
+    abstract: "Overview of new automation tools such as the preCICE command-line interface, configuration generator, configuration checker, and more.",
+    type: "WorkshopTalk",
+    related_projects: [
+      "MetaConfigurator (Web Tool)",
+      "preCICe (Coupling Library)"
+    ]
+  },
+  {
+    title: "Standardizing preCICE Adapters with MetaConfigurator",
+    authors: [
+      "Felix Neubauer",
+      "Gerasimos Chourdakis",
+      "Benjamin Uekermann"
+    ],
+    conference: "preCICE workshop 2025",
+    date: "2025-09-11",
+    doi: "10.5281/zenodo.17105018",
+    abstract: "Interoperability and standardization are essential for the growing ecosystem of preCICE adapters. We present a JSON Schema-based specification for preCICE adapter configurations, complemented by comprehensive guidelines for adapter development. By formalizing configuration structures, we enable automated validation, tooling support, and improved documentation, while ensuring that adapters themselves adhere to shared standards. As a central tool, MetaConfigurator provides a schema-driven web interface that simplifies the creation and validation of configuration files, lowering the entry barrier for both adapter developers and users. This approach supports the FAIR principles by promoting interoperability and reusability not only of configuration files, but of the adapters and coupling setups themselves, fostering a more robust and sustainable preCICE ecosystem.",
+    type: "Poster",
+    related_projects: [
+      "MetaConfigurator (Web Tool)",
+      "preCICe (Coupling Library)"
+    ]
+  }
+];
+const publications$1 = {
+  publications
+};
 const _hoisted_1$a = {
   key: 0,
   style: { "text-align": "center" }
@@ -18375,8 +18409,17 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
     const props = __props;
     const emit4 = __emit;
     const showPublications = ref(false);
-    const publications = computed(() => {
-      return props.projectData.publication ?? [];
+    const projectPublications = computed(() => {
+      const projectTitle = props.projectData.title.toLowerCase();
+      const allPublications = publications$1.publications;
+      return allPublications.filter(
+        (pub) => {
+          var _a;
+          return (_a = pub.related_projects) == null ? void 0 : _a.some(
+            (proj) => proj.toLowerCase().includes(projectTitle)
+          );
+        }
+      );
     });
     const videoOrVideos = props.projectData.videos ? props.projectData.videos.length > 1 ? "Videos" : "Video" : "No Video";
     return (_ctx, _cache) => {
@@ -18422,12 +18465,12 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
               }, _cache[4] || (_cache[4] = [
                 createBaseVNode("span", { class: "badge-link" }, "Read More", -1)
               ]))) : createCommentVNode("", true),
-              publications.value.length ? (openBlock(), createElementBlock("a", {
+              projectPublications.value.length ? (openBlock(), createElementBlock("a", {
                 key: 1,
                 onClick: _cache[1] || (_cache[1] = ($event) => showPublications.value = true),
                 title: "View Publications"
               }, [
-                createBaseVNode("span", _hoisted_8$1, " Publications (" + toDisplayString(publications.value.length) + ") ", 1)
+                createBaseVNode("span", _hoisted_8$1, " Publications (" + toDisplayString(projectPublications.value.length) + ") ", 1)
               ])) : createCommentVNode("", true),
               _ctx.projectData.project_page ? (openBlock(), createElementBlock("a", {
                 key: 2,
@@ -18478,7 +18521,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
           header: "Publications and Talks"
         }, {
           default: withCtx(() => [
-            createVNode(PublicationList, { publications: publications.value }, null, 8, ["publications"])
+            createVNode(PublicationList, { publications: projectPublications.value }, null, 8, ["publications"])
           ]),
           _: 1
         }, 8, ["visible"])
@@ -18486,7 +18529,7 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const ProjectCard = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-5f2db0c4"]]);
+const ProjectCard = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-1178584d"]]);
 var FilterMatchMode = {
   STARTS_WITH: "startsWith",
   CONTAINS: "contains",
@@ -36756,20 +36799,17 @@ const _hoisted_1$2 = { class: "publication-view" };
 const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "PublicationsView",
   setup(__props) {
-    const allPublications = computed(() => {
-      return projectsData.projects.flatMap(
-        (project) => project.publication ?? []
-      );
-    });
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$2, [
         _cache[0] || (_cache[0] = createBaseVNode("h1", null, "Publications", -1)),
-        createVNode(PublicationList, { publications: allPublications.value }, null, 8, ["publications"])
+        createVNode(PublicationList, {
+          publications: unref(publications$1).publications
+        }, null, 8, ["publications"])
       ]);
     };
   }
 });
-const PublicationsView = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-6bb5f6e5"]]);
+const PublicationsView = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-029cf101"]]);
 const PublicationsView$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: PublicationsView
@@ -74935,7 +74975,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const ProjectGraphView = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-614b13eb"]]);
+const ProjectGraphView = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-e841881c"]]);
 const _hoisted_1 = { class: "full-width" };
 const _hoisted_2 = { class: "menu-bar" };
 const _hoisted_3 = {
@@ -75051,7 +75091,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           ])) : (openBlock(), createElementBlock("div", _hoisted_6, [
             createVNode(ProjectGraphView, { id: "projectGraphView" })
           ])),
-          _cache[12] || (_cache[12] = createBaseVNode("p", null, "*For my own projects, the size labels/graph node sizes represent the project sizes. For collaborative projects, it resembles the sizes of my contributions.", -1))
+          _cache[12] || (_cache[12] = createBaseVNode("p", null, " *For my own projects, the size labels/graph node sizes represent the project sizes. For collaborative projects, it resembles the sizes of my contributions. ", -1))
         ]),
         createVNode(PublicationsView, {
           class: "page-section",
@@ -75061,7 +75101,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const HomeView = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-5c6bfa40"]]);
+const HomeView = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-671ccbaa"]]);
 const router = createRouter({
   history: createWebHistory("/"),
   routes: [
@@ -75076,7 +75116,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-C1RSvEGx.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-DwFlOoKp.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
