@@ -8,6 +8,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { computed, ref } from 'vue'
 import type { ComputedRef } from '@vue/runtime-dom'
 import PublicationList from '@/components/PublicationList.vue'
+import publications from '@/assets/main_publications.json'
 
 const props = defineProps<{
   projectData: Project
@@ -20,8 +21,14 @@ const emit = defineEmits<{
 
 const showPublications = ref(false)
 
-const publications: ComputedRef<Publication[]> = computed(() => {
-  return props.projectData.publication ?? []
+const projectPublications: ComputedRef<Publication[]> = computed(() => {
+  const projectTitle = props.projectData.title.toLowerCase()
+  const allPublications = publications.publications as Publication[]
+  return allPublications.filter(pub =>
+    pub.related_projects?.some(proj =>
+      proj.toLowerCase().includes(projectTitle),
+    ),
+  )
 })
 
 const videoOrVideos: string = props.projectData.videos
@@ -85,12 +92,12 @@ const videoOrVideos: string = props.projectData.videos
           <span class="badge-link">Read More</span>
         </a>
         <a
-          v-if="publications.length"
+          v-if="projectPublications.length"
           @click="showPublications = true"
           title="View Publications"
         >
           <span class="badge-link">
-            Publications ({{ publications.length }})
+            Publications ({{ projectPublications.length }})
           </span>
         </a>
         <a
@@ -144,7 +151,7 @@ const videoOrVideos: string = props.projectData.videos
     :style="{ width: '60vw' }"
     header="Publications and Talks"
   >
-    <PublicationList :publications="publications" />
+    <PublicationList :publications="projectPublications" />
   </Dialog>
 </template>
 

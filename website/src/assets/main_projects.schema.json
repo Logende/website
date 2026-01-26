@@ -69,56 +69,6 @@
             "type": "string"
           }
         },
-        "publication": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "title": {
-                "type": "string"
-              },
-              "abstract": {
-                "type": "string"
-              },
-              "authors": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "conference": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string",
-                "enum": [
-                  "ConferencePaper",
-                  "ConferenceTalk",
-                  "JournalPaper",
-                  "OtherTalk",
-                  "ThesisSupervision",
-                  "MasterThesis",
-                  "BachelorThesis",
-                  "WorkshopTalk",
-                  "Poster"
-                ]
-              },
-              "date": {
-                "type": "string",
-                "format": "date"
-              },
-              "doi": {
-                "type": "string"
-              },
-              "link": {
-                "description": "Use only when no DOI is available",
-                "type": "string",
-                "format": "uri"
-              }
-            },
-            "required": ["title", "authors", "conference", "date", "type"]
-          }
-        },
         "relations": {
           "type": "array",
           "items": {

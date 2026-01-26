@@ -13,7 +13,6 @@ export interface Project {
   demo?: string
   videos?: string[]
   relations?: ProjectRelation[]
-  publication?: Publication[]
 }
 
 export interface ProjectRelation {
@@ -33,6 +32,7 @@ export interface Publication {
   title: string
   abstract?: string
   authors: string[]
+  related_projects?: string[]
   conference: string
   date: string
   link?: string

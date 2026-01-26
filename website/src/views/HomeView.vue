@@ -64,7 +64,6 @@ watch(projectViewMode, async mode => {
 
     <!-- Shared Portfolio section wrapper -->
     <section class="page-section" id="portfolio-section">
-
       <h1>Portfolio</h1>
 
       <!-- Toggle buttons -->
@@ -92,7 +91,11 @@ watch(projectViewMode, async mode => {
       <div v-else>
         <ProjectGraphView id="projectGraphView" />
       </div>
-      <p>*For my own projects, the size labels/graph node sizes represent the project sizes. For collaborative projects, it resembles the sizes of my contributions.</p>
+      <p>
+        *For my own projects, the size labels/graph node sizes represent the
+        project sizes. For collaborative projects, it resembles the sizes of my
+        contributions.
+      </p>
     </section>
 
     <PublicationsView class="page-section" id="publications" />

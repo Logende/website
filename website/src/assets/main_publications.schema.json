@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "publications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "abstract": {
+            "type": "string"
+          },
+          "authors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "conference": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "ConferencePaper",
+              "ConferenceTalk",
+              "JournalPaper",
+              "OtherTalk",
+              "ThesisSupervision",
+              "MasterThesis",
+              "BachelorThesis",
+              "WorkshopTalk",
+              "Poster"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "doi": {
+            "type": "string"
+          },
+          "link": {
+            "description": "Use only when no DOI is available",
+            "type": "string",
+            "format": "uri"
+          },
+          "related_projects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "title",
+          "authors",
+          "conference",
+          "date",
+          "type",
+          "related_project_ids"
+        ]
+      }
+    }
+  }
+}
