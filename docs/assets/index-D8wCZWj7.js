@@ -12631,7 +12631,8 @@ const education = [
       "GoLang",
       "R",
       "Android",
-      "CI/CD"
+      "CI/CD",
+      "AI"
     ]
   }
 ];
@@ -16094,6 +16095,28 @@ const ExperienceView$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.de
 }, Symbol.toStringTag, { value: "Module" }));
 const projects = [
   {
+    title: "Data-Model-Driven Management and Analysis of Chemistry Data",
+    description: "Collaborating with Chemistry departments in University of Stuttgart to advance their FAIR data practices using MetaConfigurator and developing new scripts and algorithms.",
+    favorite: true,
+    icon: "icon_fairsynthesis.pdf",
+    size: "m",
+    tags: [
+      "Python",
+      "AI"
+    ],
+    when: {
+      start: "2024-12-01",
+      end: "2030-12-31"
+    },
+    where: "University of Stuttgart",
+    relations: [
+      {
+        label: "applies",
+        relatedProject: "MetaConfigurator (Web Tool)"
+      }
+    ]
+  },
+  {
     title: "MetaConfigurator (Web Tool)",
     description: "A form generator and schema editor for JSON schema, making editing configuration files, research data and schemas easier and more enjoyable. Started as a research project in a group of four students. Continued for my master thesis and now PhD.",
     favorite: true,
@@ -16101,7 +16124,9 @@ const projects = [
     size: "xl",
     tags: [
       "TypeScript",
-      "HTML"
+      "HTML",
+      "AI",
+      "DevOps"
     ],
     when: {
       start: "2023-04-20",
@@ -16232,7 +16257,8 @@ const projects = [
     icon: "icon_graphqlconsistency.png",
     size: "s",
     tags: [
-      "Python"
+      "Python",
+      "AI"
     ],
     when: {
       start: "2023-06-13",
@@ -16745,7 +16771,8 @@ const projects = [
     size: "l",
     tags: [
       "Python",
-      "C++"
+      "C++",
+      "DevOps"
     ],
     when: {
       start: "2022-04-01",
@@ -18361,6 +18388,28 @@ const publications = [
     related_projects: [
       "MetaConfigurator (Web Tool)",
       "preCICe (Coupling Library)"
+    ]
+  },
+  {
+    title: "Data-Model-Driven Management and Analysis of MOF Synthesis Data",
+    authors: [
+      "Felix Neubauer",
+      "Kenichi Endo",
+      "Frederic Bender",
+      "Esengül Ciftci",
+      "Niels Hansen",
+      "Simon Krause",
+      "Benjamin Uekermann",
+      "Jürgen Pleiss"
+    ],
+    conference: "ChemRxiv pre-print",
+    date: "2026-02-02",
+    doi: "10.26434/chemrxiv.10001842/v1",
+    abstract: "The successful synthesis of metal-organic frameworks (MOFs) in high yield and purity critically depends on the details of the procedure. Therefore, the machine-readable as well as findable, accessible, interoperable, and reusable (FAIR) documentation of the synthesis procedure and the associated characterization data is crucial to ensure reproducibility and to enable the data-driven analysis and systematic optimization of synthesis. Here, we demonstrate a data-processing workflow development based on a JSON Schema data model for the synthesis and characterization of MOFs. Its feasibility and usefulness is demonstrated by synthesis data of two MOF systems, Fe-terephthalate MOF and MOCOF-1, and their subsequent characterization by powder X-ray diffraction (PXRD). The data model supports the development of an integrated workflow to (1) parse synthesis data from a table or an electronic lab notebook (ELN) into standardized JSON forms, (2) validate the datasets for errors and incompleteness, (3) serialize the data into the standardized data exchange formats MPIF and XDL, and (4) analyze PXRD data by a decision tree to identify critical synthesis parameters that control phase selectivity and yield. The data model and the workflow are modular and extensible, and can be adapted to other data sources, characterizations, and AI methods for analysis. The proposed data model strategy makes MOF synthesis FAIR and AI-ready, fosters the digitalization of synthetic chemistry, and accelerates discovery.",
+    type: "JournalPaper",
+    related_projects: [
+      "Data-Model-Driven Management and Analysis of Chemistry Data",
+      "MetaConfigurator (Web Tool)"
     ]
   }
 ];
@@ -75099,7 +75148,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-DKoCLDXy.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-DiVoHgFW.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
