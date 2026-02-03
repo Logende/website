@@ -109,6 +109,19 @@
         "MetaConfigurator (Web Tool)",
         "preCICe (Coupling Library)"
       ]
+    },
+    {
+      "title": "Data-Model-Driven Management and Analysis of MOF Synthesis Data",
+      "authors": ["Felix Neubauer", "Kenichi Endo", "Frederic Bender", "Esengül Ciftci", "Niels Hansen", "Simon Krause", "Benjamin Uekermann", "Jürgen Pleiss"],
+      "conference": "ChemRxiv pre-print",
+      "date": "2026-02-02",
+      "doi": "10.26434/chemrxiv.10001842/v1",
+      "abstract": "The successful synthesis of metal-organic frameworks (MOFs) in high yield and purity critically depends on the details of the procedure. Therefore, the machine-readable as well as findable, accessible, interoperable, and reusable (FAIR) documentation of the synthesis procedure and the associated characterization data is crucial to ensure reproducibility and to enable the data-driven analysis and systematic optimization of synthesis. Here, we demonstrate a data-processing workflow development based on a JSON Schema data model for the synthesis and characterization of MOFs. Its feasibility and usefulness is demonstrated by synthesis data of two MOF systems, Fe-terephthalate MOF and MOCOF-1, and their subsequent characterization by powder X-ray diffraction (PXRD). The data model supports the development of an integrated workflow to (1) parse synthesis data from a table or an electronic lab notebook (ELN) into standardized JSON forms, (2) validate the datasets for errors and incompleteness, (3) serialize the data into the standardized data exchange formats MPIF and XDL, and (4) analyze PXRD data by a decision tree to identify critical synthesis parameters that control phase selectivity and yield. The data model and the workflow are modular and extensible, and can be adapted to other data sources, characterizations, and AI methods for analysis. The proposed data model strategy makes MOF synthesis FAIR and AI-ready, fosters the digitalization of synthetic chemistry, and accelerates discovery.",
+      "type": "JournalPaper",
+      "related_projects": [
+        "Data-Model-Driven Management and Analysis of Chemistry Data",
+        "MetaConfigurator (Web Tool)"
+      ]
     }
   ]
 }

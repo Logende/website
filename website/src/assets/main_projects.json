@@ -1,12 +1,31 @@
 {
   "projects": [
     {
+      "title": "Data-Model-Driven Management and Analysis of Chemistry Data",
+      "description": "Collaborating with Chemistry departments in University of Stuttgart to advance their FAIR data practices using MetaConfigurator and developing new scripts and algorithms.",
+      "favorite": true,
+      "icon": "icon_fairsynthesis.pdf",
+      "size": "m",
+      "tags": ["Python", "AI"],
+      "when": {
+        "start": "2024-12-01",
+        "end": "2030-12-31"
+      },
+      "where": "University of Stuttgart",
+      "relations": [
+        {
+          "label": "applies",
+          "relatedProject": "MetaConfigurator (Web Tool)"
+        }
+      ]
+    },
+    {
       "title": "MetaConfigurator (Web Tool)",
       "description": "A form generator and schema editor for JSON schema, making editing configuration files, research data and schemas easier and more enjoyable. Started as a research project in a group of four students. Continued for my master thesis and now PhD.",
       "favorite": true,
       "icon": "icon_metaconfigurator.gif",
       "size": "xl",
-      "tags": ["TypeScript", "HTML"],
+      "tags": ["TypeScript", "HTML", "AI", "DevOps"],
       "when": {
         "start": "2023-04-20",
         "end": "2030-12-31"
@@ -115,7 +134,7 @@
       "favorite": false,
       "icon": "icon_graphqlconsistency.png",
       "size": "s",
-      "tags": ["Python"],
+      "tags": ["Python", "AI"],
       "when": {
         "start": "2023-06-13",
         "end": "2023-07-20"
@@ -565,7 +584,7 @@
       "description": "In the area of self-driving cars, we developed a solution for collecting, processing and tagging data of the vehicle fleet. I worked predominantly on the tooling in Python and DevOps using Github Action and the Robotframework.",
       "favorite": false,
       "size": "l",
-      "tags": ["Python", "C++"],
+      "tags": ["Python", "C++", "DevOps"],
       "when": {
         "start": "2022-04-01",
         "end": "2024-11-30"
