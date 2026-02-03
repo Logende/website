@@ -5,22 +5,17 @@ import Card from 'primevue/card'
 import Dialog from 'primevue/dialog'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
-import { computed, ref } from 'vue'
+import { computed, type Ref, ref } from 'vue'
 import type { ComputedRef } from '@vue/runtime-dom'
 import PublicationList from '@/components/PublicationList.vue'
 import publications from '@/assets/main_publications.json'
+import MarkdownArticle from '@/components/MarkdownArticle.vue'
 
 const props = defineProps<{
   projectData: Project
 }>()
 
-const emit = defineEmits<{
-  (e: 'select_article', articlePath: string, title: string): void
-  (e: 'select_videos', videos: string[], title: string): void
-}>()
-
 const showPublications = ref(false)
-
 const projectPublications: ComputedRef<Publication[]> = computed(() => {
   const projectTitle = props.projectData.title.toLowerCase()
   const allPublications = publications.publications as Publication[]
@@ -31,11 +26,33 @@ const projectPublications: ComputedRef<Publication[]> = computed(() => {
   )
 })
 
+const showArticle: Ref<boolean> = ref<boolean>(false)
+const articleContent = ref<string>('')
+
+const showVideos: Ref<boolean> = ref<boolean>(false)
 const videoOrVideos: string = props.projectData.videos
   ? props.projectData.videos.length > 1
     ? 'Videos'
     : 'Video'
   : 'No Video'
+
+function openArticle() {
+  showArticle.value = true
+  fetchArticleContent(props.projectData.article!)
+}
+
+async function fetchArticleContent(articlePath: string) {
+  try {
+    const response = await fetch(articlePath)
+    if (response.ok) {
+      articleContent.value = await response.text()
+    } else {
+      console.error('Failed to fetch article content')
+    }
+  } catch (error) {
+    console.error('Error fetching article content:', error)
+  }
+}
 </script>
 
 <template>
@@ -83,9 +100,7 @@ const videoOrVideos: string = props.projectData.videos
       <div class="flex gap-4 mt-1">
         <a
           v-if="projectData.article"
-          @click="
-            emit('select_article', projectData.article, projectData.title)
-          "
+          @click="openArticle()"
           target="_blank"
           title="Read Article"
         >
@@ -126,13 +141,7 @@ const videoOrVideos: string = props.projectData.videos
         </a>
         <a
           v-if="projectData.videos"
-          @click="
-            emit(
-              'select_videos',
-              projectData.videos,
-              projectData.title + ' ' + videoOrVideos,
-            )
-          "
+          @click="showVideos = true"
           target="_blank"
           title="Watch Video"
         >
@@ -148,10 +157,51 @@ const videoOrVideos: string = props.projectData.videos
     v-model:visible="showPublications"
     modal
     dismissableMask
-    :style="{ width: '60vw' }"
+    :style="{ width: '90vw' }"
     header="Publications and Talks"
   >
     <PublicationList :publications="projectPublications" />
+  </Dialog>
+
+  <Dialog
+    v-model:visible="showArticle"
+    :modal="true"
+    :closable="true"
+    :style="{ width: '90vw', height: '90vh' }"
+  >
+    <template #header>
+      <h3>{{ projectData.title }}</h3>
+    </template>
+    <MarkdownArticle
+      v-if="projectData.article?.toLowerCase().endsWith('.md')"
+      :article-path="projectData.article!"
+    />
+    <div
+      v-if="projectData.article?.toLowerCase().endsWith('.html')"
+      v-html="articleContent"
+    ></div>
+  </Dialog>
+
+  <Dialog
+    v-model:visible="showVideos"
+    :modal="true"
+    :style="{ width: '600px', height: '80vh' }"
+    :closable="true"
+  >
+    <template #header>
+      <h3>{{ projectData.title + ' ' + videoOrVideos }}</h3>
+    </template>
+
+    <div>
+      <iframe
+        v-for="videoId in projectData.videos"
+        width="560"
+        height="315"
+        :src="'https://www.youtube.com/embed/' + videoId"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
   </Dialog>
 </template>
 
@@ -196,5 +246,11 @@ const videoOrVideos: string = props.projectData.videos
   font-size: 0.75em;
   font-weight: 600;
   border-radius: 0.25rem;
+}
+
+.full-size-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 </style>

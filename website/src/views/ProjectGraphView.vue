@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { ref, watch, computed, type Ref } from 'vue'
+import { ref, watch, computed } from 'vue'
 import cytoscape, { type Core } from 'cytoscape'
 import fcose from 'cytoscape-fcose'
 import Dialog from 'primevue/dialog'
 import ProjectCard from '@/components/ProjectCard.vue'
-import MarkdownArticle from '@/components/MarkdownArticle.vue'
 
 import projectsData from '@/assets/main_projects.json'
 import type { Project } from '@/model/data_structures'
@@ -239,43 +238,6 @@ const selectedProject = computed<Project | null>(() => {
   return projects.find(p => p.title === selectedProjectTitle.value) ?? null
 })
 
-// Article dialog
-const selectedArticle: Ref<string | undefined> = ref(undefined)
-const isArticleSelected = ref(false)
-const articleTitle = ref('')
-const articleContent = ref('')
-
-// Videos dialog
-const selectedVideos: Ref<string[]> = ref([])
-const isVideosSelected = ref(false)
-const videosTitle = ref('')
-
-async function fetchArticleContent(articlePath: string) {
-  try {
-    const response = await fetch(articlePath)
-    if (response.ok) {
-      articleContent.value = await response.text()
-    } else {
-      console.error('Failed to fetch article content')
-    }
-  } catch (error) {
-    console.error('Error fetching article content:', error)
-  }
-}
-
-function openArticle(articlePath: string, title: string) {
-  selectedArticle.value = articlePath
-  isArticleSelected.value = true
-  articleTitle.value = title
-  fetchArticleContent(articlePath)
-}
-
-function openVideos(videos: string[], title: string) {
-  selectedVideos.value = videos
-  isVideosSelected.value = true
-  videosTitle.value = title
-}
-
 watch(
   container,
   async () => {
@@ -322,54 +284,7 @@ defineExpose({ rerunLayout, getAffiliationColor })
       <h3>{{ selectedProject?.title }}</h3>
     </template>
     <div v-if="selectedProject">
-      <ProjectCard
-        :project-data="selectedProject"
-        @select_article="openArticle"
-        @select_videos="openVideos"
-      />
-    </div>
-  </Dialog>
-
-  <!-- Article dialog -->
-  <Dialog
-    v-model:visible="isArticleSelected"
-    :modal="true"
-    :style="{ width: '90vw', height: '90vh' }"
-    :closable="true"
-  >
-    <template #header>
-      <h3>{{ articleTitle }}</h3>
-    </template>
-    <MarkdownArticle
-      v-if="selectedArticle?.toLowerCase().endsWith('.md')"
-      :article-path="selectedArticle!"
-    />
-    <div
-      v-if="selectedArticle?.toLowerCase().endsWith('.html')"
-      v-html="articleContent"
-    />
-  </Dialog>
-
-  <!-- Videos dialog -->
-  <Dialog
-    v-model:visible="isVideosSelected"
-    :modal="true"
-    :style="{ width: '600px', height: '80vh' }"
-    :closable="true"
-  >
-    <template #header>
-      <h3>{{ videosTitle }}</h3>
-    </template>
-    <div>
-      <iframe
-        v-for="videoId in selectedVideos"
-        :key="videoId"
-        width="560"
-        height="315"
-        :src="`https://www.youtube.com/embed/${videoId}`"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      />
+      <ProjectCard :project-data="selectedProject" />
     </div>
   </Dialog>
 </template>

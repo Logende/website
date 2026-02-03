@@ -112,7 +112,16 @@
     },
     {
       "title": "Data-Model-Driven Management and Analysis of MOF Synthesis Data",
-      "authors": ["Felix Neubauer", "Kenichi Endo", "Frederic Bender", "Esengül Ciftci", "Niels Hansen", "Simon Krause", "Benjamin Uekermann", "Jürgen Pleiss"],
+      "authors": [
+        "Felix Neubauer",
+        "Kenichi Endo",
+        "Frederic Bender",
+        "Esengül Ciftci",
+        "Niels Hansen",
+        "Simon Krause",
+        "Benjamin Uekermann",
+        "Jürgen Pleiss"
+      ],
       "conference": "ChemRxiv pre-print",
       "date": "2026-02-02",
       "doi": "10.26434/chemrxiv.10001842/v1",

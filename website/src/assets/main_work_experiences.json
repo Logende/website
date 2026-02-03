@@ -45,7 +45,7 @@
         "start": "2022-04-01",
         "end": "2024-11-30"
       },
-      "tags": ["Python", "C++", "CI/CD"],
+      "tags": ["Python", "C++", "CI/CD", "DevOps"],
       "description": "Working in the Field of Self-Driving Cars, developing CI/CD Pipelines, Python Tooling and embedded Software for Field Data Collection in C++"
     },
     {
@@ -57,7 +57,7 @@
         "start": "2024-12-01",
         "end": "2028-11-30"
       },
-      "tags": ["TypeScript", "HTML", "C++", "CI/CD", "Python"],
+      "tags": ["TypeScript", "HTML", "C++", "CI/CD", "Python", "AI", "DevOps"],
       "description": "Advancing MetaConfigurator and Research Data Management as a doctoral student."
     }
   ]

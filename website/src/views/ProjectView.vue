@@ -4,9 +4,7 @@ import type { Project } from '@/model/data_structures'
 import ProjectCard from '@/components/ProjectCard.vue'
 import MultiSelect from 'primevue/multiselect'
 import DatePicker from 'primevue/datepicker'
-import Dialog from 'primevue/dialog'
-import { computed, type Ref, ref } from 'vue'
-import MarkdownArticle from '@/components/MarkdownArticle.vue'
+import { computed, ref } from 'vue'
 
 const projects = projectsData.projects as Project[]
 
@@ -28,17 +26,6 @@ const selectedSizes = ref<string[]>([])
 const selectedLanguages = ref<string[]>([])
 const selectedFavorites = ref<string[]>([])
 const selectedLocations = ref<string[]>([])
-
-const selectedArticle: Ref<string | undefined> = ref<string | undefined>(
-  undefined,
-)
-const isArticleSelected: Ref<boolean> = ref<boolean>(false)
-const articleTitle: Ref<string> = ref<string>('')
-const articleContent = ref<string>('')
-
-const selectedVideos: Ref<string[]> = ref<string[]>([])
-const isVideosSelected: Ref<boolean> = ref<boolean>(false)
-const videosTitle: Ref<string> = ref<string>('')
 
 const filteredProjects = computed(() => {
   const result = projects.filter(project => {
@@ -95,77 +82,10 @@ const filteredProjects = computed(() => {
 
   return result
 })
-
-function openArticle(articlePath: string, title: string) {
-  selectedArticle.value = articlePath
-  isArticleSelected.value = true
-  articleTitle.value = title
-  fetchArticleContent(articlePath)
-}
-
-async function fetchArticleContent(articlePath: string) {
-  try {
-    const response = await fetch(articlePath)
-    if (response.ok) {
-      articleContent.value = await response.text()
-    } else {
-      console.error('Failed to fetch article content')
-    }
-  } catch (error) {
-    console.error('Error fetching article content:', error)
-  }
-}
-
-function openVideos(videos: string[], title: string) {
-  selectedVideos.value = videos
-  isVideosSelected.value = true
-  videosTitle.value = title
-}
 </script>
 
 <template>
   <main class="full-width">
-    <Dialog
-      v-model:visible="isArticleSelected"
-      :modal="true"
-      :style="{ width: '90vw', height: '90vh' }"
-      :closable="true"
-    >
-      <template #header>
-        <h3>{{ articleTitle }}</h3>
-      </template>
-      <MarkdownArticle
-        v-if="selectedArticle?.toLowerCase().endsWith('.md')"
-        :article-path="selectedArticle!"
-      />
-      <div
-        v-if="selectedArticle?.toLowerCase().endsWith('.html')"
-        v-html="articleContent"
-      ></div>
-    </Dialog>
-
-    <Dialog
-      v-model:visible="isVideosSelected"
-      :modal="true"
-      :style="{ width: '600px', height: '80vh' }"
-      :closable="true"
-    >
-      <template #header>
-        <h3>{{ videosTitle }}</h3>
-      </template>
-
-      <div>
-        <iframe
-          v-for="videoId in selectedVideos"
-          width="560"
-          height="315"
-          :src="'https://www.youtube.com/embed/' + videoId"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </Dialog>
-
     <div class="filters">
       <MultiSelect
         v-model="selectedSizes"
@@ -220,8 +140,6 @@ function openVideos(videos: string[], title: string) {
         v-for="project in filteredProjects"
         :key="project.title"
         :project-data="project"
-        @select_article="openArticle"
-        @select_videos="openVideos"
       />
     </div>
   </main>
@@ -246,11 +164,5 @@ e>
 
 .full-width {
   width: 100%;
-}
-
-.full-size-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
 }
 </style>
