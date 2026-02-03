@@ -436,7 +436,11 @@ section[data-v-5b6c2b5e] {
   background: var(--pub-talk-bg);
 }
 
-.p-card[data-v-1178584d] {
+.vue-markdown p[data-v-1aacfb50] {
+  margin-bottom: 100px;
+}
+
+.p-card[data-v-282e3183] {
   overflow: hidden;
   width: 24rem;
   padding-left: 0;
@@ -447,7 +451,7 @@ section[data-v-5b6c2b5e] {
   display: flex;
   flex-direction: column;
 }
-.badge[data-v-1178584d] {
+.badge[data-v-282e3183] {
   display: inline-block;
   padding: 0.25em 0.5em;
   margin-right: 0.5em;
@@ -457,7 +461,7 @@ section[data-v-5b6c2b5e] {
   background-color: var(--color-border);
   border-radius: 0.25rem;
 }
-.badge-size[data-v-1178584d] {
+.badge-size[data-v-282e3183] {
   display: inline-block;
   padding: 0.25em 0.5em;
   margin-right: 0.5em;
@@ -467,7 +471,7 @@ section[data-v-5b6c2b5e] {
   background-color: var(--color-border-hover);
   border-radius: 0.25rem;
 }
-.badge-link[data-v-1178584d] {
+.badge-link[data-v-282e3183] {
   display: inline-block;
   padding: 0.25em 0.5em;
   margin-right: 0.5em;
@@ -475,17 +479,18 @@ section[data-v-5b6c2b5e] {
   font-weight: 600;
   border-radius: 0.25rem;
 }
-
-.vue-markdown p[data-v-1aacfb50] {
-  margin-bottom: 100px;
+.full-size-iframe[data-v-282e3183] {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
-.filters[data-v-3c4ccbdb] {
+.filters[data-v-60dd8a7a] {
   display: flex;
   gap: 16px;
   margin-bottom: 16px;
 }
-.projects-grid[data-v-3c4ccbdb] {
+.projects-grid[data-v-60dd8a7a] {
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
@@ -493,13 +498,8 @@ section[data-v-5b6c2b5e] {
   );
   gap: 16px;
 }
-.full-width[data-v-3c4ccbdb] {
+.full-width[data-v-60dd8a7a] {
   width: 100%;
-}
-.full-size-iframe[data-v-3c4ccbdb] {
-  width: 100%;
-  height: 100%;
-  border: none;
 }
 
 .publication-view[data-v-029cf101] {
@@ -507,12 +507,12 @@ section[data-v-5b6c2b5e] {
   margin: 0 auto;
 }
 
-.graph-wrapper[data-v-e841881c] {
+.graph-wrapper[data-v-25a158b1] {
   position: relative;
   width: 100%;
   height: 80vh;
 }
-.graph-container[data-v-e841881c] {
+.graph-container[data-v-25a158b1] {
   width: 100%;
   height: 100%;
   border: 1px solid var(--color-border);
@@ -522,14 +522,14 @@ section[data-v-5b6c2b5e] {
 }
 
 /* Cytoscape canvas */
-[data-v-e841881c] .cytoscape-container {
+[data-v-25a158b1] .cytoscape-container {
   width: 100%;
   height: 100%;
   border-radius: 8px;
 }
 
 /* Legend in top-right */
-.legend[data-v-e841881c] {
+.legend[data-v-25a158b1] {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -540,28 +540,28 @@ section[data-v-5b6c2b5e] {
   font-size: 0.75rem;
   max-width: 200px;
 }
-.legend-title[data-v-e841881c] {
+.legend-title[data-v-25a158b1] {
   font-weight: 600;
   margin-bottom: 4px;
 }
-.legend-item[data-v-e841881c] {
+.legend-item[data-v-25a158b1] {
   display: flex;
   align-items: center;
   gap: 6px;
   margin-top: 2px;
 }
-.legend-color[data-v-e841881c] {
+.legend-color[data-v-25a158b1] {
   width: 10px;
   height: 10px;
   border-radius: 3px;
   border: 1px solid rgba(255, 255, 255, 0.6);
 }
-.legend-label[data-v-e841881c] {
+.legend-label[data-v-25a158b1] {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.legend[data-v-e841881c] {
+.legend[data-v-25a158b1] {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -573,7 +573,7 @@ section[data-v-5b6c2b5e] {
   max-width: 200px;
 }
 @media (prefers-color-scheme: dark) {
-.legend[data-v-e841881c] {
+.legend[data-v-25a158b1] {
     background: rgba(255, 255, 255, 0.08);
 }
 }
