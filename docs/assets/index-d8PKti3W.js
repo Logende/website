@@ -36847,7 +36847,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   setup(__props) {
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$2, [
-        _cache[0] || (_cache[0] = createBaseVNode("h1", null, "Publications", -1)),
+        createBaseVNode("h1", null, "Publications (" + toDisplayString(unref(publications$1).publications.length) + ")", 1),
         createVNode(PublicationList, {
           publications: unref(publications$1).publications
         }, null, 8, ["publications"])
@@ -36855,7 +36855,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const PublicationsView = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-029cf101"]]);
+const PublicationsView = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-11e89a16"]]);
 const PublicationsView$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: PublicationsView
@@ -75075,7 +75075,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-BS_ZniKy.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-4M3NGCg2.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
