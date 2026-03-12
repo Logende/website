@@ -9177,7 +9177,7 @@ const __vitePreload = function preload(baseModule, deps, importerUrl) {
     return baseModule().catch(handlePreloadError);
   });
 };
-const _imports_0 = "/assets/me_2-Cs0TpgYy.jpg";
+const _imports_0 = "/assets/me_4-7rPrNRJv.jpg";
 var commonjsGlobal$2 = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 function getDefaultExportFromCjs$1(x2) {
   return x2 && x2.__esModule && Object.prototype.hasOwnProperty.call(x2, "default") ? x2["default"] : x2;
@@ -18412,6 +18412,38 @@ const publications = [
     type: "JournalPaper",
     related_projects: [
       "Data-Model-Driven Management and Analysis of Chemistry Data",
+      "MetaConfigurator (Web Tool)"
+    ]
+  },
+  {
+    title: "AI-assisted Model Driven Engineering",
+    authors: [
+      "Felix Neubauer",
+      "Jürgen Pleiss",
+      "Benjamin Uekermann"
+    ],
+    conference: "deRSE26 - 6th conference for Research Software Engineering in Germany (University of Stuttgart)",
+    date: "2026-03-04",
+    doi: "10.5281/zenodo.18872705",
+    abstract: "Model-Driven Engineering (MDE) places models at the core of system and data engineering processes. In the\ncontext of research data, these models are typically expressed as schemas that define the structure and semantics of datasets. However, many domains still lack standardized models, and creating them remains a significant barrier, especially for non-experts. We present a hybrid approach that combines large language models (LLMs) with deterministic techniques to enable JSON Schema creation, modification, and schema mapping based on natural language inputs by the user. These capabilities are integrated into the open-source tool MetaConfigurator, which already provides visual model editing, validation, code generation, and form generation from models. For data integration, we generate schema mappings from heterogeneous JSON, CSV, XML, and YAML data using LLMs, while ensuring scalability and reliability through deterministic execution of generated mapping rules. The applicability of our work is demonstrated in an application example in the field of chemistry. By combining natural language interaction with deterministic safeguards, this work significantly lowers the barrier to structured data modeling and data integration for non-experts.",
+    type: "ConferenceTalk",
+    related_projects: [
+      "MetaConfigurator (Web Tool)"
+    ]
+  },
+  {
+    title: "MetaConfigurator: A Powerful JSON Schema Editor and Forms/Code Generator",
+    authors: [
+      "Felix Neubauer",
+      "Jürgen Pleiss",
+      "Benjamin Uekermann"
+    ],
+    conference: "1st Stuttgart Research Software Day",
+    date: "2026-03-02",
+    doi: "10.5281/zenodo.18800017",
+    abstract: "This poster, presented at 1st Stuttgart Research Software Day, introduces MetaConfigurator, a web-based editor for designing, visualizing, and managing JSON Schemas. Developed at the University of Stuttgart, MetaConfigurator supports the creation of structured data models that improve FAIR (Findable, Accessible, Interoperable, Reproducible) data practices. Following the Model-Driven Engineering (MDE) approach, MetaConfigurator treats data models as first-class elements and enables automatic generation of code, documentation, and graphical forms from these models. The tool also provides integrated assistance for editing and schema-based data mapping. An example from chemistry shows how MetaConfigurator was used to define a schema for synthesis and characterization data of Metal–Organic Framework materials, ensuring consistent and validated data structures across different laboratory data sources. The poster includes a QR code linking to the online version of MetaConfigurator.",
+    type: "Poster",
+    related_projects: [
       "MetaConfigurator (Web Tool)"
     ]
   }
@@ -75043,7 +75075,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-BVm1dyV0.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-BS_ZniKy.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
