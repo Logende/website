@@ -6,7 +6,7 @@ import type { Publication } from '@/model/data_structures'
 
 <template>
   <div class="publication-view">
-    <h1>Publications</h1>
+    <h1>Publications ({{publications.publications.length}})</h1>
 
     <PublicationList
       :publications="publications.publications as Publication[]"
