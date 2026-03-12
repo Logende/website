@@ -12,7 +12,7 @@ defineProps<{}>()
     <img
       alt="Photo"
       class="logo"
-      src="@/assets/me_2.jpg"
+      src="@/assets/me_4.jpg"
       width="140"
       height="140"
     />
