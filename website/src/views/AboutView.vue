@@ -5,7 +5,7 @@
     <img
       alt="Photo"
       class="logo"
-      src="@/assets/me_4.jpg"
+      src="@/assets/me_5.jpg"
       width="140"
       height="140"
     />
