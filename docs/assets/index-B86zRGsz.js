@@ -9177,7 +9177,7 @@ const __vitePreload = function preload(baseModule, deps, importerUrl) {
     return baseModule().catch(handlePreloadError);
   });
 };
-const _imports_0 = "/assets/me_4-7rPrNRJv.jpg";
+const _imports_0 = "/assets/me_5-CffUo_gq.jpg";
 var commonjsGlobal$2 = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 function getDefaultExportFromCjs$1(x2) {
   return x2 && x2.__esModule && Object.prototype.hasOwnProperty.call(x2, "default") ? x2["default"] : x2;
@@ -75075,7 +75075,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-4M3NGCg2.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-Bg95omGT.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
