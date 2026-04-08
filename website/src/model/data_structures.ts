@@ -37,11 +37,13 @@ export interface Publication {
   date: string
   link?: string
   doi?: string
+  supervised_by?: string
   type:
     | 'ConferencePaper'
     | 'JournalPaper'
     | 'MasterThesis'
     | 'BachelorThesis'
+    | 'ResearchProject'
     | 'ConferenceTalk'
     | 'WorkshopTalk'
     | 'OtherTalk'

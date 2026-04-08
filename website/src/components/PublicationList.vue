@@ -55,6 +55,13 @@ function publicationTypeLabel(type: Publication['type']): string {
         <span class="pub-type" :class="`pub-type--${pub.type}`">
           {{ publicationTypeLabel(pub.type) }}
         </span>
+        <span v-if="pub.supervised_by" class="pub-type pub-type--Supervision">
+          Supervision
+        </span>
+      </p>
+
+      <p v-if="pub.supervised_by" class="supervision-note">
+        Supervised by {{ pub.supervised_by }}
       </p>
 
       <p v-if="pub.abstract" class="abstract">
@@ -142,13 +149,25 @@ function publicationTypeLabel(type: Publication['type']): string {
 
 .pub-type--MasterThesis,
 .pub-type--BachelorThesis,
+.pub-type--ResearchProject,
 .pub-type--ThesisSupervision {
   background: var(--pub-thesis-bg);
+}
+
+.pub-type--Supervision {
+  background: var(--pub-supervision-bg);
 }
 
 .pub-type--ConferenceTalk,
 .pub-type--WorkshopTalk,
 .pub-type--OtherTalk {
   background: var(--pub-talk-bg);
+}
+
+.supervision-note {
+  margin-top: 0.35rem;
+  font-size: 0.85em;
+  font-style: italic;
+  opacity: 0.7;
 }
 </style>

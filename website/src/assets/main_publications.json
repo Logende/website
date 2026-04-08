@@ -163,6 +163,20 @@
       "related_projects": [
         "MetaConfigurator (Web Tool)"
       ]
+    },
+    {
+      "title": "Fine-tuning Large Language Models for JSON Schema Generation and Modification",
+      "authors": [
+        "Durga Lakshmi Sajith"
+      ],
+      "supervised_by": "Felix Neubauer",
+      "conference": "University of Stuttgart, Research Project",
+      "date": "2026-04-08",
+      "abstract": "The project explores the fine-tuning of small-scale Large Language Models for JSON Schema generation and modification from natural language descriptions.\nA dataset (based on JsonSchemaBench) and a custom evaluation strategy were developed to assess model outputs across multiple task complexity levels. Four models were fine-tuned using Parameter-Efficient Fine-Tuning methods. A detailed comparison of all four fine-tuned models was conducted. An integration of the best-performing model into MetaConfigurator is demonstrated.",
+      "type": "ResearchProject",
+      "related_projects": [
+        "MetaConfigurator (Web Tool)"
+      ]
     }
   ]
 }

@@ -38,6 +38,7 @@
   --pub-poster-bg: #f3e8ff;
   --pub-thesis-bg: #e8f7ef;
   --pub-talk-bg: #fff4e5;
+  --pub-supervision-bg: #e0f5f5;
 
   --section-gap: 160px;
 
@@ -107,6 +108,7 @@
     --pub-poster-bg: #4b2f5e;
     --pub-thesis-bg: #245040;
     --pub-talk-bg: #5a4220;
+    --pub-supervision-bg: #1a4a4a;
   }
 }
 

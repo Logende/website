@@ -6,6 +6,11 @@ import { formatTimeRange } from '../utils'
 defineProps<{
   educationData: Education
 }>()
+
+function isOngoing(timeRange: Education['timeRange']): boolean {
+  return !timeRange.end || new Date(timeRange.end) > new Date()
+}
+
 </script>
 
 <template>
@@ -31,8 +36,15 @@ defineProps<{
           - {{ educationData.location }}</span
         >
         <br />
+        <span v-if="!isOngoing(educationData.timeRange)">
         Graduated with a {{ educationData.degree }} in
-        {{ educationData.subject }} (grade: {{ educationData.grade }})
+        {{ educationData.subject }} (grade: {{ educationData.grade }}).
+        </span>
+        <span v-else>
+        Pursuing a {{ educationData.degree }} in
+        {{ educationData.subject }}.
+
+        </span>
       </h5>
       <span v-if="educationData.description">
         {{ educationData.description }}
