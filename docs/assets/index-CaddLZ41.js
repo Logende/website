@@ -4660,7 +4660,7 @@ function baseCreateRenderer(options3, createHydrationFns) {
       if (!instance2.isMounted) {
         let vnodeHook;
         const { el: el2, props } = initialVNode;
-        const { bm, m, parent: parent4, root: root11, type } = instance2;
+        const { bm, m, parent: parent4, root: root12, type } = instance2;
         const isAsyncWrapperVNode = isAsyncWrapper(initialVNode);
         toggleRecurse(instance2, false);
         if (bm) {
@@ -4691,8 +4691,8 @@ function baseCreateRenderer(options3, createHydrationFns) {
             hydrateSubTree();
           }
         } else {
-          if (root11.ce) {
-            root11.ce._injectChildStyle(type);
+          if (root12.ce) {
+            root12.ce._injectChildStyle(type);
           }
           const subTree = instance2.subTree = renderComponentRoot(instance2);
           patch(
@@ -5689,10 +5689,10 @@ function renderComponentRoot(instance2) {
     handleError(err, instance2, 1);
     result = createVNode(Comment);
   }
-  let root11 = result;
+  let root12 = result;
   if (fallthroughAttrs && inheritAttrs !== false) {
     const keys = Object.keys(fallthroughAttrs);
-    const { shapeFlag } = root11;
+    const { shapeFlag } = root12;
     if (keys.length) {
       if (shapeFlag & (1 | 6)) {
         if (propsOptions && keys.some(isModelListener)) {
@@ -5701,19 +5701,19 @@ function renderComponentRoot(instance2) {
             propsOptions
           );
         }
-        root11 = cloneVNode(root11, fallthroughAttrs, false, true);
+        root12 = cloneVNode(root12, fallthroughAttrs, false, true);
       }
     }
   }
   if (vnode.dirs) {
-    root11 = cloneVNode(root11, null, false, true);
-    root11.dirs = root11.dirs ? root11.dirs.concat(vnode.dirs) : vnode.dirs;
+    root12 = cloneVNode(root12, null, false, true);
+    root12.dirs = root12.dirs ? root12.dirs.concat(vnode.dirs) : vnode.dirs;
   }
   if (vnode.transition) {
-    setTransitionHooks(root11, vnode.transition);
+    setTransitionHooks(root12, vnode.transition);
   }
   {
-    result = root11;
+    result = root12;
   }
   setCurrentRenderingInstance(prev);
   return result;
@@ -5795,11 +5795,11 @@ function hasPropsChanged(prevProps, nextProps, emitsOptions) {
 }
 function updateHOCHostEl({ vnode, parent: parent4 }, el2) {
   while (parent4) {
-    const root11 = parent4.subTree;
-    if (root11.suspense && root11.suspense.activeBranch === vnode) {
-      root11.el = vnode.el;
+    const root12 = parent4.subTree;
+    if (root12.suspense && root12.suspense.activeBranch === vnode) {
+      root12.el = vnode.el;
     }
-    if (root11 === vnode) {
+    if (root12 === vnode) {
       (vnode = parent4.vnode).el = el2;
       parent4 = parent4.parent;
     } else {
@@ -9091,14 +9091,14 @@ function extractChangingRecords(to, from) {
   }
   return [leavingRecords, updatingRecords, enteringRecords];
 }
-const _hoisted_1$i = { class: "full-width" };
-const _hoisted_2$f = { class: "full-width" };
+const _hoisted_1$j = { class: "full-width" };
+const _hoisted_2$h = { class: "full-width" };
 const _sfc_main$b = /* @__PURE__ */ defineComponent({
   __name: "App",
   setup(__props) {
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1$i, [
-        createBaseVNode("main", _hoisted_2$f, [
+      return openBlock(), createElementBlock("div", _hoisted_1$j, [
+        createBaseVNode("main", _hoisted_2$h, [
           createVNode(unref(RouterView), { class: "full-width" })
         ])
       ]);
@@ -11056,7 +11056,7 @@ Object.keys(PREFIX_TO_STYLE[a]).map(knownPrefixes.add.bind(knownPrefixes));
 Object.keys(PREFIX_TO_STYLE[r]).map(knownPrefixes.add.bind(knownPrefixes));
 Object.keys(PREFIX_TO_STYLE[o]).map(knownPrefixes.add.bind(knownPrefixes));
 knownPrefixes = [...knownPrefixes];
-function onTree(root11) {
+function onTree(root12) {
   let callback = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : null;
   if (!IS_DOM) return Promise.resolve();
   const htmlClassList = DOCUMENT.documentElement.classList;
@@ -11072,7 +11072,7 @@ function onTree(root11) {
   }
   let candidates = [];
   try {
-    candidates = toArray(root11.querySelectorAll(prefixesDomQuery));
+    candidates = toArray(root12.querySelectorAll(prefixesDomQuery));
   } catch (e$$1) {
   }
   if (candidates.length > 0) {
@@ -11137,7 +11137,7 @@ function resolveIcons(next2) {
     });
   };
 }
-const render$w = function(iconDefinition) {
+const render$x = function(iconDefinition) {
   let params = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
   const {
     transform: transform7 = meaninglessTransform,
@@ -11203,7 +11203,7 @@ const render$w = function(iconDefinition) {
 var ReplaceElements = {
   mixout() {
     return {
-      icon: resolveIcons(render$w)
+      icon: resolveIcons(render$x)
     };
   },
   hooks() {
@@ -11541,10 +11541,10 @@ function replace(node) {
 function processable(node) {
   return node.parentNode !== document.head && !~TAGNAMES_TO_SKIP_FOR_PSEUDOELEMENTS.indexOf(node.tagName.toUpperCase()) && !node.getAttribute(DATA_FA_PSEUDO_ELEMENT) && (!node.parentNode || node.parentNode.tagName !== "svg");
 }
-function searchPseudoElements(root11) {
+function searchPseudoElements(root12) {
   if (!IS_DOM) return;
   return new Promise((resolve3, reject2) => {
-    const operations = toArray(root11.querySelectorAll("*")).filter(processable).map(replace);
+    const operations = toArray(root12.querySelectorAll("*")).filter(processable).map(replace);
     const end2 = perf.begin("searchPseudoElements");
     disableObservation();
     Promise.all(operations).then(() => {
@@ -12440,17 +12440,17 @@ var FontAwesomeIcon = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const _hoisted_1$h = { class: "about" };
-const _hoisted_2$e = {
+const _hoisted_1$i = { class: "about" };
+const _hoisted_2$g = {
   href: "https://github.com/logende",
   target: "_blank",
   rel: "noopener"
 };
-const _hoisted_3$b = {
+const _hoisted_3$c = {
   href: "https://www.instagram.com/felix.neuby/",
   rel: "noopener"
 };
-const _hoisted_4$9 = {
+const _hoisted_4$a = {
   href: "https://www.linkedin.com/in/neubauer-felix/",
   target: "_blank"
 };
@@ -12458,7 +12458,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
   __name: "AboutView",
   setup(__props) {
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1$h, [
+      return openBlock(), createElementBlock("div", _hoisted_1$i, [
         _cache[0] || (_cache[0] = createBaseVNode("h1", null, "About Me", -1)),
         _cache[1] || (_cache[1] = createBaseVNode("img", {
           alt: "Photo",
@@ -12468,13 +12468,13 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
           height: "140"
         }, null, -1)),
         _cache[2] || (_cache[2] = createBaseVNode("br", null, null, -1)),
-        createBaseVNode("a", _hoisted_2$e, [
+        createBaseVNode("a", _hoisted_2$g, [
           createVNode(unref(FontAwesomeIcon), { icon: unref(faGithub.faGithub) }, null, 8, ["icon"])
         ]),
-        createBaseVNode("a", _hoisted_3$b, [
+        createBaseVNode("a", _hoisted_3$c, [
           createVNode(unref(FontAwesomeIcon), { icon: unref(faInstagram.faInstagram) }, null, 8, ["icon"])
         ]),
-        createBaseVNode("a", _hoisted_4$9, [
+        createBaseVNode("a", _hoisted_4$a, [
           createVNode(unref(FontAwesomeIcon), { icon: unref(faLinkedin.faLinkedin) }, null, 8, ["icon"])
         ]),
         _cache[3] || (_cache[3] = createStaticVNode("<br><br><h3> Hi, I&#39;m <b>Felix Neubauer</b>, a research software engineer based in Germany with a passion for crafting well-architected, high-quality software. <br> I started programming in Java in 2012 and have since earned both my <b>Bachelor’s and Master’s degrees in Software Engineering</b>. After working at <b>Robert Bosch GmbH from 2019 to 2024</b> — developing software for self-driving cars with <b>C++ for embedded systems</b>, <b>Python-based tooling</b>, and <b>CI/CD pipelines</b> — I have now transitioned to full-time research as part of my <b>PhD</b>. <br> Beyond my research, I love experimenting with <b>TypeScript, Kotlin and Java</b>, focusing on <b>research data management</b>, <b>model driven engineering</b>, <b>software architecture</b>, <b>clean code</b>, <b>testing</b>, <b>DevOps</b>, and <b>API design</b>. My open-source projects have accumulated over a <b>million downloads</b>, and one of my Java minigames was featured by YouTubers with a combined audience of over 50 million subscribers. <br> Before transitioning to a full-time industry and then research job, I worked as a freelancer and sold my own Java software. Now, I continue to build impactful software—most recently, <b>MetaConfigurator</b>, a JSON schema editor and form generator, developed as part of my master’s thesis and now developed further within the scope of my PhD. <br> Want to learn more? Check out my projects and research below! 🚀 </h3>", 3))
@@ -12550,7 +12550,7 @@ const work_experiences = [
     description: "Working in the Field of Self-Driving Cars, developing CI/CD Pipelines, Python Tooling and embedded Software for Field Data Collection in C++"
   },
   {
-    role: "PhD Student",
+    role: "Doctoral Researcher",
     icon: "icon_university_stuttgart.jpeg",
     organization: "University of Stuttgart",
     location: "Stuttgart",
@@ -12636,6 +12636,27 @@ const education = [
       "Android",
       "CI/CD",
       "AI"
+    ]
+  },
+  {
+    role: "Phd Student",
+    organization: "University of Stuttgart",
+    location: "Stuttgart",
+    icon: "icon_university_stuttgart.jpeg",
+    timeRange: {
+      start: "2024-12-01",
+      end: "2028-11-30"
+    },
+    degree: "doctorate",
+    subject: "Software Engineering",
+    tags: [
+      "TypeScript",
+      "HTML",
+      "C++",
+      "CI/CD",
+      "Python",
+      "AI",
+      "DevOps"
     ]
   }
 ];
@@ -13428,10 +13449,10 @@ function getRule(selector, properties) {
 var dt = (...args) => {
   return dtwt(config_default.getTheme(), ...args);
 };
-var dtwt = (theme16 = {}, tokenPath, fallback, type) => {
+var dtwt = (theme17 = {}, tokenPath, fallback, type) => {
   if (tokenPath) {
     const { variable: VARIABLE, options: OPTIONS } = config_default.defaults || {};
-    const { prefix, transform: transform7 } = (theme16 == null ? void 0 : theme16.options) || OPTIONS || {};
+    const { prefix, transform: transform7 } = (theme17 == null ? void 0 : theme17.options) || OPTIONS || {};
     const regex2 = /{([^}]*)}/g;
     const token2 = matchRegex(tokenPath, regex2) ? tokenPath : `{${tokenPath}}`;
     const isStrictTransform = type === "value" || isEmpty(type) && transform7 === "strict";
@@ -13439,7 +13460,7 @@ var dtwt = (theme16 = {}, tokenPath, fallback, type) => {
   }
   return "";
 };
-function toVariables_default(theme16, options3 = {}) {
+function toVariables_default(theme17, options3 = {}) {
   const VARIABLE = config_default.defaults.variable;
   const { prefix = VARIABLE.prefix, selector = VARIABLE.selector, excludedKeyRegex = VARIABLE.excludedKeyRegex } = options3;
   const _toVariables = (_theme, _prefix = "") => {
@@ -13460,7 +13481,7 @@ function toVariables_default(theme16, options3 = {}) {
       { variables: [], tokens: [] }
     );
   };
-  const { variables, tokens: tokens2 } = _toVariables(theme16, prefix);
+  const { variables, tokens: tokens2 } = _toVariables(theme17, prefix);
   return {
     value: variables,
     tokens: tokens2,
@@ -13509,12 +13530,12 @@ var themeUtils_default = {
       });
     }
   },
-  _toVariables(theme16, options3) {
-    return toVariables_default(theme16, { prefix: options3 == null ? void 0 : options3.prefix });
+  _toVariables(theme17, options3) {
+    return toVariables_default(theme17, { prefix: options3 == null ? void 0 : options3.prefix });
   },
-  getCommon({ name = "", theme: theme16 = {}, params, set: set3, defaults: defaults3 }) {
+  getCommon({ name = "", theme: theme17 = {}, params, set: set3, defaults: defaults3 }) {
     var _e, _f, _g, _h, _i, _j, _k;
-    const { preset, options: options3 } = theme16;
+    const { preset, options: options3 } = theme17;
     let primitive_css, primitive_tokens, semantic_css, semantic_tokens, global_css, global_tokens, style3;
     if (isNotEmpty(preset) && options3.transform !== "strict") {
       const { primitive, semantic, extend: extend4 } = preset;
@@ -13591,16 +13612,16 @@ var themeUtils_default = {
       style: p_style
     };
   },
-  getPresetC({ name = "", theme: theme16 = {}, params, set: set3, defaults: defaults3 }) {
+  getPresetC({ name = "", theme: theme17 = {}, params, set: set3, defaults: defaults3 }) {
     var _a;
-    const { preset, options: options3 } = theme16;
+    const { preset, options: options3 } = theme17;
     const cPreset = (_a = preset == null ? void 0 : preset.components) == null ? void 0 : _a[name];
     return this.getPreset({ name, preset: cPreset, options: options3, params, set: set3, defaults: defaults3 });
   },
-  getPresetD({ name = "", theme: theme16 = {}, params, set: set3, defaults: defaults3 }) {
+  getPresetD({ name = "", theme: theme17 = {}, params, set: set3, defaults: defaults3 }) {
     var _a;
     const dName = name.replace("-directive", "");
-    const { preset, options: options3 } = theme16;
+    const { preset, options: options3 } = theme17;
     const dPreset = (_a = preset == null ? void 0 : preset.directives) == null ? void 0 : _a[dName];
     return this.getPreset({ name: dName, preset: dPreset, options: options3, params, set: set3, defaults: defaults3 });
   },
@@ -13619,8 +13640,8 @@ var themeUtils_default = {
     }
     return "";
   },
-  getCommonStyleSheet({ name = "", theme: theme16 = {}, params, props = {}, set: set3, defaults: defaults3 }) {
-    const common = this.getCommon({ name, theme: theme16, params, set: set3, defaults: defaults3 });
+  getCommonStyleSheet({ name = "", theme: theme17 = {}, params, props = {}, set: set3, defaults: defaults3 }) {
+    const common = this.getCommon({ name, theme: theme17, params, set: set3, defaults: defaults3 });
     const _props = Object.entries(props).reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, []).join(" ");
     return Object.entries(common || {}).reduce((acc, [key, value]) => {
       if (value == null ? void 0 : value.css) {
@@ -13631,9 +13652,9 @@ var themeUtils_default = {
       return acc;
     }, []).join("");
   },
-  getStyleSheet({ name = "", theme: theme16 = {}, params, props = {}, set: set3, defaults: defaults3 }) {
+  getStyleSheet({ name = "", theme: theme17 = {}, params, props = {}, set: set3, defaults: defaults3 }) {
     var _a;
-    const options3 = { name, theme: theme16, params, set: set3, defaults: defaults3 };
+    const options3 = { name, theme: theme17, params, set: set3, defaults: defaults3 };
     const preset_css = (_a = name.includes("-directive") ? this.getPresetD(options3) : this.getPresetC(options3)) == null ? void 0 : _a.css;
     const _props = Object.entries(props).reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, []).join(" ");
     return preset_css ? `<style type="text/css" data-primevue-style-id="${name}-variables" ${_props}>${minifyCSS(preset_css)}</style>` : "";
@@ -13756,10 +13777,10 @@ var config_default = {
   _loadingStyles: /* @__PURE__ */ new Set(),
   _tokens: {},
   update(newValues = {}) {
-    const { theme: theme16 } = newValues;
-    if (theme16) {
-      this._theme = __spreadProps(__spreadValues({}, theme16), {
-        options: __spreadValues(__spreadValues({}, this.defaults.options), theme16.options)
+    const { theme: theme17 } = newValues;
+    if (theme17) {
+      this._theme = __spreadProps(__spreadValues({}, theme17), {
+        options: __spreadValues(__spreadValues({}, this.defaults.options), theme17.options)
       });
       this._tokens = themeUtils_default.createTokens(this.preset, this.defaults);
       this.clearLoadedStyleNames();
@@ -14094,7 +14115,7 @@ function _toPrimitive$d(t2, r2) {
   }
   return ("string" === r2 ? String : Number)(t2);
 }
-var theme$d = function theme(_ref) {
+var theme$e = function theme(_ref) {
   var dt2 = _ref.dt;
   return "\n* {\n    box-sizing: border-box;\n}\n\n/* Non vue overlay animations */\n.p-connected-overlay {\n    opacity: 0;\n    transform: scaleY(0.8);\n    transition: transform 0.12s cubic-bezier(0, 0, 0.2, 1),\n        opacity 0.12s cubic-bezier(0, 0, 0.2, 1);\n}\n\n.p-connected-overlay-visible {\n    opacity: 1;\n    transform: scaleY(1);\n}\n\n.p-connected-overlay-hidden {\n    opacity: 0;\n    transform: scaleY(1);\n    transition: opacity 0.1s linear;\n}\n\n/* Vue based overlay animations */\n.p-connected-overlay-enter-from {\n    opacity: 0;\n    transform: scaleY(0.8);\n}\n\n.p-connected-overlay-leave-to {\n    opacity: 0;\n}\n\n.p-connected-overlay-enter-active {\n    transition: transform 0.12s cubic-bezier(0, 0, 0.2, 1),\n        opacity 0.12s cubic-bezier(0, 0, 0.2, 1);\n}\n\n.p-connected-overlay-leave-active {\n    transition: opacity 0.1s linear;\n}\n\n/* Toggleable Content */\n.p-toggleable-content-enter-from,\n.p-toggleable-content-leave-to {\n    max-height: 0;\n}\n\n.p-toggleable-content-enter-to,\n.p-toggleable-content-leave-from {\n    max-height: 1000px;\n}\n\n.p-toggleable-content-leave-active {\n    overflow: hidden;\n    transition: max-height 0.45s cubic-bezier(0, 1, 0, 1);\n}\n\n.p-toggleable-content-enter-active {\n    overflow: hidden;\n    transition: max-height 1s ease-in-out;\n}\n\n.p-disabled,\n.p-disabled * {\n    cursor: default;\n    pointer-events: none;\n    user-select: none;\n}\n\n.p-disabled,\n.p-component:disabled {\n    opacity: ".concat(dt2("disabled.opacity"), ";\n}\n\n.pi {\n    font-size: ").concat(dt2("icon.size"), ";\n}\n\n.p-icon {\n    width: ").concat(dt2("icon.size"), ";\n    height: ").concat(dt2("icon.size"), ";\n}\n\n.p-overlay-mask {\n    background: ").concat(dt2("mask.background"), ";\n    color: ").concat(dt2("mask.color"), ";\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n}\n\n.p-overlay-mask-enter {\n    animation: p-overlay-mask-enter-animation ").concat(dt2("mask.transition.duration"), " forwards;\n}\n\n.p-overlay-mask-leave {\n    animation: p-overlay-mask-leave-animation ").concat(dt2("mask.transition.duration"), " forwards;\n}\n\n@keyframes p-overlay-mask-enter-animation {\n    from {\n        background: transparent;\n    }\n    to {\n        background: ").concat(dt2("mask.background"), ";\n    }\n}\n@keyframes p-overlay-mask-leave-animation {\n    from {\n        background: ").concat(dt2("mask.background"), ";\n    }\n    to {\n        background: transparent;\n    }\n}\n");
 };
@@ -14102,14 +14123,14 @@ var css$2 = function css(_ref2) {
   var dt2 = _ref2.dt;
   return "\n.p-hidden-accessible {\n    border: 0;\n    clip: rect(0 0 0 0);\n    height: 1px;\n    margin: -1px;\n    overflow: hidden;\n    padding: 0;\n    position: absolute;\n    width: 1px;\n}\n\n.p-hidden-accessible input,\n.p-hidden-accessible select {\n    transform: scale(0);\n}\n\n.p-overflow-hidden {\n    overflow: hidden;\n    padding-right: ".concat(dt2("scrollbar.width"), ";\n}\n");
 };
-var classes$d = {};
-var inlineStyles$3 = {};
+var classes$e = {};
+var inlineStyles$4 = {};
 var BaseStyle = {
   name: "base",
   css: css$2,
-  theme: theme$d,
-  classes: classes$d,
-  inlineStyles: inlineStyles$3,
+  theme: theme$e,
+  classes: classes$e,
+  inlineStyles: inlineStyles$4,
   load: function load(style3) {
     var options3 = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
     var transform7 = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : function(cs) {
@@ -14291,7 +14312,7 @@ function _toPrimitive$c(t2, r2) {
   }
   return ("string" === r2 ? String : Number)(t2);
 }
-var script$y = {
+var script$z = {
   name: "BaseComponent",
   props: {
     pt: {
@@ -14755,9 +14776,9 @@ function _toPrimitive$b(t2, r2) {
   }
   return ("string" === r2 ? String : Number)(t2);
 }
-var script$x = {
+var script$y = {
   name: "BaseIcon",
-  "extends": script$y,
+  "extends": script$z,
   props: {
     label: {
       type: String,
@@ -14790,11 +14811,11 @@ var script$x = {
     }
   }
 };
-var script$w = {
+var script$x = {
   name: "EyeIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$v(_ctx, _cache, $props, $setup, $data, $options) {
+function render$w(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -14808,12 +14829,12 @@ function render$v(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$w.render = render$v;
-var script$v = {
+script$x.render = render$w;
+var script$w = {
   name: "RefreshIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$u(_ctx, _cache, $props, $setup, $data, $options) {
+function render$v(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -14827,12 +14848,12 @@ function render$u(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$v.render = render$u;
-var script$u = {
+script$w.render = render$v;
+var script$v = {
   name: "SearchMinusIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$t(_ctx, _cache, $props, $setup, $data, $options) {
+function render$u(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -14846,12 +14867,12 @@ function render$t(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$u.render = render$t;
-var script$t = {
+script$v.render = render$u;
+var script$u = {
   name: "SearchPlusIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$s(_ctx, _cache, $props, $setup, $data, $options) {
+function render$t(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -14865,12 +14886,12 @@ function render$s(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$t.render = render$s;
-var script$s = {
+script$u.render = render$t;
+var script$t = {
   name: "TimesIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$r(_ctx, _cache, $props, $setup, $data, $options) {
+function render$s(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -14882,12 +14903,12 @@ function render$r(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$s.render = render$r;
-var script$r = {
+script$t.render = render$s;
+var script$s = {
   name: "UndoIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$q(_ctx, _cache, $props, $setup, $data, $options) {
+function render$r(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -14901,7 +14922,7 @@ function render$q(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$r.render = render$q;
+script$s.render = render$r;
 var PrimeVueService = EventBus();
 function _typeof$b(o2) {
   "@babel/helpers - typeof";
@@ -15217,7 +15238,7 @@ var BaseDirective = {
           var _el$$instance, _el$$instance2;
           return ((_el$$instance = el2.$instance) === null || _el$$instance === void 0 || (_el$$instance = _el$$instance.$binding) === null || _el$$instance === void 0 || (_el$$instance = _el$$instance.value) === null || _el$$instance === void 0 ? void 0 : _el$$instance.unstyled) !== void 0 ? (_el$$instance2 = el2.$instance) === null || _el$$instance2 === void 0 || (_el$$instance2 = _el$$instance2.$binding) === null || _el$$instance2 === void 0 || (_el$$instance2 = _el$$instance2.value) === null || _el$$instance2 === void 0 ? void 0 : _el$$instance2.unstyled : config2 === null || config2 === void 0 ? void 0 : config2.unstyled;
         },
-        theme: function theme16() {
+        theme: function theme17() {
           var _el$$instance3;
           return (_el$$instance3 = el2.$instance) === null || _el$$instance3 === void 0 || (_el$$instance3 = _el$$instance3.$primevueConfig) === null || _el$$instance3 === void 0 ? void 0 : _el$$instance3.theme;
         },
@@ -15457,7 +15478,7 @@ var FocusTrap = BaseFocusTrap.extend("focustrap", {
     createHiddenFocusableElements: function createHiddenFocusableElements(el2, binding) {
       var _this2 = this;
       var _ref5 = binding.value || {}, _ref5$tabIndex = _ref5.tabIndex, tabIndex = _ref5$tabIndex === void 0 ? 0 : _ref5$tabIndex, _ref5$firstFocusableS = _ref5.firstFocusableSelector, firstFocusableSelector = _ref5$firstFocusableS === void 0 ? "" : _ref5$firstFocusableS, _ref5$lastFocusableSe = _ref5.lastFocusableSelector, lastFocusableSelector = _ref5$lastFocusableSe === void 0 ? "" : _ref5$lastFocusableSe;
-      var createFocusableElement = function createFocusableElement2(onFocus4) {
+      var createFocusableElement = function createFocusableElement2(onFocus5) {
         return createElement("span", {
           "class": "p-hidden-accessible p-hidden-focusable",
           tabIndex,
@@ -15465,7 +15486,7 @@ var FocusTrap = BaseFocusTrap.extend("focustrap", {
           "aria-hidden": true,
           "data-p-hidden-accessible": true,
           "data-p-hidden-focusable": true,
-          onFocus: onFocus4 === null || onFocus4 === void 0 ? void 0 : onFocus4.bind(_this2)
+          onFocus: onFocus5 === null || onFocus5 === void 0 ? void 0 : onFocus5.bind(_this2)
         });
       };
       var firstFocusableElement = createFocusableElement(this.onFirstHiddenElementFocus);
@@ -15481,7 +15502,7 @@ var FocusTrap = BaseFocusTrap.extend("focustrap", {
     }
   }
 });
-var script$q = {
+var script$r = {
   name: "Portal",
   props: {
     appendTo: {
@@ -15507,7 +15528,7 @@ var script$q = {
     }
   }
 };
-function render$p(_ctx, _cache, $props, $setup, $data, $options) {
+function render$q(_ctx, _cache, $props, $setup, $data, $options) {
   return $options.inline ? renderSlot(_ctx.$slots, "default", {
     key: 0
   }) : $data.mounted ? (openBlock(), createBlock(Teleport, {
@@ -15515,12 +15536,12 @@ function render$p(_ctx, _cache, $props, $setup, $data, $options) {
     to: $props.appendTo
   }, [renderSlot(_ctx.$slots, "default")], 8, ["to"])) : createCommentVNode("", true);
 }
-script$q.render = render$p;
-var theme$c = function theme2(_ref) {
+script$r.render = render$q;
+var theme$d = function theme2(_ref) {
   var dt2 = _ref.dt;
   return "\n.p-image-mask {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.p-image-preview {\n    position: relative;\n    display: inline-flex;\n    line-height: 0;\n}\n\n.p-image-preview-mask {\n    position: absolute;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    opacity: 0;\n    transition: opacity 0.3s;\n    border: 0 none;\n    padding: 0;\n    cursor: pointer;\n    background: transparent;\n    color: ".concat(dt2("image.preview.mask.color"), ";\n    transition: background ").concat(dt2("image.transition.duration"), ";\n}\n\n.p-image-preview:hover > .p-image-preview-mask {\n    opacity: 1;\n    cursor: pointer;\n    background: ").concat(dt2("image.preview.mask.background"), ";\n}\n\n.p-image-preview-icon {\n    font-size: ").concat(dt2("image.preview.icon.size"), ";\n    width: ").concat(dt2("image.preview.icon.size"), ";\n    height: ").concat(dt2("image.preview.icon.size"), ";\n}\n\n.p-image-toolbar {\n    position: absolute;\n    top: ").concat(dt2("image.toolbar.position.top"), ";\n    right: ").concat(dt2("image.toolbar.position.right"), ";\n    left: ").concat(dt2("image.toolbar.position.left"), ";\n    bottom: ").concat(dt2("image.toolbar.position.bottom"), ";\n    display: flex;\n    z-index: 1;\n    padding: ").concat(dt2("image.toolbar.padding"), ";\n    background: ").concat(dt2("image.toolbar.background"), ";\n    backdrop-filter: blur(").concat(dt2("image.toolbar.blur"), ");\n    border-color: ").concat(dt2("image.toolbar.border.color"), ";\n    border-style: solid;\n    border-width: ").concat(dt2("image.toolbar.border.width"), ";\n    border-radius: ").concat(dt2("image.toolbar.border.radius"), ";\n    gap: ").concat(dt2("image.toolbar.gap"), ";\n}\n\n.p-image-action {\n    display: inline-flex;\n    justify-content: center;\n    align-items: center;\n    color: ").concat(dt2("image.action.color"), ";\n    background: transparent;\n    width: ").concat(dt2("image.action.size"), ";\n    height: ").concat(dt2("image.action.size"), ";\n    margin: 0;\n    padding: 0;\n    border: 0 none;\n    cursor: pointer;\n    user-select: none;\n    border-radius: ").concat(dt2("image.action.border.radius"), ";\n    outline-color: transparent;\n    transition: background ").concat(dt2("image.transition.duration"), ", color ").concat(dt2("image.transition.duration"), ", outline-color ").concat(dt2("image.transition.duration"), ", box-shadow ").concat(dt2("image.transition.duration"), ";\n}\n\n.p-image-action:hover {\n    color: ").concat(dt2("image.action.hover.color"), ";\n    background: ").concat(dt2("image.action.hover.background"), ";\n}\n\n.p-image-action:focus-visible {\n    box-shadow: ").concat(dt2("image.action.focus.ring.shadow"), ";\n    outline: ").concat(dt2("image.action.focus.ring.width"), " ").concat(dt2("image.action.focus.ring.style"), " ").concat(dt2("image.action.focus.ring.color"), ";\n    outline-offset: ").concat(dt2("image.action.focus.ring.offset"), ";\n}\n\n.p-image-action .p-icon {\n    font-size: ").concat(dt2("image.action.icon.size"), ";\n    width: ").concat(dt2("image.action.icon.size"), ";\n    height: ").concat(dt2("image.action.icon.size"), ";\n}\n\n.p-image-action.p-disabled {\n    pointer-events: auto;\n}\n\n.p-image-original {\n    transition: transform 0.15s;\n    max-width: 100vw;\n    max-height: 100vh;\n}\n\n.p-image-original-enter-active {\n    transition: all 150ms cubic-bezier(0, 0, 0.2, 1);\n}\n\n.p-image-original-leave-active {\n    transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.p-image-original-enter-from,\n.p-image-original-leave-to {\n    opacity: 0;\n    transform: scale(0.7);\n}\n");
 };
-var classes$c = {
+var classes$d = {
   root: function root(_ref2) {
     var props = _ref2.props;
     return ["p-image p-component", {
@@ -15550,12 +15571,12 @@ var classes$c = {
 };
 var ImageStyle = BaseStyle.extend({
   name: "image",
-  theme: theme$c,
-  classes: classes$c
+  theme: theme$d,
+  classes: classes$d
 });
-var script$1$c = {
+var script$1$d = {
   name: "BaseImage",
-  "extends": script$y,
+  "extends": script$z,
   props: {
     preview: {
       type: Boolean,
@@ -15606,9 +15627,9 @@ var script$1$c = {
     };
   }
 };
-var script$p = {
+var script$q = {
   name: "Image",
-  "extends": script$1$c,
+  "extends": script$1$d,
   inheritAttrs: false,
   emits: ["show", "hide", "error"],
   mask: null,
@@ -15754,13 +15775,13 @@ var script$p = {
     }
   },
   components: {
-    Portal: script$q,
-    EyeIcon: script$w,
-    RefreshIcon: script$v,
-    UndoIcon: script$r,
-    SearchMinusIcon: script$u,
-    SearchPlusIcon: script$t,
-    TimesIcon: script$s
+    Portal: script$r,
+    EyeIcon: script$x,
+    RefreshIcon: script$w,
+    UndoIcon: script$s,
+    SearchMinusIcon: script$v,
+    SearchPlusIcon: script$u,
+    TimesIcon: script$t
   },
   directives: {
     focustrap: FocusTrap
@@ -15812,15 +15833,15 @@ function _toPrimitive$8(t2, r2) {
   }
   return ("string" === r2 ? String : Number)(t2);
 }
-var _hoisted_1$g = ["aria-label"];
-var _hoisted_2$d = ["aria-modal"];
-var _hoisted_3$a = ["aria-label"];
-var _hoisted_4$8 = ["aria-label"];
-var _hoisted_5$7 = ["disabled", "aria-label"];
+var _hoisted_1$h = ["aria-label"];
+var _hoisted_2$f = ["aria-modal"];
+var _hoisted_3$b = ["aria-label"];
+var _hoisted_4$9 = ["aria-label"];
+var _hoisted_5$8 = ["disabled", "aria-label"];
 var _hoisted_6$6 = ["disabled", "aria-label"];
-var _hoisted_7$3 = ["aria-label"];
-var _hoisted_8$3 = ["src"];
-function render$o(_ctx, _cache, $props, $setup, $data, $options) {
+var _hoisted_7$4 = ["aria-label"];
+var _hoisted_8$4 = ["src"];
+function render$p(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_RefreshIcon = resolveComponent("RefreshIcon");
   var _component_UndoIcon = resolveComponent("UndoIcon");
   var _component_SearchMinusIcon = resolveComponent("SearchMinusIcon");
@@ -15854,7 +15875,7 @@ function render$o(_ctx, _cache, $props, $setup, $data, $options) {
     return [(openBlock(), createBlock(resolveDynamicComponent(_ctx.previewIcon || _ctx.indicatorIcon ? "i" : "EyeIcon"), mergeProps({
       "class": _ctx.cx("previewIcon")
     }, _ctx.ptm("previewIcon")), null, 16, ["class"]))];
-  })], 16, _hoisted_1$g)) : createCommentVNode("", true), createVNode(_component_Portal, null, {
+  })], 16, _hoisted_1$h)) : createCommentVNode("", true), createVNode(_component_Portal, null, {
     "default": withCtx(function() {
       return [$data.maskVisible ? withDirectives((openBlock(), createElementBlock("div", mergeProps({
         key: 0,
@@ -15881,7 +15902,7 @@ function render$o(_ctx, _cache, $props, $setup, $data, $options) {
         "data-pc-group-section": "action"
       }), [renderSlot(_ctx.$slots, "refresh", {}, function() {
         return [createVNode(_component_RefreshIcon, normalizeProps(guardReactiveProps(_ctx.ptm("rotateRightIcon"))), null, 16)];
-      })], 16, _hoisted_3$a), createBaseVNode("button", mergeProps({
+      })], 16, _hoisted_3$b), createBaseVNode("button", mergeProps({
         "class": _ctx.cx("rotateLeftButton"),
         onClick: _cache[3] || (_cache[3] = function() {
           return $options.rotateLeft && $options.rotateLeft.apply($options, arguments);
@@ -15892,7 +15913,7 @@ function render$o(_ctx, _cache, $props, $setup, $data, $options) {
         "data-pc-group-section": "action"
       }), [renderSlot(_ctx.$slots, "undo", {}, function() {
         return [createVNode(_component_UndoIcon, normalizeProps(guardReactiveProps(_ctx.ptm("rotateLeftIcon"))), null, 16)];
-      })], 16, _hoisted_4$8), createBaseVNode("button", mergeProps({
+      })], 16, _hoisted_4$9), createBaseVNode("button", mergeProps({
         "class": _ctx.cx("zoomOutButton"),
         onClick: _cache[4] || (_cache[4] = function() {
           return $options.zoomOut && $options.zoomOut.apply($options, arguments);
@@ -15904,7 +15925,7 @@ function render$o(_ctx, _cache, $props, $setup, $data, $options) {
         "data-pc-group-section": "action"
       }), [renderSlot(_ctx.$slots, "zoomout", {}, function() {
         return [createVNode(_component_SearchMinusIcon, normalizeProps(guardReactiveProps(_ctx.ptm("zoomOutIcon"))), null, 16)];
-      })], 16, _hoisted_5$7), createBaseVNode("button", mergeProps({
+      })], 16, _hoisted_5$8), createBaseVNode("button", mergeProps({
         "class": _ctx.cx("zoomInButton"),
         onClick: _cache[5] || (_cache[5] = function() {
           return $options.zoomIn && $options.zoomIn.apply($options, arguments);
@@ -15928,7 +15949,7 @@ function render$o(_ctx, _cache, $props, $setup, $data, $options) {
         "data-pc-group-section": "action"
       }), [renderSlot(_ctx.$slots, "close", {}, function() {
         return [createVNode(_component_TimesIcon, normalizeProps(guardReactiveProps(_ctx.ptm("closeIcon"))), null, 16)];
-      })], 16, _hoisted_7$3)], 16), createVNode(Transition, mergeProps({
+      })], 16, _hoisted_7$4)], 16), createVNode(Transition, mergeProps({
         name: "p-image-original",
         onBeforeEnter: $options.onBeforeEnter,
         onEnter: $options.onEnter,
@@ -15951,21 +15972,21 @@ function render$o(_ctx, _cache, $props, $setup, $data, $options) {
               onClick: _cache[7] || (_cache[7] = function() {
                 return $options.onPreviewImageClick && $options.onPreviewImageClick.apply($options, arguments);
               })
-            }, _ctx.ptm("original")), null, 16, _hoisted_8$3)];
+            }, _ctx.ptm("original")), null, 16, _hoisted_8$4)];
           })], 16)) : createCommentVNode("", true)];
         }),
         _: 3
-      }, 16, ["onBeforeEnter", "onEnter", "onLeave", "onBeforeLeave", "onAfterLeave"])], 16, _hoisted_2$d)), [[_directive_focustrap]]) : createCommentVNode("", true)];
+      }, 16, ["onBeforeEnter", "onEnter", "onLeave", "onBeforeLeave", "onAfterLeave"])], 16, _hoisted_2$f)), [[_directive_focustrap]]) : createCommentVNode("", true)];
     }),
     _: 3
   })], 16);
 }
-script$p.render = render$o;
-const _hoisted_1$f = { class: "item" };
-const _hoisted_2$c = { class: "details" };
-const _hoisted_3$9 = { key: 0 };
-const _hoisted_4$7 = { key: 0 };
-const _hoisted_5$6 = { class: "badge" };
+script$q.render = render$p;
+const _hoisted_1$g = { class: "item" };
+const _hoisted_2$e = { class: "details" };
+const _hoisted_3$a = { key: 0 };
+const _hoisted_4$8 = { key: 0 };
+const _hoisted_5$7 = { class: "badge" };
 const _hoisted_6$5 = { style: { "padding-right": "10px" } };
 const _sfc_main$9 = /* @__PURE__ */ defineComponent({
   __name: "WorkExperienceItem",
@@ -15974,26 +15995,26 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent({
   },
   setup(__props) {
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1$f, [
+      return openBlock(), createElementBlock("div", _hoisted_1$g, [
         createBaseVNode("i", null, [
-          createVNode(unref(script$p), {
+          createVNode(unref(script$q), {
             src: _ctx.workExperienceData.icon,
             alt: "img",
             width: "80px",
             style: { "background": "white" }
           }, null, 8, ["src"])
         ]),
-        createBaseVNode("div", _hoisted_2$c, [
+        createBaseVNode("div", _hoisted_2$e, [
           createBaseVNode("h3", null, toDisplayString(_ctx.workExperienceData.role), 1),
           createBaseVNode("h4", null, toDisplayString(_ctx.workExperienceData.organization), 1),
           createBaseVNode("h5", null, [
             createTextVNode(toDisplayString(unref(formatTimeRange)(_ctx.workExperienceData.timeRange)) + " ", 1),
-            _ctx.workExperienceData.location ? (openBlock(), createElementBlock("span", _hoisted_3$9, " - " + toDisplayString(_ctx.workExperienceData.location), 1)) : createCommentVNode("", true)
+            _ctx.workExperienceData.location ? (openBlock(), createElementBlock("span", _hoisted_3$a, " - " + toDisplayString(_ctx.workExperienceData.location), 1)) : createCommentVNode("", true)
           ]),
-          _ctx.workExperienceData.description ? (openBlock(), createElementBlock("span", _hoisted_4$7, toDisplayString(_ctx.workExperienceData.description), 1)) : createCommentVNode("", true),
+          _ctx.workExperienceData.description ? (openBlock(), createElementBlock("span", _hoisted_4$8, toDisplayString(_ctx.workExperienceData.description), 1)) : createCommentVNode("", true),
           _cache[0] || (_cache[0] = createBaseVNode("br", null, null, -1)),
           _ctx.workExperienceData.tags ? (openBlock(true), createElementBlock(Fragment, { key: 1 }, renderList(_ctx.workExperienceData.tags, (tag2) => {
-            return openBlock(), createElementBlock("span", _hoisted_5$6, [
+            return openBlock(), createElementBlock("span", _hoisted_5$7, [
               createBaseVNode("span", _hoisted_6$5, toDisplayString(tag2), 1)
             ]);
           }), 256)) : createCommentVNode("", true)
@@ -16003,42 +16024,47 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent({
   }
 });
 const WorkExperienceItem = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-1724d6f2"]]);
-const _hoisted_1$e = { class: "item" };
-const _hoisted_2$b = { class: "details" };
-const _hoisted_3$8 = { key: 0 };
-const _hoisted_4$6 = { key: 0 };
-const _hoisted_5$5 = { class: "badge" };
-const _hoisted_6$4 = { style: { "padding-right": "10px" } };
+const _hoisted_1$f = { class: "item" };
+const _hoisted_2$d = { class: "details" };
+const _hoisted_3$9 = { key: 0 };
+const _hoisted_4$7 = { key: 1 };
+const _hoisted_5$6 = { key: 2 };
+const _hoisted_6$4 = { key: 0 };
+const _hoisted_7$3 = { class: "badge" };
+const _hoisted_8$3 = { style: { "padding-right": "10px" } };
 const _sfc_main$8 = /* @__PURE__ */ defineComponent({
   __name: "EducationItem",
   props: {
     educationData: {}
   },
   setup(__props) {
+    function isOngoing(timeRange) {
+      return !timeRange.end || new Date(timeRange.end) > /* @__PURE__ */ new Date();
+    }
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1$e, [
+      return openBlock(), createElementBlock("div", _hoisted_1$f, [
         createBaseVNode("i", null, [
-          createVNode(unref(script$p), {
+          createVNode(unref(script$q), {
             src: _ctx.educationData.icon,
             alt: "img",
             width: "80px",
             style: { "background": "white" }
           }, null, 8, ["src"])
         ]),
-        createBaseVNode("div", _hoisted_2$b, [
+        createBaseVNode("div", _hoisted_2$d, [
           createBaseVNode("h3", null, toDisplayString(_ctx.educationData.role), 1),
           createBaseVNode("h4", null, toDisplayString(_ctx.educationData.organization), 1),
           createBaseVNode("h5", null, [
             createTextVNode(toDisplayString(unref(formatTimeRange)(_ctx.educationData.timeRange)) + " ", 1),
-            _ctx.educationData.location ? (openBlock(), createElementBlock("span", _hoisted_3$8, " - " + toDisplayString(_ctx.educationData.location), 1)) : createCommentVNode("", true),
+            _ctx.educationData.location ? (openBlock(), createElementBlock("span", _hoisted_3$9, " - " + toDisplayString(_ctx.educationData.location), 1)) : createCommentVNode("", true),
             _cache[0] || (_cache[0] = createBaseVNode("br", null, null, -1)),
-            createTextVNode(" Graduated with a " + toDisplayString(_ctx.educationData.degree) + " in " + toDisplayString(_ctx.educationData.subject) + " (grade: " + toDisplayString(_ctx.educationData.grade) + ") ", 1)
+            !isOngoing(_ctx.educationData.timeRange) ? (openBlock(), createElementBlock("span", _hoisted_4$7, " Graduated with a " + toDisplayString(_ctx.educationData.degree) + " in " + toDisplayString(_ctx.educationData.subject) + " (grade: " + toDisplayString(_ctx.educationData.grade) + "). ", 1)) : (openBlock(), createElementBlock("span", _hoisted_5$6, " Pursuing a " + toDisplayString(_ctx.educationData.degree) + " in " + toDisplayString(_ctx.educationData.subject) + ". ", 1))
           ]),
-          _ctx.educationData.description ? (openBlock(), createElementBlock("span", _hoisted_4$6, toDisplayString(_ctx.educationData.description), 1)) : createCommentVNode("", true),
+          _ctx.educationData.description ? (openBlock(), createElementBlock("span", _hoisted_6$4, toDisplayString(_ctx.educationData.description), 1)) : createCommentVNode("", true),
           _cache[1] || (_cache[1] = createBaseVNode("br", null, null, -1)),
           _ctx.educationData.tags ? (openBlock(true), createElementBlock(Fragment, { key: 1 }, renderList(_ctx.educationData.tags, (tag2) => {
-            return openBlock(), createElementBlock("span", _hoisted_5$5, [
-              createBaseVNode("span", _hoisted_6$4, toDisplayString(tag2), 1)
+            return openBlock(), createElementBlock("span", _hoisted_7$3, [
+              createBaseVNode("span", _hoisted_8$3, toDisplayString(tag2), 1)
             ]);
           }), 256)) : createCommentVNode("", true)
         ])
@@ -16046,10 +16072,10 @@ const _sfc_main$8 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const EducationItem = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-17fdcc8c"]]);
-const _hoisted_1$d = { class: "sections-container" };
-const _hoisted_2$a = { class: "grid" };
-const _hoisted_3$7 = { class: "grid" };
+const EducationItem = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-d30adefa"]]);
+const _hoisted_1$e = { class: "sections-container" };
+const _hoisted_2$c = { class: "grid" };
+const _hoisted_3$8 = { class: "grid" };
 const _sfc_main$7 = /* @__PURE__ */ defineComponent({
   __name: "ExperienceView",
   setup(__props) {
@@ -16063,10 +16089,10 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
     });
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("main", null, [
-        createBaseVNode("div", _hoisted_1$d, [
+        createBaseVNode("div", _hoisted_1$e, [
           createBaseVNode("section", null, [
             _cache[0] || (_cache[0] = createBaseVNode("h1", null, "Work Experience", -1)),
-            createBaseVNode("div", _hoisted_2$a, [
+            createBaseVNode("div", _hoisted_2$c, [
               (openBlock(true), createElementBlock(Fragment, null, renderList(unref(workExperienceEntries), (workExperience) => {
                 return openBlock(), createBlock(WorkExperienceItem, {
                   key: workExperience.role + workExperience.organization + workExperience.timeRange,
@@ -16077,7 +16103,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
           ]),
           createBaseVNode("section", null, [
             _cache[1] || (_cache[1] = createBaseVNode("h1", null, "Education", -1)),
-            createBaseVNode("div", _hoisted_3$7, [
+            createBaseVNode("div", _hoisted_3$8, [
               (openBlock(true), createElementBlock(Fragment, null, renderList(unref(educationEntries), (education2) => {
                 return openBlock(), createBlock(EducationItem, {
                   key: education2.role + education2.organization + education2.timeRange,
@@ -16805,11 +16831,11 @@ const projects = [
 const projectsData = {
   projects
 };
-var theme$b = function theme3(_ref) {
+var theme$c = function theme3(_ref) {
   var dt2 = _ref.dt;
   return "\n.p-card {\n    background: ".concat(dt2("card.background"), ";\n    color: ").concat(dt2("card.color"), ";\n    box-shadow: ").concat(dt2("card.shadow"), ";\n    border-radius: ").concat(dt2("card.border.radius"), ";\n    display: flex;\n    flex-direction: column;\n}\n\n.p-card-caption {\n    display: flex;\n    flex-direction: column;\n    gap: ").concat(dt2("card.caption.gap"), ";\n}\n\n.p-card-body {\n    padding: ").concat(dt2("card.body.padding"), ";\n    display: flex;\n    flex-direction: column;\n    gap: ").concat(dt2("card.body.gap"), ";\n}\n\n.p-card-title {\n    font-size: ").concat(dt2("card.title.font.size"), ";\n    font-weight: ").concat(dt2("card.title.font.weight"), ";\n}\n\n.p-card-subtitle {\n    color: ").concat(dt2("card.subtitle.color"), ";\n}\n");
 };
-var classes$b = {
+var classes$c = {
   root: "p-card p-component",
   header: "p-card-header",
   body: "p-card-body",
@@ -16821,12 +16847,12 @@ var classes$b = {
 };
 var CardStyle = BaseStyle.extend({
   name: "card",
-  theme: theme$b,
-  classes: classes$b
+  theme: theme$c,
+  classes: classes$c
 });
-var script$1$b = {
+var script$1$c = {
   name: "BaseCard",
-  "extends": script$y,
+  "extends": script$z,
   style: CardStyle,
   provide: function provide4() {
     return {
@@ -16835,12 +16861,12 @@ var script$1$b = {
     };
   }
 };
-var script$o = {
+var script$p = {
   name: "Card",
-  "extends": script$1$b,
+  "extends": script$1$c,
   inheritAttrs: false
 };
-function render$n(_ctx, _cache, $props, $setup, $data, $options) {
+function render$o(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", mergeProps({
     "class": _ctx.cx("root")
   }, _ctx.ptmi("root")), [_ctx.$slots.header ? (openBlock(), createElementBlock("div", mergeProps({
@@ -16864,7 +16890,7 @@ function render$n(_ctx, _cache, $props, $setup, $data, $options) {
     "class": _ctx.cx("footer")
   }, _ctx.ptm("footer")), [renderSlot(_ctx.$slots, "footer")], 16)) : createCommentVNode("", true)], 16)], 16);
 }
-script$o.render = render$n;
+script$p.render = render$o;
 function _typeof$1$2(o2) {
   "@babel/helpers - typeof";
   return _typeof$1$2 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o3) {
@@ -16938,11 +16964,11 @@ function UniqueComponentId() {
   var prefix = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : "pv_id_";
   return uuid$1(prefix);
 }
-var script$n = {
+var script$o = {
   name: "WindowMaximizeIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$m(_ctx, _cache, $props, $setup, $data, $options) {
+function render$n(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -16956,12 +16982,12 @@ function render$m(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$n.render = render$m;
-var script$m = {
+script$o.render = render$n;
+var script$n = {
   name: "WindowMinimizeIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$l(_ctx, _cache, $props, $setup, $data, $options) {
+function render$m(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -16975,12 +17001,12 @@ function render$l(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$m.render = render$l;
-var script$l = {
+script$n.render = render$m;
+var script$m = {
   name: "SpinnerIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$k(_ctx, _cache, $props, $setup, $data, $options) {
+function render$l(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -16992,12 +17018,12 @@ function render$k(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$l.render = render$k;
-var theme$a = function theme4(_ref) {
+script$m.render = render$l;
+var theme$b = function theme4(_ref) {
   var dt2 = _ref.dt;
   return "\n.p-badge {\n    display: inline-flex;\n    border-radius: ".concat(dt2("badge.border.radius"), ";\n    align-items: center;\n    justify-content: center;\n    padding: ").concat(dt2("badge.padding"), ";\n    background: ").concat(dt2("badge.primary.background"), ";\n    color: ").concat(dt2("badge.primary.color"), ";\n    font-size: ").concat(dt2("badge.font.size"), ";\n    font-weight: ").concat(dt2("badge.font.weight"), ";\n    min-width: ").concat(dt2("badge.min.width"), ";\n    height: ").concat(dt2("badge.height"), ";\n}\n\n.p-badge-dot {\n    width: ").concat(dt2("badge.dot.size"), ";\n    min-width: ").concat(dt2("badge.dot.size"), ";\n    height: ").concat(dt2("badge.dot.size"), ";\n    border-radius: 50%;\n    padding: 0;\n}\n\n.p-badge-circle {\n    padding: 0;\n    border-radius: 50%;\n}\n\n.p-badge-secondary {\n    background: ").concat(dt2("badge.secondary.background"), ";\n    color: ").concat(dt2("badge.secondary.color"), ";\n}\n\n.p-badge-success {\n    background: ").concat(dt2("badge.success.background"), ";\n    color: ").concat(dt2("badge.success.color"), ";\n}\n\n.p-badge-info {\n    background: ").concat(dt2("badge.info.background"), ";\n    color: ").concat(dt2("badge.info.color"), ";\n}\n\n.p-badge-warn {\n    background: ").concat(dt2("badge.warn.background"), ";\n    color: ").concat(dt2("badge.warn.color"), ";\n}\n\n.p-badge-danger {\n    background: ").concat(dt2("badge.danger.background"), ";\n    color: ").concat(dt2("badge.danger.color"), ";\n}\n\n.p-badge-contrast {\n    background: ").concat(dt2("badge.contrast.background"), ";\n    color: ").concat(dt2("badge.contrast.color"), ";\n}\n\n.p-badge-sm {\n    font-size: ").concat(dt2("badge.sm.font.size"), ";\n    min-width: ").concat(dt2("badge.sm.min.width"), ";\n    height: ").concat(dt2("badge.sm.height"), ";\n}\n\n.p-badge-lg {\n    font-size: ").concat(dt2("badge.lg.font.size"), ";\n    min-width: ").concat(dt2("badge.lg.min.width"), ";\n    height: ").concat(dt2("badge.lg.height"), ";\n}\n\n.p-badge-xl {\n    font-size: ").concat(dt2("badge.xl.font.size"), ";\n    min-width: ").concat(dt2("badge.xl.min.width"), ";\n    height: ").concat(dt2("badge.xl.height"), ";\n}\n");
 };
-var classes$a = {
+var classes$b = {
   root: function root2(_ref2) {
     var props = _ref2.props, instance2 = _ref2.instance;
     return ["p-badge p-component", {
@@ -17017,12 +17043,12 @@ var classes$a = {
 };
 var BadgeStyle = BaseStyle.extend({
   name: "badge",
-  theme: theme$a,
-  classes: classes$a
+  theme: theme$b,
+  classes: classes$b
 });
-var script$1$a = {
+var script$1$b = {
   name: "BaseBadge",
-  "extends": script$y,
+  "extends": script$z,
   props: {
     value: {
       type: [String, Number],
@@ -17045,30 +17071,30 @@ var script$1$a = {
     };
   }
 };
-var script$k = {
+var script$l = {
   name: "Badge",
-  "extends": script$1$a,
+  "extends": script$1$b,
   inheritAttrs: false
 };
-function render$j(_ctx, _cache, $props, $setup, $data, $options) {
+function render$k(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("span", mergeProps({
     "class": _ctx.cx("root")
   }, _ctx.ptmi("root")), [renderSlot(_ctx.$slots, "default", {}, function() {
     return [createTextVNode(toDisplayString(_ctx.value), 1)];
   })], 16);
 }
-script$k.render = render$j;
-var theme$9 = function theme5(_ref) {
+script$l.render = render$k;
+var theme$a = function theme5(_ref) {
   var dt2 = _ref.dt;
   return "\n.p-ink {\n    display: block;\n    position: absolute;\n    background: ".concat(dt2("ripple.background"), ";\n    border-radius: 100%;\n    transform: scale(0);\n    pointer-events: none;\n}\n\n.p-ink-active {\n    animation: ripple 0.4s linear;\n}\n\n@keyframes ripple {\n    100% {\n        opacity: 0;\n        transform: scale(2.5);\n    }\n}\n");
 };
-var classes$9 = {
+var classes$a = {
   root: "p-ink"
 };
 var RippleStyle = BaseStyle.extend({
   name: "ripple-directive",
-  theme: theme$9,
-  classes: classes$9
+  theme: theme$a,
+  classes: classes$a
 });
 var BaseRipple = BaseDirective.extend({
   style: RippleStyle
@@ -17237,11 +17263,11 @@ function _toPrimitive$6(t2, r2) {
   }
   return ("string" === r2 ? String : Number)(t2);
 }
-var theme$8 = function theme6(_ref) {
+var theme$9 = function theme6(_ref) {
   var dt2 = _ref.dt;
   return "\n.p-button {\n    display: inline-flex;\n    cursor: pointer;\n    user-select: none;\n    align-items: center;\n    justify-content: center;\n    overflow: hidden;\n    position: relative;\n    color: ".concat(dt2("button.primary.color"), ";\n    background: ").concat(dt2("button.primary.background"), ";\n    border: 1px solid ").concat(dt2("button.primary.border.color"), ";\n    padding: ").concat(dt2("button.padding.y"), " ").concat(dt2("button.padding.x"), ";\n    font-size: 1rem;\n    font-family: inherit;\n    font-feature-settings: inherit;\n    transition: background ").concat(dt2("button.transition.duration"), ", color ").concat(dt2("button.transition.duration"), ", border-color ").concat(dt2("button.transition.duration"), ",\n            outline-color ").concat(dt2("button.transition.duration"), ", box-shadow ").concat(dt2("button.transition.duration"), ";\n    border-radius: ").concat(dt2("button.border.radius"), ";\n    outline-color: transparent;\n    gap: ").concat(dt2("button.gap"), ";\n}\n\n.p-button:disabled {\n    cursor: default;\n}\n\n.p-button-icon-right {\n    order: 1;\n}\n\n.p-button-icon-bottom {\n    order: 2;\n}\n\n.p-button-icon-only {\n    width: ").concat(dt2("button.icon.only.width"), ";\n    padding-left: 0;\n    padding-right: 0;\n    gap: 0;\n}\n\n.p-button-icon-only.p-button-rounded {\n    border-radius: 50%;\n    height: ").concat(dt2("button.icon.only.width"), ";\n}\n\n.p-button-icon-only .p-button-label {\n    visibility: hidden;\n    width: 0;\n}\n\n.p-button-sm {\n    font-size: ").concat(dt2("button.sm.font.size"), ";\n    padding: ").concat(dt2("button.sm.padding.y"), " ").concat(dt2("button.sm.padding.x"), ";\n}\n\n.p-button-sm .p-button-icon {\n    font-size: ").concat(dt2("button.sm.font.size"), ";\n}\n\n.p-button-lg {\n    font-size: ").concat(dt2("button.lg.font.size"), ";\n    padding: ").concat(dt2("button.lg.padding.y"), " ").concat(dt2("button.lg.padding.x"), ";\n}\n\n.p-button-lg .p-button-icon {\n    font-size: ").concat(dt2("button.lg.font.size"), ";\n}\n\n.p-button-vertical {\n    flex-direction: column;\n}\n\n.p-button-label {\n    font-weight: ").concat(dt2("button.label.font.weight"), ";\n}\n\n.p-button-fluid {\n    width: 100%;\n}\n\n.p-button-fluid.p-button-icon-only {\n    width: ").concat(dt2("button.icon.only.width"), ";\n}\n\n.p-button:not(:disabled):hover {\n    background: ").concat(dt2("button.primary.hover.background"), ";\n    border: 1px solid ").concat(dt2("button.primary.hover.border.color"), ";\n    color: ").concat(dt2("button.primary.hover.color"), ";\n}\n\n.p-button:not(:disabled):active {\n    background: ").concat(dt2("button.primary.active.background"), ";\n    border: 1px solid ").concat(dt2("button.primary.active.border.color"), ";\n    color: ").concat(dt2("button.primary.active.color"), ";\n}\n\n.p-button:focus-visible {\n    box-shadow: ").concat(dt2("button.primary.focus.ring.shadow"), ";\n    outline: ").concat(dt2("button.focus.ring.width"), " ").concat(dt2("button.focus.ring.style"), " ").concat(dt2("button.primary.focus.ring.color"), ";\n    outline-offset: ").concat(dt2("button.focus.ring.offset"), ";\n}\n\n.p-button .p-badge {\n    min-width: ").concat(dt2("button.badge.size"), ";\n    height: ").concat(dt2("button.badge.size"), ";\n    line-height: ").concat(dt2("button.badge.size"), ";\n}\n\n.p-button-raised {\n    box-shadow: ").concat(dt2("button.raised.shadow"), ";\n}\n\n.p-button-rounded {\n    border-radius: ").concat(dt2("button.rounded.border.radius"), ";\n}\n\n.p-button-secondary {\n    background: ").concat(dt2("button.secondary.background"), ";\n    border: 1px solid ").concat(dt2("button.secondary.border.color"), ";\n    color: ").concat(dt2("button.secondary.color"), ";\n}\n\n.p-button-secondary:not(:disabled):hover {\n    background: ").concat(dt2("button.secondary.hover.background"), ";\n    border: 1px solid ").concat(dt2("button.secondary.hover.border.color"), ";\n    color: ").concat(dt2("button.secondary.hover.color"), ";\n}\n\n.p-button-secondary:not(:disabled):active {\n    background: ").concat(dt2("button.secondary.active.background"), ";\n    border: 1px solid ").concat(dt2("button.secondary.active.border.color"), ";\n    color: ").concat(dt2("button.secondary.active.color"), ";\n}\n\n.p-button-secondary:focus-visible {\n    outline-color: ").concat(dt2("button.secondary.focus.ring.color"), ";\n    box-shadow: ").concat(dt2("button.secondary.focus.ring.shadow"), ";\n}\n\n.p-button-success {\n    background: ").concat(dt2("button.success.background"), ";\n    border: 1px solid ").concat(dt2("button.success.border.color"), ";\n    color: ").concat(dt2("button.success.color"), ";\n}\n\n.p-button-success:not(:disabled):hover {\n    background: ").concat(dt2("button.success.hover.background"), ";\n    border: 1px solid ").concat(dt2("button.success.hover.border.color"), ";\n    color: ").concat(dt2("button.success.hover.color"), ";\n}\n\n.p-button-success:not(:disabled):active {\n    background: ").concat(dt2("button.success.active.background"), ";\n    border: 1px solid ").concat(dt2("button.success.active.border.color"), ";\n    color: ").concat(dt2("button.success.active.color"), ";\n}\n\n.p-button-success:focus-visible {\n    outline-color: ").concat(dt2("button.success.focus.ring.color"), ";\n    box-shadow: ").concat(dt2("button.success.focus.ring.shadow"), ";\n}\n\n.p-button-info {\n    background: ").concat(dt2("button.info.background"), ";\n    border: 1px solid ").concat(dt2("button.info.border.color"), ";\n    color: ").concat(dt2("button.info.color"), ";\n}\n\n.p-button-info:not(:disabled):hover {\n    background: ").concat(dt2("button.info.hover.background"), ";\n    border: 1px solid ").concat(dt2("button.info.hover.border.color"), ";\n    color: ").concat(dt2("button.info.hover.color"), ";\n}\n\n.p-button-info:not(:disabled):active {\n    background: ").concat(dt2("button.info.active.background"), ";\n    border: 1px solid ").concat(dt2("button.info.active.border.color"), ";\n    color: ").concat(dt2("button.info.active.color"), ";\n}\n\n.p-button-info:focus-visible {\n    outline-color: ").concat(dt2("button.info.focus.ring.color"), ";\n    box-shadow: ").concat(dt2("button.info.focus.ring.shadow"), ";\n}\n\n.p-button-warn {\n    background: ").concat(dt2("button.warn.background"), ";\n    border: 1px solid ").concat(dt2("button.warn.border.color"), ";\n    color: ").concat(dt2("button.warn.color"), ";\n}\n\n.p-button-warn:not(:disabled):hover {\n    background: ").concat(dt2("button.warn.hover.background"), ";\n    border: 1px solid ").concat(dt2("button.warn.hover.border.color"), ";\n    color: ").concat(dt2("button.warn.hover.color"), ";\n}\n\n.p-button-warn:not(:disabled):active {\n    background: ").concat(dt2("button.warn.active.background"), ";\n    border: 1px solid ").concat(dt2("button.warn.active.border.color"), ";\n    color: ").concat(dt2("button.warn.active.color"), ";\n}\n\n.p-button-warn:focus-visible {\n    outline-color: ").concat(dt2("button.warn.focus.ring.color"), ";\n    box-shadow: ").concat(dt2("button.warn.focus.ring.shadow"), ";\n}\n\n.p-button-help {\n    background: ").concat(dt2("button.help.background"), ";\n    border: 1px solid ").concat(dt2("button.help.border.color"), ";\n    color: ").concat(dt2("button.help.color"), ";\n}\n\n.p-button-help:not(:disabled):hover {\n    background: ").concat(dt2("button.help.hover.background"), ";\n    border: 1px solid ").concat(dt2("button.help.hover.border.color"), ";\n    color: ").concat(dt2("button.help.hover.color"), ";\n}\n\n.p-button-help:not(:disabled):active {\n    background: ").concat(dt2("button.help.active.background"), ";\n    border: 1px solid ").concat(dt2("button.help.active.border.color"), ";\n    color: ").concat(dt2("button.help.active.color"), ";\n}\n\n.p-button-help:focus-visible {\n    outline-color: ").concat(dt2("button.help.focus.ring.color"), ";\n    box-shadow: ").concat(dt2("button.help.focus.ring.shadow"), ";\n}\n\n.p-button-danger {\n    background: ").concat(dt2("button.danger.background"), ";\n    border: 1px solid ").concat(dt2("button.danger.border.color"), ";\n    color: ").concat(dt2("button.danger.color"), ";\n}\n\n.p-button-danger:not(:disabled):hover {\n    background: ").concat(dt2("button.danger.hover.background"), ";\n    border: 1px solid ").concat(dt2("button.danger.hover.border.color"), ";\n    color: ").concat(dt2("button.danger.hover.color"), ";\n}\n\n.p-button-danger:not(:disabled):active {\n    background: ").concat(dt2("button.danger.active.background"), ";\n    border: 1px solid ").concat(dt2("button.danger.active.border.color"), ";\n    color: ").concat(dt2("button.danger.active.color"), ";\n}\n\n.p-button-danger:focus-visible {\n    outline-color: ").concat(dt2("button.danger.focus.ring.color"), ";\n    box-shadow: ").concat(dt2("button.danger.focus.ring.shadow"), ";\n}\n\n.p-button-contrast {\n    background: ").concat(dt2("button.contrast.background"), ";\n    border: 1px solid ").concat(dt2("button.contrast.border.color"), ";\n    color: ").concat(dt2("button.contrast.color"), ";\n}\n\n.p-button-contrast:not(:disabled):hover {\n    background: ").concat(dt2("button.contrast.hover.background"), ";\n    border: 1px solid ").concat(dt2("button.contrast.hover.border.color"), ";\n    color: ").concat(dt2("button.contrast.hover.color"), ";\n}\n\n.p-button-contrast:not(:disabled):active {\n    background: ").concat(dt2("button.contrast.active.background"), ";\n    border: 1px solid ").concat(dt2("button.contrast.active.border.color"), ";\n    color: ").concat(dt2("button.contrast.active.color"), ";\n}\n\n.p-button-contrast:focus-visible {\n    outline-color: ").concat(dt2("button.contrast.focus.ring.color"), ";\n    box-shadow: ").concat(dt2("button.contrast.focus.ring.shadow"), ";\n}\n\n.p-button-outlined {\n    background: transparent;\n    border-color: ").concat(dt2("button.outlined.primary.border.color"), ";\n    color: ").concat(dt2("button.outlined.primary.color"), ";\n}\n\n.p-button-outlined:not(:disabled):hover {\n    background: ").concat(dt2("button.outlined.primary.hover.background"), ";\n    border-color: ").concat(dt2("button.outlined.primary.border.color"), ";\n    color: ").concat(dt2("button.outlined.primary.color"), ";\n}\n\n.p-button-outlined:not(:disabled):active {\n    background: ").concat(dt2("button.outlined.primary.active.background"), ";\n    border-color: ").concat(dt2("button.outlined.primary.border.color"), ";\n    color: ").concat(dt2("button.outlined.primary.color"), ";\n}\n\n.p-button-outlined.p-button-secondary {\n    border-color: ").concat(dt2("button.outlined.secondary.border.color"), ";\n    color: ").concat(dt2("button.outlined.secondary.color"), ";\n}\n\n.p-button-outlined.p-button-secondary:not(:disabled):hover {\n    background: ").concat(dt2("button.outlined.secondary.hover.background"), ";\n    border-color: ").concat(dt2("button.outlined.secondary.border.color"), ";\n    color: ").concat(dt2("button.outlined.secondary.color"), ";\n}\n\n.p-button-outlined.p-button-secondary:not(:disabled):active {\n    background: ").concat(dt2("button.outlined.secondary.active.background"), ";\n    border-color: ").concat(dt2("button.outlined.secondary.border.color"), ";\n    color: ").concat(dt2("button.outlined.secondary.color"), ";\n}\n\n.p-button-outlined.p-button-success {\n    border-color: ").concat(dt2("button.outlined.success.border.color"), ";\n    color: ").concat(dt2("button.outlined.success.color"), ";\n}\n\n.p-button-outlined.p-button-success:not(:disabled):hover {\n    background: ").concat(dt2("button.outlined.success.hover.background"), ";\n    border-color: ").concat(dt2("button.outlined.success.border.color"), ";\n    color: ").concat(dt2("button.outlined.success.color"), ";\n}\n\n.p-button-outlined.p-button-success:not(:disabled):active {\n    background: ").concat(dt2("button.outlined.success.active.background"), ";\n    border-color: ").concat(dt2("button.outlined.success.border.color"), ";\n    color: ").concat(dt2("button.outlined.success.color"), ";\n}\n\n.p-button-outlined.p-button-info {\n    border-color: ").concat(dt2("button.outlined.info.border.color"), ";\n    color: ").concat(dt2("button.outlined.info.color"), ";\n}\n\n.p-button-outlined.p-button-info:not(:disabled):hover {\n    background: ").concat(dt2("button.outlined.info.hover.background"), ";\n    border-color: ").concat(dt2("button.outlined.info.border.color"), ";\n    color: ").concat(dt2("button.outlined.info.color"), ";\n}\n\n.p-button-outlined.p-button-info:not(:disabled):active {\n    background: ").concat(dt2("button.outlined.info.active.background"), ";\n    border-color: ").concat(dt2("button.outlined.info.border.color"), ";\n    color: ").concat(dt2("button.outlined.info.color"), ";\n}\n\n.p-button-outlined.p-button-warn {\n    border-color: ").concat(dt2("button.outlined.warn.border.color"), ";\n    color: ").concat(dt2("button.outlined.warn.color"), ";\n}\n\n.p-button-outlined.p-button-warn:not(:disabled):hover {\n    background: ").concat(dt2("button.outlined.warn.hover.background"), ";\n    border-color: ").concat(dt2("button.outlined.warn.border.color"), ";\n    color: ").concat(dt2("button.outlined.warn.color"), ";\n}\n\n.p-button-outlined.p-button-warn:not(:disabled):active {\n    background: ").concat(dt2("button.outlined.warn.active.background"), ";\n    border-color: ").concat(dt2("button.outlined.warn.border.color"), ";\n    color: ").concat(dt2("button.outlined.warn.color"), ";\n}\n\n.p-button-outlined.p-button-help {\n    border-color: ").concat(dt2("button.outlined.help.border.color"), ";\n    color: ").concat(dt2("button.outlined.help.color"), ";\n}\n\n.p-button-outlined.p-button-help:not(:disabled):hover {\n    background: ").concat(dt2("button.outlined.help.hover.background"), ";\n    border-color: ").concat(dt2("button.outlined.help.border.color"), ";\n    color: ").concat(dt2("button.outlined.help.color"), ";\n}\n\n.p-button-outlined.p-button-help:not(:disabled):active {\n    background: ").concat(dt2("button.outlined.help.active.background"), ";\n    border-color: ").concat(dt2("button.outlined.help.border.color"), ";\n    color: ").concat(dt2("button.outlined.help.color"), ";\n}\n\n.p-button-outlined.p-button-danger {\n    border-color: ").concat(dt2("button.outlined.danger.border.color"), ";\n    color: ").concat(dt2("button.outlined.danger.color"), ";\n}\n\n.p-button-outlined.p-button-danger:not(:disabled):hover {\n    background: ").concat(dt2("button.outlined.danger.hover.background"), ";\n    border-color: ").concat(dt2("button.outlined.danger.border.color"), ";\n    color: ").concat(dt2("button.outlined.danger.color"), ";\n}\n\n.p-button-outlined.p-button-danger:not(:disabled):active {\n    background: ").concat(dt2("button.outlined.danger.active.background"), ";\n    border-color: ").concat(dt2("button.outlined.danger.border.color"), ";\n    color: ").concat(dt2("button.outlined.danger.color"), ";\n}\n\n.p-button-outlined.p-button-contrast {\n    border-color: ").concat(dt2("button.outlined.contrast.border.color"), ";\n    color: ").concat(dt2("button.outlined.contrast.color"), ";\n}\n\n.p-button-outlined.p-button-contrast:not(:disabled):hover {\n    background: ").concat(dt2("button.outlined.contrast.hover.background"), ";\n    border-color: ").concat(dt2("button.outlined.contrast.border.color"), ";\n    color: ").concat(dt2("button.outlined.contrast.color"), ";\n}\n\n.p-button-outlined.p-button-contrast:not(:disabled):active {\n    background: ").concat(dt2("button.outlined.contrast.active.background"), ";\n    border-color: ").concat(dt2("button.outlined.contrast.border.color"), ";\n    color: ").concat(dt2("button.outlined.contrast.color"), ";\n}\n\n.p-button-outlined.p-button-plain {\n    border-color: ").concat(dt2("button.outlined.plain.border.color"), ";\n    color: ").concat(dt2("button.outlined.plain.color"), ";\n}\n\n.p-button-outlined.p-button-plain:not(:disabled):hover {\n    background: ").concat(dt2("button.outlined.plain.hover.background"), ";\n    border-color: ").concat(dt2("button.outlined.plain.border.color"), ";\n    color: ").concat(dt2("button.outlined.plain.color"), ";\n}\n\n.p-button-outlined.p-button-plain:not(:disabled):active {\n    background: ").concat(dt2("button.outlined.plain.active.background"), ";\n    border-color: ").concat(dt2("button.outlined.plain.border.color"), ";\n    color: ").concat(dt2("button.outlined.plain.color"), ";\n}\n\n.p-button-text {\n    background: transparent;\n    border-color: transparent;\n    color: ").concat(dt2("button.text.primary.color"), ";\n}\n\n.p-button-text:not(:disabled):hover {\n    background: ").concat(dt2("button.text.primary.hover.background"), ";\n    border-color: transparent;\n    color: ").concat(dt2("button.text.primary.color"), ";\n}\n\n.p-button-text:not(:disabled):active {\n    background: ").concat(dt2("button.text.primary.active.background"), ";\n    border-color: transparent;\n    color: ").concat(dt2("button.text.primary.color"), ";\n}\n\n.p-button-text.p-button-secondary {\n    background: transparent;\n    border-color: transparent;\n    color: ").concat(dt2("button.text.secondary.color"), ";\n}\n\n.p-button-text.p-button-secondary:not(:disabled):hover {\n    background: ").concat(dt2("button.text.secondary.hover.background"), ";\n    border-color: transparent;\n    color: ").concat(dt2("button.text.secondary.color"), ";\n}\n\n.p-button-text.p-button-secondary:not(:disabled):active {\n    background: ").concat(dt2("button.text.secondary.active.background"), ";\n    border-color: transparent;\n    color: ").concat(dt2("button.text.secondary.color"), ";\n}\n\n.p-button-text.p-button-success {\n    background: transparent;\n    border-color: transparent;\n    color: ").concat(dt2("button.text.success.color"), ";\n}\n\n.p-button-text.p-button-success:not(:disabled):hover {\n    background: ").concat(dt2("button.text.success.hover.background"), ";\n    border-color: transparent;\n    color: ").concat(dt2("button.text.success.color"), ";\n}\n\n.p-button-text.p-button-success:not(:disabled):active {\n    background: ").concat(dt2("button.text.success.active.background"), ";\n    border-color: transparent;\n    color: ").concat(dt2("button.text.success.color"), ";\n}\n\n.p-button-text.p-button-info {\n    background: transparent;\n    border-color: transparent;\n    color: ").concat(dt2("button.text.info.color"), ";\n}\n\n.p-button-text.p-button-info:not(:disabled):hover {\n    background: ").concat(dt2("button.text.info.hover.background"), ";\n    border-color: transparent;\n    color: ").concat(dt2("button.text.info.color"), ";\n}\n\n.p-button-text.p-button-info:not(:disabled):active {\n    background: ").concat(dt2("button.text.info.active.background"), ";\n    border-color: transparent;\n    color: ").concat(dt2("button.text.info.color"), ";\n}\n\n.p-button-text.p-button-warn {\n    background: transparent;\n    border-color: transparent;\n    color: ").concat(dt2("button.text.warn.color"), ";\n}\n\n.p-button-text.p-button-warn:not(:disabled):hover {\n    background: ").concat(dt2("button.text.warn.hover.background"), ";\n    border-color: transparent;\n    color: ").concat(dt2("button.text.warn.color"), ";\n}\n\n.p-button-text.p-button-warn:not(:disabled):active {\n    background: ").concat(dt2("button.text.warn.active.background"), ";\n    border-color: transparent;\n    color: ").concat(dt2("button.text.warn.color"), ";\n}\n\n.p-button-text.p-button-help {\n    background: transparent;\n    border-color: transparent;\n    color: ").concat(dt2("button.text.help.color"), ";\n}\n\n.p-button-text.p-button-help:not(:disabled):hover {\n    background: ").concat(dt2("button.text.help.hover.background"), ";\n    border-color: transparent;\n    color: ").concat(dt2("button.text.help.color"), ";\n}\n\n.p-button-text.p-button-help:not(:disabled):active {\n    background: ").concat(dt2("button.text.help.active.background"), ";\n    border-color: transparent;\n    color: ").concat(dt2("button.text.help.color"), ";\n}\n\n.p-button-text.p-button-danger {\n    background: transparent;\n    border-color: transparent;\n    color: ").concat(dt2("button.text.danger.color"), ";\n}\n\n.p-button-text.p-button-danger:not(:disabled):hover {\n    background: ").concat(dt2("button.text.danger.hover.background"), ";\n    border-color: transparent;\n    color: ").concat(dt2("button.text.danger.color"), ";\n}\n\n.p-button-text.p-button-danger:not(:disabled):active {\n    background: ").concat(dt2("button.text.danger.active.background"), ";\n    border-color: transparent;\n    color: ").concat(dt2("button.text.danger.color"), ";\n}\n\n.p-button-text.p-button-plain {\n    background: transparent;\n    border-color: transparent;\n    color: ").concat(dt2("button.text.plain.color"), ";\n}\n\n.p-button-text.p-button-plain:not(:disabled):hover {\n    background: ").concat(dt2("button.text.plain.hover.background"), ";\n    border-color: transparent;\n    color: ").concat(dt2("button.text.plain.color"), ";\n}\n\n.p-button-text.p-button-plain:not(:disabled):active {\n    background: ").concat(dt2("button.text.plain.active.background"), ";\n    border-color: transparent;\n    color: ").concat(dt2("button.text.plain.color"), ";\n}\n\n.p-button-link {\n    background: transparent;\n    border-color: transparent;\n    color: ").concat(dt2("button.link.color"), ";\n}\n\n.p-button-link:not(:disabled):hover {\n    background: transparent;\n    border-color: transparent;\n    color: ").concat(dt2("button.link.hover.color"), ";\n}\n\n.p-button-link:not(:disabled):hover .p-button-label {\n    text-decoration: underline;\n}\n\n.p-button-link:not(:disabled):active {\n    background: transparent;\n    border-color: transparent;\n    color: ").concat(dt2("button.link.active.color"), ";\n}\n");
 };
-var classes$8 = {
+var classes$9 = {
   root: function root3(_ref2) {
     var instance2 = _ref2.instance, props = _ref2.props;
     return ["p-button p-component", _defineProperty$6(_defineProperty$6(_defineProperty$6(_defineProperty$6(_defineProperty$6(_defineProperty$6(_defineProperty$6(_defineProperty$6(_defineProperty$6({
@@ -17260,12 +17286,12 @@ var classes$8 = {
 };
 var ButtonStyle = BaseStyle.extend({
   name: "button",
-  theme: theme$8,
-  classes: classes$8
+  theme: theme$9,
+  classes: classes$9
 });
-var script$1$9 = {
+var script$1$a = {
   name: "BaseButton",
-  "extends": script$y,
+  "extends": script$z,
   props: {
     label: {
       type: String,
@@ -17356,9 +17382,9 @@ var script$1$9 = {
     };
   }
 };
-var script$j = {
+var script$k = {
   name: "Button",
-  "extends": script$1$9,
+  "extends": script$1$a,
   inheritAttrs: false,
   inject: {
     $pcFluid: {
@@ -17407,14 +17433,14 @@ var script$j = {
     }
   },
   components: {
-    SpinnerIcon: script$l,
-    Badge: script$k
+    SpinnerIcon: script$m,
+    Badge: script$l
   },
   directives: {
     ripple: Ripple
   }
 };
-function render$i(_ctx, _cache, $props, $setup, $data, $options) {
+function render$j(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_SpinnerIcon = resolveComponent("SpinnerIcon");
   var _component_Badge = resolveComponent("Badge");
   var _directive_ripple = resolveDirective("ripple");
@@ -17463,12 +17489,12 @@ function render$i(_ctx, _cache, $props, $setup, $data, $options) {
     a11yAttrs: $options.a11yAttrs
   });
 }
-script$j.render = render$i;
-var theme$7 = function theme7(_ref) {
+script$k.render = render$j;
+var theme$8 = function theme7(_ref) {
   var dt2 = _ref.dt;
   return "\n.p-dialog {\n    max-height: 90%;\n    transform: scale(1);\n    border-radius: ".concat(dt2("dialog.border.radius"), ";\n    box-shadow: ").concat(dt2("dialog.shadow"), ";\n    background: ").concat(dt2("dialog.background"), ";\n    border: 1px solid ").concat(dt2("dialog.border.color"), ";\n    color: ").concat(dt2("dialog.color"), ";\n}\n\n.p-dialog-content {\n    overflow-y: auto;\n    padding: ").concat(dt2("dialog.content.padding"), ";\n}\n\n.p-dialog-header {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    flex-shrink: 0;\n    padding: ").concat(dt2("dialog.header.padding"), ";\n}\n\n.p-dialog-title {\n    font-weight: ").concat(dt2("dialog.title.font.weight"), ";\n    font-size: ").concat(dt2("dialog.title.font.size"), ";\n}\n\n.p-dialog-footer {\n    flex-shrink: 0;\n    padding: ").concat(dt2("dialog.footer.padding"), ";\n    display: flex;\n    justify-content: flex-end;\n    gap: ").concat(dt2("dialog.footer.gap"), ";\n}\n\n.p-dialog-header-actions {\n    display: flex;\n    align-items: center;\n    gap: ").concat(dt2("dialog.header.gap"), ";\n}\n.p-dialog-enter-active {\n    transition: all 150ms cubic-bezier(0, 0, 0.2, 1);\n}\n\n.p-dialog-leave-active {\n    transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.p-dialog-enter-from,\n.p-dialog-leave-to {\n    opacity: 0;\n    transform: scale(0.7);\n}\n\n.p-dialog-top .p-dialog,\n.p-dialog-bottom .p-dialog,\n.p-dialog-left .p-dialog,\n.p-dialog-right .p-dialog,\n.p-dialog-topleft .p-dialog,\n.p-dialog-topright .p-dialog,\n.p-dialog-bottomleft .p-dialog,\n.p-dialog-bottomright .p-dialog {\n    margin: 0.75rem;\n    transform: translate3d(0px, 0px, 0px);\n}\n\n.p-dialog-top .p-dialog-enter-active,\n.p-dialog-top .p-dialog-leave-active,\n.p-dialog-bottom .p-dialog-enter-active,\n.p-dialog-bottom .p-dialog-leave-active,\n.p-dialog-left .p-dialog-enter-active,\n.p-dialog-left .p-dialog-leave-active,\n.p-dialog-right .p-dialog-enter-active,\n.p-dialog-right .p-dialog-leave-active,\n.p-dialog-topleft .p-dialog-enter-active,\n.p-dialog-topleft .p-dialog-leave-active,\n.p-dialog-topright .p-dialog-enter-active,\n.p-dialog-topright .p-dialog-leave-active,\n.p-dialog-bottomleft .p-dialog-enter-active,\n.p-dialog-bottomleft .p-dialog-leave-active,\n.p-dialog-bottomright .p-dialog-enter-active,\n.p-dialog-bottomright .p-dialog-leave-active {\n    transition: all 0.3s ease-out;\n}\n\n.p-dialog-top .p-dialog-enter-from,\n.p-dialog-top .p-dialog-leave-to {\n    transform: translate3d(0px, -100%, 0px);\n}\n\n.p-dialog-bottom .p-dialog-enter-from,\n.p-dialog-bottom .p-dialog-leave-to {\n    transform: translate3d(0px, 100%, 0px);\n}\n\n.p-dialog-left .p-dialog-enter-from,\n.p-dialog-left .p-dialog-leave-to,\n.p-dialog-topleft .p-dialog-enter-from,\n.p-dialog-topleft .p-dialog-leave-to,\n.p-dialog-bottomleft .p-dialog-enter-from,\n.p-dialog-bottomleft .p-dialog-leave-to {\n    transform: translate3d(-100%, 0px, 0px);\n}\n\n.p-dialog-right .p-dialog-enter-from,\n.p-dialog-right .p-dialog-leave-to,\n.p-dialog-topright .p-dialog-enter-from,\n.p-dialog-topright .p-dialog-leave-to,\n.p-dialog-bottomright .p-dialog-enter-from,\n.p-dialog-bottomright .p-dialog-leave-to {\n    transform: translate3d(100%, 0px, 0px);\n}\n\n.p-dialog-maximized {\n    width: 100vw !important;\n    height: 100vh !important;\n    top: 0px !important;\n    left: 0px !important;\n    max-height: 100%;\n    height: 100%;\n    border-radius: 0;\n}\n\n.p-dialog-maximized .p-dialog-content {\n    flex-grow: 1;\n}\n");
 };
-var inlineStyles$2 = {
+var inlineStyles$3 = {
   mask: function mask(_ref2) {
     var position3 = _ref2.position, modal = _ref2.modal;
     return {
@@ -17489,7 +17515,7 @@ var inlineStyles$2 = {
     pointerEvents: "auto"
   }
 };
-var classes$7 = {
+var classes$8 = {
   mask: function mask2(_ref3) {
     var props = _ref3.props;
     var positions2 = ["left", "right", "top", "topleft", "topright", "bottom", "bottomleft", "bottomright"];
@@ -17516,13 +17542,13 @@ var classes$7 = {
 };
 var DialogStyle = BaseStyle.extend({
   name: "dialog",
-  theme: theme$7,
-  classes: classes$7,
-  inlineStyles: inlineStyles$2
+  theme: theme$8,
+  classes: classes$8,
+  inlineStyles: inlineStyles$3
 });
-var script$1$8 = {
+var script$1$9 = {
   name: "BaseDialog",
-  "extends": script$y,
+  "extends": script$z,
   props: {
     header: {
       type: null,
@@ -17654,9 +17680,9 @@ var script$1$8 = {
     };
   }
 };
-var script$i = {
+var script$j = {
   name: "Dialog",
-  "extends": script$1$8,
+  "extends": script$1$9,
   inheritAttrs: false,
   emits: ["update:visible", "show", "hide", "after-hide", "maximize", "unmaximize", "dragstart", "dragend"],
   provide: function provide8() {
@@ -17978,11 +18004,11 @@ var script$i = {
     focustrap: FocusTrap
   },
   components: {
-    Button: script$j,
-    Portal: script$q,
-    WindowMinimizeIcon: script$m,
-    WindowMaximizeIcon: script$n,
-    TimesIcon: script$s
+    Button: script$k,
+    Portal: script$r,
+    WindowMinimizeIcon: script$n,
+    WindowMaximizeIcon: script$o,
+    TimesIcon: script$t
   }
 };
 function _typeof$6(o2) {
@@ -18031,9 +18057,9 @@ function _toPrimitive$5(t2, r2) {
   }
   return ("string" === r2 ? String : Number)(t2);
 }
-var _hoisted_1$c = ["aria-labelledby", "aria-modal"];
-var _hoisted_2$9 = ["id"];
-function render$h(_ctx, _cache, $props, $setup, $data, $options) {
+var _hoisted_1$d = ["aria-labelledby", "aria-modal"];
+var _hoisted_2$b = ["id"];
+function render$i(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Button = resolveComponent("Button");
   var _component_Portal = resolveComponent("Portal");
   var _directive_focustrap = resolveDirective("focustrap");
@@ -18095,7 +18121,7 @@ function render$h(_ctx, _cache, $props, $setup, $data, $options) {
               key: 0,
               id: $options.ariaLabelledById,
               "class": _ctx.cx("title")
-            }, _ctx.ptm("title")), toDisplayString(_ctx.header), 17, _hoisted_2$9)) : createCommentVNode("", true)];
+            }, _ctx.ptm("title")), toDisplayString(_ctx.header), 17, _hoisted_2$b)) : createCommentVNode("", true)];
           }), createBaseVNode("div", mergeProps({
             "class": _ctx.cx("headerActions")
           }, _ctx.ptm("headerActions")), [_ctx.maximizable ? (openBlock(), createBlock(_component_Button, mergeProps({
@@ -18150,7 +18176,7 @@ function render$h(_ctx, _cache, $props, $setup, $data, $options) {
             "class": _ctx.cx("footer")
           }, _ctx.ptm("footer")), [renderSlot(_ctx.$slots, "footer", {}, function() {
             return [createTextVNode(toDisplayString(_ctx.footer), 1)];
-          })], 16)) : createCommentVNode("", true)], 64))], 16, _hoisted_1$c)), [[_directive_focustrap, {
+          })], 16)) : createCommentVNode("", true)], 64))], 16, _hoisted_1$d)), [[_directive_focustrap, {
             disabled: !_ctx.modal
           }]]) : createCommentVNode("", true)];
         }),
@@ -18160,17 +18186,17 @@ function render$h(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["appendTo"]);
 }
-script$i.render = render$h;
+script$j.render = render$i;
 const faStar = {
   prefix: "fas",
   iconName: "star",
   icon: [576, 512, [11088, 61446], "f005", "M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"]
 };
-const _hoisted_1$b = { class: "publication-list" };
-const _hoisted_2$8 = { class: "citation" };
-const _hoisted_3$6 = { class: "authors" };
-const _hoisted_4$5 = { class: "title" };
-const _hoisted_5$4 = { class: "venue" };
+const _hoisted_1$c = { class: "publication-list" };
+const _hoisted_2$a = { class: "citation" };
+const _hoisted_3$7 = { class: "authors" };
+const _hoisted_4$6 = { class: "title" };
+const _hoisted_5$5 = { class: "venue" };
 const _hoisted_6$3 = { class: "date" };
 const _hoisted_7$2 = {
   key: 0,
@@ -18183,7 +18209,15 @@ const _hoisted_9$2 = {
 };
 const _hoisted_10$2 = ["href"];
 const _hoisted_11$2 = {
+  key: 2,
+  class: "pub-type pub-type--Supervision"
+};
+const _hoisted_12$2 = {
   key: 0,
+  class: "supervision-note"
+};
+const _hoisted_13$2 = {
+  key: 1,
   class: "abstract"
 };
 const _sfc_main$6 = /* @__PURE__ */ defineComponent({
@@ -18208,16 +18242,16 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
       return type.replace(/([a-z])([A-Z])/g, "$1 $2");
     }
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1$b, [
+      return openBlock(), createElementBlock("div", _hoisted_1$c, [
         (openBlock(true), createElementBlock(Fragment, null, renderList(sortPublications(_ctx.publications), (pub, idx) => {
           return openBlock(), createElementBlock("div", {
             key: idx,
             class: "publication-entry"
           }, [
-            createBaseVNode("p", _hoisted_2$8, [
-              createBaseVNode("span", _hoisted_3$6, toDisplayString(pub.authors.join(", ")) + ". ", 1),
-              createBaseVNode("span", _hoisted_4$5, toDisplayString(pub.title) + ". ", 1),
-              createBaseVNode("span", _hoisted_5$4, toDisplayString(pub.conference) + ", ", 1),
+            createBaseVNode("p", _hoisted_2$a, [
+              createBaseVNode("span", _hoisted_3$7, toDisplayString(pub.authors.join(", ")) + ". ", 1),
+              createBaseVNode("span", _hoisted_4$6, toDisplayString(pub.title) + ". ", 1),
+              createBaseVNode("span", _hoisted_5$5, toDisplayString(pub.conference) + ", ", 1),
               createBaseVNode("span", _hoisted_6$3, toDisplayString(formattedDate(pub)) + ".", 1),
               pub.doi ? (openBlock(), createElementBlock("span", _hoisted_7$2, [
                 _cache[0] || (_cache[0] = createTextVNode(" DOI: ")),
@@ -18236,16 +18270,18 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
               ])) : createCommentVNode("", true),
               createBaseVNode("span", {
                 class: normalizeClass(["pub-type", `pub-type--${pub.type}`])
-              }, toDisplayString(publicationTypeLabel(pub.type)), 3)
+              }, toDisplayString(publicationTypeLabel(pub.type)), 3),
+              pub.supervised_by ? (openBlock(), createElementBlock("span", _hoisted_11$2, " Supervision ")) : createCommentVNode("", true)
             ]),
-            pub.abstract ? (openBlock(), createElementBlock("p", _hoisted_11$2, toDisplayString(pub.abstract), 1)) : createCommentVNode("", true)
+            pub.supervised_by ? (openBlock(), createElementBlock("p", _hoisted_12$2, " Supervised by " + toDisplayString(pub.supervised_by), 1)) : createCommentVNode("", true),
+            pub.abstract ? (openBlock(), createElementBlock("p", _hoisted_13$2, toDisplayString(pub.abstract), 1)) : createCommentVNode("", true)
           ]);
         }), 128))
       ]);
     };
   }
 });
-const PublicationList = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-7c7c36df"]]);
+const PublicationList = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-cf54b12e"]]);
 const publications = [
   {
     title: "MetaConfigurator: A User-Friendly Tool for Editing Structured Data Files",
@@ -18443,6 +18479,20 @@ const publications = [
     doi: "10.5281/zenodo.18800017",
     abstract: "This poster, presented at 1st Stuttgart Research Software Day, introduces MetaConfigurator, a web-based editor for designing, visualizing, and managing JSON Schemas. Developed at the University of Stuttgart, MetaConfigurator supports the creation of structured data models that improve FAIR (Findable, Accessible, Interoperable, Reproducible) data practices. Following the Model-Driven Engineering (MDE) approach, MetaConfigurator treats data models as first-class elements and enables automatic generation of code, documentation, and graphical forms from these models. The tool also provides integrated assistance for editing and schema-based data mapping. An example from chemistry shows how MetaConfigurator was used to define a schema for synthesis and characterization data of Metal–Organic Framework materials, ensuring consistent and validated data structures across different laboratory data sources. The poster includes a QR code linking to the online version of MetaConfigurator.",
     type: "Poster",
+    related_projects: [
+      "MetaConfigurator (Web Tool)"
+    ]
+  },
+  {
+    title: "Fine-tuning Large Language Models for JSON Schema Generation and Modification",
+    authors: [
+      "Durga Lakshmi Sajith"
+    ],
+    supervised_by: "Felix Neubauer",
+    conference: "University of Stuttgart, Research Project",
+    date: "2026-04-08",
+    abstract: "The project explores the fine-tuning of small-scale Large Language Models for JSON Schema generation and modification from natural language descriptions.\nA dataset (based on JsonSchemaBench) and a custom evaluation strategy were developed to assess model outputs across multiple task complexity levels. Four models were fine-tuned using Parameter-Efficient Fine-Tuning methods. A detailed comparison of all four fine-tuned models was conducted. An integration of the best-performing model into MetaConfigurator is demonstrated.",
+    type: "ResearchProject",
     related_projects: [
       "MetaConfigurator (Web Tool)"
     ]
@@ -19865,8 +19915,8 @@ ${body}</blockquote>
     return `<li>${itemBody}</li>
 `;
   }
-  checkbox({ checked: checked2 }) {
-    return "<input " + (checked2 ? 'checked="" ' : "") + 'disabled="" type="checkbox">';
+  checkbox({ checked: checked3 }) {
+    return "<input " + (checked3 ? 'checked="" ' : "") + 'disabled="" type="checkbox">';
   }
   paragraph({ tokens: tokens2 }) {
     return `<p>${this.parser.parseInline(tokens2)}</p>
@@ -29537,14 +29587,14 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
   }
 });
 const MarkdownArticle = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-1aacfb50"]]);
-const _hoisted_1$a = {
+const _hoisted_1$b = {
   key: 0,
   style: { "text-align": "center" }
 };
-const _hoisted_2$7 = { class: "badge-size" };
-const _hoisted_3$5 = { class: "badge" };
-const _hoisted_4$4 = { style: { "padding-right": "10px" } };
-const _hoisted_5$3 = { class: "m-0" };
+const _hoisted_2$9 = { class: "badge-size" };
+const _hoisted_3$6 = { class: "badge" };
+const _hoisted_4$5 = { style: { "padding-right": "10px" } };
+const _hoisted_5$4 = { class: "m-0" };
 const _hoisted_6$2 = ["src"];
 const _hoisted_7$1 = { class: "flex gap-4 mt-1" };
 const _hoisted_8$1 = { class: "badge-link" };
@@ -29596,9 +29646,9 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
     }
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
-        createVNode(unref(script$o), null, {
+        createVNode(unref(script$p), null, {
           header: withCtx(() => [
-            _ctx.projectData.where ? (openBlock(), createElementBlock("h4", _hoisted_1$a, toDisplayString(_ctx.projectData.where), 1)) : createCommentVNode("", true)
+            _ctx.projectData.where ? (openBlock(), createElementBlock("h4", _hoisted_1$b, toDisplayString(_ctx.projectData.where), 1)) : createCommentVNode("", true)
           ]),
           title: withCtx(() => [
             createTextVNode(toDisplayString(_ctx.projectData.title) + " ", 1),
@@ -29610,16 +29660,16 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
           subtitle: withCtx(() => [
             createTextVNode(toDisplayString(unref(formatTimeRange)(_ctx.projectData.when)) + " ", 1),
             createBaseVNode("div", null, [
-              createBaseVNode("span", _hoisted_2$7, toDisplayString(_ctx.projectData.size), 1),
+              createBaseVNode("span", _hoisted_2$9, toDisplayString(_ctx.projectData.size), 1),
               _ctx.projectData.tags ? (openBlock(true), createElementBlock(Fragment, { key: 0 }, renderList(_ctx.projectData.tags, (tag2) => {
-                return openBlock(), createElementBlock("span", _hoisted_3$5, [
-                  createBaseVNode("span", _hoisted_4$4, toDisplayString(tag2), 1)
+                return openBlock(), createElementBlock("span", _hoisted_3$6, [
+                  createBaseVNode("span", _hoisted_4$5, toDisplayString(tag2), 1)
                 ]);
               }), 256)) : createCommentVNode("", true)
             ])
           ]),
           content: withCtx(() => [
-            createBaseVNode("p", _hoisted_5$3, toDisplayString(_ctx.projectData.description), 1),
+            createBaseVNode("p", _hoisted_5$4, toDisplayString(_ctx.projectData.description), 1),
             _ctx.projectData.icon ? (openBlock(), createElementBlock("img", {
               key: 0,
               alt: "user header",
@@ -29680,7 +29730,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
           ]),
           _: 1
         }),
-        createVNode(unref(script$i), {
+        createVNode(unref(script$j), {
           visible: showPublications.value,
           "onUpdate:visible": _cache[3] || (_cache[3] = ($event) => showPublications.value = $event),
           modal: "",
@@ -29693,7 +29743,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
           ]),
           _: 1
         }, 8, ["visible"]),
-        createVNode(unref(script$i), {
+        createVNode(unref(script$j), {
           visible: showArticle.value,
           "onUpdate:visible": _cache[4] || (_cache[4] = ($event) => showArticle.value = $event),
           modal: true,
@@ -29718,7 +29768,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
           }),
           _: 1
         }, 8, ["visible"]),
-        createVNode(unref(script$i), {
+        createVNode(unref(script$j), {
           visible: showVideos.value,
           "onUpdate:visible": _cache[5] || (_cache[5] = ($event) => showVideos.value = $event),
           modal: true,
@@ -30016,11 +30066,11 @@ var FilterService = {
     this.filters[rule] = fn3;
   }
 };
-var script$h = {
+var script$i = {
   name: "CheckIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$g(_ctx, _cache, $props, $setup, $data, $options) {
+function render$h(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -30032,12 +30082,12 @@ function render$g(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$h.render = render$g;
-var script$g = {
+script$i.render = render$h;
+var script$h = {
   name: "ChevronDownIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$f(_ctx, _cache, $props, $setup, $data, $options) {
+function render$g(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -30049,12 +30099,12 @@ function render$f(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$g.render = render$f;
-var script$f = {
+script$h.render = render$g;
+var script$g = {
   name: "SearchIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$e(_ctx, _cache, $props, $setup, $data, $options) {
+function render$f(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -30068,12 +30118,12 @@ function render$e(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$f.render = render$e;
-var script$e = {
+script$g.render = render$f;
+var script$f = {
   name: "MinusIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$d(_ctx, _cache, $props, $setup, $data, $options) {
+function render$e(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -30085,12 +30135,12 @@ function render$d(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$e.render = render$d;
-var theme$6 = function theme8(_ref) {
+script$f.render = render$e;
+var theme$7 = function theme8(_ref) {
   var dt2 = _ref.dt;
   return "\n.p-checkbox {\n    position: relative;\n    display: inline-flex;\n    user-select: none;\n    vertical-align: bottom;\n    width: ".concat(dt2("checkbox.width"), ";\n    height: ").concat(dt2("checkbox.height"), ";\n}\n\n.p-checkbox-input {\n    cursor: pointer;\n    appearance: none;\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    padding: 0;\n    margin: 0;\n    opacity: 0;\n    z-index: 1;\n    outline: 0 none;\n    border: 1px solid transparent;\n    border-radius: ").concat(dt2("checkbox.border.radius"), ";\n}\n\n.p-checkbox-box {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-radius: ").concat(dt2("checkbox.border.radius"), ";\n    border: 1px solid ").concat(dt2("checkbox.border.color"), ";\n    background: ").concat(dt2("checkbox.background"), ";\n    width: ").concat(dt2("checkbox.width"), ";\n    height: ").concat(dt2("checkbox.height"), ";\n    transition: background ").concat(dt2("checkbox.transition.duration"), ", color ").concat(dt2("checkbox.transition.duration"), ", border-color ").concat(dt2("checkbox.transition.duration"), ", box-shadow ").concat(dt2("checkbox.transition.duration"), ", outline-color ").concat(dt2("checkbox.transition.duration"), ";\n    outline-color: transparent;\n    box-shadow: ").concat(dt2("checkbox.shadow"), ";\n}\n\n.p-checkbox-icon {\n    transition-duration: ").concat(dt2("checkbox.transition.duration"), ";\n    color: ").concat(dt2("checkbox.icon.color"), ";\n    font-size: ").concat(dt2("checkbox.icon.size"), ";\n    width: ").concat(dt2("checkbox.icon.size"), ";\n    height: ").concat(dt2("checkbox.icon.size"), ";\n}\n\n.p-checkbox:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {\n    border-color: ").concat(dt2("checkbox.hover.border.color"), ";\n}\n\n.p-checkbox-checked .p-checkbox-box {\n    border-color: ").concat(dt2("checkbox.checked.border.color"), ";\n    background: ").concat(dt2("checkbox.checked.background"), ";\n}\n\n.p-checkbox-checked .p-checkbox-icon {\n    color: ").concat(dt2("checkbox.icon.checked.color"), ";\n}\n\n.p-checkbox-checked:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {\n    background: ").concat(dt2("checkbox.checked.hover.background"), ";\n    border-color: ").concat(dt2("checkbox.checked.hover.border.color"), ";\n}\n\n.p-checkbox-checked:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-icon {\n    color: ").concat(dt2("checkbox.icon.checked.hover.color"), ";\n}\n\n.p-checkbox:not(.p-disabled):has(.p-checkbox-input:focus-visible) .p-checkbox-box {\n    border-color: ").concat(dt2("checkbox.focus.border.color"), ";\n    box-shadow: ").concat(dt2("checkbox.focus.ring.shadow"), ";\n    outline: ").concat(dt2("checkbox.focus.ring.width"), " ").concat(dt2("checkbox.focus.ring.style"), " ").concat(dt2("checkbox.focus.ring.color"), ";\n    outline-offset: ").concat(dt2("checkbox.focus.ring.offset"), ";\n}\n\n.p-checkbox-checked:not(.p-disabled):has(.p-checkbox-input:focus-visible) .p-checkbox-box {\n    border-color: ").concat(dt2("checkbox.checked.focus.border.color"), ";\n}\n\n.p-checkbox.p-invalid > .p-checkbox-box {\n    border-color: ").concat(dt2("checkbox.invalid.border.color"), ";\n}\n\n.p-checkbox.p-variant-filled .p-checkbox-box {\n    background: ").concat(dt2("checkbox.filled.background"), ";\n}\n\n.p-checkbox-checked.p-variant-filled .p-checkbox-box {\n    background: ").concat(dt2("checkbox.checked.background"), ";\n}\n\n.p-checkbox-checked.p-variant-filled:not(.p-disabled):has(.p-checkbox-input:hover) .p-checkbox-box {\n    background: ").concat(dt2("checkbox.checked.hover.background"), ";\n}\n\n.p-checkbox.p-disabled {\n    opacity: 1;\n}\n\n.p-checkbox.p-disabled .p-checkbox-box {\n    background: ").concat(dt2("checkbox.disabled.background"), ";\n    border-color: ").concat(dt2("checkbox.checked.disabled.border.color"), ";\n}\n\n.p-checkbox.p-disabled .p-checkbox-box .p-checkbox-icon {\n    color: ").concat(dt2("checkbox.icon.disabled.color"), ";\n}\n");
 };
-var classes$6 = {
+var classes$7 = {
   root: function root5(_ref2) {
     var instance2 = _ref2.instance, props = _ref2.props;
     return ["p-checkbox p-component", {
@@ -30106,12 +30156,12 @@ var classes$6 = {
 };
 var CheckboxStyle = BaseStyle.extend({
   name: "checkbox",
-  theme: theme$6,
-  classes: classes$6
+  theme: theme$7,
+  classes: classes$7
 });
-var script$1$7 = {
+var script$1$8 = {
   name: "BaseCheckbox",
-  "extends": script$y,
+  "extends": script$z,
   props: {
     value: null,
     modelValue: null,
@@ -30209,9 +30259,9 @@ function _arrayLikeToArray$3(r2, a2) {
   for (var e = 0, n = Array(a2); e < a2; e++) n[e] = r2[e];
   return n;
 }
-var script$d = {
+var script$e = {
   name: "Checkbox",
-  "extends": script$1$7,
+  "extends": script$1$8,
   inheritAttrs: false,
   emits: ["update:modelValue", "change", "focus", "blur", "update:indeterminate"],
   data: function data4() {
@@ -30268,13 +30318,13 @@ var script$d = {
     }
   },
   components: {
-    CheckIcon: script$h,
-    MinusIcon: script$e
+    CheckIcon: script$i,
+    MinusIcon: script$f
   }
 };
-var _hoisted_1$9 = ["data-p-checked", "data-p-indeterminate", "data-p-disabled"];
-var _hoisted_2$6 = ["id", "value", "name", "checked", "tabindex", "disabled", "readonly", "required", "aria-labelledby", "aria-label", "aria-invalid", "aria-checked"];
-function render$c(_ctx, _cache, $props, $setup, $data, $options) {
+var _hoisted_1$a = ["data-p-checked", "data-p-indeterminate", "data-p-disabled"];
+var _hoisted_2$8 = ["id", "value", "name", "checked", "tabindex", "disabled", "readonly", "required", "aria-labelledby", "aria-label", "aria-invalid", "aria-checked"];
+function render$d(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_CheckIcon = resolveComponent("CheckIcon");
   var _component_MinusIcon = resolveComponent("MinusIcon");
   return openBlock(), createElementBlock("div", mergeProps({
@@ -30308,7 +30358,7 @@ function render$c(_ctx, _cache, $props, $setup, $data, $options) {
     onChange: _cache[2] || (_cache[2] = function() {
       return $options.onChange && $options.onChange.apply($options, arguments);
     })
-  }, $options.getPTOptions("input")), null, 16, _hoisted_2$6), createBaseVNode("div", mergeProps({
+  }, $options.getPTOptions("input")), null, 16, _hoisted_2$8), createBaseVNode("div", mergeProps({
     "class": _ctx.cx("box")
   }, $options.getPTOptions("box")), [renderSlot(_ctx.$slots, "icon", {
     checked: $options.checked,
@@ -30322,14 +30372,14 @@ function render$c(_ctx, _cache, $props, $setup, $data, $options) {
       key: 1,
       "class": _ctx.cx("icon")
     }, $options.getPTOptions("icon")), null, 16, ["class"])) : createCommentVNode("", true)];
-  })], 16)], 16, _hoisted_1$9);
+  })], 16)], 16, _hoisted_1$a);
 }
-script$d.render = render$c;
-var script$c = {
+script$e.render = render$d;
+var script$d = {
   name: "TimesCircleIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$b(_ctx, _cache, $props, $setup, $data, $options) {
+function render$c(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -30343,12 +30393,12 @@ function render$b(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$c.render = render$b;
-var theme$5 = function theme9(_ref) {
+script$d.render = render$c;
+var theme$6 = function theme9(_ref) {
   var dt2 = _ref.dt;
   return "\n.p-chip {\n    display: inline-flex;\n    align-items: center;\n    background: ".concat(dt2("chip.background"), ";\n    color: ").concat(dt2("chip.color"), ";\n    border-radius: ").concat(dt2("chip.border.radius"), ";\n    padding: ").concat(dt2("chip.padding.y"), " ").concat(dt2("chip.padding.x"), ";\n    gap: ").concat(dt2("chip.gap"), ";\n}\n\n.p-chip-icon {\n    color: ").concat(dt2("chip.icon.color"), ";\n    font-size: ").concat(dt2("chip.icon.font.size"), ";\n    width: ").concat(dt2("chip.icon.size"), ";\n    height: ").concat(dt2("chip.icon.size"), ";\n}\n\n.p-chip-image {\n    border-radius: 50%;\n    width: ").concat(dt2("chip.image.width"), ";\n    height: ").concat(dt2("chip.image.height"), ";\n    margin-left: calc(-1 * ").concat(dt2("chip.padding.y"), ");\n}\n\n.p-chip:has(.p-chip-remove-icon) {\n    padding-right: ").concat(dt2("chip.padding.y"), ";\n}\n\n.p-chip:has(.p-chip-image) {\n    padding-top: calc(").concat(dt2("chip.padding.y"), " / 2);\n    padding-bottom: calc(").concat(dt2("chip.padding.y"), " / 2);\n}\n\n.p-chip-remove-icon {\n    cursor: pointer;\n    font-size: ").concat(dt2("chip.remove.icon.size"), ";\n    width: ").concat(dt2("chip.remove.icon.size"), ";\n    height: ").concat(dt2("chip.remove.icon.size"), ";\n    color: ").concat(dt2("chip.remove.icon.color"), ";\n    border-radius: 50%;\n    transition: outline-color ").concat(dt2("chip.transition.duration"), ", box-shadow ").concat(dt2("chip.transition.duration"), ";\n    outline-color: transparent;\n}\n\n.p-chip-remove-icon:focus-visible {\n    box-shadow: ").concat(dt2("chip.remove.icon.focus.ring.shadow"), ";\n    outline: ").concat(dt2("chip.remove.icon.focus.ring.width"), " ").concat(dt2("chip.remove.icon.focus.ring.style"), " ").concat(dt2("chip.remove.icon.focus.ring.color"), ";\n    outline-offset: ").concat(dt2("chip.remove.icon.focus.ring.offset"), ";\n}\n");
 };
-var classes$5 = {
+var classes$6 = {
   root: "p-chip p-component",
   image: "p-chip-image",
   icon: "p-chip-icon",
@@ -30357,12 +30407,12 @@ var classes$5 = {
 };
 var ChipStyle = BaseStyle.extend({
   name: "chip",
-  theme: theme$5,
-  classes: classes$5
+  theme: theme$6,
+  classes: classes$6
 });
-var script$1$6 = {
+var script$1$7 = {
   name: "BaseChip",
-  "extends": script$y,
+  "extends": script$z,
   props: {
     label: {
       type: String,
@@ -30393,9 +30443,9 @@ var script$1$6 = {
     };
   }
 };
-var script$b = {
+var script$c = {
   name: "Chip",
-  "extends": script$1$6,
+  "extends": script$1$7,
   inheritAttrs: false,
   emits: ["remove"],
   data: function data5() {
@@ -30415,12 +30465,12 @@ var script$b = {
     }
   },
   components: {
-    TimesCircleIcon: script$c
+    TimesCircleIcon: script$d
   }
 };
-var _hoisted_1$8 = ["aria-label"];
-var _hoisted_2$5 = ["src"];
-function render$a(_ctx, _cache, $props, $setup, $data, $options) {
+var _hoisted_1$9 = ["aria-label"];
+var _hoisted_2$7 = ["src"];
+function render$b(_ctx, _cache, $props, $setup, $data, $options) {
   return $data.visible ? (openBlock(), createElementBlock("div", mergeProps({
     key: 0,
     "class": _ctx.cx("root"),
@@ -30431,7 +30481,7 @@ function render$a(_ctx, _cache, $props, $setup, $data, $options) {
       src: _ctx.image
     }, _ctx.ptm("image"), {
       "class": _ctx.cx("image")
-    }), null, 16, _hoisted_2$5)) : _ctx.$slots.icon ? (openBlock(), createBlock(resolveDynamicComponent(_ctx.$slots.icon), mergeProps({
+    }), null, 16, _hoisted_2$7)) : _ctx.$slots.icon ? (openBlock(), createBlock(resolveDynamicComponent(_ctx.$slots.icon), mergeProps({
       key: 1,
       "class": _ctx.cx("icon")
     }, _ctx.ptm("icon")), null, 16, ["class"])) : _ctx.icon ? (openBlock(), createElementBlock("span", mergeProps({
@@ -30452,24 +30502,24 @@ function render$a(_ctx, _cache, $props, $setup, $data, $options) {
       onClick: $options.close,
       onKeydown: $options.onKeydown
     }, _ctx.ptm("removeIcon")), null, 16, ["class", "onClick", "onKeydown"]))];
-  }) : createCommentVNode("", true)], 16, _hoisted_1$8)) : createCommentVNode("", true);
+  }) : createCommentVNode("", true)], 16, _hoisted_1$9)) : createCommentVNode("", true);
 }
-script$b.render = render$a;
-var theme$4 = function theme10(_ref) {
+script$c.render = render$b;
+var theme$5 = function theme10(_ref) {
   var dt2 = _ref.dt;
   return "\n.p-iconfield {\n    position: relative;\n}\n\n.p-inputicon {\n    position: absolute;\n    top: 50%;\n    margin-top: calc(-1 * (".concat(dt2("icon.size"), " / 2));\n    color: ").concat(dt2("iconfield.icon.color"), ";\n    line-height: 1;\n}\n\n.p-iconfield .p-inputicon:first-child {\n    left: ").concat(dt2("form.field.padding.x"), ";\n}\n\n.p-iconfield .p-inputicon:last-child {\n    right: ").concat(dt2("form.field.padding.x"), ";\n}\n\n.p-iconfield .p-inputtext:not(:first-child) {\n    padding-left: calc((").concat(dt2("form.field.padding.x"), " * 2) + ").concat(dt2("icon.size"), ");\n}\n\n.p-iconfield .p-inputtext:not(:last-child) {\n    padding-right: calc((").concat(dt2("form.field.padding.x"), " * 2) + ").concat(dt2("icon.size"), ");\n}\n");
 };
-var classes$4 = {
+var classes$5 = {
   root: "p-iconfield"
 };
 var IconFieldStyle = BaseStyle.extend({
   name: "iconfield",
-  theme: theme$4,
-  classes: classes$4
+  theme: theme$5,
+  classes: classes$5
 });
-var script$1$5 = {
+var script$1$6 = {
   name: "BaseIconField",
-  "extends": script$y,
+  "extends": script$z,
   style: IconFieldStyle,
   provide: function provide11() {
     return {
@@ -30478,27 +30528,27 @@ var script$1$5 = {
     };
   }
 };
-var script$a = {
+var script$b = {
   name: "IconField",
-  "extends": script$1$5,
+  "extends": script$1$6,
   inheritAttrs: false
 };
-function render$9(_ctx, _cache, $props, $setup, $data, $options) {
+function render$a(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", mergeProps({
     "class": _ctx.cx("root")
   }, _ctx.ptmi("root")), [renderSlot(_ctx.$slots, "default")], 16);
 }
-script$a.render = render$9;
-var classes$3 = {
+script$b.render = render$a;
+var classes$4 = {
   root: "p-inputicon"
 };
 var InputIconStyle = BaseStyle.extend({
   name: "inputicon",
-  classes: classes$3
+  classes: classes$4
 });
-var script$1$4 = {
+var script$1$5 = {
   name: "BaseInputIcon",
-  "extends": script$y,
+  "extends": script$z,
   style: InputIconStyle,
   props: {
     "class": null
@@ -30510,9 +30560,9 @@ var script$1$4 = {
     };
   }
 };
-var script$9 = {
+var script$a = {
   name: "InputIcon",
-  "extends": script$1$4,
+  "extends": script$1$5,
   inheritAttrs: false,
   computed: {
     containerClass: function containerClass2() {
@@ -30520,17 +30570,17 @@ var script$9 = {
     }
   }
 };
-function render$8(_ctx, _cache, $props, $setup, $data, $options) {
+function render$9(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("span", mergeProps({
     "class": $options.containerClass
   }, _ctx.ptmi("root")), [renderSlot(_ctx.$slots, "default")], 16);
 }
-script$9.render = render$8;
-var theme$3 = function theme11(_ref) {
+script$a.render = render$9;
+var theme$4 = function theme11(_ref) {
   var dt2 = _ref.dt;
   return "\n.p-inputtext {\n    font-family: inherit;\n    font-feature-settings: inherit;\n    font-size: 1rem;\n    color: ".concat(dt2("inputtext.color"), ";\n    background: ").concat(dt2("inputtext.background"), ";\n    padding: ").concat(dt2("inputtext.padding.y"), " ").concat(dt2("inputtext.padding.x"), ";\n    border: 1px solid ").concat(dt2("inputtext.border.color"), ";\n    transition: background ").concat(dt2("inputtext.transition.duration"), ", color ").concat(dt2("inputtext.transition.duration"), ", border-color ").concat(dt2("inputtext.transition.duration"), ", outline-color ").concat(dt2("inputtext.transition.duration"), ", box-shadow ").concat(dt2("inputtext.transition.duration"), ";\n    appearance: none;\n    border-radius: ").concat(dt2("inputtext.border.radius"), ";\n    outline-color: transparent;\n    box-shadow: ").concat(dt2("inputtext.shadow"), ";\n}\n\n.p-inputtext:enabled:hover {\n    border-color: ").concat(dt2("inputtext.hover.border.color"), ";\n}\n\n.p-inputtext:enabled:focus {\n    border-color: ").concat(dt2("inputtext.focus.border.color"), ";\n    box-shadow: ").concat(dt2("inputtext.focus.ring.shadow"), ";\n    outline: ").concat(dt2("inputtext.focus.ring.width"), " ").concat(dt2("inputtext.focus.ring.style"), " ").concat(dt2("inputtext.focus.ring.color"), ";\n    outline-offset: ").concat(dt2("inputtext.focus.ring.offset"), ";\n}\n\n.p-inputtext.p-invalid {\n    border-color: ").concat(dt2("inputtext.invalid.border.color"), ";\n}\n\n.p-inputtext.p-variant-filled {\n    background: ").concat(dt2("inputtext.filled.background"), ";\n}\n\n.p-inputtext.p-variant-filled:enabled:hover {\n    background: ").concat(dt2("inputtext.filled.hover.background"), ";\n}\n\n.p-inputtext.p-variant-filled:enabled:focus {\n    background: ").concat(dt2("inputtext.filled.focus.background"), ";\n}\n\n.p-inputtext:disabled {\n    opacity: 1;\n    background: ").concat(dt2("inputtext.disabled.background"), ";\n    color: ").concat(dt2("inputtext.disabled.color"), ";\n}\n\n.p-inputtext::placeholder {\n    color: ").concat(dt2("inputtext.placeholder.color"), ";\n}\n\n.p-inputtext-sm {\n    font-size: ").concat(dt2("inputtext.sm.font.size"), ";\n    padding: ").concat(dt2("inputtext.sm.padding.y"), " ").concat(dt2("inputtext.sm.padding.x"), ";\n}\n\n.p-inputtext-lg {\n    font-size: ").concat(dt2("inputtext.lg.font.size"), ";\n    padding: ").concat(dt2("inputtext.lg.padding.y"), " ").concat(dt2("inputtext.lg.padding.x"), ";\n}\n\n.p-inputtext-fluid {\n    width: 100%;\n}\n");
 };
-var classes$2 = {
+var classes$3 = {
   root: function root6(_ref2) {
     var instance2 = _ref2.instance, props = _ref2.props;
     return ["p-inputtext p-component", {
@@ -30545,12 +30595,12 @@ var classes$2 = {
 };
 var InputTextStyle = BaseStyle.extend({
   name: "inputtext",
-  theme: theme$3,
-  classes: classes$2
+  theme: theme$4,
+  classes: classes$3
 });
-var script$1$3 = {
+var script$1$4 = {
   name: "BaseInputText",
-  "extends": script$y,
+  "extends": script$z,
   props: {
     modelValue: null,
     size: {
@@ -30578,9 +30628,9 @@ var script$1$3 = {
     };
   }
 };
-var script$8 = {
+var script$9 = {
   name: "InputText",
-  "extends": script$1$3,
+  "extends": script$1$4,
   inheritAttrs: false,
   emits: ["update:modelValue"],
   inject: {
@@ -30611,8 +30661,8 @@ var script$8 = {
     }
   }
 };
-var _hoisted_1$7 = ["value", "aria-invalid"];
-function render$7(_ctx, _cache, $props, $setup, $data, $options) {
+var _hoisted_1$8 = ["value", "aria-invalid"];
+function render$8(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("input", mergeProps({
     type: "text",
     "class": _ctx.cx("root"),
@@ -30621,11 +30671,11 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
     onInput: _cache[0] || (_cache[0] = function() {
       return $options.onInput && $options.onInput.apply($options, arguments);
     })
-  }, $options.getPTOptions("root")), null, 16, _hoisted_1$7);
+  }, $options.getPTOptions("root")), null, 16, _hoisted_1$8);
 }
-script$8.render = render$7;
+script$9.render = render$8;
 var OverlayEventBus = EventBus();
-var theme$2 = function theme12(_ref) {
+var theme$3 = function theme12(_ref) {
   var dt2 = _ref.dt;
   return "\n.p-virtualscroller-loader {\n    background: ".concat(dt2("virtualscroller.loader.mask.background"), ";\n    color: ").concat(dt2("virtualscroller.loader.mask.color"), ";\n}\n\n.p-virtualscroller-loading-icon {\n    font-size: ").concat(dt2("virtualscroller.loader.icon.size"), ";\n    width: ").concat(dt2("virtualscroller.loader.icon.size"), ";\n    height: ").concat(dt2("virtualscroller.loader.icon.size"), ";\n}\n");
 };
@@ -30633,11 +30683,11 @@ var css2 = "\n.p-virtualscroller {\n    position: relative;\n    overflow: auto;
 var VirtualScrollerStyle = BaseStyle.extend({
   name: "virtualscroller",
   css: css2,
-  theme: theme$2
+  theme: theme$3
 });
-var script$1$2 = {
+var script$1$3 = {
   name: "BaseVirtualScroller",
-  "extends": script$y,
+  "extends": script$z,
   props: {
     id: {
       type: String,
@@ -30780,9 +30830,9 @@ function _toPrimitive$4(t2, r2) {
   }
   return ("string" === r2 ? String : Number)(t2);
 }
-var script$7 = {
+var script$8 = {
   name: "VirtualScroller",
-  "extends": script$1$2,
+  "extends": script$1$3,
   inheritAttrs: false,
   emits: ["update:numToleratedItems", "scroll", "scroll-index-change", "lazy-load"],
   data: function data6() {
@@ -31481,11 +31531,11 @@ var script$7 = {
     }
   },
   components: {
-    SpinnerIcon: script$l
+    SpinnerIcon: script$m
   }
 };
-var _hoisted_1$6 = ["tabindex"];
-function render$6(_ctx, _cache, $props, $setup, $data, $options) {
+var _hoisted_1$7 = ["tabindex"];
+function render$7(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_SpinnerIcon = resolveComponent("SpinnerIcon");
   return !_ctx.disabled ? (openBlock(), createElementBlock("div", mergeProps({
     key: 0,
@@ -31544,7 +31594,7 @@ function render$6(_ctx, _cache, $props, $setup, $data, $options) {
       spin: "",
       "class": "p-virtualscroller-loading-icon"
     }, _ctx.ptm("loadingIcon")), null, 16)];
-  })], 16)) : createCommentVNode("", true)], 16, _hoisted_1$6)) : (openBlock(), createElementBlock(Fragment, {
+  })], 16)) : createCommentVNode("", true)], 16, _hoisted_1$7)) : (openBlock(), createElementBlock(Fragment, {
     key: 1
   }, [renderSlot(_ctx.$slots, "default"), renderSlot(_ctx.$slots, "content", {
     items: _ctx.items,
@@ -31552,12 +31602,12 @@ function render$6(_ctx, _cache, $props, $setup, $data, $options) {
     columns: $options.loadedColumns
   })], 64));
 }
-script$7.render = render$6;
-var theme$1 = function theme13(_ref) {
+script$8.render = render$7;
+var theme$2 = function theme13(_ref) {
   var dt2 = _ref.dt;
   return "\n.p-multiselect {\n    display: inline-flex;\n    cursor: pointer;\n    position: relative;\n    user-select: none;\n    background: ".concat(dt2("multiselect.background"), ";\n    border: 1px solid ").concat(dt2("multiselect.border.color"), ";\n    transition: background ").concat(dt2("multiselect.transition.duration"), ", color ").concat(dt2("multiselect.transition.duration"), ", border-color ").concat(dt2("multiselect.transition.duration"), ", outline-color ").concat(dt2("multiselect.transition.duration"), ", box-shadow ").concat(dt2("multiselect.transition.duration"), ";\n    border-radius: ").concat(dt2("multiselect.border.radius"), ";\n    outline-color: transparent;\n    box-shadow: ").concat(dt2("multiselect.shadow"), ";\n}\n\n.p-multiselect:not(.p-disabled):hover {\n    border-color: ").concat(dt2("multiselect.hover.border.color"), ";\n}\n\n.p-multiselect:not(.p-disabled).p-focus {\n    border-color: ").concat(dt2("multiselect.focus.border.color"), ";\n    box-shadow: ").concat(dt2("multiselect.focus.ring.shadow"), ";\n    outline: ").concat(dt2("multiselect.focus.ring.width"), " ").concat(dt2("multiselect.focus.ring.style"), " ").concat(dt2("multiselect.focus.ring.color"), ";\n    outline-offset: ").concat(dt2("multiselect.focus.ring.offset"), ";\n}\n\n.p-multiselect.p-variant-filled {\n    background: ").concat(dt2("multiselect.filled.background"), ";\n}\n\n.p-multiselect.p-variant-filled:not(.p-disabled):hover {\n    background: ").concat(dt2("multiselect.filled.hover.background"), ";\n}\n\n.p-multiselect.p-variant-filled.p-focus {\n    background: ").concat(dt2("multiselect.filled.focus.background"), ";\n}\n\n.p-multiselect.p-invalid {\n    border-color: ").concat(dt2("multiselect.invalid.border.color"), ";\n}\n\n.p-multiselect.p-disabled {\n    opacity: 1;\n    background: ").concat(dt2("multiselect.disabled.background"), ";\n}\n\n.p-multiselect-dropdown {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-shrink: 0;\n    background: transparent;\n    color: ").concat(dt2("multiselect.dropdown.color"), ";\n    width: ").concat(dt2("multiselect.dropdown.width"), ";\n    border-top-right-radius: ").concat(dt2("multiselect.border.radius"), ";\n    border-bottom-right-radius: ").concat(dt2("multiselect.border.radius"), ";\n}\n\n.p-multiselect-label-container {\n    overflow: hidden;\n    flex: 1 1 auto;\n    cursor: pointer;\n}\n\n.p-multiselect-label {\n    display: flex;\n    align-items-center;\n    gap: calc(").concat(dt2("multiselect.padding.y"), " / 2);\n    white-space: nowrap;\n    cursor: pointer;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    padding: ").concat(dt2("multiselect.padding.y"), " ").concat(dt2("multiselect.padding.x"), ";\n    color: ").concat(dt2("multiselect.color"), ";\n}\n\n.p-multiselect-label.p-placeholder {\n    color: ").concat(dt2("multiselect.placeholder.color"), ";\n}\n\n.p-multiselect.p-disabled .p-multiselect-label {\n    color: ").concat(dt2("multiselect.disabled.color"), ";\n}\n\n.p-multiselect-label-empty {\n    overflow: hidden;\n    visibility: hidden;\n}\n\n.p-multiselect .p-multiselect-overlay {\n    min-width: 100%;\n}\n\n.p-multiselect-overlay {\n    position: absolute;\n    top: 0;\n    left: 0;\n    background: ").concat(dt2("multiselect.overlay.background"), ";\n    color: ").concat(dt2("multiselect.overlay.color"), ";\n    border: 1px solid ").concat(dt2("multiselect.overlay.border.color"), ";\n    border-radius: ").concat(dt2("multiselect.overlay.border.radius"), ";\n    box-shadow: ").concat(dt2("multiselect.overlay.shadow"), ";\n}\n\n.p-multiselect-header {\n    display: flex;\n    align-items: center;\n    padding: ").concat(dt2("multiselect.list.header.padding"), ";\n}\n\n.p-multiselect-header .p-checkbox {\n    margin-right: ").concat(dt2("multiselect.option.gap"), ";\n}\n\n.p-multiselect-filter-container {\n    flex: 1 1 auto;\n}\n\n.p-multiselect-filter {\n    width: 100%;\n}\n\n.p-multiselect-list-container {\n    overflow: auto;\n}\n\n.p-multiselect-list {\n    margin: 0;\n    padding: 0;\n    list-style-type: none;\n    padding: ").concat(dt2("multiselect.list.padding"), ";\n    display: flex;\n    flex-direction: column;\n    gap: ").concat(dt2("multiselect.list.gap"), "\n}\n\n.p-multiselect-option {\n    cursor: pointer;\n    font-weight: normal;\n    white-space: nowrap;\n    position: relative;\n    overflow: hidden;\n    display: flex;\n    align-items: center;\n    gap: ").concat(dt2("multiselect.option.gap"), ";\n    padding: ").concat(dt2("multiselect.option.padding"), ";\n    border: 0 none;\n    color: ").concat(dt2("multiselect.option.color"), ";\n    background: transparent;\n    transition: background ").concat(dt2("multiselect.transition.duration"), ", color ").concat(dt2("multiselect.transition.duration"), ", border-color ").concat(dt2("multiselect.transition.duration"), ", box-shadow ").concat(dt2("multiselect.transition.duration"), ", outline-color ").concat(dt2("multiselect.transition.duration"), ";\n    border-radius: ").concat(dt2("multiselect.option.border.radius"), "\n}\n\n.p-multiselect-option:not(.p-multiselect-option-selected):not(.p-disabled).p-focus {\n    background: ").concat(dt2("multiselect.option.focus.background"), ";\n    color: ").concat(dt2("multiselect.option.focus.color"), ";\n}\n\n.p-multiselect-option.p-multiselect-option-selected {\n    background: ").concat(dt2("multiselect.option.selected.background"), ";\n    color: ").concat(dt2("multiselect.option.selected.color"), ";\n}\n\n.p-multiselect-option.p-multiselect-option-selected.p-focus {\n    background: ").concat(dt2("multiselect.option.selected.focus.background"), ";\n    color: ").concat(dt2("multiselect.option.selected.focus.color"), ";\n}\n\n.p-multiselect-option-group {\n    cursor: auto;\n    margin: 0;\n    padding: ").concat(dt2("multiselect.option.group.padding"), ";\n    background: ").concat(dt2("multiselect.option.group.background"), ";\n    color: ").concat(dt2("multiselect.option.group.color"), ";\n    font-weight: ").concat(dt2("multiselect.option.group.font.weight"), ";\n}\n\n.p-multiselect-empty-message {\n    padding: ").concat(dt2("multiselect.empty.message.padding"), ";\n}\n\n.p-multiselect-label .p-chip {\n    padding-top: calc(").concat(dt2("multiselect.padding.y"), " / 2);\n    padding-bottom: calc(").concat(dt2("multiselect.padding.y"), " / 2);\n    border-radius: ").concat(dt2("multiselect.chip.border.radius"), ";\n}\n\n.p-multiselect-label:has(.p-chip) {\n    padding: calc(").concat(dt2("multiselect.padding.y"), " / 2) calc(").concat(dt2("multiselect.padding.x"), " / 2);\n}\n\n.p-multiselect-fluid {\n    display: flex;\n}\n");
 };
-var inlineStyles$1 = {
+var inlineStyles$2 = {
   root: function root7(_ref2) {
     var props = _ref2.props;
     return {
@@ -31565,7 +31615,7 @@ var inlineStyles$1 = {
     };
   }
 };
-var classes$1 = {
+var classes$2 = {
   root: function root8(_ref3) {
     var instance2 = _ref3.instance, props = _ref3.props;
     return ["p-multiselect p-component p-inputwrapper", {
@@ -31613,13 +31663,13 @@ var classes$1 = {
 };
 var MultiSelectStyle = BaseStyle.extend({
   name: "multiselect",
-  theme: theme$1,
-  classes: classes$1,
-  inlineStyles: inlineStyles$1
+  theme: theme$2,
+  classes: classes$2,
+  inlineStyles: inlineStyles$2
 });
-var script$1$1 = {
+var script$1$2 = {
   name: "BaseMultiSelect",
-  "extends": script$y,
+  "extends": script$z,
   props: {
     modelValue: null,
     options: Array,
@@ -31872,9 +31922,9 @@ function _arrayLikeToArray$2(r2, a2) {
   for (var e = 0, n = Array(a2); e < a2; e++) n[e] = r2[e];
   return n;
 }
-var script$6 = {
+var script$7 = {
   name: "MultiSelect",
-  "extends": script$1$1,
+  "extends": script$1$2,
   inheritAttrs: false,
   emits: ["update:modelValue", "change", "focus", "blur", "before-show", "before-hide", "show", "hide", "filter", "selectall-change"],
   inject: {
@@ -32764,18 +32814,18 @@ var script$6 = {
     ripple: Ripple
   },
   components: {
-    InputText: script$8,
-    Checkbox: script$d,
-    VirtualScroller: script$7,
-    Portal: script$q,
-    Chip: script$b,
-    IconField: script$a,
-    InputIcon: script$9,
-    TimesIcon: script$s,
-    SearchIcon: script$f,
-    ChevronDownIcon: script$g,
-    SpinnerIcon: script$l,
-    CheckIcon: script$h
+    InputText: script$9,
+    Checkbox: script$e,
+    VirtualScroller: script$8,
+    Portal: script$r,
+    Chip: script$c,
+    IconField: script$b,
+    InputIcon: script$a,
+    TimesIcon: script$t,
+    SearchIcon: script$g,
+    ChevronDownIcon: script$h,
+    SpinnerIcon: script$m,
+    CheckIcon: script$i
   }
 };
 function _typeof$4(o2) {
@@ -32803,14 +32853,14 @@ function _toPrimitive$3(t2, r2) {
   }
   return ("string" === r2 ? String : Number)(t2);
 }
-var _hoisted_1$5 = ["id", "disabled", "placeholder", "tabindex", "aria-label", "aria-labelledby", "aria-expanded", "aria-controls", "aria-activedescendant", "aria-invalid"];
-var _hoisted_2$4 = {
+var _hoisted_1$6 = ["id", "disabled", "placeholder", "tabindex", "aria-label", "aria-labelledby", "aria-expanded", "aria-controls", "aria-activedescendant", "aria-invalid"];
+var _hoisted_2$6 = {
   key: 0
 };
-var _hoisted_3$4 = ["id", "aria-label"];
-var _hoisted_4$3 = ["id"];
-var _hoisted_5$2 = ["id", "aria-label", "aria-selected", "aria-disabled", "aria-setsize", "aria-posinset", "onClick", "onMousemove", "data-p-selected", "data-p-focused", "data-p-disabled"];
-function render$5(_ctx, _cache, $props, $setup, $data, $options) {
+var _hoisted_3$5 = ["id", "aria-label"];
+var _hoisted_4$4 = ["id"];
+var _hoisted_5$3 = ["id", "aria-label", "aria-selected", "aria-disabled", "aria-setsize", "aria-posinset", "onClick", "onMousemove", "data-p-selected", "data-p-focused", "data-p-disabled"];
+function render$6(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Chip = resolveComponent("Chip");
   var _component_SpinnerIcon = resolveComponent("SpinnerIcon");
   var _component_Checkbox = resolveComponent("Checkbox");
@@ -32857,7 +32907,7 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
     onKeydown: _cache[2] || (_cache[2] = function() {
       return $options.onKeyDown && $options.onKeyDown.apply($options, arguments);
     })
-  }, _ctx.ptm("hiddenInput")), null, 16, _hoisted_1$5)], 16), createBaseVNode("div", mergeProps({
+  }, _ctx.ptm("hiddenInput")), null, 16, _hoisted_1$6)], 16), createBaseVNode("div", mergeProps({
     "class": _ctx.cx("labelContainer")
   }, _ctx.ptm("labelContainer")), [createBaseVNode("div", mergeProps({
     "class": _ctx.cx("label")
@@ -32869,7 +32919,7 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
       key: 0
     }, [createTextVNode(toDisplayString($options.label || "empty"), 1)], 64)) : _ctx.display === "chip" ? (openBlock(), createElementBlock(Fragment, {
       key: 1
-    }, [$options.chipSelectedItems ? (openBlock(), createElementBlock("span", _hoisted_2$4, toDisplayString($options.label), 1)) : (openBlock(true), createElementBlock(Fragment, {
+    }, [$options.chipSelectedItems ? (openBlock(), createElementBlock("span", _hoisted_2$6, toDisplayString($options.label), 1)) : (openBlock(true), createElementBlock(Fragment, {
       key: 1
     }, renderList(_ctx.modelValue, function(item) {
       return openBlock(), createElementBlock("span", mergeProps({
@@ -33090,7 +33140,7 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
                   index: $options.getOptionIndex(i, getItemOptions)
                 }, function() {
                   return [createTextVNode(toDisplayString($options.getOptionGroupLabel(option2.optionGroup)), 1)];
-                })], 16, _hoisted_4$3)) : withDirectives((openBlock(), createElementBlock("li", mergeProps({
+                })], 16, _hoisted_4$4)) : withDirectives((openBlock(), createElementBlock("li", mergeProps({
                   key: 1,
                   id: $data.id + "_" + $options.getOptionIndex(i, getItemOptions),
                   style: {
@@ -33146,7 +33196,7 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
                   return [createBaseVNode("span", mergeProps({
                     ref_for: true
                   }, _ctx.ptm("optionLabel")), toDisplayString($options.getOptionLabel(option2)), 17)];
-                })], 16, _hoisted_5$2)), [[_directive_ripple]])], 64);
+                })], 16, _hoisted_5$3)), [[_directive_ripple]])], 64);
               }), 128)), $data.filterValue && (!items2 || items2 && items2.length === 0) ? (openBlock(), createElementBlock("li", mergeProps({
                 key: 0,
                 "class": _ctx.cx("emptyMessage"),
@@ -33159,7 +33209,7 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
                 role: "option"
               }, _ctx.ptm("emptyMessage")), [renderSlot(_ctx.$slots, "empty", {}, function() {
                 return [createTextVNode(toDisplayString($options.emptyMessageText), 1)];
-              })], 16)) : createCommentVNode("", true)], 16, _hoisted_3$4)];
+              })], 16)) : createCommentVNode("", true)], 16, _hoisted_3$5)];
             }),
             _: 2
           }, [_ctx.$slots.loader ? {
@@ -33207,12 +33257,12 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["appendTo"])], 16);
 }
-script$6.render = render$5;
-var script$5 = {
+script$7.render = render$6;
+var script$6 = {
   name: "CalendarIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$4(_ctx, _cache, $props, $setup, $data, $options) {
+function render$5(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -33224,12 +33274,12 @@ function render$4(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$5.render = render$4;
-var script$4 = {
+script$6.render = render$5;
+var script$5 = {
   name: "ChevronLeftIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$3(_ctx, _cache, $props, $setup, $data, $options) {
+function render$4(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -33241,12 +33291,12 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$4.render = render$3;
-var script$3 = {
+script$5.render = render$4;
+var script$4 = {
   name: "ChevronRightIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$2(_ctx, _cache, $props, $setup, $data, $options) {
+function render$3(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -33258,12 +33308,12 @@ function render$2(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$3.render = render$2;
-var script$2 = {
+script$4.render = render$3;
+var script$3 = {
   name: "ChevronUpIcon",
-  "extends": script$x
+  "extends": script$y
 };
-function render$1(_ctx, _cache, $props, $setup, $data, $options) {
+function render$2(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", mergeProps({
     width: "14",
     height: "14",
@@ -33275,12 +33325,12 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
     fill: "currentColor"
   }, null, -1)]), 16);
 }
-script$2.render = render$1;
-var theme14 = function theme15(_ref) {
+script$3.render = render$2;
+var theme$1 = function theme14(_ref) {
   var dt2 = _ref.dt;
   return "\n.p-datepicker {\n    display: inline-flex;\n    max-width: 100%;\n}\n\n.p-datepicker-input {\n    flex: 1 1 auto;\n    width: 1%;\n}\n\n.p-datepicker:has(.p-datepicker-dropdown) .p-datepicker-input {\n    border-top-right-radius: 0;\n    border-bottom-right-radius: 0;\n}\n\n.p-datepicker-dropdown {\n    cursor: pointer;\n    display: inline-flex;\n    cursor: pointer;\n    user-select: none;\n    align-items: center;\n    justify-content: center;\n    overflow: hidden;\n    position: relative;\n    width: ".concat(dt2("datepicker.dropdown.width"), ";\n    border-top-right-radius: ").concat(dt2("datepicker.dropdown.border.radius"), ";\n    border-bottom-right-radius: ").concat(dt2("datepicker.dropdown.border.radius"), ";\n    background: ").concat(dt2("datepicker.dropdown.background"), ";\n    border: 1px solid ").concat(dt2("datepicker.dropdown.border.color"), ";\n    border-left: 0 none;\n    color: ").concat(dt2("datepicker.dropdown.color"), ";\n    transition: background ").concat(dt2("datepicker.transition.duration"), ", color ").concat(dt2("datepicker.transition.duration"), ", border-color ").concat(dt2("datepicker.transition.duration"), ", outline-color ").concat(dt2("datepicker.transition.duration"), ";\n    outline-color: transparent;\n}\n\n.p-datepicker-dropdown:not(:disabled):hover {\n    background: ").concat(dt2("datepicker.dropdown.hover.background"), ";\n    border-color: ").concat(dt2("datepicker.dropdown.hover.border.color"), ";\n    color: ").concat(dt2("datepicker.dropdown.hover.color"), ";\n}\n\n.p-datepicker-dropdown:not(:disabled):active {\n    background: ").concat(dt2("datepicker.dropdown.active.background"), ";\n    border-color: ").concat(dt2("datepicker.dropdown.active.border.color"), ";\n    color: ").concat(dt2("datepicker.dropdown.active.color"), ";\n}\n\n.p-datepicker-dropdown:focus-visible {\n    box-shadow: ").concat(dt2("datepicker.dropdown.focus.ring.shadow"), ";\n    outline: ").concat(dt2("datepicker.dropdown.focus.ring.width"), " ").concat(dt2("datepicker.dropdown.focus.ring.style"), " ").concat(dt2("datepicker.dropdown.focus.ring.color"), ";\n    outline-offset: ").concat(dt2("datepicker.dropdown.focus.ring.offset"), ";\n}\n\n.p-datepicker:has(.p-datepicker-input-icon-container) {\n    position: relative;\n}\n\n.p-datepicker:has(.p-datepicker-input-icon-container) .p-datepicker-input {\n    padding-right: calc((").concat(dt2("form.field.padding.x"), " * 2) + ").concat(dt2("icon.size"), ");\n}\n\n.p-datepicker-input-icon-container {\n    cursor: pointer;\n    position: absolute;\n    top: 50%;\n    right: ").concat(dt2("form.field.padding.x"), ";\n    margin-top: calc(-1 * (").concat(dt2("icon.size"), " / 2));\n    color: ").concat(dt2("datepicker.input.icon.color"), ";\n}\n\n.p-datepicker-fluid {\n    display: flex;\n}\n\n.p-datepicker-fluid .p-datepicker-input {\n    width: 1%;\n}\n\n.p-datepicker .p-datepicker-panel {\n    min-width: 100%;\n}\n\n.p-datepicker-panel {\n    width: auto;\n    padding: ").concat(dt2("datepicker.panel.padding"), ";\n    background: ").concat(dt2("datepicker.panel.background"), ";\n    color: ").concat(dt2("datepicker.panel.color"), ";\n    border: 1px solid ").concat(dt2("datepicker.panel.border.color"), ";\n    border-radius: ").concat(dt2("datepicker.panel.border.radius"), ";\n    box-shadow: ").concat(dt2("datepicker.panel.shadow"), ";\n}\n\n.p-datepicker-panel-inline {\n    display: inline-block;\n    overflow-x: auto;\n    box-shadow: none;\n}\n\n.p-datepicker-header {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: ").concat(dt2("datepicker.header.padding"), ";\n    font-weight: ").concat(dt2("datepicker.header.font.weight"), ";\n    background: ").concat(dt2("datepicker.header.background"), ";\n    color: ").concat(dt2("datepicker.header.color"), ";\n    border-bottom: 1px solid ").concat(dt2("datepicker.header.border.color"), ";\n}\n\n.p-datepicker-title {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: ").concat(dt2("datepicker.title.gap"), ";\n    font-weight: ").concat(dt2("datepicker.title.font.weight"), ";\n}\n\n.p-datepicker-select-year,\n.p-datepicker-select-month {\n    border: none;\n    background: transparent;\n    margin: 0;\n    cursor: pointer;\n    font-weight: inherit;\n    transition: background ").concat(dt2("datepicker.transition.duration"), ", color ").concat(dt2("datepicker.transition.duration"), ", border-color ").concat(dt2("datepicker.transition.duration"), ", outline-color ").concat(dt2("datepicker.transition.duration"), ", box-shadow ").concat(dt2("datepicker.transition.duration"), ";\n}\n\n.p-datepicker-select-month {\n    padding: ").concat(dt2("datepicker.select.month.padding"), ";\n    color: ").concat(dt2("datepicker.select.month.color"), ";\n    border-radius: ").concat(dt2("datepicker.select.month.border.radius"), ";\n}\n\n.p-datepicker-select-year {\n    padding: ").concat(dt2("datepicker.select.year.padding"), ";\n    color: ").concat(dt2("datepicker.select.year.color"), ";\n    border-radius: ").concat(dt2("datepicker.select.year.border.radius"), ";\n}\n\n.p-datepicker-select-month:enabled:hover {\n    background: ").concat(dt2("datepicker.select.month.hover.background"), ";\n    color: ").concat(dt2("datepicker.select.month.hover.color"), ";\n}\n\n.p-datepicker-select-year:enabled:hover {\n    background: ").concat(dt2("datepicker.select.year.hover.background"), ";\n    color: ").concat(dt2("datepicker.select.year.hover.color"), ";\n}\n\n.p-datepicker-select-month:focus-visible,\n.p-datepicker-select-year:focus-visible {\n    box-shadow: ").concat(dt2("datepicker.date.focus.ring.shadow"), ";\n    outline: ").concat(dt2("datepicker.date.focus.ring.width"), " ").concat(dt2("datepicker.date.focus.ring.style"), " ").concat(dt2("datepicker.date.focus.ring.color"), ";\n    outline-offset: ").concat(dt2("datepicker.date.focus.ring.offset"), ";\n}\n\n.p-datepicker-calendar-container {\n    display: flex;\n}\n\n.p-datepicker-calendar-container .p-datepicker-calendar {\n    flex: 1 1 auto;\n    border-left: 1px solid ").concat(dt2("datepicker.group.border.color"), ";\n    padding-right: ").concat(dt2("datepicker.group.gap"), ";\n    padding-left: ").concat(dt2("datepicker.group.gap"), ";\n}\n\n.p-datepicker-calendar-container .p-datepicker-calendar:first-child {\n    padding-left: 0;\n    border-left: 0 none;\n}\n\n.p-datepicker-calendar-container .p-datepicker-calendar:last-child {\n    padding-right: 0;\n}\n\n.p-datepicker-day-view {\n    width: 100%;\n    border-collapse: collapse;\n    font-size: 1rem;\n    margin: ").concat(dt2("datepicker.day.view.margin"), ";\n}\n\n.p-datepicker-weekday-cell {\n    padding: ").concat(dt2("datepicker.week.day.padding"), ";\n}\n\n.p-datepicker-weekday {\n    font-weight: ").concat(dt2("datepicker.week.day.font.weight"), ";\n    color: ").concat(dt2("datepicker.week.day.color"), ";\n}\n\n.p-datepicker-day-cell {\n    padding: ").concat(dt2("datepicker.date.padding"), ";\n}\n\n.p-datepicker-day {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n    margin: 0 auto;\n    overflow: hidden;\n    position: relative;\n    width: ").concat(dt2("datepicker.date.width"), ";\n    height: ").concat(dt2("datepicker.date.height"), ";\n    border-radius: ").concat(dt2("datepicker.date.border.radius"), ";\n    transition: background ").concat(dt2("datepicker.transition.duration"), ", color ").concat(dt2("datepicker.transition.duration"), ", border-color ").concat(dt2("datepicker.transition.duration"), ",\n        box-shadow ").concat(dt2("datepicker.transition.duration"), ", outline-color ").concat(dt2("datepicker.transition.duration"), ";\n    border: 1px solid transparent;\n    outline-color: transparent;\n    color: ").concat(dt2("datepicker.date.color"), ";\n}\n\n.p-datepicker-day:not(.p-datepicker-day-selected):not(.p-disabled):hover {\n    background: ").concat(dt2("datepicker.date.hover.background"), ";\n    color: ").concat(dt2("datepicker.date.hover.color"), ";\n}\n\n.p-datepicker-day:focus-visible {\n    box-shadow: ").concat(dt2("datepicker.date.focus.ring.shadow"), ";\n    outline: ").concat(dt2("datepicker.date.focus.ring.width"), " ").concat(dt2("datepicker.date.focus.ring.style"), " ").concat(dt2("datepicker.date.focus.ring.color"), ";\n    outline-offset: ").concat(dt2("datepicker.date.focus.ring.offset"), ";\n}\n\n.p-datepicker-day-selected {\n    background: ").concat(dt2("datepicker.date.selected.background"), ";\n    color: ").concat(dt2("datepicker.date.selected.color"), ";\n}\n\n.p-datepicker-day-selected-range {\n    background: ").concat(dt2("datepicker.date.range.selected.background"), ";\n    color: ").concat(dt2("datepicker.date.range.selected.color"), ";\n}\n\n.p-datepicker-today > .p-datepicker-day {\n    background: ").concat(dt2("datepicker.today.background"), ";\n    color: ").concat(dt2("datepicker.today.color"), ";\n}\n\n.p-datepicker-today > .p-datepicker-day-selected {\n    background: ").concat(dt2("datepicker.date.selected.background"), ";\n    color: ").concat(dt2("datepicker.date.selected.color"), ";\n}\n\n.p-datepicker-today > .p-datepicker-day-selected-range {\n    background: ").concat(dt2("datepicker.date.range.selected.background"), ";\n    color: ").concat(dt2("datepicker.date.range.selected.color"), ";\n}\n\n.p-datepicker-weeknumber {\n    text-align: center\n}\n\n.p-datepicker-month-view {\n    margin: ").concat(dt2("datepicker.month.view.margin"), ";\n}\n\n.p-datepicker-month {\n    width: 33.3%;\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    overflow: hidden;\n    position: relative;\n    padding: ").concat(dt2("datepicker.month.padding"), ";\n    transition: background ").concat(dt2("datepicker.transition.duration"), ", color ").concat(dt2("datepicker.transition.duration"), ", border-color ").concat(dt2("datepicker.transition.duration"), ", box-shadow ").concat(dt2("datepicker.transition.duration"), ", outline-color ").concat(dt2("datepicker.transition.duration"), ";\n    border-radius: ").concat(dt2("datepicker.month.border.radius"), ";\n    outline-color: transparent;\n    color: ").concat(dt2("datepicker.date.color"), ";\n}\n\n.p-datepicker-month:not(.p-disabled):not(.p-datepicker-month-selected):hover {\n    color:  ").concat(dt2("datepicker.date.hover.color"), ";\n    background: ").concat(dt2("datepicker.date.hover.background"), ";\n}\n\n.p-datepicker-month-selected {\n    color: ").concat(dt2("datepicker.date.selected.color"), ";\n    background: ").concat(dt2("datepicker.date.selected.background"), ";\n}\n\n.p-datepicker-month:not(.p-disabled):focus-visible {\n    box-shadow: ").concat(dt2("datepicker.date.focus.ring.shadow"), ";\n    outline: ").concat(dt2("datepicker.date.focus.ring.width"), " ").concat(dt2("datepicker.date.focus.ring.style"), " ").concat(dt2("datepicker.date.focus.ring.color"), ";\n    outline-offset: ").concat(dt2("datepicker.date.focus.ring.offset"), ";\n}\n\n.p-datepicker-year-view {\n    margin: ").concat(dt2("datepicker.year.view.margin"), ";\n}\n\n.p-datepicker-year {\n    width: 50%;\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    overflow: hidden;\n    position: relative;\n    padding: ").concat(dt2("datepicker.year.padding"), ";\n    transition: background ").concat(dt2("datepicker.transition.duration"), ", color ").concat(dt2("datepicker.transition.duration"), ", border-color ").concat(dt2("datepicker.transition.duration"), ", box-shadow ").concat(dt2("datepicker.transition.duration"), ", outline-color ").concat(dt2("datepicker.transition.duration"), ";\n    border-radius: ").concat(dt2("datepicker.year.border.radius"), ";\n    outline-color: transparent;\n    color: ").concat(dt2("datepicker.date.color"), ";\n}\n\n.p-datepicker-year:not(.p-disabled):not(.p-datepicker-year-selected):hover {\n    color: ").concat(dt2("datepicker.date.hover.color"), ";\n    background: ").concat(dt2("datepicker.date.hover.background"), ";\n}\n\n.p-datepicker-year-selected {\n    color: ").concat(dt2("datepicker.date.selected.color"), ";\n    background: ").concat(dt2("datepicker.date.selected.background"), ";\n}\n\n.p-datepicker-year:not(.p-disabled):focus-visible {\n    box-shadow: ").concat(dt2("datepicker.date.focus.ring.shadow"), ";\n    outline: ").concat(dt2("datepicker.date.focus.ring.width"), " ").concat(dt2("datepicker.date.focus.ring.style"), " ").concat(dt2("datepicker.date.focus.ring.color"), ";\n    outline-offset: ").concat(dt2("datepicker.date.focus.ring.offset"), ";\n}\n\n.p-datepicker-buttonbar {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding:  ").concat(dt2("datepicker.buttonbar.padding"), ";\n    border-top: 1px solid ").concat(dt2("datepicker.buttonbar.border.color"), ";\n}\n\n.p-datepicker-buttonbar .p-button {\n    width: auto;\n}\n\n.p-datepicker-time-picker {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-top: 1px solid ").concat(dt2("datepicker.time.picker.border.color"), ";\n    padding: 0;\n    gap: ").concat(dt2("datepicker.time.picker.gap"), ";\n}\n\n.p-datepicker-calendar-container + .p-datepicker-time-picker {\n    padding: ").concat(dt2("datepicker.time.picker.padding"), ";\n}\n\n.p-datepicker-time-picker > div {\n    display: flex;\n    align-items: center;\n    flex-direction: column;\n    gap: ").concat(dt2("datepicker.time.picker.button.gap"), ";\n}\n\n.p-datepicker-time-picker span {\n    font-size: 1rem;\n}\n\n.p-datepicker-timeonly .p-datepicker-time-picker {\n    border-top: 0 none;\n}\n");
 };
-var inlineStyles = {
+var inlineStyles$1 = {
   root: function root9(_ref2) {
     var props = _ref2.props;
     return {
@@ -33288,7 +33338,7 @@ var inlineStyles = {
     };
   }
 };
-var classes = {
+var classes$1 = {
   root: function root10(_ref3) {
     var instance2 = _ref3.instance, props = _ref3.props, state = _ref3.state;
     return ["p-datepicker p-component p-inputwrapper", {
@@ -33374,13 +33424,13 @@ var classes = {
 };
 var DatePickerStyle = BaseStyle.extend({
   name: "datepicker",
-  theme: theme14,
-  classes,
-  inlineStyles
+  theme: theme$1,
+  classes: classes$1,
+  inlineStyles: inlineStyles$1
 });
-var script$1 = {
+var script$1$1 = {
   name: "BaseDatePicker",
-  "extends": script$y,
+  "extends": script$z,
   props: {
     modelValue: null,
     selectionMode: {
@@ -33708,9 +33758,9 @@ function _arrayLikeToArray$1(r2, a2) {
   for (var e = 0, n = Array(a2); e < a2; e++) n[e] = r2[e];
   return n;
 }
-var script = {
+var script$2 = {
   name: "DatePicker",
-  "extends": script$1,
+  "extends": script$1$1,
   inheritAttrs: false,
   emits: ["show", "hide", "input", "month-change", "year-change", "date-select", "update:modelValue", "today-click", "clear-click", "focus", "blur", "keydown"],
   inject: {
@@ -35887,24 +35937,24 @@ var script = {
     }
   },
   components: {
-    InputText: script$8,
-    Button: script$j,
-    Portal: script$q,
-    CalendarIcon: script$5,
-    ChevronLeftIcon: script$4,
-    ChevronRightIcon: script$3,
-    ChevronUpIcon: script$2,
-    ChevronDownIcon: script$g
+    InputText: script$9,
+    Button: script$k,
+    Portal: script$r,
+    CalendarIcon: script$6,
+    ChevronLeftIcon: script$5,
+    ChevronRightIcon: script$4,
+    ChevronUpIcon: script$3,
+    ChevronDownIcon: script$h
   },
   directives: {
     ripple: Ripple
   }
 };
-var _hoisted_1$4 = ["id"];
-var _hoisted_2$3 = ["disabled", "aria-label", "aria-expanded", "aria-controls"];
-var _hoisted_3$3 = ["id", "role", "aria-modal", "aria-label"];
-var _hoisted_4$2 = ["disabled", "aria-label"];
-var _hoisted_5$1 = ["disabled", "aria-label"];
+var _hoisted_1$5 = ["id"];
+var _hoisted_2$5 = ["disabled", "aria-label", "aria-expanded", "aria-controls"];
+var _hoisted_3$4 = ["id", "role", "aria-modal", "aria-label"];
+var _hoisted_4$3 = ["disabled", "aria-label"];
+var _hoisted_5$2 = ["disabled", "aria-label"];
 var _hoisted_6$1 = ["disabled", "aria-label"];
 var _hoisted_7 = ["disabled", "aria-label"];
 var _hoisted_8 = ["data-p-disabled"];
@@ -35914,7 +35964,7 @@ var _hoisted_11 = ["aria-label", "data-p-today", "data-p-other-month"];
 var _hoisted_12 = ["onClick", "onKeydown", "aria-selected", "aria-disabled", "data-p-disabled", "data-p-selected"];
 var _hoisted_13 = ["onClick", "onKeydown", "data-p-disabled", "data-p-selected"];
 var _hoisted_14 = ["onClick", "onKeydown", "data-p-disabled", "data-p-selected"];
-function render(_ctx, _cache, $props, $setup, $data, $options) {
+function render$1(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_InputText = resolveComponent("InputText");
   var _component_Button = resolveComponent("Button");
   var _component_Portal = resolveComponent("Portal");
@@ -35975,7 +36025,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [(openBlock(), createBlock(resolveDynamicComponent(_ctx.icon ? "span" : "CalendarIcon"), mergeProps({
         "class": _ctx.icon
       }, _ctx.ptm("dropdownIcon")), null, 16, ["class"]))];
-    })], 16, _hoisted_2$3)];
+    })], 16, _hoisted_2$5)];
   }) : _ctx.showIcon && _ctx.iconDisplay === "input" && !_ctx.inline ? (openBlock(), createElementBlock(Fragment, {
     key: 2
   }, [_ctx.$slots.inputicon || _ctx.showIcon ? (openBlock(), createElementBlock("span", mergeProps({
@@ -36076,7 +36126,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
               ref_for: true
             }, _ctx.ptm("selectYear"), {
               "data-pc-group-section": "view"
-            }), toDisplayString($options.getYear(month2)), 17, _hoisted_4$2)) : createCommentVNode("", true), $data.currentView === "date" ? (openBlock(), createElementBlock("button", mergeProps({
+            }), toDisplayString($options.getYear(month2)), 17, _hoisted_4$3)) : createCommentVNode("", true), $data.currentView === "date" ? (openBlock(), createElementBlock("button", mergeProps({
               key: 1,
               type: "button",
               onClick: _cache[3] || (_cache[3] = function() {
@@ -36091,7 +36141,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
               ref_for: true
             }, _ctx.ptm("selectMonth"), {
               "data-pc-group-section": "view"
-            }), toDisplayString($options.getMonthName(month2.month)), 17, _hoisted_5$1)) : createCommentVNode("", true)], 64)) : (openBlock(), createElementBlock(Fragment, {
+            }), toDisplayString($options.getMonthName(month2.month)), 17, _hoisted_5$2)) : createCommentVNode("", true)], 64)) : (openBlock(), createElementBlock(Fragment, {
               key: 1
             }, [$data.currentView === "date" ? (openBlock(), createElementBlock("button", mergeProps({
               key: 0,
@@ -36710,18 +36760,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           }, _ctx.clearButtonProps, {
             pt: _ctx.ptm("pcClearButton"),
             "data-pc-group-section": "button"
-          }), null, 16, ["label", "class", "unstyled", "onKeydown", "pt"])], 16)) : createCommentVNode("", true), renderSlot(_ctx.$slots, "footer")], 16, _hoisted_3$3)) : createCommentVNode("", true)];
+          }), null, 16, ["label", "class", "unstyled", "onKeydown", "pt"])], 16)) : createCommentVNode("", true), renderSlot(_ctx.$slots, "footer")], 16, _hoisted_3$4)) : createCommentVNode("", true)];
         }),
         _: 3
       }, 16, ["onAfterEnter", "onAfterLeave", "onLeave"])];
     }),
     _: 3
-  }, 8, ["appendTo", "disabled"])], 16, _hoisted_1$4);
+  }, 8, ["appendTo", "disabled"])], 16, _hoisted_1$5);
 }
-script.render = render;
-const _hoisted_1$3 = { class: "full-width" };
-const _hoisted_2$2 = { class: "filters" };
-const _hoisted_3$2 = { class: "projects-grid" };
+script$2.render = render$1;
+const _hoisted_1$4 = { class: "full-width" };
+const _hoisted_2$4 = { class: "filters" };
+const _hoisted_3$3 = { class: "projects-grid" };
 const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   __name: "ProjectView",
   setup(__props) {
@@ -36771,9 +36821,9 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
       return result;
     });
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("main", _hoisted_1$3, [
-        createBaseVNode("div", _hoisted_2$2, [
-          createVNode(unref(script$6), {
+      return openBlock(), createElementBlock("main", _hoisted_1$4, [
+        createBaseVNode("div", _hoisted_2$4, [
+          createVNode(unref(script$7), {
             modelValue: selectedSizes.value,
             "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => selectedSizes.value = $event),
             options: unref(sizes),
@@ -36782,7 +36832,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
             optionValue: "value",
             multiple: ""
           }, null, 8, ["modelValue", "options"]),
-          createVNode(unref(script$6), {
+          createVNode(unref(script$7), {
             modelValue: selectedLanguages.value,
             "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => selectedLanguages.value = $event),
             options: unref(languages),
@@ -36791,7 +36841,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
             optionValue: "value",
             multiple: ""
           }, null, 8, ["modelValue", "options"]),
-          createVNode(unref(script$6), {
+          createVNode(unref(script$7), {
             modelValue: selectedFavorites.value,
             "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => selectedFavorites.value = $event),
             options: unref(favorites),
@@ -36800,7 +36850,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
             optionValue: "value",
             multiple: ""
           }, null, 8, ["modelValue", "options"]),
-          createVNode(unref(script$6), {
+          createVNode(unref(script$7), {
             modelValue: selectedLocations.value,
             "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => selectedLocations.value = $event),
             options: unref(locations),
@@ -36809,14 +36859,14 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
             optionValue: "value",
             multiple: ""
           }, null, 8, ["modelValue", "options"]),
-          createVNode(unref(script), {
+          createVNode(unref(script$2), {
             modelValue: selectedStartDate.value,
             "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => selectedStartDate.value = $event),
             "show-icon": "",
             placeholder: "Start date",
             "date-format": "yy-mm-dd"
           }, null, 8, ["modelValue"]),
-          createVNode(unref(script), {
+          createVNode(unref(script$2), {
             modelValue: selectedEndDate.value,
             "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => selectedEndDate.value = $event),
             "show-icon": "",
@@ -36824,7 +36874,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
             "date-format": "yy-mm-dd"
           }, null, 8, ["modelValue"])
         ]),
-        createBaseVNode("div", _hoisted_3$2, [
+        createBaseVNode("div", _hoisted_3$3, [
           (openBlock(true), createElementBlock(Fragment, null, renderList(filteredProjects.value, (project) => {
             return openBlock(), createBlock(ProjectCard, {
               key: project.title,
@@ -36841,21 +36891,241 @@ const ProjectView$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defin
   __proto__: null,
   default: ProjectView
 }, Symbol.toStringTag, { value: "Module" }));
+var theme15 = function theme16(_ref) {
+  var dt2 = _ref.dt;
+  return "\n.p-toggleswitch {\n    display: inline-block;\n    width: ".concat(dt2("toggleswitch.width"), ";\n    height: ").concat(dt2("toggleswitch.height"), ";\n}\n\n.p-toggleswitch-input {\n    cursor: pointer;\n    appearance: none;\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    padding: 0;\n    margin: 0;\n    opacity: 0;\n    z-index: 1;\n    outline: 0 none;\n    border-radius: ").concat(dt2("toggleswitch.border.radius"), ";\n}\n\n.p-toggleswitch-slider {\n    display: inline-block;\n    cursor: pointer;\n    width: 100%;\n    height: 100%;\n    border-width: ").concat(dt2("toggleswitch.border.width"), ";\n    border-style: solid;\n    border-color: ").concat(dt2("toggleswitch.border.color"), ";\n    background: ").concat(dt2("toggleswitch.background"), ";\n    transition: background ").concat(dt2("toggleswitch.transition.duration"), ", color ").concat(dt2("toggleswitch.transition.duration"), ", border-color ").concat(dt2("toggleswitch.transition.duration"), ", outline-color ").concat(dt2("toggleswitch.transition.duration"), ", box-shadow ").concat(dt2("toggleswitch.transition.duration"), ";\n    border-radius: ").concat(dt2("toggleswitch.border.radius"), ";\n    outline-color: transparent;\n    box-shadow: ").concat(dt2("toggleswitch.shadow"), ";\n}\n\n.p-toggleswitch-handle {\n    position: absolute;\n    top: 50%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background: ").concat(dt2("toggleswitch.handle.background"), ";\n    color: ").concat(dt2("toggleswitch.handle.color"), ";\n    width: ").concat(dt2("toggleswitch.handle.size"), ";\n    height: ").concat(dt2("toggleswitch.handle.size"), ";\n    left: ").concat(dt2("toggleswitch.gap"), ";\n    margin-top: calc(-1 * calc(").concat(dt2("toggleswitch.handle.size"), " / 2));\n    border-radius: ").concat(dt2("toggleswitch.handle.border.radius"), ";\n    transition: background ").concat(dt2("toggleswitch.transition.duration"), ", color ").concat(dt2("toggleswitch.transition.duration"), ", left ").concat(dt2("toggleswitch.slide.duration"), ", box-shadow ").concat(dt2("toggleswitch.slide.duration"), ";\n}\n\n.p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider {\n    background: ").concat(dt2("toggleswitch.checked.background"), ";\n    border-color: ").concat(dt2("toggleswitch.checked.border.color"), ";\n}\n\n.p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-handle {\n    background: ").concat(dt2("toggleswitch.handle.checked.background"), ";\n    color: ").concat(dt2("toggleswitch.handle.checked.color"), ";\n    left: calc(").concat(dt2("toggleswitch.width"), " - calc(").concat(dt2("toggleswitch.handle.size"), " + ").concat(dt2("toggleswitch.gap"), "));\n}\n\n.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover) .p-toggleswitch-slider {\n    background: ").concat(dt2("toggleswitch.hover.background"), ";\n    border-color: ").concat(dt2("toggleswitch.hover.border.color"), ";\n}\n\n.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover) .p-toggleswitch-handle {\n    background: ").concat(dt2("toggleswitch.handle.hover.background"), ";\n    color: ").concat(dt2("toggleswitch.handle.hover.color"), ";\n}\n\n.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover).p-toggleswitch-checked .p-toggleswitch-slider {\n    background: ").concat(dt2("toggleswitch.checked.hover.background"), ";\n    border-color: ").concat(dt2("toggleswitch.checked.hover.border.color"), ";\n}\n\n.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover).p-toggleswitch-checked .p-toggleswitch-handle {\n    background: ").concat(dt2("toggleswitch.handle.checked.hover.background"), ";\n    color: ").concat(dt2("toggleswitch.handle.checked.hover.color"), ";\n}\n\n.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:focus-visible) .p-toggleswitch-slider {\n    box-shadow: ").concat(dt2("toggleswitch.focus.ring.shadow"), ";\n    outline: ").concat(dt2("toggleswitch.focus.ring.width"), " ").concat(dt2("toggleswitch.focus.ring.style"), " ").concat(dt2("toggleswitch.focus.ring.color"), ";\n    outline-offset: ").concat(dt2("toggleswitch.focus.ring.offset"), ";\n}\n\n.p-toggleswitch.p-invalid > .p-toggleswitch-slider {\n    border-color: ").concat(dt2("toggleswitch.invalid.border.color"), ";\n}\n\n.p-toggleswitch.p-disabled {\n    opacity: 1;\n}\n\n.p-toggleswitch.p-disabled .p-toggleswitch-slider {\n    background: ").concat(dt2("toggleswitch.disabled.background"), ";\n}\n\n.p-toggleswitch.p-disabled .p-toggleswitch-handle {\n    background: ").concat(dt2("toggleswitch.handle.disabled.background"), ";\n}\n");
+};
+var inlineStyles = {
+  root: {
+    position: "relative"
+  }
+};
+var classes = {
+  root: function root11(_ref2) {
+    var instance2 = _ref2.instance, props = _ref2.props;
+    return ["p-toggleswitch p-component", {
+      "p-toggleswitch-checked": instance2.checked,
+      "p-disabled": props.disabled,
+      "p-invalid": props.invalid
+    }];
+  },
+  input: "p-toggleswitch-input",
+  slider: "p-toggleswitch-slider",
+  handle: "p-toggleswitch-handle"
+};
+var ToggleSwitchStyle = BaseStyle.extend({
+  name: "toggleswitch",
+  theme: theme15,
+  classes,
+  inlineStyles
+});
+var script$1 = {
+  name: "BaseToggleSwitch",
+  "extends": script$z,
+  props: {
+    modelValue: {
+      type: null,
+      "default": false
+    },
+    trueValue: {
+      type: null,
+      "default": true
+    },
+    falseValue: {
+      type: null,
+      "default": false
+    },
+    invalid: {
+      type: Boolean,
+      "default": false
+    },
+    disabled: {
+      type: Boolean,
+      "default": false
+    },
+    readonly: {
+      type: Boolean,
+      "default": false
+    },
+    tabindex: {
+      type: Number,
+      "default": null
+    },
+    inputId: {
+      type: String,
+      "default": null
+    },
+    inputClass: {
+      type: [String, Object],
+      "default": null
+    },
+    inputStyle: {
+      type: Object,
+      "default": null
+    },
+    ariaLabelledby: {
+      type: String,
+      "default": null
+    },
+    ariaLabel: {
+      type: String,
+      "default": null
+    }
+  },
+  style: ToggleSwitchStyle,
+  provide: function provide17() {
+    return {
+      $pcToggleSwitch: this,
+      $parentInstance: this
+    };
+  }
+};
+var script = {
+  name: "ToggleSwitch",
+  "extends": script$1,
+  inheritAttrs: false,
+  emits: ["update:modelValue", "change", "focus", "blur"],
+  methods: {
+    getPTOptions: function getPTOptions4(key) {
+      var _ptm = key === "root" ? this.ptmi : this.ptm;
+      return _ptm(key, {
+        context: {
+          checked: this.checked,
+          disabled: this.disabled
+        }
+      });
+    },
+    onChange: function onChange3(event3) {
+      if (!this.disabled && !this.readonly) {
+        var newValue = this.checked ? this.falseValue : this.trueValue;
+        this.$emit("update:modelValue", newValue);
+        this.$emit("change", event3);
+      }
+    },
+    onFocus: function onFocus4(event3) {
+      this.$emit("focus", event3);
+    },
+    onBlur: function onBlur4(event3) {
+      this.$emit("blur", event3);
+    }
+  },
+  computed: {
+    checked: function checked2() {
+      return this.modelValue === this.trueValue;
+    }
+  }
+};
+var _hoisted_1$3 = ["data-p-checked", "data-p-disabled"];
+var _hoisted_2$3 = ["id", "checked", "tabindex", "disabled", "readonly", "aria-checked", "aria-labelledby", "aria-label", "aria-invalid"];
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", mergeProps({
+    "class": _ctx.cx("root"),
+    style: _ctx.sx("root")
+  }, $options.getPTOptions("root"), {
+    "data-p-checked": $options.checked,
+    "data-p-disabled": _ctx.disabled
+  }), [createBaseVNode("input", mergeProps({
+    id: _ctx.inputId,
+    type: "checkbox",
+    role: "switch",
+    "class": [_ctx.cx("input"), _ctx.inputClass],
+    style: _ctx.inputStyle,
+    checked: $options.checked,
+    tabindex: _ctx.tabindex,
+    disabled: _ctx.disabled,
+    readonly: _ctx.readonly,
+    "aria-checked": $options.checked,
+    "aria-labelledby": _ctx.ariaLabelledby,
+    "aria-label": _ctx.ariaLabel,
+    "aria-invalid": _ctx.invalid || void 0,
+    onFocus: _cache[0] || (_cache[0] = function() {
+      return $options.onFocus && $options.onFocus.apply($options, arguments);
+    }),
+    onBlur: _cache[1] || (_cache[1] = function() {
+      return $options.onBlur && $options.onBlur.apply($options, arguments);
+    }),
+    onChange: _cache[2] || (_cache[2] = function() {
+      return $options.onChange && $options.onChange.apply($options, arguments);
+    })
+  }, $options.getPTOptions("input")), null, 16, _hoisted_2$3), createBaseVNode("div", mergeProps({
+    "class": _ctx.cx("slider")
+  }, $options.getPTOptions("slider")), [createBaseVNode("div", mergeProps({
+    "class": _ctx.cx("handle")
+  }, $options.getPTOptions("handle")), [renderSlot(_ctx.$slots, "handle", {
+    checked: $options.checked
+  })], 16)], 16)], 16, _hoisted_1$3);
+}
+script.render = render;
 const _hoisted_1$2 = { class: "publication-view" };
+const _hoisted_2$2 = { key: 0 };
+const _hoisted_3$2 = { key: 1 };
+const _hoisted_4$2 = { class: "filters" };
+const _hoisted_5$1 = { class: "supervision-toggle" };
 const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "PublicationsView",
   setup(__props) {
+    const allPublications = publications$1.publications;
+    function typeLabel(type) {
+      return type.replace(/([a-z])([A-Z])/g, "$1 $2");
+    }
+    const typeOptions = Array.from(new Set(allPublications.map((p2) => p2.type))).map((t2) => ({
+      label: typeLabel(t2),
+      value: t2
+    }));
+    const projectOptions = Array.from(
+      new Set(allPublications.flatMap((p2) => p2.related_projects ?? []))
+    ).map((p2) => ({ label: p2, value: p2 }));
+    const selectedTypes = ref([]);
+    const selectedProjects = ref([]);
+    const includeSupervised = ref(true);
+    const filteredPublications = computed(
+      () => allPublications.filter((pub) => {
+        var _a;
+        const matchesType = selectedTypes.value.length === 0 || selectedTypes.value.includes(pub.type);
+        const matchesProject = selectedProjects.value.length === 0 || ((_a = pub.related_projects) == null ? void 0 : _a.some((p2) => selectedProjects.value.includes(p2)));
+        const matchesSupervision = includeSupervised.value || !pub.supervised_by;
+        return matchesType && matchesProject && matchesSupervision;
+      })
+    );
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$2, [
-        createBaseVNode("h1", null, "Publications (" + toDisplayString(unref(publications$1).publications.length) + ")", 1),
-        createVNode(PublicationList, {
-          publications: unref(publications$1).publications
-        }, null, 8, ["publications"])
+        createBaseVNode("h1", null, [
+          _cache[3] || (_cache[3] = createTextVNode(" Publications ")),
+          filteredPublications.value.length !== unref(allPublications).length ? (openBlock(), createElementBlock("span", _hoisted_2$2, " (" + toDisplayString(filteredPublications.value.length) + " / " + toDisplayString(unref(allPublications).length) + ") ", 1)) : (openBlock(), createElementBlock("span", _hoisted_3$2, "(" + toDisplayString(unref(allPublications).length) + ")", 1))
+        ]),
+        createBaseVNode("div", _hoisted_4$2, [
+          createVNode(unref(script$7), {
+            modelValue: selectedTypes.value,
+            "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => selectedTypes.value = $event),
+            options: unref(typeOptions),
+            placeholder: "Filter by type",
+            optionLabel: "label",
+            optionValue: "value",
+            multiple: ""
+          }, null, 8, ["modelValue", "options"]),
+          createVNode(unref(script$7), {
+            modelValue: selectedProjects.value,
+            "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => selectedProjects.value = $event),
+            options: unref(projectOptions),
+            placeholder: "Filter by project",
+            optionLabel: "label",
+            optionValue: "value",
+            multiple: ""
+          }, null, 8, ["modelValue", "options"]),
+          createBaseVNode("label", _hoisted_5$1, [
+            createVNode(unref(script), {
+              modelValue: includeSupervised.value,
+              "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => includeSupervised.value = $event)
+            }, null, 8, ["modelValue"]),
+            _cache[4] || (_cache[4] = createBaseVNode("span", null, "Include supervised student publications", -1))
+          ])
+        ]),
+        createVNode(PublicationList, { publications: filteredPublications.value }, null, 8, ["publications"])
       ]);
     };
   }
 });
-const PublicationsView = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-11e89a16"]]);
+const PublicationsView = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-c6aebb76"]]);
 const PublicationsView$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: PublicationsView
@@ -37502,8 +37772,8 @@ function require_root() {
   hasRequired_root = 1;
   var freeGlobal = require_freeGlobal();
   var freeSelf = typeof self == "object" && self && self.Object === Object && self;
-  var root11 = freeGlobal || freeSelf || Function("return this")();
-  _root = root11;
+  var root12 = freeGlobal || freeSelf || Function("return this")();
+  _root = root12;
   return _root;
 }
 var now_1;
@@ -37511,9 +37781,9 @@ var hasRequiredNow;
 function requireNow() {
   if (hasRequiredNow) return now_1;
   hasRequiredNow = 1;
-  var root11 = require_root();
+  var root12 = require_root();
   var now = function() {
-    return root11.Date.now();
+    return root12.Date.now();
   };
   now_1 = now;
   return now_1;
@@ -37551,8 +37821,8 @@ var hasRequired_Symbol;
 function require_Symbol() {
   if (hasRequired_Symbol) return _Symbol;
   hasRequired_Symbol = 1;
-  var root11 = require_root();
-  var Symbol2 = root11.Symbol;
+  var root12 = require_root();
+  var Symbol2 = root12.Symbol;
   _Symbol = Symbol2;
   return _Symbol;
 }
@@ -38664,7 +38934,7 @@ function requireHeap$1() {
         Heap3.prototype.copy = Heap3.prototype.clone;
         return Heap3;
       }();
-      (function(root11, factory) {
+      (function(root12, factory) {
         {
           return module.exports = factory();
         }
@@ -38702,10 +38972,10 @@ var elesfn$u = {
         directed: args[2]
       };
     }
-    var _dijkstraDefaults = dijkstraDefaults(options3), root11 = _dijkstraDefaults.root, weight8 = _dijkstraDefaults.weight, directed = _dijkstraDefaults.directed;
+    var _dijkstraDefaults = dijkstraDefaults(options3), root12 = _dijkstraDefaults.root, weight8 = _dijkstraDefaults.weight, directed = _dijkstraDefaults.directed;
     var eles = this;
     var weightFn = weight8;
-    var source = string(root11) ? this.filter(root11)[0] : root11[0];
+    var source = string(root12) ? this.filter(root12)[0] : root12[0];
     var dist3 = {};
     var prev = {};
     var knownDist = {};
@@ -38850,10 +39120,10 @@ var elesfn$s = {
   // Implemented from pseudocode from wikipedia
   aStar: function aStar(options3) {
     var cy = this.cy();
-    var _aStarDefaults = aStarDefaults(options3), root11 = _aStarDefaults.root, goal = _aStarDefaults.goal, heuristic2 = _aStarDefaults.heuristic, directed = _aStarDefaults.directed, weight8 = _aStarDefaults.weight;
-    root11 = cy.collection(root11)[0];
+    var _aStarDefaults = aStarDefaults(options3), root12 = _aStarDefaults.root, goal = _aStarDefaults.goal, heuristic2 = _aStarDefaults.heuristic, directed = _aStarDefaults.directed, weight8 = _aStarDefaults.weight;
+    root12 = cy.collection(root12)[0];
     goal = cy.collection(goal)[0];
-    var sid = root11.id();
+    var sid = root12.id();
     var tid = goal.id();
     var gScore = {};
     var fScore = {};
@@ -38877,9 +39147,9 @@ var elesfn$s = {
     var isInOpenSet = function isInOpenSet2(id3) {
       return openSetIds.has(id3);
     };
-    addToOpenSet(root11, sid);
+    addToOpenSet(root12, sid);
     gScore[sid] = 0;
-    fScore[sid] = heuristic2(root11);
+    fScore[sid] = heuristic2(root12);
     var steps = 0;
     while (openSet.size() > 0) {
       popFromOpenSet();
@@ -39075,7 +39345,7 @@ var elesfn$q = {
   // Implemented from pseudocode from wikipedia
   bellmanFord: function bellmanFord(options3) {
     var _this = this;
-    var _bellmanFordDefaults = bellmanFordDefaults(options3), weight8 = _bellmanFordDefaults.weight, directed = _bellmanFordDefaults.directed, root11 = _bellmanFordDefaults.root;
+    var _bellmanFordDefaults = bellmanFordDefaults(options3), weight8 = _bellmanFordDefaults.weight, directed = _bellmanFordDefaults.directed, root12 = _bellmanFordDefaults.root;
     var weightFn = weight8;
     var eles = this;
     var cy = this.cy();
@@ -39084,7 +39354,7 @@ var elesfn$q = {
     var infoMap = new Map$1();
     var hasNegativeWeightCycle = false;
     var negativeWeightCycles = [];
-    root11 = cy.collection(root11)[0];
+    root12 = cy.collection(root12)[0];
     edges3.unmergeBy(function(edge2) {
       return edge2.isLoop();
     });
@@ -39104,7 +39374,7 @@ var elesfn$q = {
       return getInfo3(getNodeFromTo(to)).dist;
     };
     var pathTo = function pathTo2(to) {
-      var thisStart = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : root11;
+      var thisStart = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : root12;
       var end2 = getNodeFromTo(to);
       var path = [];
       var node2 = end2;
@@ -39127,7 +39397,7 @@ var elesfn$q = {
     for (var i = 0; i < numNodes; i++) {
       var node = nodes3[i];
       var info = getInfo3(node);
-      if (node.same(root11)) {
+      if (node.same(root12)) {
         info.dist = 0;
       } else {
         info.dist = Infinity;
@@ -40632,10 +40902,10 @@ var elesfn$n = {
     options3 = defaults$f(options3);
     var cy = this.cy();
     var callingEles = this;
-    var _options = options3, root11 = _options.root, weight8 = _options.weight, directed = _options.directed, alpha2 = _options.alpha;
-    root11 = cy.collection(root11)[0];
+    var _options = options3, root12 = _options.root, weight8 = _options.weight, directed = _options.directed, alpha2 = _options.alpha;
+    root12 = cy.collection(root12)[0];
     if (!directed) {
-      var connEdges = root11.connectedEdges().intersection(callingEles);
+      var connEdges = root12.connectedEdges().intersection(callingEles);
       var k = connEdges.length;
       var s = 0;
       for (var i = 0; i < connEdges.length; i++) {
@@ -40645,12 +40915,12 @@ var elesfn$n = {
         degree: Math.pow(k, 1 - alpha2) * Math.pow(s, alpha2)
       };
     } else {
-      var edges3 = root11.connectedEdges();
+      var edges3 = root12.connectedEdges();
       var incoming = edges3.filter(function(edge) {
-        return edge.target().same(root11) && callingEles.has(edge);
+        return edge.target().same(root12) && callingEles.has(edge);
       });
       var outgoing = edges3.filter(function(edge) {
-        return edge.source().same(root11) && callingEles.has(edge);
+        return edge.source().same(root12) && callingEles.has(edge);
       });
       var k_in = incoming.length;
       var k_out = outgoing.length;
@@ -40728,10 +40998,10 @@ var elesfn$m = {
   },
   // Implemented from pseudocode from wikipedia
   closenessCentrality: function closenessCentrality(options3) {
-    var _defaults2 = defaults$e(options3), root11 = _defaults2.root, weight8 = _defaults2.weight, directed = _defaults2.directed, harmonic = _defaults2.harmonic;
-    root11 = this.filter(root11)[0];
+    var _defaults2 = defaults$e(options3), root12 = _defaults2.root, weight8 = _defaults2.weight, directed = _defaults2.directed, harmonic = _defaults2.harmonic;
+    root12 = this.filter(root12)[0];
     var dijkstra2 = this.dijkstra({
-      root: root11,
+      root: root12,
       weight: weight8,
       directed
     });
@@ -40739,7 +41009,7 @@ var elesfn$m = {
     var nodes3 = this.nodes();
     for (var i = 0; i < nodes3.length; i++) {
       var n = nodes3[i];
-      if (!n.same(root11)) {
+      if (!n.same(root12)) {
         var d = dijkstra2.distanceTo(n);
         if (harmonic) {
           totalDistance += 1 / d;
@@ -41551,20 +41821,20 @@ var mergeClosest = function mergeClosest2(clusters, index2, dists, mins, opts) {
   c1.key = c2.key = c1.index = c2.index = null;
   return true;
 };
-var _getAllChildren = function getAllChildren(root11, arr, cy) {
-  if (!root11) return;
-  if (root11.value) {
-    arr.push(root11.value);
+var _getAllChildren = function getAllChildren(root12, arr, cy) {
+  if (!root12) return;
+  if (root12.value) {
+    arr.push(root12.value);
   } else {
-    if (root11.left) _getAllChildren(root11.left, arr);
-    if (root11.right) _getAllChildren(root11.right, arr);
+    if (root12.left) _getAllChildren(root12.left, arr);
+    if (root12.right) _getAllChildren(root12.right, arr);
   }
 };
-var _buildDendrogram = function buildDendrogram(root11, cy) {
-  if (!root11) return "";
-  if (root11.left && root11.right) {
-    var leftStr = _buildDendrogram(root11.left, cy);
-    var rightStr = _buildDendrogram(root11.right, cy);
+var _buildDendrogram = function buildDendrogram(root12, cy) {
+  if (!root12) return "";
+  if (root12.left && root12.right) {
+    var leftStr = _buildDendrogram(root12.left, cy);
+    var rightStr = _buildDendrogram(root12.right, cy);
     var node = cy.add({
       group: "nodes",
       data: {
@@ -41586,32 +41856,32 @@ var _buildDendrogram = function buildDendrogram(root11, cy) {
       }
     });
     return node.id();
-  } else if (root11.value) {
-    return root11.value.id();
+  } else if (root12.value) {
+    return root12.value.id();
   }
 };
-var _buildClustersFromTree = function buildClustersFromTree(root11, k, cy) {
-  if (!root11) return [];
+var _buildClustersFromTree = function buildClustersFromTree(root12, k, cy) {
+  if (!root12) return [];
   var left = [], right = [], leaves = [];
   if (k === 0) {
-    if (root11.left) _getAllChildren(root11.left, left);
-    if (root11.right) _getAllChildren(root11.right, right);
+    if (root12.left) _getAllChildren(root12.left, left);
+    if (root12.right) _getAllChildren(root12.right, right);
     leaves = left.concat(right);
     return [cy.collection(leaves)];
   } else if (k === 1) {
-    if (root11.value) {
-      return [cy.collection(root11.value)];
+    if (root12.value) {
+      return [cy.collection(root12.value)];
     } else {
-      if (root11.left) _getAllChildren(root11.left, left);
-      if (root11.right) _getAllChildren(root11.right, right);
+      if (root12.left) _getAllChildren(root12.left, left);
+      if (root12.right) _getAllChildren(root12.right, right);
       return [cy.collection(left), cy.collection(right)];
     }
   } else {
-    if (root11.value) {
-      return [cy.collection(root11.value)];
+    if (root12.value) {
+      return [cy.collection(root12.value)];
     } else {
-      if (root11.left) left = _buildClustersFromTree(root11.left, k - 1, cy);
-      if (root11.right) right = _buildClustersFromTree(root11.right, k - 1, cy);
+      if (root12.left) left = _buildClustersFromTree(root12.left, k - 1, cy);
+      if (root12.right) right = _buildClustersFromTree(root12.right, k - 1, cy);
       return left.concat(right);
     }
   }
@@ -41936,13 +42206,13 @@ var elesfn$k = {
         directed: args[1]
       };
     }
-    var _hierholzerDefaults = hierholzerDefaults(options3), root11 = _hierholzerDefaults.root, directed = _hierholzerDefaults.directed;
+    var _hierholzerDefaults = hierholzerDefaults(options3), root12 = _hierholzerDefaults.root, directed = _hierholzerDefaults.directed;
     var eles = this;
     var dflag = false;
     var oddIn;
     var oddOut;
     var startVertex;
-    if (root11) startVertex = string(root11) ? this.filter(root11)[0].id() : root11[0].id();
+    if (root12) startVertex = string(root12) ? this.filter(root12)[0].id() : root12[0].id();
     var nodes3 = {};
     var edges3 = {};
     if (directed) {
@@ -42091,8 +42361,8 @@ var hopcroftTarjanBiconnected = function hopcroftTarjanBiconnected2() {
     });
     components2.push(component2);
   };
-  var _biconnectedSearch = function biconnectedSearch(root11, currentNode, parent4) {
-    if (root11 === parent4) edgeCount += 1;
+  var _biconnectedSearch = function biconnectedSearch(root12, currentNode, parent4) {
+    if (root12 === parent4) edgeCount += 1;
     nodes3[currentNode] = {
       id: id3,
       low: id3++,
@@ -42118,7 +42388,7 @@ var hopcroftTarjanBiconnected = function hopcroftTarjanBiconnected2() {
             });
           }
           if (!(otherNodeId in nodes3)) {
-            _biconnectedSearch(root11, otherNodeId, currentNode);
+            _biconnectedSearch(root12, otherNodeId, currentNode);
             nodes3[currentNode].low = Math.min(nodes3[currentNode].low, nodes3[otherNodeId].low);
             if (nodes3[currentNode].id <= nodes3[otherNodeId].low) {
               nodes3[currentNode].cutVertex = true;
@@ -42819,8 +43089,8 @@ var hasRequired_coreJsData;
 function require_coreJsData() {
   if (hasRequired_coreJsData) return _coreJsData;
   hasRequired_coreJsData = 1;
-  var root11 = require_root();
-  var coreJsData = root11["__core-js_shared__"];
+  var root12 = require_root();
+  var coreJsData = root12["__core-js_shared__"];
   _coreJsData = coreJsData;
   return _coreJsData;
 }
@@ -43157,8 +43427,8 @@ var hasRequired_Map;
 function require_Map() {
   if (hasRequired_Map) return _Map;
   hasRequired_Map = 1;
-  var getNative = require_getNative(), root11 = require_root();
-  var Map2 = getNative(root11, "Map");
+  var getNative = require_getNative(), root12 = require_root();
+  var Map2 = getNative(root12, "Map");
   _Map = Map2;
   return _Map;
 }
@@ -48380,14 +48650,14 @@ function defineParallelEdgesFunction(params) {
   };
 }
 extend3(elesfn$2, {
-  components: function components(root11) {
+  components: function components(root12) {
     var self2 = this;
     var cy = self2.cy();
     var visited = cy.collection();
-    var unvisited = root11 == null ? self2.nodes() : root11.nodes();
+    var unvisited = root12 == null ? self2.nodes() : root12.nodes();
     var components2 = [];
-    if (root11 != null && unvisited.empty()) {
-      unvisited = root11.sources();
+    if (root12 != null && unvisited.empty()) {
+      unvisited = root12.sources();
     }
     var visitInComponent = function visitInComponent2(node, component2) {
       visited.merge(node);
@@ -48400,11 +48670,11 @@ extend3(elesfn$2, {
     var _loop = function _loop2() {
       var cmpt = cy.collection();
       components2.push(cmpt);
-      var root12 = unvisited[0];
-      visitInComponent(root12, cmpt);
+      var root13 = unvisited[0];
+      visitInComponent(root13, cmpt);
       self2.bfs({
         directed: false,
-        roots: root12,
+        roots: root13,
         visit: function visit(v) {
           return visitInComponent(v, cmpt);
         }
@@ -67114,7 +67384,7 @@ function requireLayoutBase() {
   if (hasRequiredLayoutBase) return layoutBase.exports;
   hasRequiredLayoutBase = 1;
   (function(module, exports) {
-    (function webpackUniversalModuleDefinition(root11, factory) {
+    (function webpackUniversalModuleDefinition(root12, factory) {
       module.exports = factory();
     })(commonjsGlobal$2, function() {
       return (
@@ -67257,12 +67527,12 @@ function requireLayoutBase() {
             };
             LEdge.prototype.getOtherEndInGraph = function(node, graph) {
               var otherEnd = this.getOtherEnd(node);
-              var root11 = graph.getGraphManager().getRoot();
+              var root12 = graph.getGraphManager().getRoot();
               while (true) {
                 if (otherEnd.getOwner() == graph) {
                   return otherEnd;
                 }
-                if (otherEnd.getOwner() == root11) {
+                if (otherEnd.getOwner() == root12) {
                   break;
                 }
                 otherEnd = otherEnd.getOwner().getParent();
@@ -67991,8 +68261,8 @@ function requireLayoutBase() {
             LGraphManager.prototype.addRoot = function() {
               var ngraph = this.layout.newGraph();
               var nnode = this.layout.newNode(null);
-              var root11 = this.add(ngraph, nnode);
-              this.setRootGraph(root11);
+              var root12 = this.add(ngraph, nnode);
+              this.setRootGraph(root12);
               return this.rootGraph;
             };
             LGraphManager.prototype.add = function(newGraph, parentNode, newEdge, sourceNode, targetNode) {
@@ -70854,7 +71124,7 @@ function requireCoseBase() {
   if (hasRequiredCoseBase) return coseBase.exports;
   hasRequiredCoseBase = 1;
   (function(module, exports) {
-    (function webpackUniversalModuleDefinition(root11, factory) {
+    (function webpackUniversalModuleDefinition(root12, factory) {
       module.exports = factory(requireLayoutBase());
     })(commonjsGlobal$2, function(__WEBPACK_EXTERNAL_MODULE__551__) {
       return (
@@ -73399,7 +73669,7 @@ function requireCoseBase() {
   return coseBase.exports;
 }
 (function(module, exports) {
-  (function webpackUniversalModuleDefinition(root11, factory) {
+  (function webpackUniversalModuleDefinition(root12, factory) {
     module.exports = factory(requireCoseBase());
   })(commonjsGlobal$2, function(__WEBPACK_EXTERNAL_MODULE__140__) {
     return (
@@ -74910,7 +75180,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
             }), 128))
           ])
         ]),
-        createVNode(unref(script$i), {
+        createVNode(unref(script$j), {
           visible: isProjectDialogVisible.value,
           "onUpdate:visible": _cache[0] || (_cache[0] = ($event) => isProjectDialogVisible.value = $event),
           modal: true,
@@ -74974,7 +75244,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         createBaseVNode("header", _hoisted_1, [
           createBaseVNode("div", _hoisted_2, [
             createBaseVNode("nav", null, [
-              createVNode(unref(script$j), {
+              createVNode(unref(script$k), {
                 class: "header-button",
                 onClick: _cache[0] || (_cache[0] = ($event) => scrollTo2("about"))
               }, {
@@ -74983,7 +75253,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 ])),
                 _: 1
               }),
-              createVNode(unref(script$j), {
+              createVNode(unref(script$k), {
                 class: "header-button",
                 onClick: _cache[1] || (_cache[1] = ($event) => scrollTo2("experiences"))
               }, {
@@ -74992,7 +75262,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 ])),
                 _: 1
               }),
-              createVNode(unref(script$j), {
+              createVNode(unref(script$k), {
                 class: "header-button",
                 onClick: goToPortfolio
               }, {
@@ -75001,7 +75271,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 ])),
                 _: 1
               }),
-              createVNode(unref(script$j), {
+              createVNode(unref(script$k), {
                 class: "header-button",
                 onClick: _cache[2] || (_cache[2] = ($event) => scrollTo2("publications"))
               }, {
@@ -75024,7 +75294,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         createBaseVNode("section", _hoisted_3, [
           _cache[11] || (_cache[11] = createBaseVNode("h1", null, "Portfolio", -1)),
           createBaseVNode("div", _hoisted_4, [
-            createVNode(unref(script$j), {
+            createVNode(unref(script$k), {
               class: "toggle-button",
               severity: projectViewMode.value === "grid" ? "primary" : "secondary",
               onClick: _cache[3] || (_cache[3] = ($event) => projectViewMode.value = "grid")
@@ -75034,7 +75304,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               ])),
               _: 1
             }, 8, ["severity"]),
-            createVNode(unref(script$j), {
+            createVNode(unref(script$k), {
               class: "toggle-button",
               severity: projectViewMode.value === "graph" ? "primary" : "secondary",
               onClick: _cache[4] || (_cache[4] = ($event) => projectViewMode.value = "graph")
@@ -75075,7 +75345,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-Bg95omGT.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-mOzYshAh.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
