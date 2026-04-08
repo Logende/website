@@ -12648,7 +12648,7 @@ const education = [
       end: "2028-11-30"
     },
     degree: "doctorate",
-    subject: "Software Engineering",
+    subject: "Research Software Engineering",
     tags: [
       "TypeScript",
       "HTML",
@@ -75345,7 +75345,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-mOzYshAh.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-DXOEWjfO.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
