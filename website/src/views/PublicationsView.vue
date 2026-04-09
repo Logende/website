@@ -8,12 +8,15 @@ import { computed, ref } from 'vue'
 
 const allPublications = publications.publications as Publication[]
 
-function typeLabel(type: string): string {
-  return type.replace(/([a-z])([A-Z])/g, '$1 $2')
+function tagLabel(tag: string): string {
+  return tag.replace(/([a-z])([A-Z])/g, '$1 $2')
 }
 
-const typeOptions = Array.from(new Set(allPublications.map(p => p.type))).map(t => ({
-  label: typeLabel(t),
+// expand all tags of all publications
+const tagOptions = Array.from(
+  new Set(allPublications.flatMap(p => p.tags)),
+).map(t => ({
+  label: tagLabel(t),
   value: t,
 }))
 
@@ -21,14 +24,15 @@ const projectOptions = Array.from(
   new Set(allPublications.flatMap(p => p.related_projects ?? [])),
 ).map(p => ({ label: p, value: p }))
 
-const selectedTypes = ref<string[]>([])
+const selectedTags = ref<string[]>([])
 const selectedProjects = ref<string[]>([])
 const includeSupervised = ref(true)
 
 const filteredPublications = computed(() =>
   allPublications.filter(pub => {
     const matchesType =
-      selectedTypes.value.length === 0 || selectedTypes.value.includes(pub.type)
+      // there must be an overlap of selectedTags and publication.tags
+      selectedTags.value.length === 0 || selectedTags.value.some(tag => pub.tags.includes(tag as string))
 
     const matchesProject =
       selectedProjects.value.length === 0 ||
@@ -53,8 +57,8 @@ const filteredPublications = computed(() =>
 
     <div class="filters">
       <MultiSelect
-        v-model="selectedTypes"
-        :options="typeOptions"
+        v-model="selectedTags"
+        :options="tagOptions"
         placeholder="Filter by type"
         optionLabel="label"
         optionValue="value"

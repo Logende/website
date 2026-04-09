@@ -38,8 +38,8 @@ export interface Publication {
   link?: string
   doi?: string
   supervised_by?: string
-  type:
-    | 'ConferencePaper'
+  tags:
+    (| 'ConferencePaper'
     | 'JournalPaper'
     | 'MasterThesis'
     | 'BachelorThesis'
@@ -48,7 +48,8 @@ export interface Publication {
     | 'WorkshopTalk'
     | 'OtherTalk'
     | 'Poster'
-    | 'ThesisSupervision'
+    | 'ThesisSupervision')[],
+  derived_from?: string
 }
 
 export interface WorkExperience {

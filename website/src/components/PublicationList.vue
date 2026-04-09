@@ -18,8 +18,8 @@ function formattedDate(pub: Publication): string {
   })
 }
 
-function publicationTypeLabel(type: Publication['type']): string {
-  return type.replace(/([a-z])([A-Z])/g, '$1 $2')
+function publicationTypeLabel(tag: string): string {
+  return tag.replace(/([a-z])([A-Z])/g, '$1 $2')
 }
 </script>
 
@@ -52,8 +52,8 @@ function publicationTypeLabel(type: Publication['type']): string {
           <a :href="pub.link" target="_blank"> {{ pub.link }} </a>.
         </span>
 
-        <span class="pub-type" :class="`pub-type--${pub.type}`">
-          {{ publicationTypeLabel(pub.type) }}
+        <span v-for="tag in pub.tags" class="pub-type" :class="`pub-type--${tag}`">
+          {{ publicationTypeLabel(tag) }}
         </span>
         <span v-if="pub.supervised_by" class="pub-type pub-type--Supervision">
           Supervision

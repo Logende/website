@@ -21,20 +21,23 @@
           "conference": {
             "type": "string"
           },
-          "type": {
-            "type": "string",
-            "enum": [
-              "ConferencePaper",
-              "ConferenceTalk",
-              "JournalPaper",
-              "OtherTalk",
-              "ThesisSupervision",
-              "MasterThesis",
-              "BachelorThesis",
-              "ResearchProject",
-              "WorkshopTalk",
-              "Poster"
-            ]
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ConferencePaper",
+                "ConferenceTalk",
+                "JournalPaper",
+                "OtherTalk",
+                "ThesisSupervision",
+                "MasterThesis",
+                "BachelorThesis",
+                "ResearchProject",
+                "WorkshopTalk",
+                "Poster"
+              ]
+            }
           },
           "supervised_by": {
             "description": "Name of the supervisor (use when this publication is student work supervised by someone)",
@@ -57,6 +60,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "derived_from": {
+            "description": "Use when this publication is derived from another publication (e.g., a conference paper that was extended to a journal paper). Provide the DOI of the original publication.",
+            "type": "string"
           }
         },
         "required": [
@@ -64,7 +71,7 @@
           "authors",
           "conference",
           "date",
-          "type",
+          "tags",
           "related_project_ids"
         ]
       }
