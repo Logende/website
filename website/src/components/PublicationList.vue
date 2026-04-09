@@ -34,14 +34,6 @@ function publicationTypeLabel(tag: string): string {
     >
       <p class="citation">
 
-        <span v-if="pub.favorite">
-        <FontAwesomeIcon
-
-          :icon="faStar"
-        ></FontAwesomeIcon>
-          <span>&nbsp;</span>
-        </span>
-
         <span class="authors">{{ pub.authors.join(', ') }}. </span>
         <span class="title">{{ pub.title }}. </span>
         <span class="venue"> {{ pub.conference }}, </span>
@@ -68,6 +60,13 @@ function publicationTypeLabel(tag: string): string {
         </span>
         <span v-if="pub.supervised_by" class="pub-type pub-type--Supervision">
           Supervision
+        </span>
+
+        <span v-if="pub.favorite">
+          <span>&nbsp;</span>
+        <FontAwesomeIcon
+          :icon="faStar"
+        ></FontAwesomeIcon>
         </span>
       </p>
 
