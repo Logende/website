@@ -18212,11 +18212,12 @@ const _hoisted_11$2 = {
   key: 2,
   class: "pub-type pub-type--Supervision"
 };
-const _hoisted_12$2 = {
+const _hoisted_12$2 = { key: 3 };
+const _hoisted_13$2 = {
   key: 0,
   class: "supervision-note"
 };
-const _hoisted_13$2 = {
+const _hoisted_14$2 = {
   key: 1,
   class: "abstract"
 };
@@ -18238,8 +18239,8 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
         day: "numeric"
       });
     }
-    function publicationTypeLabel(type) {
-      return type.replace(/([a-z])([A-Z])/g, "$1 $2");
+    function publicationTypeLabel(tag2) {
+      return tag2.replace(/([a-z])([A-Z])/g, "$1 $2");
     }
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$c, [
@@ -18268,20 +18269,26 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
                 }, toDisplayString(pub.link), 9, _hoisted_10$2),
                 _cache[2] || (_cache[2] = createTextVNode(". "))
               ])) : createCommentVNode("", true),
-              createBaseVNode("span", {
-                class: normalizeClass(["pub-type", `pub-type--${pub.type}`])
-              }, toDisplayString(publicationTypeLabel(pub.type)), 3),
-              pub.supervised_by ? (openBlock(), createElementBlock("span", _hoisted_11$2, " Supervision ")) : createCommentVNode("", true)
+              (openBlock(true), createElementBlock(Fragment, null, renderList(pub.tags, (tag2) => {
+                return openBlock(), createElementBlock("span", {
+                  class: normalizeClass(["pub-type", `pub-type--${tag2}`])
+                }, toDisplayString(publicationTypeLabel(tag2)), 3);
+              }), 256)),
+              pub.supervised_by ? (openBlock(), createElementBlock("span", _hoisted_11$2, " Supervision ")) : createCommentVNode("", true),
+              pub.favorite ? (openBlock(), createElementBlock("span", _hoisted_12$2, [
+                _cache[3] || (_cache[3] = createBaseVNode("span", null, " ", -1)),
+                createVNode(unref(FontAwesomeIcon), { icon: unref(faStar) }, null, 8, ["icon"])
+              ])) : createCommentVNode("", true)
             ]),
-            pub.supervised_by ? (openBlock(), createElementBlock("p", _hoisted_12$2, " Supervised by " + toDisplayString(pub.supervised_by), 1)) : createCommentVNode("", true),
-            pub.abstract ? (openBlock(), createElementBlock("p", _hoisted_13$2, toDisplayString(pub.abstract), 1)) : createCommentVNode("", true)
+            pub.supervised_by ? (openBlock(), createElementBlock("p", _hoisted_13$2, " Supervised by " + toDisplayString(pub.supervised_by), 1)) : createCommentVNode("", true),
+            pub.abstract ? (openBlock(), createElementBlock("p", _hoisted_14$2, toDisplayString(pub.abstract), 1)) : createCommentVNode("", true)
           ]);
         }), 128))
       ]);
     };
   }
 });
-const PublicationList = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-cf54b12e"]]);
+const PublicationList = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-9c9a462b"]]);
 const publications = [
   {
     title: "MetaConfigurator: A User-Friendly Tool for Editing Structured Data Files",
@@ -18297,10 +18304,13 @@ const publications = [
     date: "2024-05-30",
     doi: "10.1007/s13222-024-00472-7",
     abstract: "Textual formats to structure data, such as JSON, XML, and YAML, are widely used for structuring data in various domains, from configuration files to research data. However, manually editing data in these formats can be complex and time-consuming. Graphical user interfaces (GUIs) can significantly reduce manual efforts and assist the user in editing the files, but developing a file-format-specific GUI requires substantial development and maintenance efforts. To address this challenge, we introduce MetaConfigurator: an open-source web application that generates its GUI depending on a given schema. Our approach differs from other schema-to-UI approaches in three key ways: 1) It offers a unified view that combines the benefits of both GUIs and text editors, 2) it enables schema editing within the same tool, and 3) it supports advanced schema features, including conditions and constraints. In this paper, we discuss the design and implementation of MetaConfigurator, backed by insights from a small-scale qualitative user study. The results indicate the effectiveness of our approach in retrieving information from data and schemas and in editing them.",
-    type: "JournalPaper",
+    tags: [
+      "JournalPaper"
+    ],
     related_projects: [
       "MetaConfigurator (Web Tool)"
-    ]
+    ],
+    favorite: true
   },
   {
     title: "Data model creation with MetaConfigurator",
@@ -18311,10 +18321,13 @@ const publications = [
     date: "2024-09-30",
     doi: "10.18419/opus-15126",
     abstract: "In both research and industry, significant effort is devoted to the creation of standardized data models that ensure data adheres to a specific structure, enabling the development and use of common tools. These models (also called schemas), enable data validation and facilitate collaboration by making data interoperable across various systems. Tools can assist in the creation and maintenance of data models. One such tool is MetaConfigurator, a schema editor and form generator for JSON schema and for JSON/YAML documents. It offers a unified interface that combines a traditional text editor with a graphical user interface (GUI), supporting advanced schema features such as conditions and constraints. In this work, MetaConfigurator is viewed from the perspective of three exemplary real-world use case in fields such as biochemistry and ontology management. Multiple improvements and functionalities are designed and implemented to further assist the user: 1) A more user-friendly schema editor, distinguishing between an easy and an advanced mode based on a novel meta schema builder approach; 2) A CSV import feature for seamless data transition from Excel to the JSON format with schema inference; 3) Snapshot sharing for effortless collaboration; 4) Ontology integration for auto-completion of URIs; and 5) A novel graphical diagram-like schema view for visual schema manipulation. These new functionalities are then applied to the real-world use cases, demonstrating the practical utility and improved accessibility of MetaConfigurator.",
-    type: "MasterThesis",
+    tags: [
+      "MasterThesis"
+    ],
     related_projects: [
       "MetaConfigurator (Web Tool)"
-    ]
+    ],
+    favorite: true
   },
   {
     title: "Data Model Creation with MetaConfigurator",
@@ -18327,10 +18340,13 @@ const publications = [
     conference: "deRSE25 - Conference for Research Software Engineering in Germany",
     date: "2025-02-25",
     doi: "10.5281/zenodo.14981537",
-    type: "ConferenceTalk",
+    tags: [
+      "ConferenceTalk"
+    ],
     related_projects: [
       "MetaConfigurator (Web Tool)"
-    ]
+    ],
+    derived_from: "10.18419/opus-15126"
   },
   {
     title: "Data Model Creation with MetaConfigurator",
@@ -18343,10 +18359,14 @@ const publications = [
     date: "2025-03-05",
     doi: "10.18420/BTW2025-60",
     abstract: "In both research and industry, significant effort is devoted to the creation of standardized data models that ensure data adheres to a specific structure, enabling the development and use of common tools. These models (also called schemas), enable data validation and facilitate collaboration by making data interoperable across various systems. Tools can assist in the creation and maintenance of data models.  One such tool is MetaConfigurator, a schema editor and form generator for JSON schema and for JSON/YAML documents. It offers a unified interface that combines a traditional text editor with a graphical user interface (GUI), supporting advanced schema features such as conditions and constraints. Still, schema editing can be complicated for novices, since MetaConfigurator shows all options of JSON schema, which is very expressive. The following improvements and functionalities have been designed and implemented to further assist the user: 1) A more user-friendly schema editor, distinguishing between an easy and an advanced mode based on a novel meta schema builder approach; 2) A CSV import feature for seamless data transition from Excel to JSON with schema inference; 3) Snapshot sharing for effortless collaboration; 4) Ontology integration for auto-completion of URIs; and 5) A novel graphical diagram-like schema view for visual schema manipulation. These new functionalities are then applied to a real-world use case in chemistry, demonstrating the usability and improved accessibility of MetaConfigurator.",
-    type: "ConferencePaper",
+    tags: [
+      "ConferencePaper",
+      "Poster"
+    ],
     related_projects: [
       "MetaConfigurator (Web Tool)"
-    ]
+    ],
+    derived_from: "10.18419/opus-15126"
   },
   {
     title: "Standardizing preCICE Adapters with MetaConfigurator",
@@ -18359,7 +18379,9 @@ const publications = [
     date: "2025-09-11",
     doi: "10.5281/zenodo.17105018",
     abstract: "Interoperability and standardization are essential for the growing ecosystem of preCICE adapters. We present a JSON Schema-based specification for preCICE adapter configurations, complemented by comprehensive guidelines for adapter development. By formalizing configuration structures, we enable automated validation, tooling support, and improved documentation, while ensuring that adapters themselves adhere to shared standards. As a central tool, MetaConfigurator provides a schema-driven web interface that simplifies the creation and validation of configuration files, lowering the entry barrier for both adapter developers and users. This approach supports the FAIR principles by promoting interoperability and reusability not only of configuration files, but of the adapters and coupling setups themselves, fostering a more robust and sustainable preCICE ecosystem.",
-    type: "Poster",
+    tags: [
+      "Poster"
+    ],
     related_projects: [
       "MetaConfigurator (Web Tool)",
       "preCICe (Coupling Library)"
@@ -18376,10 +18398,15 @@ const publications = [
     date: "2025-10-08",
     doi: "10.1109/MODELS-C68889.2025.00019",
     abstract: "Model-Driven Engineering (MDE) places models at the core of system and data engineering processes. In the context of research data, these models are typically expressed as schemas that define the structure and semantics of datasets. However, many domains still lack standardized models, and creating them remains a significant barrier, especially for non-experts. We present a hybrid approach that combines large language models (LLMs) with deterministic techniques to enable JSON Schema creation, modification, and schema mapping based on natural language inputs by the user. These capabilities are integrated into the open-source tool MetaConfigurator, which already provides visual model editing, validation, code generation, and form generation from models. For data integration, we generate schema mappings from heterogeneous JSON, CSV, XML, and YAML data using LLMs, while ensuring scalability and reliability through deterministic execution of generated mapping rules. The applicability of our work is demonstrated in an application example in the field of chemistry. By combining natural language interaction with deterministic safeguards, this work significantly lowers the barrier to structured data modeling and data integration for non-experts.",
-    type: "ConferencePaper",
+    tags: [
+      "ConferencePaper",
+      "ConferenceTalk"
+    ],
     related_projects: [
       "MetaConfigurator (Web Tool)"
-    ]
+    ],
+    derived_from: "10.1109/MODELS-C68889.2025.00019",
+    favorite: true
   },
   {
     title: "AI-assisted JSON Schema Creation and Mapping",
@@ -18391,10 +18418,13 @@ const publications = [
     conference: "Allotrope Connect Fall 2025 Workshop",
     date: "2025-10-29",
     link: "https://www.youtube.com/watch?v=DfS6PgMr1q0",
-    type: "WorkshopTalk",
+    tags: [
+      "WorkshopTalk"
+    ],
     related_projects: [
       "MetaConfigurator (Web Tool)"
-    ]
+    ],
+    derived_from: "10.1109/MODELS-C68889.2025.00019"
   },
   {
     title: "A quick introduction to the coupling library preCICE",
@@ -18407,7 +18437,9 @@ const publications = [
     date: "2025-05-27",
     link: "https://coupled2025.cimne.com/event/contribution/39120852-c766-11ef-94cb-000c29ddfc0c",
     abstract: "This talk will open the minisymposium and introduce the main concepts of the open-source preCICE coupling library for partitioned, black-box, multi-physics and multiscale simulations. preCICE enables the efficient, robust, and parallel coupling of separate single-physics solvers. This includes, but is not restricted to fluid-structure interaction. preCICE treats these solvers as black-boxes and, thus, only minimally-invasive changes are necessary to prepare a solver for coupling. Ready-to-use adapters for well known open-source solvers, including OpenFOAM, SU2, CalculiX, FEniCS, and deal.II, are available, while the core library is included in the xSDK ecosystem. The software offers methods for equation coupling, fully parallel communication, data mapping, and time interpolation schemes. For more information, please visit https://precice.org/.",
-    type: "ConferenceTalk",
+    tags: [
+      "ConferenceTalk"
+    ],
     related_projects: [
       "preCICe (Coupling Library)"
     ]
@@ -18423,7 +18455,9 @@ const publications = [
     date: "2025-09-11",
     doi: "10.5281/zenodo.17104911",
     abstract: "Overview of new automation tools such as the preCICE command-line interface, configuration generator, configuration checker, and more.",
-    type: "WorkshopTalk",
+    tags: [
+      "WorkshopTalk"
+    ],
     related_projects: [
       "MetaConfigurator (Web Tool)",
       "preCICe (Coupling Library)"
@@ -18445,11 +18479,14 @@ const publications = [
     date: "2026-02-02",
     doi: "10.26434/chemrxiv.10001842/v1",
     abstract: "The successful synthesis of metal-organic frameworks (MOFs) in high yield and purity critically depends on the details of the procedure. Therefore, the machine-readable as well as findable, accessible, interoperable, and reusable (FAIR) documentation of the synthesis procedure and the associated characterization data is crucial to ensure reproducibility and to enable the data-driven analysis and systematic optimization of synthesis. Here, we demonstrate a data-processing workflow development based on a JSON Schema data model for the synthesis and characterization of MOFs. Its feasibility and usefulness is demonstrated by synthesis data of two MOF systems, Fe-terephthalate MOF and MOCOF-1, and their subsequent characterization by powder X-ray diffraction (PXRD). The data model supports the development of an integrated workflow to (1) parse synthesis data from a table or an electronic lab notebook (ELN) into standardized JSON forms, (2) validate the datasets for errors and incompleteness, (3) serialize the data into the standardized data exchange formats MPIF and XDL, and (4) analyze PXRD data by a decision tree to identify critical synthesis parameters that control phase selectivity and yield. The data model and the workflow are modular and extensible, and can be adapted to other data sources, characterizations, and AI methods for analysis. The proposed data model strategy makes MOF synthesis FAIR and AI-ready, fosters the digitalization of synthetic chemistry, and accelerates discovery.",
-    type: "JournalPaper",
+    tags: [
+      "JournalPaper"
+    ],
     related_projects: [
       "Data-Model-Driven Management and Analysis of Chemistry Data",
       "MetaConfigurator (Web Tool)"
-    ]
+    ],
+    favorite: true
   },
   {
     title: "AI-assisted Model Driven Engineering",
@@ -18462,10 +18499,13 @@ const publications = [
     date: "2026-03-04",
     doi: "10.5281/zenodo.18872705",
     abstract: "Model-Driven Engineering (MDE) places models at the core of system and data engineering processes. In the\ncontext of research data, these models are typically expressed as schemas that define the structure and semantics of datasets. However, many domains still lack standardized models, and creating them remains a significant barrier, especially for non-experts. We present a hybrid approach that combines large language models (LLMs) with deterministic techniques to enable JSON Schema creation, modification, and schema mapping based on natural language inputs by the user. These capabilities are integrated into the open-source tool MetaConfigurator, which already provides visual model editing, validation, code generation, and form generation from models. For data integration, we generate schema mappings from heterogeneous JSON, CSV, XML, and YAML data using LLMs, while ensuring scalability and reliability through deterministic execution of generated mapping rules. The applicability of our work is demonstrated in an application example in the field of chemistry. By combining natural language interaction with deterministic safeguards, this work significantly lowers the barrier to structured data modeling and data integration for non-experts.",
-    type: "ConferenceTalk",
+    tags: [
+      "ConferenceTalk"
+    ],
     related_projects: [
       "MetaConfigurator (Web Tool)"
-    ]
+    ],
+    derived_from: "10.1109/MODELS-C68889.2025.00019"
   },
   {
     title: "MetaConfigurator: A Powerful JSON Schema Editor and Forms/Code Generator",
@@ -18478,7 +18518,9 @@ const publications = [
     date: "2026-03-02",
     doi: "10.5281/zenodo.18800017",
     abstract: "This poster, presented at 1st Stuttgart Research Software Day, introduces MetaConfigurator, a web-based editor for designing, visualizing, and managing JSON Schemas. Developed at the University of Stuttgart, MetaConfigurator supports the creation of structured data models that improve FAIR (Findable, Accessible, Interoperable, Reproducible) data practices. Following the Model-Driven Engineering (MDE) approach, MetaConfigurator treats data models as first-class elements and enables automatic generation of code, documentation, and graphical forms from these models. The tool also provides integrated assistance for editing and schema-based data mapping. An example from chemistry shows how MetaConfigurator was used to define a schema for synthesis and characterization data of Metal–Organic Framework materials, ensuring consistent and validated data structures across different laboratory data sources. The poster includes a QR code linking to the online version of MetaConfigurator.",
-    type: "Poster",
+    tags: [
+      "Poster"
+    ],
     related_projects: [
       "MetaConfigurator (Web Tool)"
     ]
@@ -18492,7 +18534,9 @@ const publications = [
     conference: "University of Stuttgart, Research Project",
     date: "2026-04-08",
     abstract: "The project explores the fine-tuning of small-scale Large Language Models for JSON Schema generation and modification from natural language descriptions.\nA dataset (based on JsonSchemaBench) and a custom evaluation strategy were developed to assess model outputs across multiple task complexity levels. Four models were fine-tuned using Parameter-Efficient Fine-Tuning methods. A detailed comparison of all four fine-tuned models was conducted. An integration of the best-performing model into MetaConfigurator is demonstrated.",
-    type: "ResearchProject",
+    tags: [
+      "ResearchProject"
+    ],
     related_projects: [
       "MetaConfigurator (Web Tool)"
     ]
@@ -37065,23 +37109,28 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "PublicationsView",
   setup(__props) {
     const allPublications = publications$1.publications;
-    function typeLabel(type) {
-      return type.replace(/([a-z])([A-Z])/g, "$1 $2");
+    function tagLabel(tag2) {
+      return tag2.replace(/([a-z])([A-Z])/g, "$1 $2");
     }
-    const typeOptions = Array.from(new Set(allPublications.map((p2) => p2.type))).map((t2) => ({
-      label: typeLabel(t2),
+    const tagOptions = Array.from(
+      new Set(allPublications.flatMap((p2) => p2.tags))
+    ).map((t2) => ({
+      label: tagLabel(t2),
       value: t2
     }));
     const projectOptions = Array.from(
       new Set(allPublications.flatMap((p2) => p2.related_projects ?? []))
     ).map((p2) => ({ label: p2, value: p2 }));
-    const selectedTypes = ref([]);
+    const selectedTags = ref([]);
     const selectedProjects = ref([]);
     const includeSupervised = ref(true);
     const filteredPublications = computed(
       () => allPublications.filter((pub) => {
         var _a;
-        const matchesType = selectedTypes.value.length === 0 || selectedTypes.value.includes(pub.type);
+        const matchesType = (
+          // there must be an overlap of selectedTags and publication.tags
+          selectedTags.value.length === 0 || selectedTags.value.some((tag2) => pub.tags.includes(tag2))
+        );
         const matchesProject = selectedProjects.value.length === 0 || ((_a = pub.related_projects) == null ? void 0 : _a.some((p2) => selectedProjects.value.includes(p2)));
         const matchesSupervision = includeSupervised.value || !pub.supervised_by;
         return matchesType && matchesProject && matchesSupervision;
@@ -37095,9 +37144,9 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
         ]),
         createBaseVNode("div", _hoisted_4$2, [
           createVNode(unref(script$7), {
-            modelValue: selectedTypes.value,
-            "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => selectedTypes.value = $event),
-            options: unref(typeOptions),
+            modelValue: selectedTags.value,
+            "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => selectedTags.value = $event),
+            options: unref(tagOptions),
             placeholder: "Filter by type",
             optionLabel: "label",
             optionValue: "value",
@@ -37125,7 +37174,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const PublicationsView = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-c6aebb76"]]);
+const PublicationsView = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-b2727f50"]]);
 const PublicationsView$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: PublicationsView
@@ -75345,7 +75394,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-DXOEWjfO.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-Ch-tbZgx.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
