@@ -6,9 +6,10 @@ import MultiSelect from 'primevue/multiselect'
 import ToggleSwitch from 'primevue/toggleswitch'
 import { computed, ref } from 'vue'
 
+type PublicationTag = Publication['tags'][number]
 const allPublications = publications.publications as Publication[]
 
-function tagLabel(tag: string): string {
+function tagLabel(tag: PublicationTag): string {
   return tag.replace(/([a-z])([A-Z])/g, '$1 $2')
 }
 
@@ -24,7 +25,7 @@ const projectOptions = Array.from(
   new Set(allPublications.flatMap(p => p.related_projects ?? [])),
 ).map(p => ({ label: p, value: p }))
 
-const selectedTags = ref<string[]>([])
+const selectedTags = ref<PublicationTag[]>([])
 const selectedProjects = ref<string[]>([])
 const includeSupervised = ref(true)
 
@@ -32,7 +33,7 @@ const filteredPublications = computed(() =>
   allPublications.filter(pub => {
     const matchesType =
       // there must be an overlap of selectedTags and publication.tags
-      selectedTags.value.length === 0 || selectedTags.value.some(tag => pub.tags.includes(tag as string))
+      selectedTags.value.length === 0 || selectedTags.value.some(tag => pub.tags.includes(tag))
 
     const matchesProject =
       selectedProjects.value.length === 0 ||
