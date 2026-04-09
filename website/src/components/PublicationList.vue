@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type { Publication } from '@/model/data_structures'
+import {faStar} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 defineProps<{
   publications: Publication[]
 }>()
@@ -31,6 +33,15 @@ function publicationTypeLabel(tag: string): string {
       class="publication-entry"
     >
       <p class="citation">
+
+        <span v-if="pub.favorite">
+        <FontAwesomeIcon
+
+          :icon="faStar"
+        ></FontAwesomeIcon>
+          <span>&nbsp;</span>
+        </span>
+
         <span class="authors">{{ pub.authors.join(', ') }}. </span>
         <span class="title">{{ pub.title }}. </span>
         <span class="venue"> {{ pub.conference }}, </span>

@@ -49,7 +49,8 @@ export interface Publication {
     | 'OtherTalk'
     | 'Poster'
     | 'ThesisSupervision')[],
-  derived_from?: string
+  derived_from?: string,
+  favorite?: boolean
 }
 
 export interface WorkExperience {

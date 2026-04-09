@@ -64,6 +64,10 @@
           "derived_from": {
             "description": "Use when this publication is derived from another publication (e.g., a conference paper that was extended to a journal paper). Provide the DOI of the original publication.",
             "type": "string"
+          },
+          "favorite": {
+            "type": "boolean",
+            "description": "Use this flag to mark your most important publications (e.g., for highlighting them on the website)."
           }
         },
         "required": [
