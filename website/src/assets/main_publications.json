@@ -118,7 +118,7 @@
       ]
     },
     {
-      "title": "Data-Model-Driven Management and Analysis of MOF Synthesis Data",
+      "title": "Data Management and Analysis of Metal–Organic Framework Synthesis Using Data Models",
       "authors": [
         "Felix Neubauer",
         "Kenichi Endo",
@@ -129,10 +129,10 @@
         "Benjamin Uekermann",
         "Jürgen Pleiss"
       ],
-      "conference": "ChemRxiv pre-print",
-      "date": "2026-02-02",
-      "doi": "10.26434/chemrxiv.10001842/v1",
-      "abstract": "The successful synthesis of metal-organic frameworks (MOFs) in high yield and purity critically depends on the details of the procedure. Therefore, the machine-readable as well as findable, accessible, interoperable, and reusable (FAIR) documentation of the synthesis procedure and the associated characterization data is crucial to ensure reproducibility and to enable the data-driven analysis and systematic optimization of synthesis. Here, we demonstrate a data-processing workflow development based on a JSON Schema data model for the synthesis and characterization of MOFs. Its feasibility and usefulness is demonstrated by synthesis data of two MOF systems, Fe-terephthalate MOF and MOCOF-1, and their subsequent characterization by powder X-ray diffraction (PXRD). The data model supports the development of an integrated workflow to (1) parse synthesis data from a table or an electronic lab notebook (ELN) into standardized JSON forms, (2) validate the datasets for errors and incompleteness, (3) serialize the data into the standardized data exchange formats MPIF and XDL, and (4) analyze PXRD data by a decision tree to identify critical synthesis parameters that control phase selectivity and yield. The data model and the workflow are modular and extensible, and can be adapted to other data sources, characterizations, and AI methods for analysis. The proposed data model strategy makes MOF synthesis FAIR and AI-ready, fosters the digitalization of synthetic chemistry, and accelerates discovery.",
+      "conference": "Journal of Chemical Information and Modeling",
+      "date": "2026-05-08",
+      "doi": "10.1021/acs.jcim.6c00542",
+      "abstract": "The successful synthesis of metal–organic frameworks (MOFs) in high yield and purity critically depends on the details of the procedure. Therefore, the machine-readable as well as findable, accessible, interoperable, and reusable (FAIR) documentation of the synthesis procedure and the associated characterization data is crucial to ensure reproducibility and to enable data-driven analysis and systematic optimization of synthesis. Here, we demonstrate a data-processing workflow developed based on a JSON Schema data model for the synthesis and characterization of MOFs. Its feasibility and usefulness are demonstrated by synthesis data of two MOF systems, Fe–terephthalate MOF and MOCOF-1, and their subsequent characterization by powder X-ray diffraction (PXRD). The data model supports the development of an integrated workflow to (1) parse synthesis data from a table or an electronic lab notebook (ELN) into standardized JSON forms, (2) validate the data sets for errors and incompleteness, (3) serialize the data into the standardized data exchange formats MPIF and XDL, and (4) analyze PXRD data by a decision tree to identify critical synthesis parameters that control phase selectivity and yield. The data model and the workflow are modular and extensible and can be adapted to other data sources, characterizations, and AI methods for analysis. The proposed data model strategy makes MOF synthesis FAIR and AI-ready, fosters the digitalization of synthetic chemistry, and accelerates discovery.",
       "tags": ["JournalPaper"],
       "related_projects": [
         "Data-Model-Driven Management and Analysis of Chemistry Data",
@@ -180,11 +180,56 @@
       ],
       "supervised_by": "Felix Neubauer",
       "conference": "University of Stuttgart, Research Project",
-      "date": "2026-04-08",
+      "date": "2026-04-01",
       "abstract": "The project explores the fine-tuning of small-scale Large Language Models for JSON Schema generation and modification from natural language descriptions.\nA dataset (based on JsonSchemaBench) and a custom evaluation strategy were developed to assess model outputs across multiple task complexity levels. Four models were fine-tuned using Parameter-Efficient Fine-Tuning methods. A detailed comparison of all four fine-tuned models was conducted. An integration of the best-performing model into MetaConfigurator is demonstrated.",
       "tags": ["ResearchProject"],
       "related_projects": [
         "MetaConfigurator (Web Tool)"
+      ]
+    },
+    {
+      "title": "Connecting MetaConfigurator to the Semantic Web: RDF Authoring, Ontology Integration, and Knowledge Graph Support.",
+      "authors": [
+        "Mahdi Jafarkhani"
+      ],
+      "supervised_by": "Felix Neubauer",
+      "conference": "University of Stuttgart, Master Thesis",
+      "date": "2026-04-15",
+      "abstract": "Scientific workflows increasingly produce structured JavaScript Object Notation (JSON) data. Although this data is easy to exchange, it is still hard to interpret consistently across systems at the semantic level. JSON Schema helps with structural validation, but it does not provide native Linked Data semantics. This thesis addresses that gap by extending MetaConfigurator, a schema-driven web application for structured data authoring, with Semantic Web capabilities. The main contribution is an integrated Resource Description Framework (RDF) Authoring Panel that supports end-to-end semantic data workflows in a single user interface. Researchers can start from existing hierarchical or tabular research data, use the AI-assisted RDF Mapping Language (RML) generation to transform it into RDF, and then continue in the same environment to refine triples, run SPARQL queries, visualize knowledge graph, and export to common RDF\nserializations.\nOverall, this work presents a practical end-to-end approach for transforming structured data into\nsemantically enriched representations. A case study is conducted using laboratory data on Metal-Organic Framework (MOF) synthesis in chemistry. In this study, protocol data is converted from JSON into ontology-based JSON-LD using RML, where synthesis runs, reagents, procedure steps, and quantities are explicitly linked through well-defined classes and relationships. Within the same interface, users can progressively refine the generated triples, benefit from ontology-aware IRI suggestions, create and adjust SPARQL queries with AI assistance, and visually explore and edit the resulting knowledge graph. This integrated workflow preserves the original experimental context while making the data easier to query, compare across runs, integrate with external knowledge systems, and reuse in future research.",
+      "tags": ["MasterThesis"],
+      "related_projects": [
+        "MetaConfigurator (Web Tool)",
+        "Data-Model-Driven Management and Analysis of Chemistry Data"
+      ]
+    },
+    {
+      "title": "Bridging SHACL and JSON Schema: Design, Implementation, and Evaluation of Bidirectional Conversions for JSON and JSON-LD Documents",
+      "authors": [
+        "Giridhar Chinnikkaramadom Govindan"
+      ],
+      "supervised_by": "Felix Neubauer",
+      "conference": "University of Stuttgart, Master Thesis",
+      "date": "2026-05-15",
+      "abstract": "Validation of structured data is a concern common to both the semantic web and the JavaScript Object Notation (JSON) ecosystems, yet each relies on a different constraint language, Shapes Constraint Language (SHACL) for Resource Description Framework (RDF) graphs and JSON Schema for JSON documents. Existing tools that offer conversion between them cover only a narrow subset of keywords and constraint components, leaving practitioners to manually author shapes graphs and schemas for each use case. This thesis presents shacl-bridge, a TypeScript library that implements conversion in both directions, from SHACL to JSON Schema using an Intermediate Representation (IR), and from JSON Schema to SHACL using a tree-based approach. To assess conversion quality, shacl-bridge includes a benchmark suite covering major keywords and constraint components. For the JSON Schema to SHACL direction, benchmark inputs are\ntaken from the official JSON Schema test suite. Conversion quality is measured using similarity metrics based on Jaccard similarity and F-measure. The results demonstrate accurate conversion for common, well-defined inputs, with shacl-bridge outperforming existing alternatives while also revealing information loss when converting complex inputs whose constructs have no equivalents in the target language.",
+      "tags": ["MasterThesis"],
+      "related_projects": [
+        "MetaConfigurator (Web Tool)"
+      ]
+    },
+    {
+      "title": "Data-model-driven RDM workflows for chemistry",
+      "authors": [
+        "Jürgen Pleiss",
+        "Kenichi Endo",
+        "Felix Neubauer"
+      ],
+      "conference": "NFDI4Chem Consortium Meeting 7.0",
+      "date": "2026-05-12",
+      "abstract": "We conducted a 2h workshop about data-model-driven research data management (RDM) workflows for chemistry. The workshop included a presentation of our research and the concept of data models and their role in RDM, followed by a demonstration of MetaConfigurator, a web-based tool for designing and managing JSON Schemas. We then presented a case study on the application of MetaConfigurator to manage synthesis and characterization data of Metal-Organic Frameworks (MOFs). The workshop concluded with an interactive discussion on the challenges and opportunities of adopting data models in chemistry RDM, as well as potential future developments and collaborations.",
+      "tags": ["Workshop"],
+      "related_projects": [
+        "MetaConfigurator (Web Tool)",
+        "Data-Model-Driven Management and Analysis of Chemistry Data"
       ]
     }
   ]

@@ -170,7 +170,8 @@ function publicationTypeLabel(tag: string): string {
 
 .pub-type--ConferenceTalk,
 .pub-type--WorkshopTalk,
-.pub-type--OtherTalk {
+.pub-type--OtherTalk,
+.pub-type--Workshop {
   background: var(--pub-talk-bg);
 }
 

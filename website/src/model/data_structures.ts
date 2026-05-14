@@ -48,7 +48,8 @@ export interface Publication {
     | 'WorkshopTalk'
     | 'OtherTalk'
     | 'Poster'
-    | 'ThesisSupervision')[],
+    | 'ThesisSupervision'
+    | 'Workshop')[],
   derived_from?: string,
   favorite?: boolean
 }
