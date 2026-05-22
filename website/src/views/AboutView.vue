@@ -28,39 +28,51 @@
 
     <h3>
       Hi, I'm <b>Felix Neubauer</b>, a research software engineer based in
-      Germany with a passion for crafting well-architected, high-quality
-      software.
+      Germany. I enjoy building software that is robust, well-structured, and
+      genuinely useful to the people working with it.
 
       <br />
 
-      I started programming in Java in 2012 and have since earned both my
-      <b>Bachelor’s and Master’s degrees in Software Engineering</b>. After
-      working at <b>Robert Bosch GmbH from 2019 to 2024</b> — developing
-      software for self-driving cars with <b>C++ for embedded systems</b>,
-      <b>Python-based tooling</b>, and <b>CI/CD pipelines</b> — I have now
-      transitioned to full-time research as part of my <b>PhD</b>.
+      I started programming in Java in 2012 and later completed both my
+      Bachelor's and Master's degrees in Software Engineering. From 2019 to
+      2024, I worked at Robert Bosch GmbH on software for self-driving vehicles,
+      including embedded C++, Python tooling, and CI/CD infrastructure. I am
+      now continuing this path in academia as a doctoral researcher at the
+      University of Stuttgart.
 
       <br />
 
-      Beyond my research, I love experimenting with
-      <b>TypeScript, Kotlin and Java</b>, focusing on
-      <b>research data management</b>, <b>model driven engineering</b>,
-      <b>software architecture</b>, <b>clean code</b>, <b>testing</b>,
-      <b>DevOps</b>, and <b>API design</b>. My open-source projects have
-      accumulated over a <b>million downloads</b>, and one of my Java minigames
-      was featured by YouTubers with a combined audience of over 50 million
-      subscribers.
+      My main interests today are research data management, model-driven
+      engineering, software architecture, testing, DevOps, and practical uses of
+      AI in developer tools. A lot of my recent work revolves around
+      MetaConfigurator, a JSON Schema editor and form generator that began as a
+      student project, became the basis of my master's thesis, and now continues
+      as part of my PhD and research collaborations in chemistry and scientific
+      data workflows.
 
       <br />
 
-      Before transitioning to a full-time industry and then research job, I
-      worked as a freelancer and sold my own Java software. Now, I continue to
-      build impactful software—most recently, <b>MetaConfigurator</b>, a JSON
-      schema editor and form generator, developed as part of my master’s thesis
-      and now developed further within the scope of my PhD.
+      Alongside that, I still enjoy building things outside my core research
+      area. Recent side projects include Veiled Kingdoms, a dark fantasy
+      strategy board game, and a simulator for it that I use to experiment with
+      reinforcement learning agents and AI-assisted development. Earlier on, I
+      worked as a freelancer, sold my own Java software, and built open-source
+      projects with more than a million downloads in total.
 
       <br />
-      Want to learn more? Check out my projects and research below! 🚀
+
+      I also publish regularly on my research topics, most recently around
+      MetaConfigurator, AI-assisted model-driven engineering, and structured
+      data workflows for chemistry.
+
+      <br />
+
+      Outside of work, I like to slow down a bit. I enjoy meditation, playing
+      badminton and board games, and whenever I get the chance to travel, I
+      especially like going scuba diving.
+
+      <br />
+      Want to learn more? Check out my projects and research below! 🧙
     </h3>
   </div>
 </template>
