@@ -6054,11 +6054,6 @@ function cloneVNode(vnode, extraProps, mergeRef = false, cloneTransition = false
 function createTextVNode(text3 = " ", flag = 0) {
   return createVNode(Text, null, text3, flag);
 }
-function createStaticVNode(content, numberOfNodes) {
-  const vnode = createVNode(Static, null, content);
-  vnode.staticCount = numberOfNodes;
-  return vnode;
-}
 function createCommentVNode(text3 = "", asBlock = false) {
   return asBlock ? (openBlock(), createBlock(Comment, null, text3)) : createVNode(Comment, null, text3);
 }
@@ -12477,7 +12472,25 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
         createBaseVNode("a", _hoisted_4$a, [
           createVNode(unref(FontAwesomeIcon), { icon: unref(faLinkedin.faLinkedin) }, null, 8, ["icon"])
         ]),
-        _cache[3] || (_cache[3] = createStaticVNode("<br><br><h3> Hi, I&#39;m <b>Felix Neubauer</b>, a research software engineer based in Germany with a passion for crafting well-architected, high-quality software. <br> I started programming in Java in 2012 and have since earned both my <b>Bachelor’s and Master’s degrees in Software Engineering</b>. After working at <b>Robert Bosch GmbH from 2019 to 2024</b> — developing software for self-driving cars with <b>C++ for embedded systems</b>, <b>Python-based tooling</b>, and <b>CI/CD pipelines</b> — I have now transitioned to full-time research as part of my <b>PhD</b>. <br> Beyond my research, I love experimenting with <b>TypeScript, Kotlin and Java</b>, focusing on <b>research data management</b>, <b>model driven engineering</b>, <b>software architecture</b>, <b>clean code</b>, <b>testing</b>, <b>DevOps</b>, and <b>API design</b>. My open-source projects have accumulated over a <b>million downloads</b>, and one of my Java minigames was featured by YouTubers with a combined audience of over 50 million subscribers. <br> Before transitioning to a full-time industry and then research job, I worked as a freelancer and sold my own Java software. Now, I continue to build impactful software—most recently, <b>MetaConfigurator</b>, a JSON schema editor and form generator, developed as part of my master’s thesis and now developed further within the scope of my PhD. <br> Want to learn more? Check out my projects and research below! 🚀 </h3>", 3))
+        _cache[3] || (_cache[3] = createBaseVNode("br", null, null, -1)),
+        _cache[4] || (_cache[4] = createBaseVNode("br", null, null, -1)),
+        _cache[5] || (_cache[5] = createBaseVNode("h3", null, [
+          createTextVNode(" Hi, I'm "),
+          createBaseVNode("b", null, "Felix Neubauer"),
+          createTextVNode(", a research software engineer based in Germany. I enjoy building software that is robust, well-structured, and genuinely useful to the people working with it. "),
+          createBaseVNode("br"),
+          createTextVNode(" I started programming in Java in 2012 and later completed both my Bachelor's and Master's degrees in Software Engineering. From 2019 to 2024, I worked at Robert Bosch GmbH on software for self-driving vehicles, including embedded C++, Python tooling, and CI/CD infrastructure. I am now continuing this path in academia as a doctoral researcher at the University of Stuttgart. "),
+          createBaseVNode("br"),
+          createTextVNode(" My main interests today are research data management, model-driven engineering, software architecture, testing, DevOps, and practical uses of AI in developer tools. A lot of my recent work revolves around MetaConfigurator, a JSON Schema editor and form generator that began as a student project, became the basis of my master's thesis, and now continues as part of my PhD and research collaborations in chemistry and scientific data workflows. "),
+          createBaseVNode("br"),
+          createTextVNode(" Alongside that, I still enjoy building things outside my core research area. Recent side projects include Veiled Kingdoms, a dark fantasy strategy board game, and a simulator for it that I use to experiment with reinforcement learning agents and AI-assisted development. Earlier on, I worked as a freelancer, sold my own Java software, and built open-source projects with more than a million downloads in total. "),
+          createBaseVNode("br"),
+          createTextVNode(" I also publish regularly on my research topics, most recently around MetaConfigurator, AI-assisted model-driven engineering, and structured data workflows for chemistry. "),
+          createBaseVNode("br"),
+          createTextVNode(" Outside of work, I like to slow down a bit. I enjoy meditation, playing badminton and board games, and whenever I get the chance to travel, I especially like going scuba diving. "),
+          createBaseVNode("br"),
+          createTextVNode(" Want to learn more? Check out my projects and research below! 🧙 ")
+        ], -1))
       ]);
     };
   }
@@ -16232,6 +16245,56 @@ const projects = [
       {
         label: "successorOf",
         relatedProject: "ManaWar (Desktop Game)"
+      }
+    ]
+  },
+  {
+    title: "Veiled Kingdoms",
+    description: "Developing a dark fantasy strategy board game of hidden units, bluffing, deck-building, and building control. Players command masked warlords on a hex-grid battlefield, reveal their true strength only in combat, and fight over Citadels and Sanctums through careful positioning, upgrades, and chained card plays.",
+    favorite: true,
+    icon: "icon_veiled_kingdoms.png",
+    size: "l",
+    when: {
+      start: "2025-11-10",
+      end: "2030-12-31"
+    },
+    relations: [
+      {
+        label: "relatedTo",
+        relatedProject: "ManaWars (Mobile Game)"
+      },
+      {
+        label: "relatedTo",
+        relatedProject: "EarthGames (Minigame)"
+      },
+      {
+        label: "relatedTo",
+        relatedProject: "War (Minigame)"
+      }
+    ]
+  },
+  {
+    title: "Veiled Kingdoms Simulator",
+    description: "Developing a simulator for my board game Veiled Kingdoms. This is my first bigger experience with vibe coding and using generative AI for a larger project with barely writing any code by hand. I am also using reinforcement learning to train agents in a league where they play against each other and against bots built with traditional heuristics.",
+    favorite: false,
+    icon: "icon_veiled_kingdoms_simulator.png",
+    size: "m",
+    tags: [
+      "TypeScript",
+      "AI"
+    ],
+    when: {
+      start: "2026-01-30",
+      end: "2030-12-31"
+    },
+    relations: [
+      {
+        label: "toolFor",
+        relatedProject: "Veiled Kingdoms"
+      },
+      {
+        label: "sharesConceptWith",
+        relatedProject: "MesaReplay (Tool Extension)"
       }
     ]
   },
@@ -75445,7 +75508,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-Dlt20Fed.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-DUTaSZqV.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
