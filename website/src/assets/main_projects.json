@@ -114,8 +114,11 @@
     },
     {
       "title": "Veiled Kingdoms",
-      "description": "Developing a dark fantasy strategy board game of hidden units, bluffing, deck-building, and building control. Players command masked warlords on a hex-grid battlefield, reveal their true strength only in combat, and fight over Citadels and Sanctums through careful positioning, upgrades, and chained card plays.",
+      "description": "Developing a dark fantasy strategy board game of hidden units, bluffing, deck-building, and building control. Players command masked warlords on a hex-grid battlefield, reveal their true strength only in combat, and fight over Citadels and Sanctums through careful positioning, upgrades, and chained card plays. I develop  small utility TypeScript tools to support the development (e.g., for rendering cards, the rulebook, box and the 3d models based on configuration files and images).",
       "favorite": true,
+      "tags": [
+        "TypeScript"
+      ],
       "icon": "icon_veiled_kingdoms.png",
       "size": "l",
       "when": {
