@@ -16261,7 +16261,7 @@ const projects = [
       "Python"
     ],
     icon: "icon_veiled_kingdoms.png",
-    size: "l",
+    size: "m",
     when: {
       start: "2025-11-10",
       end: "2030-12-31"
@@ -75520,7 +75520,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-DoxyR93W.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-Bd5MKqPP.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
