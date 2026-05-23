@@ -16250,8 +16250,11 @@ const projects = [
   },
   {
     title: "Veiled Kingdoms",
-    description: "Developing a dark fantasy strategy board game of hidden units, bluffing, deck-building, and building control. Players command masked warlords on a hex-grid battlefield, reveal their true strength only in combat, and fight over Citadels and Sanctums through careful positioning, upgrades, and chained card plays.",
+    description: "Developing a dark fantasy strategy board game of hidden units, bluffing, deck-building, and building control. Players command masked warlords on a hex-grid battlefield, reveal their true strength only in combat, and fight over Citadels and Sanctums through careful positioning, upgrades, and chained card plays. I develop  small utility TypeScript tools to support the development (e.g., for rendering cards, the rulebook, box and the 3d models based on configuration files and images).",
     favorite: true,
+    tags: [
+      "TypeScript"
+    ],
     icon: "icon_veiled_kingdoms.png",
     size: "l",
     when: {
@@ -75508,7 +75511,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-DUTaSZqV.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-CU71f1PK.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
