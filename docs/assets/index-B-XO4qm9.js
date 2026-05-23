@@ -16155,6 +16155,10 @@ const projects = [
       {
         label: "applies",
         relatedProject: "MetaConfigurator (Web Tool)"
+      },
+      {
+        label: "relatedTo",
+        relatedProject: "Radar Data Processing"
       }
     ]
   },
@@ -75516,7 +75520,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-B2v3yYFE.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-DoxyR93W.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
