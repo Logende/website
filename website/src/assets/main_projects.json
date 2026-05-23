@@ -19,6 +19,10 @@
         {
           "label": "applies",
           "relatedProject": "MetaConfigurator (Web Tool)"
+        },
+        {
+          "label": "relatedTo",
+          "relatedProject": "Radar Data Processing"
         }
       ]
     },
