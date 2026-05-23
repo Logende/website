@@ -125,7 +125,7 @@
         "Python"
       ],
       "icon": "icon_veiled_kingdoms.png",
-      "size": "l",
+      "size": "m",
       "when": {
         "start": "2025-11-10",
         "end": "2030-12-31"
