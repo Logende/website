@@ -18628,6 +18628,7 @@ const publications = [
     tags: [
       "MasterThesis"
     ],
+    doi: "10.18419/opus-18619",
     related_projects: [
       "MetaConfigurator (Web Tool)",
       "Data-Model-Driven Management and Analysis of Chemistry Data"
@@ -75520,7 +75521,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-Bd5MKqPP.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-COOUP0iF.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
