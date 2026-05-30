@@ -534,12 +534,12 @@ section[data-v-5b6c2b5e] {
   cursor: pointer;
 }
 
-.graph-wrapper[data-v-25a158b1] {
+.graph-wrapper[data-v-3b1a3e0f] {
   position: relative;
   width: 100%;
   height: 80vh;
 }
-.graph-container[data-v-25a158b1] {
+.graph-container[data-v-3b1a3e0f] {
   width: 100%;
   height: 100%;
   border: 1px solid var(--color-border);
@@ -549,14 +549,14 @@ section[data-v-5b6c2b5e] {
 }
 
 /* Cytoscape canvas */
-[data-v-25a158b1] .cytoscape-container {
+[data-v-3b1a3e0f] .cytoscape-container {
   width: 100%;
   height: 100%;
   border-radius: 8px;
 }
 
 /* Legend in top-right */
-.legend[data-v-25a158b1] {
+.legend[data-v-3b1a3e0f] {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -567,28 +567,44 @@ section[data-v-5b6c2b5e] {
   font-size: 0.75rem;
   max-width: 200px;
 }
-.legend-title[data-v-25a158b1] {
+.legend-title[data-v-3b1a3e0f] {
   font-weight: 600;
   margin-bottom: 4px;
 }
-.legend-item[data-v-25a158b1] {
+.legend-item[data-v-3b1a3e0f] {
   display: flex;
   align-items: center;
   gap: 6px;
   margin-top: 2px;
 }
-.legend-color[data-v-25a158b1] {
+.legend-color[data-v-3b1a3e0f] {
   width: 10px;
   height: 10px;
   border-radius: 3px;
   border: 1px solid rgba(255, 255, 255, 0.6);
 }
-.legend-label[data-v-25a158b1] {
+.legend-label[data-v-3b1a3e0f] {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.legend[data-v-25a158b1] {
+.edge-tooltip[data-v-3b1a3e0f] {
+  position: absolute;
+  z-index: 2;
+  max-width: min(280px, calc(100% - 32px));
+  padding: 6px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-background-soft);
+  color: var(--color-text);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  pointer-events: none;
+  transform: translate(10px, -50%);
+  overflow-wrap: break-word;
+}
+.legend[data-v-3b1a3e0f] {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -600,7 +616,7 @@ section[data-v-5b6c2b5e] {
   max-width: 200px;
 }
 @media (prefers-color-scheme: dark) {
-.legend[data-v-25a158b1] {
+.legend[data-v-3b1a3e0f] {
     background: rgba(255, 255, 255, 0.08);
 }
 }

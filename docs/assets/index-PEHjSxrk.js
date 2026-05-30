@@ -16154,11 +16154,13 @@ const projects = [
     relations: [
       {
         label: "applies",
-        relatedProject: "MetaConfigurator (Web Tool)"
+        relatedProject: "MetaConfigurator (Web Tool)",
+        note: "Uses MetaConfigurator for JSON Schema editing and visualization, data validation, as well as code generation."
       },
       {
         label: "relatedTo",
-        relatedProject: "Radar Data Processing"
+        relatedProject: "Radar Data Processing",
+        note: "Both projects involve processing and analyzing complex scientific data, albeit in different domains (Chemistry vs. Radar Perception)."
       }
     ]
   },
@@ -16189,7 +16191,13 @@ const projects = [
     relations: [
       {
         label: "inspiredBy",
-        relatedProject: "BSPEditor (Web Tool)"
+        relatedProject: "BSPEditor (Web Tool)",
+        note: "BSPEditor is a web based editor to edit BossShopPro configuration files. In the background, the web UI is dynamically generated from a model specifying the data structure of the configuration files. MetaConfigurator takes this further by making this model itself editable and by using JSON Schema instead of a custom format. It furthermore developed into a much more powerful and versatile package of tools and features around JSON Schema."
+      },
+      {
+        label: "sharesConceptWith",
+        relatedProject: "BossShopPro (Plugin)",
+        note: "Both projects generate a user interface based on a data model/configuration file."
       }
     ]
   },
@@ -16213,11 +16221,13 @@ const projects = [
     relations: [
       {
         label: "sharesConceptWith",
-        relatedProject: "MesaReplay (Tool Extension)"
+        relatedProject: "MesaReplay (Tool Extension)",
+        note: "Both projects involve simulation software."
       },
       {
         label: "applies",
-        relatedProject: "MetaConfigurator (Web Tool)"
+        relatedProject: "MetaConfigurator (Web Tool)",
+        note: "Uses MetaConfigurator to make it easier for users to edit configuration files, for example for the adapter configuration."
       }
     ],
     videos: [
@@ -16248,7 +16258,8 @@ const projects = [
     relations: [
       {
         label: "successorOf",
-        relatedProject: "ManaWar (Desktop Game)"
+        relatedProject: "ManaWar (Desktop Game)",
+        note: "ManaWar was my first self-developed computer fantasy game. ManaWars is the next iteration of it with better character and environment artwork and a much more complex and different gameplay. It is also the first game I developed for mobile platforms and with a game engine (libGDX)."
       }
     ]
   },
@@ -16269,19 +16280,23 @@ const projects = [
     relations: [
       {
         label: "relatedTo",
-        relatedProject: "ManaWars (Mobile Game)"
+        relatedProject: "ManaWars (Mobile Game)",
+        note: "Both are fantasy games."
       },
       {
         label: "relatedTo",
-        relatedProject: "EarthGames (Minigame)"
+        relatedProject: "EarthGames (Minigame)",
+        note: "Both are competitive games."
       },
       {
         label: "relatedTo",
-        relatedProject: "War (Minigame)"
+        relatedProject: "War (Minigame)",
+        note: "Both are competitive games."
       },
       {
         label: "applies",
-        relatedProject: "MetaConfigurator (Web Tool)"
+        relatedProject: "MetaConfigurator (Web Tool)",
+        note: "For the development of Veiled Kingdoms, different tools for developed, which use JSON Schemas designed with MetaConfigurator."
       }
     ]
   },
@@ -16302,11 +16317,18 @@ const projects = [
     relations: [
       {
         label: "toolFor",
-        relatedProject: "Veiled Kingdoms"
+        relatedProject: "Veiled Kingdoms",
+        note: "The simulator is developed to test and improve the game design of Veiled Kingdoms and to train AI agents that can play the game."
       },
       {
         label: "sharesConceptWith",
-        relatedProject: "MesaReplay (Tool Extension)"
+        relatedProject: "MesaReplay (Tool Extension)",
+        note: "Both projects involve agent-based simulations."
+      },
+      {
+        label: "sharesConceptWith",
+        relatedProject: "Pedestrian Simulation",
+        note: "Both projects involve agent-based simulations."
       }
     ]
   },
@@ -16328,7 +16350,8 @@ const projects = [
     relations: [
       {
         label: "sharesConceptWith",
-        relatedProject: "Pedestrian Simulation"
+        relatedProject: "Pedestrian Simulation",
+        note: "Both projects involve agent-based simulations."
       }
     ]
   },
@@ -16350,7 +16373,13 @@ const projects = [
     relations: [
       {
         label: "relatedTo",
-        relatedProject: "ALC Logic App (Mobile Quiz App)"
+        relatedProject: "ALC Logic App (Mobile Quiz App)",
+        note: "Both projects were developed as part of University modules and involve reasoning."
+      },
+      {
+        label: "sharesConceptWith",
+        relatedProject: "Internal Phishing Awareness Campaigns",
+        note: "Both projects use graph databases for data storage and queries."
       }
     ]
   },
@@ -16373,11 +16402,8 @@ const projects = [
     relations: [
       {
         label: "relatedTo",
-        relatedProject: "Internal Phishing Awareness Campaigns"
-      },
-      {
-        label: "relatedTo",
-        relatedProject: "DynamicSlicing (Tool)"
+        relatedProject: "DynamicSlicing (Tool)",
+        note: "Both projects are developed in the context of a course on Software Analysis and Testing and involve program analysis techniques."
       }
     ]
   },
@@ -16401,7 +16427,8 @@ const projects = [
     relations: [
       {
         label: "relatedTo",
-        relatedProject: "AnimalDetectionDrone (Mobile App for Drone)"
+        relatedProject: "AnimalDetectionDrone (Mobile App for Drone)",
+        note: "Both projects were developed as part of University modules and involve mobile app development."
       }
     ]
   },
@@ -16430,7 +16457,8 @@ const projects = [
     relations: [
       {
         label: "inspiredBy",
-        relatedProject: "PlayerPoints (Plugin)"
+        relatedProject: "PlayerPoints (Plugin)",
+        note: "PlayerPoints is a plugin that introduces a second currency to Minecraft. A predecessor to BossShopPro, called PointShop was developed by me to enable players to spend their points in shops for different rewards. Later I had developed ItemShops and MoneyShop as plugins to create shops to buy things from items or money respectively. They all eventually were merged into a new plugin BossShop (more than 600.000 downloads), for which the premium version (>2000 copies sold for 12$ each) became BossShopPro. Eventually BossShopPro was turned into a free plugin, as I started a full-time job and had less time to maintain it and provide full support for it."
       }
     ]
   },
@@ -16462,7 +16490,8 @@ const projects = [
     relations: [
       {
         label: "inspiredBy",
-        relatedProject: "War (Minigame)"
+        relatedProject: "War (Minigame)",
+        note: "War was my first Minecraft Minigame plugin and inspired further Minigames like EarthGames and ZombieV."
       }
     ]
   },
@@ -16487,11 +16516,13 @@ const projects = [
     relations: [
       {
         label: "relatedTo",
-        relatedProject: "EarthGames (Minigame)"
+        relatedProject: "EarthGames (Minigame)",
+        note: "Both are Minecraft Minigames and were also published to a large audience via the Snapcraft gaming network."
       },
       {
         label: "inspiredBy",
-        relatedProject: "War (Minigame)"
+        relatedProject: "War (Minigame)",
+        note: "War was my first Minecraft Minigame plugin and inspired further Minigames like EarthGames and ZombieV."
       }
     ]
   },
@@ -16512,7 +16543,8 @@ const projects = [
     relations: [
       {
         label: "relatedTo",
-        relatedProject: "ManaWars (Mobile Game)"
+        relatedProject: "ManaWars (Mobile Game)",
+        note: "Both are mobile apps."
       }
     ],
     source_code: "https://github.com/kochsebastian/AnimalDetectionDrone"
@@ -16538,11 +16570,13 @@ const projects = [
     relations: [
       {
         label: "toolFor",
-        relatedProject: "BossShopPro (Plugin)"
+        relatedProject: "BossShopPro (Plugin)",
+        note: "BspEditor is a mobile tool for editing BossShopPro configuration files"
       },
       {
         label: "successorOf",
-        relatedProject: "BSPConfigure (Desktop Tool)"
+        relatedProject: "BSPConfigure (Desktop Tool)",
+        note: "BSPEditor is the successor of BSPConfigure, which was a desktop tool for editing BossShopPro configuration files. BSPEditor is a web application, which makes it more accessible and easier to use."
       }
     ]
   },
@@ -16563,7 +16597,8 @@ const projects = [
     relations: [
       {
         label: "toolFor",
-        relatedProject: "BossShopPro (Plugin)"
+        relatedProject: "BossShopPro (Plugin)",
+        note: "BSPConfigure is a desktop tool for editing BossShopPro configuration files"
       }
     ]
   },
@@ -16587,7 +16622,8 @@ const projects = [
     relations: [
       {
         label: "inspiredBy",
-        relatedProject: "ZombieV (Minigame)"
+        relatedProject: "ZombieV (Minigame)",
+        note: "After developing ZombieV and other Minecraft Minigames, I wanted to create my full own fantasy game. ManaWar was the first iteration of this idea, which I later continued to develop into ManaWars, a mobile game with a much more complex gameplay and better artwork."
       }
     ]
   },
@@ -16608,7 +16644,8 @@ const projects = [
     relations: [
       {
         label: "relatedTo",
-        relatedProject: "CommandRank (Plugin)"
+        relatedProject: "CommandRank (Plugin)",
+        note: "Both are server-side Minecraft plugins and were developed in the early stages of my programming journey."
       }
     ]
   },
@@ -16629,7 +16666,8 @@ const projects = [
     relations: [
       {
         label: "extensionFor",
-        relatedProject: "BossShopPro (Plugin)"
+        relatedProject: "BossShopPro (Plugin)",
+        note: "LimitedUses is an addon for BossShopPro, which adds the feature to limit how often a player can utilize an entry in a BossShopPro shop/GUI."
       }
     ]
   },
@@ -16650,7 +16688,8 @@ const projects = [
     relations: [
       {
         label: "extensionFor",
-        relatedProject: "BossShopPro (Plugin)"
+        relatedProject: "BossShopPro (Plugin)",
+        note: "PlayerShops is an addon for BossShopPro, enabling players to create their own virtual shops."
       }
     ]
   },
@@ -16671,7 +16710,8 @@ const projects = [
     relations: [
       {
         label: "extensionFor",
-        relatedProject: "BossShopPro (Plugin)"
+        relatedProject: "BossShopPro (Plugin)",
+        note: "ItemShops is an addon for BossShopPro, which generates complex BossShopPro shops based on a simple configuration file."
       }
     ]
   },
@@ -16692,7 +16732,8 @@ const projects = [
     relations: [
       {
         label: "extensionFor",
-        relatedProject: "BossShopPro (Plugin)"
+        relatedProject: "BossShopPro (Plugin)",
+        note: "ThirdCurrency is an addon for BossShopPro, which adds support for more currencies in BossShopPro shops."
       }
     ]
   },
@@ -16713,7 +16754,8 @@ const projects = [
     relations: [
       {
         label: "extensionFor",
-        relatedProject: "BossShopPro (Plugin)"
+        relatedProject: "BossShopPro (Plugin)",
+        note: "GuiShopManager is an addon for BossShopPro, which adds new ways to open a BossShopPro shop/GUI, for example by clicking custom items in the players inventory."
       }
     ]
   },
@@ -16748,7 +16790,8 @@ const projects = [
     relations: [
       {
         label: "inspiredBy",
-        relatedProject: "CommandRank (Plugin)"
+        relatedProject: "CommandRank (Plugin)",
+        note: "CommandRank is a plugin designed to enable players to promote themselves if they fulfill certain criteria. A classical criteria was play-time, but later PlayerPoints was introduced as an alternative, which allows players to accumulate points through different encouraged behaviors in the game and then promote themselves (via a CommandRank integration)."
       }
     ]
   },
@@ -16769,7 +16812,8 @@ const projects = [
     relations: [
       {
         label: "relatedTo",
-        relatedProject: "CommandRank (Plugin)"
+        relatedProject: "CommandRank (Plugin)",
+        note: "Both are server-side Minecraft plugins and were developed in the early stages of my programming journey."
       }
     ]
   },
@@ -16820,7 +16864,8 @@ const projects = [
     relations: [
       {
         label: "relatedTo",
-        relatedProject: "Simulation of CCU Communication"
+        relatedProject: "Simulation of CCU Communication",
+        note: "Both projects involve simulation software development for Bosch in the field of automotive technology."
       }
     ]
   },
@@ -16840,7 +16885,8 @@ const projects = [
     relations: [
       {
         label: "relatedTo",
-        relatedProject: "Simulation of CCU Communication"
+        relatedProject: "Simulation of CCU Communication",
+        note: "Both projects involve data processing and clever engineering for Bosch in the field of automotive technology."
       }
     ]
   },
@@ -16860,11 +16906,13 @@ const projects = [
     relations: [
       {
         label: "relatedTo",
-        relatedProject: "Simulation of CCU Communication"
+        relatedProject: "Simulation of CCU Communication",
+        note: "Both projects revolve around tooling, engineering and data analysis for software for vehicle control units."
       },
       {
         label: "relatedTo",
-        relatedProject: "Radar Data Processing"
+        relatedProject: "Radar Data Processing",
+        note: "Both projects involve writing software and algorithms for radar data processing."
       }
     ]
   },
@@ -16886,19 +16934,23 @@ const projects = [
     relations: [
       {
         label: "relatedTo",
-        relatedProject: "Radar Data Processing"
+        relatedProject: "Radar Data Processing",
+        note: "Both projects involve working with data collected from vehicles and developing software for processing and analyzing this data."
       },
       {
         label: "relatedTo",
-        relatedProject: "Radar Calibration and Misalignment Detection"
+        relatedProject: "Radar Calibration and Misalignment Detection",
+        note: "Both projects involve working with data collected from vehicles and developing software for processing and analyzing this data."
       },
       {
         label: "relatedTo",
-        relatedProject: "Simulation of CCU Communication"
+        relatedProject: "Simulation of CCU Communication",
+        note: "Both projects involve working with software for vehicle control units and data processing for automotive applications."
       },
       {
         label: "relatedTo",
-        relatedProject: "Internal Phishing Awareness Campaigns"
+        relatedProject: "Internal Phishing Awareness Campaigns",
+        note: "Both projects involve developing software tools for data collection and analysis, albeit in different domains (automotive vs. cybersecurity)."
       }
     ]
   }
@@ -75158,20 +75210,30 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         };
       });
       const edges3 = projects2.flatMap(
-        (p2) => (p2.relations ?? []).map((rel) => ({
-          data: {
-            id: `${p2.title}-${rel.label}-${rel.relatedProject}`,
-            source: p2.title,
-            target: rel.relatedProject,
-            label: rel.label.replace(/([a-z])([A-Z])/g, "$1 $2"),
-            bidirectional: rel.label == "relatedTo" || rel.label == "sharesConceptWith" ? "true" : "false"
-          }
-        }))
+        (p2) => (p2.relations ?? []).map((rel) => {
+          var _a;
+          return {
+            data: {
+              id: `${p2.title}-${rel.label}-${rel.relatedProject}`,
+              source: p2.title,
+              target: rel.relatedProject,
+              label: rel.label.replace(/([a-z])([A-Z])/g, "$1 $2"),
+              note: (_a = rel.note) == null ? void 0 : _a.trim(),
+              bidirectional: rel.label == "relatedTo" || rel.label == "sharesConceptWith" ? "true" : "false"
+            }
+          };
+        })
       );
       return [...nodes3, ...edges3];
     });
     const container2 = ref(null);
     let cy = null;
+    const edgeTooltip = ref({
+      visible: false,
+      text: "",
+      x: 0,
+      y: 0
+    });
     const layoutOptions = {
       name: "fcose",
       quality: "default",
@@ -75310,7 +75372,36 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         selectedProjectTitle.value = id3;
         isProjectDialogVisible.value = true;
       });
+      cy.on("mouseover", "edge", (event3) => {
+        const note = event3.target.data("note");
+        if (!note) return;
+        updateEdgeTooltipPosition(event3);
+        edgeTooltip.value = {
+          ...edgeTooltip.value,
+          visible: true,
+          text: note
+        };
+      });
+      cy.on("mousemove", "edge", (event3) => {
+        if (!edgeTooltip.value.visible) return;
+        updateEdgeTooltipPosition(event3);
+      });
+      cy.on("mouseout", "edge", () => {
+        edgeTooltip.value = {
+          ...edgeTooltip.value,
+          visible: false,
+          text: ""
+        };
+      });
       cy.fit();
+    }
+    function updateEdgeTooltipPosition(event3) {
+      if (!event3.renderedPosition) return;
+      edgeTooltip.value = {
+        ...edgeTooltip.value,
+        x: event3.renderedPosition.x,
+        y: event3.renderedPosition.y
+      };
     }
     const selectedProjectTitle = ref(null);
     const isProjectDialogVisible = ref(false);
@@ -75340,6 +75431,14 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
             ref: container2,
             class: "graph-container"
           }, null, 512),
+          edgeTooltip.value.visible ? (openBlock(), createElementBlock("div", {
+            key: 0,
+            class: "edge-tooltip",
+            style: normalizeStyle({
+              left: `${edgeTooltip.value.x}px`,
+              top: `${edgeTooltip.value.y}px`
+            })
+          }, toDisplayString(edgeTooltip.value.text), 5)) : createCommentVNode("", true),
           createBaseVNode("div", _hoisted_2$1, [
             _cache[1] || (_cache[1] = createBaseVNode("div", { class: "legend-title" }, "Affiliations", -1)),
             (openBlock(true), createElementBlock(Fragment, null, renderList(unref(affiliations), (aff) => {
@@ -75380,7 +75479,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const ProjectGraphView = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-25a158b1"]]);
+const ProjectGraphView = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-3b1a3e0f"]]);
 const _hoisted_1 = { class: "full-width" };
 const _hoisted_2 = { class: "menu-bar" };
 const _hoisted_3 = {
@@ -75521,7 +75620,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-COOUP0iF.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-DHJOkCWT.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
