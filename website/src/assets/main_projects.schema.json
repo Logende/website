@@ -93,6 +93,9 @@
               },
               "relatedProject": {
                 "type": "string"
+              },
+              "note": {
+                "type": "string"
               }
             }
           }

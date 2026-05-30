@@ -17,6 +17,7 @@ export interface Project {
 
 export interface ProjectRelation {
   relatedProject: string // project id or title
+  note?: string
   label:
     | 'predecessorOf'
     | 'inspiredBy'

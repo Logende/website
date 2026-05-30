@@ -58,6 +58,7 @@ const cytoscapeElements = computed(() => {
         source: p.title,
         target: rel.relatedProject,
         label: rel.label.replace(/([a-z])([A-Z])/g, '$1 $2'),
+        note: rel.note?.trim(),
         bidirectional:
           rel.label == 'relatedTo' || rel.label == 'sharesConceptWith'
             ? 'true'
@@ -71,6 +72,13 @@ const cytoscapeElements = computed(() => {
 
 const container = ref<HTMLElement | null>(null)
 let cy: Core | null = null
+
+const edgeTooltip = ref({
+  visible: false,
+  text: '',
+  x: 0,
+  y: 0,
+})
 
 const layoutOptions = {
   name: 'fcose',
@@ -226,7 +234,42 @@ function initializeCytoscape() {
     isProjectDialogVisible.value = true
   })
 
+  cy.on('mouseover', 'edge', (event: any) => {
+    const note = event.target.data('note')
+    if (!note) return
+
+    updateEdgeTooltipPosition(event)
+    edgeTooltip.value = {
+      ...edgeTooltip.value,
+      visible: true,
+      text: note,
+    }
+  })
+
+  cy.on('mousemove', 'edge', (event: any) => {
+    if (!edgeTooltip.value.visible) return
+    updateEdgeTooltipPosition(event)
+  })
+
+  cy.on('mouseout', 'edge', () => {
+    edgeTooltip.value = {
+      ...edgeTooltip.value,
+      visible: false,
+      text: '',
+    }
+  })
+
   cy.fit()
+}
+
+function updateEdgeTooltipPosition(event: any) {
+  if (!event.renderedPosition) return
+
+  edgeTooltip.value = {
+    ...edgeTooltip.value,
+    x: event.renderedPosition.x,
+    y: event.renderedPosition.y,
+  }
 }
 
 // Dialog state
@@ -259,6 +302,17 @@ defineExpose({ rerunLayout, getAffiliationColor })
 <template>
   <div class="graph-wrapper">
     <div ref="container" class="graph-container" />
+
+    <div
+      v-if="edgeTooltip.visible"
+      class="edge-tooltip"
+      :style="{
+        left: `${edgeTooltip.x}px`,
+        top: `${edgeTooltip.y}px`,
+      }"
+    >
+      {{ edgeTooltip.text }}
+    </div>
 
     <!-- Legend overlay -->
     <div class="legend">
@@ -348,6 +402,23 @@ defineExpose({ rerunLayout, getAffiliationColor })
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.edge-tooltip {
+  position: absolute;
+  z-index: 2;
+  max-width: min(280px, calc(100% - 32px));
+  padding: 6px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-background-soft);
+  color: var(--color-text);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  pointer-events: none;
+  transform: translate(10px, -50%);
+  overflow-wrap: break-word;
 }
 
 .legend {
