@@ -157,6 +157,10 @@ function publicationTypeLabel(tag: string): string {
   background: var(--pub-poster-bg);
 }
 
+.pub-type--Preprint {
+  background: var(--pub-preprint-bg);
+}
+
 .pub-type--MasterThesis,
 .pub-type--BachelorThesis,
 .pub-type--ResearchProject,

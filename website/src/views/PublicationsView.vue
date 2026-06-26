@@ -44,6 +44,53 @@ const filteredPublications = computed(() =>
     return matchesType && matchesProject && matchesSupervision
   }),
 )
+
+// Ordered groups for the "all publications" overview. Each publication is placed
+// into a single group, so the most relevant works (peer-reviewed papers) appear
+// first and supervised student projects come last.
+type GroupKey =
+  | 'Journal'
+  | 'PaperPreprint'
+  | 'TalkPosterWorkshop'
+  | 'Thesis'
+  | 'Supervised'
+
+const groupDefinitions: { key: GroupKey; label: string }[] = [
+  { key: 'Journal', label: 'Journal Articles' },
+  { key: 'PaperPreprint', label: 'Conference Papers & Preprints' },
+  { key: 'TalkPosterWorkshop', label: 'Talks, Posters & Workshops' },
+  { key: 'Thesis', label: 'Theses' },
+  { key: 'Supervised', label: 'Supervised Student Projects' },
+]
+
+function publicationGroup(pub: Publication): GroupKey {
+  // Student work the user supervised is always grouped last, regardless of type.
+  if (pub.supervised_by) return 'Supervised'
+  const tags = pub.tags
+  if (tags.includes('JournalPaper')) return 'Journal'
+  if (tags.includes('ConferencePaper') || tags.includes('Preprint'))
+    return 'PaperPreprint'
+  if (
+    tags.includes('ConferenceTalk') ||
+    tags.includes('WorkshopTalk') ||
+    tags.includes('OtherTalk') ||
+    tags.includes('Poster') ||
+    tags.includes('Workshop')
+  )
+    return 'TalkPosterWorkshop'
+  return 'Thesis'
+}
+
+const groupedPublications = computed(() =>
+  groupDefinitions
+    .map(group => ({
+      ...group,
+      publications: filteredPublications.value.filter(
+        pub => publicationGroup(pub) === group.key,
+      ),
+    }))
+    .filter(group => group.publications.length > 0),
+)
 </script>
 
 <template>
@@ -79,7 +126,21 @@ const filteredPublications = computed(() =>
       </label>
     </div>
 
-    <PublicationList :publications="filteredPublications" />
+    <div
+      v-for="group in groupedPublications"
+      :key="group.key"
+      class="publication-group"
+    >
+      <h2 class="group-heading">
+        {{ group.label }}
+        <span class="group-count">({{ group.publications.length }})</span>
+      </h2>
+      <PublicationList :publications="group.publications" />
+    </div>
+
+    <p v-if="groupedPublications.length === 0" class="no-results">
+      No publications match the selected filters.
+    </p>
   </div>
 </template>
 
@@ -103,5 +164,26 @@ const filteredPublications = computed(() =>
   gap: 8px;
   font-size: 0.9em;
   cursor: pointer;
+}
+
+.publication-group {
+  margin-bottom: 2.5rem;
+}
+
+.group-heading {
+  margin-bottom: 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--color-border);
+  font-size: 1.25rem;
+}
+
+.group-count {
+  color: var(--color-text-soft);
+  font-weight: 400;
+  font-size: 0.85em;
+}
+
+.no-results {
+  color: var(--color-text-soft);
 }
 </style>

@@ -77,7 +77,6 @@
       "abstract": "Model-Driven Engineering (MDE) places models at the core of system and data engineering processes. In the context of research data, these models are typically expressed as schemas that define the structure and semantics of datasets. However, many domains still lack standardized models, and creating them remains a significant barrier, especially for non-experts. We present a hybrid approach that combines large language models (LLMs) with deterministic techniques to enable JSON Schema creation, modification, and schema mapping based on natural language inputs by the user. These capabilities are integrated into the open-source tool MetaConfigurator, which already provides visual model editing, validation, code generation, and form generation from models. For data integration, we generate schema mappings from heterogeneous JSON, CSV, XML, and YAML data using LLMs, while ensuring scalability and reliability through deterministic execution of generated mapping rules. The applicability of our work is demonstrated in an application example in the field of chemistry. By combining natural language interaction with deterministic safeguards, this work significantly lowers the barrier to structured data modeling and data integration for non-experts.",
       "tags": ["ConferencePaper", "ConferenceTalk"],
       "related_projects": ["MetaConfigurator (Web Tool)"],
-      "derived_from": "10.1109/MODELS-C68889.2025.00019",
       "favorite": true
     },
     {
@@ -232,6 +231,26 @@
         "MetaConfigurator (Web Tool)",
         "Data-Model-Driven Management and Analysis of Chemistry Data"
       ]
+    },
+    {
+      "title": "MetaConfigurator: AI-Assisted RDF Authoring from JSON Data",
+      "authors": ["Felix Neubauer", "Mahdi Jafarkhani", "Kenichi Endo", "Jürgen Pleiss", "Benjamin Uekermann"],
+      "conference": "Preprint. Submitted as post-proceedings for the deRSE26 conference.",
+      "date": "2026-06-05",
+      "doi": "10.48550/arXiv.2606.07094",
+      "abstract": "Scientific workflows increasingly generate structured JSON data that is easy to exchange but difficult to interpret consistently across systems due to lacking semantic interoperability. While JSON Schema ensures structural validation, it provides no native support for Linked Data semantics. This paper presents an RDF Authoring View extending the open-source JSON Schema editor MetaConfigurator, enabling researchers to transform existing JSON, YAML, or CSV data into RDF using AI-assisted RML mappings, refine triples, execute SPARQL queries, visualize knowledge graphs, and export RDF serializations within a single integrated web interface. This workflow is supported by ontology-aware IRI auto-completion, bidirectional synchronization between JSON-LD text views and RDF triple tables, and AI-assisted SPARQL query generation from natural language hints. We demonstrate the workflow using laboratory data from metal-organic framework (MOF) synthesis experiments. Protocol data describing reagents, procedure steps, and quantities is converted from JSON to ontology-based JSON-LD via RML mappings. We then refine the semantic representation, query relationships between experimental conditions and outcomes, and explore the resulting knowledge graph interactively. This integrated environment bridges conventional structured data management with Semantic Web technologies while preserving experimental context and lowering technical barriers through AI assistance.",
+      "tags": ["Preprint"],
+      "related_projects": ["MetaConfigurator (Web Tool)"]
+    },
+    {
+      "title": "Orchestrating Black-Box Schema Converters: An Empirical Study of Automated, Quality-Ranked Conversion Across Heterogeneous Schema Languages",
+      "authors": ["Felix Neubauer", "Giridhar Chinnikkaramadom Govindan", "Jürgen Pleiss", "Benjamin Uekermann"],
+      "conference": "Preprint.",
+      "date": "2026-06-24",
+      "doi": "10.48550/arXiv.2606.26180",
+      "abstract": "Modern software systems routinely need the same data model in several schema languages: a model may exist as JSON Schema for a web API, as XSD for data exchange, and as SHACL for a knowledge graph. Keeping these representations consistent as the model evolves is a recurring construction and maintenance burden, because converters between schema languages are hard to find, scattered across ecosystems, of uneven quality, and frequently lossy. We study, empirically, to what extent such imperfect, heterogeneous converters can be orchestrated into automated, reproducible, and quality-ranked conversions, and where the current converter landscape reaches its limits. Our approach models schema languages as nodes and converters, treated as black boxes, as directed edges, so that conversions become paths that are discovered, executed, ranked, and reported with full per-step provenance, with failures handled by trying alternatives. We realize it as the open-source Schema Conversion Orchestrator, integrate it into MetaConfigurator, and evaluate it on 60 conversion tasks built from real-world schemas across five schema languages, using agent-assisted, human-reviewed quality annotations. Orchestration surfaces a usable result for 43 of 60 tasks; the remaining failures localize concrete gaps in the converter landscape. We discuss implications for tool builders and for measuring conversion quality.",
+      "tags": ["Preprint"],
+      "related_projects": ["Schema Conversion Orchestrator (Tool)", "MetaConfigurator (Web Tool)"]
     }
   ]
 }

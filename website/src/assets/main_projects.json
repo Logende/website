@@ -62,7 +62,35 @@
           "label": "sharesConceptWith",
           "relatedProject": "BossShopPro (Plugin)",
           "note": "Both projects generate a user interface based on a data model/configuration file."
+        },
+        {
+          "label": "applies",
+          "relatedProject": "Schema Conversion Orchestrator (Tool)",
+          "note": "Uses the Schema Conversion Orchestrator in the backend to enable import from other schema languages and export to other schema languages."
         }
+      ]
+    },
+    {
+      "title": "Schema Conversion Orchestrator (Tool)",
+      "description": "A tool to orchestrate the conversion between different schema formats (e.g., JSON Schema, XSD, SHACL, OWL, LinkML, MD-Models and more). It treats schema languages as nodes and converters as edges in a directed graph and finds all possible paths between two schema languages. It then executes the conversions along the paths and returns ranked results.",
+      "favorite": true,
+      "icon": "icon_schema_conversion_orchestrator.png",
+      "size": "s",
+      "tags": [
+        "Python",
+        "TypeScript",
+        "Java",
+        "DevOps"
+      ],
+      "when": {
+        "start": "2025-07-10",
+        "end": "2030-12-31"
+      },
+      "where": "University of Stuttgart",
+      "source_code": "https://github.com/MetaConfigurator/schema-conversion-orchestrator",
+      "project_page": "https://github.com/MetaConfigurator/schema-conversion-orchestrator",
+      "demo": "https://github.com/MetaConfigurator/meta-configurator/tree/develop/documentation_user/examples/schema_conversion",
+      "relations": [
       ]
     },
     {

@@ -50,6 +50,7 @@ export interface Publication {
     | 'OtherTalk'
     | 'Poster'
     | 'ThesisSupervision'
+    | 'Preprint'
     | 'Workshop')[],
   derived_from?: string,
   favorite?: boolean
