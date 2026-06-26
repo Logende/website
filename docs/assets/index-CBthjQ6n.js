@@ -15851,9 +15851,9 @@ var _hoisted_2$f = ["aria-modal"];
 var _hoisted_3$b = ["aria-label"];
 var _hoisted_4$9 = ["aria-label"];
 var _hoisted_5$8 = ["disabled", "aria-label"];
-var _hoisted_6$6 = ["disabled", "aria-label"];
-var _hoisted_7$4 = ["aria-label"];
-var _hoisted_8$4 = ["src"];
+var _hoisted_6$7 = ["disabled", "aria-label"];
+var _hoisted_7$5 = ["aria-label"];
+var _hoisted_8$5 = ["src"];
 function render$p(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_RefreshIcon = resolveComponent("RefreshIcon");
   var _component_UndoIcon = resolveComponent("UndoIcon");
@@ -15950,7 +15950,7 @@ function render$p(_ctx, _cache, $props, $setup, $data, $options) {
         "data-pc-group-section": "action"
       }), [renderSlot(_ctx.$slots, "zoomin", {}, function() {
         return [createVNode(_component_SearchPlusIcon, normalizeProps(guardReactiveProps(_ctx.ptm("zoomInIcon"))), null, 16)];
-      })], 16, _hoisted_6$6), createBaseVNode("button", mergeProps({
+      })], 16, _hoisted_6$7), createBaseVNode("button", mergeProps({
         "class": _ctx.cx("closeButton"),
         type: "button",
         onClick: _cache[6] || (_cache[6] = function() {
@@ -15962,7 +15962,7 @@ function render$p(_ctx, _cache, $props, $setup, $data, $options) {
         "data-pc-group-section": "action"
       }), [renderSlot(_ctx.$slots, "close", {}, function() {
         return [createVNode(_component_TimesIcon, normalizeProps(guardReactiveProps(_ctx.ptm("closeIcon"))), null, 16)];
-      })], 16, _hoisted_7$4)], 16), createVNode(Transition, mergeProps({
+      })], 16, _hoisted_7$5)], 16), createVNode(Transition, mergeProps({
         name: "p-image-original",
         onBeforeEnter: $options.onBeforeEnter,
         onEnter: $options.onEnter,
@@ -15985,7 +15985,7 @@ function render$p(_ctx, _cache, $props, $setup, $data, $options) {
               onClick: _cache[7] || (_cache[7] = function() {
                 return $options.onPreviewImageClick && $options.onPreviewImageClick.apply($options, arguments);
               })
-            }, _ctx.ptm("original")), null, 16, _hoisted_8$4)];
+            }, _ctx.ptm("original")), null, 16, _hoisted_8$5)];
           })], 16)) : createCommentVNode("", true)];
         }),
         _: 3
@@ -16000,7 +16000,7 @@ const _hoisted_2$e = { class: "details" };
 const _hoisted_3$a = { key: 0 };
 const _hoisted_4$8 = { key: 0 };
 const _hoisted_5$7 = { class: "badge" };
-const _hoisted_6$5 = { style: { "padding-right": "10px" } };
+const _hoisted_6$6 = { style: { "padding-right": "10px" } };
 const _sfc_main$9 = /* @__PURE__ */ defineComponent({
   __name: "WorkExperienceItem",
   props: {
@@ -16028,7 +16028,7 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent({
           _cache[0] || (_cache[0] = createBaseVNode("br", null, null, -1)),
           _ctx.workExperienceData.tags ? (openBlock(true), createElementBlock(Fragment, { key: 1 }, renderList(_ctx.workExperienceData.tags, (tag2) => {
             return openBlock(), createElementBlock("span", _hoisted_5$7, [
-              createBaseVNode("span", _hoisted_6$5, toDisplayString(tag2), 1)
+              createBaseVNode("span", _hoisted_6$6, toDisplayString(tag2), 1)
             ]);
           }), 256)) : createCommentVNode("", true)
         ])
@@ -16042,9 +16042,9 @@ const _hoisted_2$d = { class: "details" };
 const _hoisted_3$9 = { key: 0 };
 const _hoisted_4$7 = { key: 1 };
 const _hoisted_5$6 = { key: 2 };
-const _hoisted_6$4 = { key: 0 };
-const _hoisted_7$3 = { class: "badge" };
-const _hoisted_8$3 = { style: { "padding-right": "10px" } };
+const _hoisted_6$5 = { key: 0 };
+const _hoisted_7$4 = { class: "badge" };
+const _hoisted_8$4 = { style: { "padding-right": "10px" } };
 const _sfc_main$8 = /* @__PURE__ */ defineComponent({
   __name: "EducationItem",
   props: {
@@ -16073,11 +16073,11 @@ const _sfc_main$8 = /* @__PURE__ */ defineComponent({
             _cache[0] || (_cache[0] = createBaseVNode("br", null, null, -1)),
             !isOngoing(_ctx.educationData.timeRange) ? (openBlock(), createElementBlock("span", _hoisted_4$7, " Graduated with a " + toDisplayString(_ctx.educationData.degree) + " in " + toDisplayString(_ctx.educationData.subject) + " (grade: " + toDisplayString(_ctx.educationData.grade) + "). ", 1)) : (openBlock(), createElementBlock("span", _hoisted_5$6, " Pursuing a " + toDisplayString(_ctx.educationData.degree) + " in " + toDisplayString(_ctx.educationData.subject) + ". ", 1))
           ]),
-          _ctx.educationData.description ? (openBlock(), createElementBlock("span", _hoisted_6$4, toDisplayString(_ctx.educationData.description), 1)) : createCommentVNode("", true),
+          _ctx.educationData.description ? (openBlock(), createElementBlock("span", _hoisted_6$5, toDisplayString(_ctx.educationData.description), 1)) : createCommentVNode("", true),
           _cache[1] || (_cache[1] = createBaseVNode("br", null, null, -1)),
           _ctx.educationData.tags ? (openBlock(true), createElementBlock(Fragment, { key: 1 }, renderList(_ctx.educationData.tags, (tag2) => {
-            return openBlock(), createElementBlock("span", _hoisted_7$3, [
-              createBaseVNode("span", _hoisted_8$3, toDisplayString(tag2), 1)
+            return openBlock(), createElementBlock("span", _hoisted_7$4, [
+              createBaseVNode("span", _hoisted_8$4, toDisplayString(tag2), 1)
             ]);
           }), 256)) : createCommentVNode("", true)
         ])
@@ -16198,8 +16198,35 @@ const projects = [
         label: "sharesConceptWith",
         relatedProject: "BossShopPro (Plugin)",
         note: "Both projects generate a user interface based on a data model/configuration file."
+      },
+      {
+        label: "applies",
+        relatedProject: "Schema Conversion Orchestrator (Tool)",
+        note: "Uses the Schema Conversion Orchestrator in the backend to enable import from other schema languages and export to other schema languages."
       }
     ]
+  },
+  {
+    title: "Schema Conversion Orchestrator (Tool)",
+    description: "A tool to orchestrate the conversion between different schema formats (e.g., JSON Schema, XSD, SHACL, OWL, LinkML, MD-Models and more). It treats schema languages as nodes and converters as edges in a directed graph and finds all possible paths between two schema languages. It then executes the conversions along the paths and returns ranked results.",
+    favorite: true,
+    icon: "icon_schema_conversion_orchestrator.png",
+    size: "s",
+    tags: [
+      "Python",
+      "TypeScript",
+      "Java",
+      "DevOps"
+    ],
+    when: {
+      start: "2025-07-10",
+      end: "2030-12-31"
+    },
+    where: "University of Stuttgart",
+    source_code: "https://github.com/MetaConfigurator/schema-conversion-orchestrator",
+    project_page: "https://github.com/MetaConfigurator/schema-conversion-orchestrator",
+    demo: "https://github.com/MetaConfigurator/meta-configurator/tree/develop/documentation_user/examples/schema_conversion",
+    relations: []
   },
   {
     title: "preCICe (Coupling Library)",
@@ -18324,12 +18351,12 @@ const _hoisted_2$a = { class: "citation" };
 const _hoisted_3$7 = { class: "authors" };
 const _hoisted_4$6 = { class: "title" };
 const _hoisted_5$5 = { class: "venue" };
-const _hoisted_6$3 = { class: "date" };
-const _hoisted_7$2 = {
+const _hoisted_6$4 = { class: "date" };
+const _hoisted_7$3 = {
   key: 0,
   class: "doi"
 };
-const _hoisted_8$2 = ["href"];
+const _hoisted_8$3 = ["href"];
 const _hoisted_9$2 = {
   key: 1,
   class: "url"
@@ -18380,13 +18407,13 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
               createBaseVNode("span", _hoisted_3$7, toDisplayString(pub.authors.join(", ")) + ". ", 1),
               createBaseVNode("span", _hoisted_4$6, toDisplayString(pub.title) + ". ", 1),
               createBaseVNode("span", _hoisted_5$5, toDisplayString(pub.conference) + ", ", 1),
-              createBaseVNode("span", _hoisted_6$3, toDisplayString(formattedDate(pub)) + ".", 1),
-              pub.doi ? (openBlock(), createElementBlock("span", _hoisted_7$2, [
+              createBaseVNode("span", _hoisted_6$4, toDisplayString(formattedDate(pub)) + ".", 1),
+              pub.doi ? (openBlock(), createElementBlock("span", _hoisted_7$3, [
                 _cache[0] || (_cache[0] = createTextVNode(" DOI: ")),
                 createBaseVNode("a", {
                   href: `https://doi.org/${pub.doi}`,
                   target: "_blank"
-                }, toDisplayString(pub.doi), 9, _hoisted_8$2),
+                }, toDisplayString(pub.doi), 9, _hoisted_8$3),
                 _cache[1] || (_cache[1] = createTextVNode(". "))
               ])) : createCommentVNode("", true),
               pub.link && !pub.link.includes(pub.doi ?? "NO DOI!") ? (openBlock(), createElementBlock("span", _hoisted_9$2, [
@@ -18415,7 +18442,7 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const PublicationList = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-9e19e890"]]);
+const PublicationList = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-aec7dda0"]]);
 const publications = [
   {
     title: "MetaConfigurator: A User-Friendly Tool for Editing Structured Data Files",
@@ -18532,7 +18559,6 @@ const publications = [
     related_projects: [
       "MetaConfigurator (Web Tool)"
     ],
-    derived_from: "10.1109/MODELS-C68889.2025.00019",
     favorite: true
   },
   {
@@ -18718,6 +18744,46 @@ const publications = [
     related_projects: [
       "MetaConfigurator (Web Tool)",
       "Data-Model-Driven Management and Analysis of Chemistry Data"
+    ]
+  },
+  {
+    title: "MetaConfigurator: AI-Assisted RDF Authoring from JSON Data",
+    authors: [
+      "Felix Neubauer",
+      "Mahdi Jafarkhani",
+      "Kenichi Endo",
+      "Jürgen Pleiss",
+      "Benjamin Uekermann"
+    ],
+    conference: "Preprint. Submitted as post-proceedings for the deRSE26 conference.",
+    date: "2026-06-05",
+    doi: "10.48550/arXiv.2606.07094",
+    abstract: "Scientific workflows increasingly generate structured JSON data that is easy to exchange but difficult to interpret consistently across systems due to lacking semantic interoperability. While JSON Schema ensures structural validation, it provides no native support for Linked Data semantics. This paper presents an RDF Authoring View extending the open-source JSON Schema editor MetaConfigurator, enabling researchers to transform existing JSON, YAML, or CSV data into RDF using AI-assisted RML mappings, refine triples, execute SPARQL queries, visualize knowledge graphs, and export RDF serializations within a single integrated web interface. This workflow is supported by ontology-aware IRI auto-completion, bidirectional synchronization between JSON-LD text views and RDF triple tables, and AI-assisted SPARQL query generation from natural language hints. We demonstrate the workflow using laboratory data from metal-organic framework (MOF) synthesis experiments. Protocol data describing reagents, procedure steps, and quantities is converted from JSON to ontology-based JSON-LD via RML mappings. We then refine the semantic representation, query relationships between experimental conditions and outcomes, and explore the resulting knowledge graph interactively. This integrated environment bridges conventional structured data management with Semantic Web technologies while preserving experimental context and lowering technical barriers through AI assistance.",
+    tags: [
+      "Preprint"
+    ],
+    related_projects: [
+      "MetaConfigurator (Web Tool)"
+    ]
+  },
+  {
+    title: "Orchestrating Black-Box Schema Converters: An Empirical Study of Automated, Quality-Ranked Conversion Across Heterogeneous Schema Languages",
+    authors: [
+      "Felix Neubauer",
+      "Giridhar Chinnikkaramadom Govindan",
+      "Jürgen Pleiss",
+      "Benjamin Uekermann"
+    ],
+    conference: "Preprint.",
+    date: "2026-06-24",
+    doi: "10.48550/arXiv.2606.26180",
+    abstract: "Modern software systems routinely need the same data model in several schema languages: a model may exist as JSON Schema for a web API, as XSD for data exchange, and as SHACL for a knowledge graph. Keeping these representations consistent as the model evolves is a recurring construction and maintenance burden, because converters between schema languages are hard to find, scattered across ecosystems, of uneven quality, and frequently lossy. We study, empirically, to what extent such imperfect, heterogeneous converters can be orchestrated into automated, reproducible, and quality-ranked conversions, and where the current converter landscape reaches its limits. Our approach models schema languages as nodes and converters, treated as black boxes, as directed edges, so that conversions become paths that are discovered, executed, ranked, and reported with full per-step provenance, with failures handled by trying alternatives. We realize it as the open-source Schema Conversion Orchestrator, integrate it into MetaConfigurator, and evaluate it on 60 conversion tasks built from real-world schemas across five schema languages, using agent-assisted, human-reviewed quality annotations. Orchestration surfaces a usable result for 43 of 60 tasks; the remaining failures localize concrete gaps in the converter landscape. We discuss implications for tool builders and for measuring conversion quality.",
+    tags: [
+      "Preprint"
+    ],
+    related_projects: [
+      "Schema Conversion Orchestrator (Tool)",
+      "MetaConfigurator (Web Tool)"
     ]
   }
 ];
@@ -29818,9 +29884,9 @@ const _hoisted_2$9 = { class: "badge-size" };
 const _hoisted_3$6 = { class: "badge" };
 const _hoisted_4$5 = { style: { "padding-right": "10px" } };
 const _hoisted_5$4 = { class: "m-0" };
-const _hoisted_6$2 = ["src"];
-const _hoisted_7$1 = { class: "flex gap-4 mt-1" };
-const _hoisted_8$1 = { class: "badge-link" };
+const _hoisted_6$3 = ["src"];
+const _hoisted_7$2 = { class: "flex gap-4 mt-1" };
+const _hoisted_8$2 = { class: "badge-link" };
 const _hoisted_9$1 = ["href"];
 const _hoisted_10$1 = ["href"];
 const _hoisted_11$1 = ["href"];
@@ -29898,10 +29964,10 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
               alt: "user header",
               src: _ctx.projectData.icon,
               style: { "max-width": "350px" }
-            }, null, 8, _hoisted_6$2)) : createCommentVNode("", true)
+            }, null, 8, _hoisted_6$3)) : createCommentVNode("", true)
           ]),
           footer: withCtx(() => [
-            createBaseVNode("div", _hoisted_7$1, [
+            createBaseVNode("div", _hoisted_7$2, [
               _ctx.projectData.article ? (openBlock(), createElementBlock("a", {
                 key: 0,
                 onClick: _cache[0] || (_cache[0] = ($event) => openArticle()),
@@ -29915,7 +29981,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                 onClick: _cache[1] || (_cache[1] = ($event) => showPublications.value = true),
                 title: "View Publications"
               }, [
-                createBaseVNode("span", _hoisted_8$1, " Publications (" + toDisplayString(projectPublications.value.length) + ") ", 1)
+                createBaseVNode("span", _hoisted_8$2, " Publications (" + toDisplayString(projectPublications.value.length) + ") ", 1)
               ])) : createCommentVNode("", true),
               _ctx.projectData.project_page ? (openBlock(), createElementBlock("a", {
                 key: 2,
@@ -36178,9 +36244,9 @@ var _hoisted_2$5 = ["disabled", "aria-label", "aria-expanded", "aria-controls"];
 var _hoisted_3$4 = ["id", "role", "aria-modal", "aria-label"];
 var _hoisted_4$3 = ["disabled", "aria-label"];
 var _hoisted_5$2 = ["disabled", "aria-label"];
-var _hoisted_6$1 = ["disabled", "aria-label"];
-var _hoisted_7 = ["disabled", "aria-label"];
-var _hoisted_8 = ["data-p-disabled"];
+var _hoisted_6$2 = ["disabled", "aria-label"];
+var _hoisted_7$1 = ["disabled", "aria-label"];
+var _hoisted_8$1 = ["data-p-disabled"];
 var _hoisted_9 = ["abbr"];
 var _hoisted_10 = ["data-p-disabled"];
 var _hoisted_11 = ["aria-label", "data-p-today", "data-p-other-month"];
@@ -36381,7 +36447,7 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
               ref_for: true
             }, _ctx.ptm("selectMonth"), {
               "data-pc-group-section": "view"
-            }), toDisplayString($options.getMonthName(month2.month)), 17, _hoisted_6$1)) : createCommentVNode("", true), $data.currentView !== "year" ? (openBlock(), createElementBlock("button", mergeProps({
+            }), toDisplayString($options.getMonthName(month2.month)), 17, _hoisted_6$2)) : createCommentVNode("", true), $data.currentView !== "year" ? (openBlock(), createElementBlock("button", mergeProps({
               key: 1,
               type: "button",
               onClick: _cache[7] || (_cache[7] = function() {
@@ -36396,7 +36462,7 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
               ref_for: true
             }, _ctx.ptm("selectYear"), {
               "data-pc-group-section": "view"
-            }), toDisplayString($options.getYear(month2)), 17, _hoisted_7)) : createCommentVNode("", true)], 64)), $data.currentView === "year" ? (openBlock(), createElementBlock("span", mergeProps({
+            }), toDisplayString($options.getYear(month2)), 17, _hoisted_7$1)) : createCommentVNode("", true)], 64)), $data.currentView === "year" ? (openBlock(), createElementBlock("span", mergeProps({
               key: 2,
               "class": _ctx.cx("decade"),
               ref_for: true
@@ -36457,7 +36523,7 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
               }), {
                 "data-pc-group-section": "tableheadercelllabel"
               }), toDisplayString($options.weekHeaderLabel), 17)];
-            })], 16, _hoisted_8)) : createCommentVNode("", true), (openBlock(true), createElementBlock(Fragment, null, renderList($options.weekDays, function(weekDay) {
+            })], 16, _hoisted_8$1)) : createCommentVNode("", true), (openBlock(true), createElementBlock(Fragment, null, renderList($options.weekDays, function(weekDay) {
               return openBlock(), createElementBlock("th", mergeProps({
                 key: weekDay,
                 scope: "col",
@@ -37284,6 +37350,12 @@ const _hoisted_2$2 = { key: 0 };
 const _hoisted_3$2 = { key: 1 };
 const _hoisted_4$2 = { class: "filters" };
 const _hoisted_5$1 = { class: "supervision-toggle" };
+const _hoisted_6$1 = { class: "group-heading" };
+const _hoisted_7 = { class: "group-count" };
+const _hoisted_8 = {
+  key: 0,
+  class: "no-results"
+};
 const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "PublicationsView",
   setup(__props) {
@@ -37314,6 +37386,31 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
         const matchesSupervision = includeSupervised.value || !pub.supervised_by;
         return matchesType && matchesProject && matchesSupervision;
       })
+    );
+    const groupDefinitions = [
+      { key: "Journal", label: "Journal Articles" },
+      { key: "PaperPreprint", label: "Conference Papers & Preprints" },
+      { key: "TalkPosterWorkshop", label: "Talks, Posters & Workshops" },
+      { key: "Thesis", label: "Theses" },
+      { key: "Supervised", label: "Supervised Student Projects" }
+    ];
+    function publicationGroup(pub) {
+      if (pub.supervised_by) return "Supervised";
+      const tags = pub.tags;
+      if (tags.includes("JournalPaper")) return "Journal";
+      if (tags.includes("ConferencePaper") || tags.includes("Preprint"))
+        return "PaperPreprint";
+      if (tags.includes("ConferenceTalk") || tags.includes("WorkshopTalk") || tags.includes("OtherTalk") || tags.includes("Poster") || tags.includes("Workshop"))
+        return "TalkPosterWorkshop";
+      return "Thesis";
+    }
+    const groupedPublications = computed(
+      () => groupDefinitions.map((group2) => ({
+        ...group2,
+        publications: filteredPublications.value.filter(
+          (pub) => publicationGroup(pub) === group2.key
+        )
+      })).filter((group2) => group2.publications.length > 0)
     );
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", _hoisted_1$2, [
@@ -37348,12 +37445,26 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
             _cache[4] || (_cache[4] = createBaseVNode("span", null, "Include supervised student publications", -1))
           ])
         ]),
-        createVNode(PublicationList, { publications: filteredPublications.value }, null, 8, ["publications"])
+        (openBlock(true), createElementBlock(Fragment, null, renderList(groupedPublications.value, (group2) => {
+          return openBlock(), createElementBlock("div", {
+            key: group2.key,
+            class: "publication-group"
+          }, [
+            createBaseVNode("h2", _hoisted_6$1, [
+              createTextVNode(toDisplayString(group2.label) + " ", 1),
+              createBaseVNode("span", _hoisted_7, "(" + toDisplayString(group2.publications.length) + ")", 1)
+            ]),
+            createVNode(PublicationList, {
+              publications: group2.publications
+            }, null, 8, ["publications"])
+          ]);
+        }), 128)),
+        groupedPublications.value.length === 0 ? (openBlock(), createElementBlock("p", _hoisted_8, " No publications match the selected filters. ")) : createCommentVNode("", true)
       ]);
     };
   }
 });
-const PublicationsView = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-b2727f50"]]);
+const PublicationsView = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-cf783929"]]);
 const PublicationsView$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: PublicationsView
@@ -75620,7 +75731,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-DHJOkCWT.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-CdJuRP2m.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
