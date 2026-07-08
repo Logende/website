@@ -1,9 +1,11 @@
-[<img src="/src/assets/articles/bossshoppro/bsp_overview.png" width="850"/>](/src/assets/articles/bossshoppro/bsp_overview.png)
+[<img src="/src/assets/articles/bossshoppro/bsp_spigot_page.png" width="850"/>](/src/assets/articles/bossshoppro/bsp_spigot_page.png)
+
+[<img src="/src/assets/articles/bossshoppro/bsp_bukkit_page.png" width="850"/>](/src/assets/articles/bossshoppro/bsp_bukkit_page.png)
 
 Originally starting development in 2013, BossShopPro is a Minecraft plugin written in Java.
 It can be downloaded and used by server administrators, who can use the software on their server, resulting in an improved experience for their players.
 
-BossShop(Pro) was originally [published on Bukkit](https://dev.bukkit.org/projects/bossshop), where it was downloaded over 500.000 times.
+BossShop(Pro) was originally [published on Bukkit](https://dev.bukkit.org/projects/bossshop), where it was downloaded over 550.000 times.
 It has since been improved and updated a lot and is currently being [distributed via Spigot](https://www.spigotmc.org/resources/222).
 The source code of the plugin is [available on Github](https://github.com/Blackixx/BossShopPro), where other software developers have also made some contributions or even developed custom tooling for the plugin.
 
