@@ -5,8 +5,11 @@ import ProjectCard from '@/components/ProjectCard.vue'
 import MultiSelect from 'primevue/multiselect'
 import DatePicker from 'primevue/datepicker'
 import { computed, ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { getProjectSlug, slugify } from '@/utils'
 
 const projects = projectsData.projects as Project[]
+const route = useRoute()
 
 const selectedStartDate = ref<Date | null>(null)
 const selectedEndDate = ref<Date | null>(null)
@@ -26,6 +29,18 @@ const selectedSizes = ref<string[]>([])
 const selectedLanguages = ref<string[]>([])
 const selectedFavorites = ref<string[]>([])
 const selectedLocations = ref<string[]>([])
+
+const selectedArticleSlug = computed(() => {
+  const routeSlug = route.params.projectSlug
+  const querySlug = route.query.article ?? route.query.project
+  const slug = Array.isArray(routeSlug)
+    ? routeSlug[0]
+    : Array.isArray(querySlug)
+      ? querySlug[0]
+      : (routeSlug ?? querySlug)
+
+  return typeof slug === 'string' ? slugify(slug) : ''
+})
 
 const filteredProjects = computed(() => {
   const result = projects.filter(project => {
@@ -140,6 +155,7 @@ const filteredProjects = computed(() => {
         v-for="project in filteredProjects"
         :key="project.title"
         :project-data="project"
+        :open-article-on-load="getProjectSlug(project) === selectedArticleSlug"
       />
     </div>
   </main>

@@ -5,11 +5,14 @@ import ProjectView from '@/views/ProjectView.vue'
 import PublicationsView from '@/views/PublicationsView.vue'
 import ProjectGraphView from '@/views/ProjectGraphView.vue'
 import Button from 'primevue/button'
-import { nextTick, ref, watch } from 'vue'
+import { nextTick, onMounted, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
 type ProjectViewMode = 'grid' | 'graph'
 const projectViewMode = ref<ProjectViewMode>('grid')
 const projectGraphRef = ref<InstanceType<typeof ProjectGraphView> | null>(null)
+const route = useRoute()
+const router = useRouter()
 
 function scrollTo(sectionId: string) {
   const section = document.getElementById(sectionId)
@@ -25,6 +28,11 @@ function scrollTo(sectionId: string) {
   })
 }
 
+function updateSectionHash(sectionId: string) {
+  router.push({ name: 'home', query: route.query, hash: `#${sectionId}` })
+  scrollTo(sectionId)
+}
+
 function goToPortfolio() {
   // ensure we always scroll to the shared project section wrapper
   scrollTo('portfolio-section')
@@ -36,6 +44,20 @@ watch(projectViewMode, async mode => {
   await nextTick()
   projectGraphRef.value?.rerunLayout()
 })
+
+watch(
+  () => route.hash,
+  hash => {
+    if (!hash) return
+    nextTick(() => scrollTo(hash.slice(1)))
+  },
+)
+
+onMounted(() => {
+  if (route.hash) {
+    nextTick(() => scrollTo(route.hash.slice(1)))
+  }
+})
 </script>
 
 <template>
@@ -43,16 +65,16 @@ watch(projectViewMode, async mode => {
     <header class="full-width">
       <div class="menu-bar">
         <nav>
-          <Button class="header-button" @click="scrollTo('about')">
+          <Button class="header-button" @click="updateSectionHash('about')">
             About
           </Button>
-          <Button class="header-button" @click="scrollTo('experiences')">
+          <Button class="header-button" @click="updateSectionHash('experiences')">
             Experiences
           </Button>
           <Button class="header-button" @click="goToPortfolio">
             Portfolio
           </Button>
-          <Button class="header-button" @click="scrollTo('publications')">
+          <Button class="header-button" @click="updateSectionHash('publications')">
             Publications
           </Button>
         </nav>

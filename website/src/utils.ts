@@ -1,4 +1,4 @@
-import type { TimeRange } from '@/model/data_structures'
+import type { Project, TimeRange } from '@/model/data_structures'
 
 export function formatTimeRange(range: TimeRange) {
   // if end date is higher than today, replace it with "Present"
@@ -26,4 +26,16 @@ function formatDate(dateString: string) {
   ]
   const date = new Date(dateString)
   return months[date.getMonth()] + ' ' + date.getFullYear()
+}
+
+export function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+export function getProjectSlug(project: Project) {
+  const articleMatch = project.article?.match(/articles\/([^/]+)\//)
+  return articleMatch?.[1] ?? slugify(project.title)
 }

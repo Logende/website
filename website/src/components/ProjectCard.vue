@@ -1,19 +1,24 @@
 <script setup lang="ts">
 import type { Project, Publication } from '@/model/data_structures'
 import { formatTimeRange } from '@/utils'
+import { getProjectSlug } from '@/utils'
 import Card from 'primevue/card'
 import Dialog from 'primevue/dialog'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
-import { computed, type Ref, ref } from 'vue'
+import { computed, type Ref, ref, watch } from 'vue'
 import type { ComputedRef } from '@vue/runtime-dom'
 import PublicationList from '@/components/PublicationList.vue'
 import publications from '@/assets/main_publications.json'
 import MarkdownArticle from '@/components/MarkdownArticle.vue'
+import { useRoute, useRouter } from 'vue-router'
 
 const props = defineProps<{
   projectData: Project
+  openArticleOnLoad?: boolean
 }>()
+const route = useRoute()
+const router = useRouter()
 
 const showPublications = ref(false)
 const projectPublications: ComputedRef<Publication[]> = computed(() => {
@@ -28,6 +33,7 @@ const projectPublications: ComputedRef<Publication[]> = computed(() => {
 
 const showArticle: Ref<boolean> = ref<boolean>(false)
 const articleContent = ref<string>('')
+const projectSlug = computed(() => getProjectSlug(props.projectData))
 
 const showVideos: Ref<boolean> = ref<boolean>(false)
 const videoOrVideos: string = props.projectData.videos
@@ -37,8 +43,40 @@ const videoOrVideos: string = props.projectData.videos
   : 'No Video'
 
 function openArticle() {
+  updateArticleUrl()
   showArticle.value = true
   fetchArticleContent(props.projectData.article!)
+}
+
+function updateArticleUrl() {
+  if (route.name === 'project-article' && route.params.projectSlug === projectSlug.value) {
+    return
+  }
+
+  if (route.name === 'projects' || route.name === 'project-article') {
+    router.push({ name: 'project-article', params: { projectSlug: projectSlug.value } })
+    return
+  }
+
+  router.push({
+    name: 'home',
+    query: { ...route.query, article: projectSlug.value },
+    hash: '#portfolio-section',
+  })
+}
+
+function clearArticleUrl() {
+  if (route.name === 'project-article' && route.params.projectSlug === projectSlug.value) {
+    router.push({ name: 'projects' })
+    return
+  }
+
+  if (route.query.article === projectSlug.value || route.query.project === projectSlug.value) {
+    const query = { ...route.query }
+    delete query.article
+    delete query.project
+    router.push({ name: 'home', query, hash: route.hash || '#portfolio-section' })
+  }
 }
 
 async function fetchArticleContent(articlePath: string) {
@@ -53,6 +91,23 @@ async function fetchArticleContent(articlePath: string) {
     console.error('Error fetching article content:', error)
   }
 }
+
+watch(
+  () => props.openArticleOnLoad,
+  shouldOpen => {
+    if (shouldOpen && props.projectData.article && !showArticle.value) {
+      showArticle.value = true
+      fetchArticleContent(props.projectData.article)
+    } else if (!shouldOpen && showArticle.value) {
+      showArticle.value = false
+    }
+  },
+  { immediate: true },
+)
+
+watch(showArticle, isOpen => {
+  if (!isOpen) clearArticleUrl()
+})
 </script>
 
 <template>
