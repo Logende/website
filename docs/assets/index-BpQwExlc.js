@@ -9086,6 +9086,12 @@ function extractChangingRecords(to, from) {
   }
   return [leavingRecords, updatingRecords, enteringRecords];
 }
+function useRouter() {
+  return inject(routerKey);
+}
+function useRoute(_name) {
+  return inject(routeLocationKey);
+}
 const _hoisted_1$j = { class: "full-width" };
 const _hoisted_2$h = { class: "full-width" };
 const _sfc_main$b = /* @__PURE__ */ defineComponent({
@@ -12700,6 +12706,14 @@ function formatDate(dateString) {
   ];
   const date = new Date(dateString);
   return months3[date.getMonth()] + " " + date.getFullYear();
+}
+function slugify(value) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+function getProjectSlug(project) {
+  var _a;
+  const articleMatch = (_a = project.article) == null ? void 0 : _a.match(/articles\/([^/]+)\//);
+  return (articleMatch == null ? void 0 : articleMatch[1]) ?? slugify(project.title);
 }
 function hasClass(element3, className) {
   if (element3) {
@@ -29896,10 +29910,13 @@ const _hoisted_14$1 = ["src"];
 const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   __name: "ProjectCard",
   props: {
-    projectData: {}
+    projectData: {},
+    openArticleOnLoad: { type: Boolean }
   },
   setup(__props) {
     const props = __props;
+    const route = useRoute();
+    const router2 = useRouter();
     const showPublications = ref(false);
     const projectPublications = computed(() => {
       const projectTitle = props.projectData.title.toLowerCase();
@@ -29915,11 +29932,39 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
     });
     const showArticle = ref(false);
     const articleContent = ref("");
+    const projectSlug = computed(() => getProjectSlug(props.projectData));
     const showVideos = ref(false);
     const videoOrVideos = props.projectData.videos ? props.projectData.videos.length > 1 ? "Videos" : "Video" : "No Video";
     function openArticle() {
+      updateArticleUrl();
       showArticle.value = true;
       fetchArticleContent(props.projectData.article);
+    }
+    function updateArticleUrl() {
+      if (route.name === "project-article" && route.params.projectSlug === projectSlug.value) {
+        return;
+      }
+      if (route.name === "projects" || route.name === "project-article") {
+        router2.push({ name: "project-article", params: { projectSlug: projectSlug.value } });
+        return;
+      }
+      router2.push({
+        name: "home",
+        query: { ...route.query, article: projectSlug.value },
+        hash: "#portfolio-section"
+      });
+    }
+    function clearArticleUrl() {
+      if (route.name === "project-article" && route.params.projectSlug === projectSlug.value) {
+        router2.push({ name: "projects" });
+        return;
+      }
+      if (route.query.article === projectSlug.value || route.query.project === projectSlug.value) {
+        const query = { ...route.query };
+        delete query.article;
+        delete query.project;
+        router2.push({ name: "home", query, hash: route.hash || "#portfolio-section" });
+      }
     }
     async function fetchArticleContent(articlePath) {
       try {
@@ -29933,6 +29978,21 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
         console.error("Error fetching article content:", error3);
       }
     }
+    watch(
+      () => props.openArticleOnLoad,
+      (shouldOpen) => {
+        if (shouldOpen && props.projectData.article && !showArticle.value) {
+          showArticle.value = true;
+          fetchArticleContent(props.projectData.article);
+        } else if (!shouldOpen && showArticle.value) {
+          showArticle.value = false;
+        }
+      },
+      { immediate: true }
+    );
+    watch(showArticle, (isOpen) => {
+      if (!isOpen) clearArticleUrl();
+    });
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock(Fragment, null, [
         createVNode(unref(script$p), null, {
@@ -30086,7 +30146,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const ProjectCard = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-282e3183"]]);
+const ProjectCard = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-5e5e1e89"]]);
 var FilterMatchMode = {
   STARTS_WITH: "startsWith",
   CONTAINS: "contains",
@@ -37065,6 +37125,7 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   __name: "ProjectView",
   setup(__props) {
     const projects2 = projectsData.projects;
+    const route = useRoute();
     const selectedStartDate = ref(null);
     const selectedEndDate = ref(null);
     const sizesRaw = ["xs", "s", "m", "l", "xl"];
@@ -37083,6 +37144,12 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
     const selectedLanguages = ref([]);
     const selectedFavorites = ref([]);
     const selectedLocations = ref([]);
+    const selectedArticleSlug = computed(() => {
+      const routeSlug = route.params.projectSlug;
+      const querySlug = route.query.article ?? route.query.project;
+      const slug = Array.isArray(routeSlug) ? routeSlug[0] : Array.isArray(querySlug) ? querySlug[0] : routeSlug ?? querySlug;
+      return typeof slug === "string" ? slugify(slug) : "";
+    });
     const filteredProjects = computed(() => {
       const result = projects2.filter((project) => {
         var _a, _b;
@@ -37167,15 +37234,16 @@ const _sfc_main$3 = /* @__PURE__ */ defineComponent({
           (openBlock(true), createElementBlock(Fragment, null, renderList(filteredProjects.value, (project) => {
             return openBlock(), createBlock(ProjectCard, {
               key: project.title,
-              "project-data": project
-            }, null, 8, ["project-data"]);
+              "project-data": project,
+              "open-article-on-load": unref(getProjectSlug)(project) === selectedArticleSlug.value
+            }, null, 8, ["project-data", "open-article-on-load"]);
           }), 128))
         ])
       ]);
     };
   }
 });
-const ProjectView = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-60dd8a7a"]]);
+const ProjectView = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-05230c8f"]]);
 const ProjectView$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: ProjectView
@@ -75605,6 +75673,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const projectViewMode = ref("grid");
     const projectGraphRef = ref(null);
+    const route = useRoute();
+    const router2 = useRouter();
     function scrollTo2(sectionId) {
       const section = document.getElementById(sectionId);
       if (!section) return;
@@ -75616,6 +75686,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         behavior: "smooth"
       });
     }
+    function updateSectionHash(sectionId) {
+      router2.push({ name: "home", query: route.query, hash: `#${sectionId}` });
+      scrollTo2(sectionId);
+    }
     function goToPortfolio() {
       scrollTo2("portfolio-section");
     }
@@ -75625,6 +75699,18 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       await nextTick();
       (_a = projectGraphRef.value) == null ? void 0 : _a.rerunLayout();
     });
+    watch(
+      () => route.hash,
+      (hash) => {
+        if (!hash) return;
+        nextTick(() => scrollTo2(hash.slice(1)));
+      }
+    );
+    onMounted(() => {
+      if (route.hash) {
+        nextTick(() => scrollTo2(route.hash.slice(1)));
+      }
+    });
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("main", null, [
         createBaseVNode("header", _hoisted_1, [
@@ -75632,7 +75718,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             createBaseVNode("nav", null, [
               createVNode(unref(script$k), {
                 class: "header-button",
-                onClick: _cache[0] || (_cache[0] = ($event) => scrollTo2("about"))
+                onClick: _cache[0] || (_cache[0] = ($event) => updateSectionHash("about"))
               }, {
                 default: withCtx(() => _cache[5] || (_cache[5] = [
                   createTextVNode(" About ")
@@ -75641,7 +75727,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               }),
               createVNode(unref(script$k), {
                 class: "header-button",
-                onClick: _cache[1] || (_cache[1] = ($event) => scrollTo2("experiences"))
+                onClick: _cache[1] || (_cache[1] = ($event) => updateSectionHash("experiences"))
               }, {
                 default: withCtx(() => _cache[6] || (_cache[6] = [
                   createTextVNode(" Experiences ")
@@ -75659,7 +75745,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               }),
               createVNode(unref(script$k), {
                 class: "header-button",
-                onClick: _cache[2] || (_cache[2] = ($event) => scrollTo2("publications"))
+                onClick: _cache[2] || (_cache[2] = ($event) => updateSectionHash("publications"))
               }, {
                 default: withCtx(() => _cache[8] || (_cache[8] = [
                   createTextVNode(" Publications ")
@@ -75716,7 +75802,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const HomeView = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-671ccbaa"]]);
+const HomeView = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-bc966171"]]);
 const router = createRouter({
   history: createWebHistory("/"),
   routes: [
@@ -75731,11 +75817,16 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-CdJuRP2m.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-DO_6LWMC.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
       name: "projects",
+      component: () => __vitePreload(() => Promise.resolve().then(() => ProjectView$1), true ? void 0 : void 0)
+    },
+    {
+      path: "/projects/:projectSlug",
+      name: "project-article",
       component: () => __vitePreload(() => Promise.resolve().then(() => ProjectView$1), true ? void 0 : void 0)
     },
     {
