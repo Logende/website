@@ -212,6 +212,7 @@
       "date": "2026-05-15",
       "abstract": "Validation of structured data is a concern common to both the semantic web and the JavaScript Object Notation (JSON) ecosystems, yet each relies on a different constraint language, Shapes Constraint Language (SHACL) for Resource Description Framework (RDF) graphs and JSON Schema for JSON documents. Existing tools that offer conversion between them cover only a narrow subset of keywords and constraint components, leaving practitioners to manually author shapes graphs and schemas for each use case. This thesis presents shacl-bridge, a TypeScript library that implements conversion in both directions, from SHACL to JSON Schema using an Intermediate Representation (IR), and from JSON Schema to SHACL using a tree-based approach. To assess conversion quality, shacl-bridge includes a benchmark suite covering major keywords and constraint components. For the JSON Schema to SHACL direction, benchmark inputs are\ntaken from the official JSON Schema test suite. Conversion quality is measured using similarity metrics based on Jaccard similarity and F-measure. The results demonstrate accurate conversion for common, well-defined inputs, with shacl-bridge outperforming existing alternatives while also revealing information loss when converting complex inputs whose constructs have no equivalents in the target language.",
       "tags": ["MasterThesis"],
+      "doi": "10.18419/opus-18912",
       "related_projects": [
         "MetaConfigurator (Web Tool)"
       ]
