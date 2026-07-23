@@ -38,6 +38,15 @@ const router = createRouter({
       name: 'publications',
       component: () => import('../views/PublicationsView.vue'),
     },
+    {
+      path: '/vk',
+      redirect: '/veiled-kingdoms',
+    },
+    {
+      path: '/veiled-kingdoms',
+      name: 'veiled-kingdoms',
+      component: () => import('../views/VeiledKingdomsView.vue'),
+    },
   ],
 })
 

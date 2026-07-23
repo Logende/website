@@ -169,6 +169,7 @@
         "start": "2025-11-10",
         "end": "2030-12-31"
       },
+      "project_page": "/veiled-kingdoms",
       "relations": [
         {
           "label": "relatedTo",
