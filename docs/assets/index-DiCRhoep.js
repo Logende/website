@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/VeiledKingdomsView-DP5VVrhq.js","assets/VeiledKingdomsView-CteRSTeH.css"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/VeiledKingdomsView-BFB3p7Dr.js","assets/VeiledKingdomsView-CteRSTeH.css"])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
@@ -16205,8 +16205,9 @@ const projects = [
     project_page: "https://github.com/MetaConfigurator/meta-configurator",
     demo: "https://metaconfigurator.org",
     videos: [
-      "1HT0Xb8tGUI",
-      "DfS6PgMr1q0"
+      "7KylaPVl_y0",
+      "DfS6PgMr1q0",
+      "1HT0Xb8tGUI"
     ],
     relations: [
       {
@@ -75841,7 +75842,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-CCR5I9nT.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-Cc63HmAp.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
@@ -75870,7 +75871,7 @@ const router = createRouter({
     {
       path: "/veiled-kingdoms",
       name: "veiled-kingdoms",
-      component: () => __vitePreload(() => import("./VeiledKingdomsView-DP5VVrhq.js"), true ? __vite__mapDeps([0,1]) : void 0)
+      component: () => __vitePreload(() => import("./VeiledKingdomsView-BFB3p7Dr.js"), true ? __vite__mapDeps([0,1]) : void 0)
     }
   ]
 });
