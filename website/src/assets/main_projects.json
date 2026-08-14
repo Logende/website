@@ -703,7 +703,9 @@
         "end": "2016-09-11"
       },
       "project_page": "https://dev.bukkit.org/projects/blockcommand",
-      "video": "https://www.youtube.com/watch?v=Rl3Lw9ppvWw",
+      "videos": [
+        "Rl3Lw9ppvWw"
+      ],
       "relations": [
         {
           "label": "relatedTo",
