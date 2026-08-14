@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/VeiledKingdomsView-BFB3p7Dr.js","assets/VeiledKingdomsView-CteRSTeH.css"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/VeiledKingdomsView-BqGigh7z.js","assets/VeiledKingdomsView-CteRSTeH.css"])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
@@ -16206,6 +16206,7 @@ const projects = [
     demo: "https://metaconfigurator.org",
     videos: [
       "7KylaPVl_y0",
+      "https://av.tib.eu/media/73764",
       "DfS6PgMr1q0",
       "1HT0Xb8tGUI"
     ],
@@ -18672,7 +18673,7 @@ const publications = [
     ],
     conference: "deRSE26 - 6th conference for Research Software Engineering in Germany (University of Stuttgart)",
     date: "2026-03-04",
-    doi: "10.5281/zenodo.18872705",
+    doi: "https://doi.org/10.5446/73764",
     abstract: "Model-Driven Engineering (MDE) places models at the core of system and data engineering processes. In the\ncontext of research data, these models are typically expressed as schemas that define the structure and semantics of datasets. However, many domains still lack standardized models, and creating them remains a significant barrier, especially for non-experts. We present a hybrid approach that combines large language models (LLMs) with deterministic techniques to enable JSON Schema creation, modification, and schema mapping based on natural language inputs by the user. These capabilities are integrated into the open-source tool MetaConfigurator, which already provides visual model editing, validation, code generation, and form generation from models. For data integration, we generate schema mappings from heterogeneous JSON, CSV, XML, and YAML data using LLMs, while ensuring scalability and reliability through deterministic execution of generated mapping rules. The applicability of our work is demonstrated in an application example in the field of chemistry. By combining natural language interaction with deterministic safeguards, this work significantly lowers the barrier to structured data modeling and data integration for non-experts.",
     tags: [
       "ConferenceTalk"
@@ -29920,18 +29921,19 @@ const _hoisted_1$b = {
   style: { "text-align": "center" }
 };
 const _hoisted_2$9 = { class: "badge-size" };
-const _hoisted_3$6 = { class: "badge" };
-const _hoisted_4$5 = { style: { "padding-right": "10px" } };
-const _hoisted_5$4 = { class: "m-0" };
-const _hoisted_6$3 = ["src"];
-const _hoisted_7$2 = { class: "flex gap-4 mt-1" };
-const _hoisted_8$2 = { class: "badge-link" };
+const _hoisted_3$6 = { style: { "padding-right": "10px" } };
+const _hoisted_4$5 = { class: "m-0" };
+const _hoisted_5$4 = ["src"];
+const _hoisted_6$3 = { class: "flex gap-4 mt-1" };
+const _hoisted_7$2 = { class: "badge-link" };
+const _hoisted_8$2 = ["href"];
 const _hoisted_9$1 = ["href"];
 const _hoisted_10$1 = ["href"];
-const _hoisted_11$1 = ["href"];
-const _hoisted_12$1 = { class: "badge-link" };
-const _hoisted_13$1 = ["innerHTML"];
+const _hoisted_11$1 = { class: "badge-link" };
+const _hoisted_12$1 = ["innerHTML"];
+const _hoisted_13$1 = { class: "project-videos" };
 const _hoisted_14$1 = ["src"];
+const _hoisted_15 = ["href"];
 const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   __name: "ProjectCard",
   props: {
@@ -29960,6 +29962,54 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
     const projectSlug = computed(() => getProjectSlug(props.projectData));
     const showVideos = ref(false);
     const videoOrVideos = props.projectData.videos ? props.projectData.videos.length > 1 ? "Videos" : "Video" : "No Video";
+    function parseHttpUrl(value) {
+      try {
+        const url = new URL(value);
+        return url.protocol === "http:" || url.protocol === "https:" ? url : void 0;
+      } catch {
+        return void 0;
+      }
+    }
+    function getYouTubeVideoId(url) {
+      const hostname = url.hostname.toLowerCase().replace(/^www\./, "");
+      if (hostname === "youtu.be") {
+        return url.pathname.split("/").filter(Boolean)[0];
+      }
+      if (hostname !== "youtube.com" && hostname !== "youtube-nocookie.com") {
+        return void 0;
+      }
+      if (url.pathname === "/watch") return url.searchParams.get("v") ?? void 0;
+      const [, route2, videoId] = url.pathname.split("/");
+      return ["embed", "shorts", "live"].includes(route2) ? videoId : void 0;
+    }
+    function getTibEmbedUrl(url) {
+      const hostname = url.hostname.toLowerCase().replace(/^www\./, "");
+      const mediaMatch = url.pathname.match(/^\/media\/(\d+)\/?$/);
+      return hostname === "av.tib.eu" && mediaMatch ? `https://av.tib.eu/player/${mediaMatch[1]}` : void 0;
+    }
+    const projectVideos = computed(
+      () => (props.projectData.videos ?? []).map((source) => {
+        const url = parseHttpUrl(source);
+        if (url) {
+          const youtubeVideoId = getYouTubeVideoId(url);
+          if (youtubeVideoId) {
+            return {
+              type: "embed",
+              source,
+              embedUrl: `https://www.youtube.com/embed/${encodeURIComponent(youtubeVideoId)}`
+            };
+          }
+          const tibEmbedUrl = getTibEmbedUrl(url);
+          if (tibEmbedUrl) return { type: "embed", source, embedUrl: tibEmbedUrl };
+          return { type: "link", source, href: url.href };
+        }
+        return {
+          type: "embed",
+          source,
+          embedUrl: `https://www.youtube.com/embed/${encodeURIComponent(source)}`
+        };
+      })
+    );
     function openArticle() {
       updateArticleUrl();
       showArticle.value = true;
@@ -30036,23 +30086,26 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
             createBaseVNode("div", null, [
               createBaseVNode("span", _hoisted_2$9, toDisplayString(_ctx.projectData.size), 1),
               _ctx.projectData.tags ? (openBlock(true), createElementBlock(Fragment, { key: 0 }, renderList(_ctx.projectData.tags, (tag2) => {
-                return openBlock(), createElementBlock("span", _hoisted_3$6, [
-                  createBaseVNode("span", _hoisted_4$5, toDisplayString(tag2), 1)
+                return openBlock(), createElementBlock("span", {
+                  key: tag2,
+                  class: "badge"
+                }, [
+                  createBaseVNode("span", _hoisted_3$6, toDisplayString(tag2), 1)
                 ]);
-              }), 256)) : createCommentVNode("", true)
+              }), 128)) : createCommentVNode("", true)
             ])
           ]),
           content: withCtx(() => [
-            createBaseVNode("p", _hoisted_5$4, toDisplayString(_ctx.projectData.description), 1),
+            createBaseVNode("p", _hoisted_4$5, toDisplayString(_ctx.projectData.description), 1),
             _ctx.projectData.icon ? (openBlock(), createElementBlock("img", {
               key: 0,
               alt: "user header",
               src: _ctx.projectData.icon,
               style: { "max-width": "350px" }
-            }, null, 8, _hoisted_6$3)) : createCommentVNode("", true)
+            }, null, 8, _hoisted_5$4)) : createCommentVNode("", true)
           ]),
           footer: withCtx(() => [
-            createBaseVNode("div", _hoisted_7$2, [
+            createBaseVNode("div", _hoisted_6$3, [
               _ctx.projectData.article ? (openBlock(), createElementBlock("a", {
                 key: 0,
                 onClick: _cache[0] || (_cache[0] = ($event) => openArticle()),
@@ -30066,7 +30119,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                 onClick: _cache[1] || (_cache[1] = ($event) => showPublications.value = true),
                 title: "View Publications"
               }, [
-                createBaseVNode("span", _hoisted_8$2, " Publications (" + toDisplayString(projectPublications.value.length) + ") ", 1)
+                createBaseVNode("span", _hoisted_7$2, " Publications (" + toDisplayString(projectPublications.value.length) + ") ", 1)
               ])) : createCommentVNode("", true),
               _ctx.projectData.project_page ? (openBlock(), createElementBlock("a", {
                 key: 2,
@@ -30075,7 +30128,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                 title: "Go to Project Page"
               }, _cache[7] || (_cache[7] = [
                 createBaseVNode("span", { class: "badge-link" }, "Project Page", -1)
-              ]), 8, _hoisted_9$1)) : createCommentVNode("", true),
+              ]), 8, _hoisted_8$2)) : createCommentVNode("", true),
               _ctx.projectData.source_code ? (openBlock(), createElementBlock("a", {
                 key: 3,
                 href: _ctx.projectData.source_code,
@@ -30083,7 +30136,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                 title: "View Source Code"
               }, _cache[8] || (_cache[8] = [
                 createBaseVNode("span", { class: "badge-link" }, "Source Code", -1)
-              ]), 8, _hoisted_10$1)) : createCommentVNode("", true),
+              ]), 8, _hoisted_9$1)) : createCommentVNode("", true),
               _ctx.projectData.demo ? (openBlock(), createElementBlock("a", {
                 key: 4,
                 href: _ctx.projectData.demo,
@@ -30091,14 +30144,14 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                 title: "Try It Out"
               }, _cache[9] || (_cache[9] = [
                 createBaseVNode("span", { class: "badge-link" }, "Try It Out", -1)
-              ]), 8, _hoisted_11$1)) : createCommentVNode("", true),
+              ]), 8, _hoisted_10$1)) : createCommentVNode("", true),
               _ctx.projectData.videos ? (openBlock(), createElementBlock("a", {
                 key: 5,
                 onClick: _cache[2] || (_cache[2] = ($event) => showVideos.value = true),
                 target: "_blank",
                 title: "Watch Video"
               }, [
-                createBaseVNode("span", _hoisted_12$1, "Watch " + toDisplayString(unref(videoOrVideos)) + " (" + toDisplayString(_ctx.projectData.videos.length) + ")", 1)
+                createBaseVNode("span", _hoisted_11$1, "Watch " + toDisplayString(unref(videoOrVideos)) + " (" + toDisplayString(_ctx.projectData.videos.length) + ")", 1)
               ])) : createCommentVNode("", true)
             ])
           ]),
@@ -30137,7 +30190,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
               ((_b = _ctx.projectData.article) == null ? void 0 : _b.toLowerCase().endsWith(".html")) ? (openBlock(), createElementBlock("div", {
                 key: 1,
                 innerHTML: articleContent.value
-              }, null, 8, _hoisted_13$1)) : createCommentVNode("", true)
+              }, null, 8, _hoisted_12$1)) : createCommentVNode("", true)
             ];
           }),
           _: 1
@@ -30153,16 +30206,27 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
             createBaseVNode("h3", null, toDisplayString(_ctx.projectData.title + " " + unref(videoOrVideos)), 1)
           ]),
           default: withCtx(() => [
-            createBaseVNode("div", null, [
-              (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.projectData.videos, (videoId) => {
-                return openBlock(), createElementBlock("iframe", {
-                  width: "560",
-                  height: "315",
-                  src: "https://www.youtube.com/embed/" + videoId,
-                  allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
-                  allowfullscreen: ""
-                }, null, 8, _hoisted_14$1);
-              }), 256))
+            createBaseVNode("div", _hoisted_13$1, [
+              (openBlock(true), createElementBlock(Fragment, null, renderList(projectVideos.value, (video) => {
+                return openBlock(), createElementBlock("div", {
+                  key: video.source,
+                  class: "project-video"
+                }, [
+                  video.type === "embed" ? (openBlock(), createElementBlock("iframe", {
+                    key: 0,
+                    width: "560",
+                    height: "315",
+                    src: video.embedUrl,
+                    allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+                    allowfullscreen: ""
+                  }, null, 8, _hoisted_14$1)) : (openBlock(), createElementBlock("a", {
+                    key: 1,
+                    href: video.href,
+                    target: "_blank",
+                    rel: "noopener noreferrer"
+                  }, toDisplayString(video.source), 9, _hoisted_15))
+                ]);
+              }), 128))
             ])
           ]),
           _: 1
@@ -30171,7 +30235,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const ProjectCard = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-5e5e1e89"]]);
+const ProjectCard = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-317e3714"]]);
 var FilterMatchMode = {
   STARTS_WITH: "startsWith",
   CONTAINS: "contains",
@@ -75842,7 +75906,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-Cc63HmAp.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-C_wnj2_b.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
@@ -75871,7 +75935,7 @@ const router = createRouter({
     {
       path: "/veiled-kingdoms",
       name: "veiled-kingdoms",
-      component: () => __vitePreload(() => import("./VeiledKingdomsView-BFB3p7Dr.js"), true ? __vite__mapDeps([0,1]) : void 0)
+      component: () => __vitePreload(() => import("./VeiledKingdomsView-BqGigh7z.js"), true ? __vite__mapDeps([0,1]) : void 0)
     }
   ]
 });
