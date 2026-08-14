@@ -67,7 +67,7 @@
         "videos": {
           "type": "array",
           "items": {
-            "description": "Youtube Video ID",
+            "description": "YouTube video ID or full video URL; supported providers are embedded and other URLs are linked",
             "type": "string"
           }
         },

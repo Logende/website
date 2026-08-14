@@ -6,8 +6,7 @@ import Card from 'primevue/card'
 import Dialog from 'primevue/dialog'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
-import { computed, type Ref, ref, watch } from 'vue'
-import type { ComputedRef } from '@vue/runtime-dom'
+import { computed, type ComputedRef, type Ref, ref, watch } from 'vue'
 import PublicationList from '@/components/PublicationList.vue'
 import publications from '@/assets/main_publications.json'
 import MarkdownArticle from '@/components/MarkdownArticle.vue'
@@ -41,6 +40,75 @@ const videoOrVideos: string = props.projectData.videos
     ? 'Videos'
     : 'Video'
   : 'No Video'
+
+type ProjectVideo =
+  | { type: 'embed'; source: string; embedUrl: string }
+  | { type: 'link'; source: string; href: string }
+
+function parseHttpUrl(value: string): URL | undefined {
+  try {
+    const url = new URL(value)
+    return url.protocol === 'http:' || url.protocol === 'https:'
+      ? url
+      : undefined
+  } catch {
+    return undefined
+  }
+}
+
+function getYouTubeVideoId(url: URL): string | undefined {
+  const hostname = url.hostname.toLowerCase().replace(/^www\./, '')
+
+  if (hostname === 'youtu.be') {
+    return url.pathname.split('/').filter(Boolean)[0]
+  }
+
+  if (hostname !== 'youtube.com' && hostname !== 'youtube-nocookie.com') {
+    return undefined
+  }
+
+  if (url.pathname === '/watch') return url.searchParams.get('v') ?? undefined
+
+  const [, route, videoId] = url.pathname.split('/')
+  return ['embed', 'shorts', 'live'].includes(route) ? videoId : undefined
+}
+
+function getTibEmbedUrl(url: URL): string | undefined {
+  const hostname = url.hostname.toLowerCase().replace(/^www\./, '')
+  const mediaMatch = url.pathname.match(/^\/media\/(\d+)\/?$/)
+
+  return hostname === 'av.tib.eu' && mediaMatch
+    ? `https://av.tib.eu/player/${mediaMatch[1]}`
+    : undefined
+}
+
+const projectVideos = computed<ProjectVideo[]>(() =>
+  (props.projectData.videos ?? []).map(source => {
+    const url = parseHttpUrl(source)
+
+    if (url) {
+      const youtubeVideoId = getYouTubeVideoId(url)
+      if (youtubeVideoId) {
+        return {
+          type: 'embed',
+          source,
+          embedUrl: `https://www.youtube.com/embed/${encodeURIComponent(youtubeVideoId)}`,
+        }
+      }
+
+      const tibEmbedUrl = getTibEmbedUrl(url)
+      if (tibEmbedUrl) return { type: 'embed', source, embedUrl: tibEmbedUrl }
+
+      return { type: 'link', source, href: url.href }
+    }
+
+    return {
+      type: 'embed',
+      source,
+      embedUrl: `https://www.youtube.com/embed/${encodeURIComponent(source)}`,
+    }
+  }),
+)
 
 function openArticle() {
   updateArticleUrl()
@@ -130,13 +198,11 @@ watch(showArticle, isOpen => {
         <span class="badge-size">
           {{ projectData.size }}
         </span>
-        <span
-          v-if="projectData.tags"
-          v-for="tag in projectData.tags"
-          class="badge"
-        >
-          <span style="padding-right: 10px">{{ tag }}</span>
-        </span>
+        <template v-if="projectData.tags">
+          <span v-for="tag in projectData.tags" :key="tag" class="badge">
+            <span style="padding-right: 10px">{{ tag }}</span>
+          </span>
+        </template>
       </div>
     </template>
     <template #content>
@@ -247,15 +313,29 @@ watch(showArticle, isOpen => {
       <h3>{{ projectData.title + ' ' + videoOrVideos }}</h3>
     </template>
 
-    <div>
-      <iframe
-        v-for="videoId in projectData.videos"
-        width="560"
-        height="315"
-        :src="'https://www.youtube.com/embed/' + videoId"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
+    <div class="project-videos">
+      <div
+        v-for="video in projectVideos"
+        :key="video.source"
+        class="project-video"
+      >
+        <iframe
+          v-if="video.type === 'embed'"
+          width="560"
+          height="315"
+          :src="video.embedUrl"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+        <a
+          v-else
+          :href="video.href"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ video.source }}
+        </a>
+      </div>
     </div>
   </Dialog>
 </template>
@@ -307,5 +387,16 @@ watch(showArticle, isOpen => {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+.project-videos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-video iframe {
+  display: block;
+  max-width: 100%;
 }
 </style>
