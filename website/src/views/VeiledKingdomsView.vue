@@ -10,7 +10,7 @@ onMounted(() => {
   document.title = 'Veiled Kingdoms | A board game by Felix Neubauer'
 
   const description =
-    'Veiled Kingdoms is a Venetian masquerade dark fantasy board game of hidden units, bluffing, deck-building and building control, designed by Felix Neubauer.'
+    'Veiled Kingdoms is a fast area-control board game of hidden units, combined abilities, bluffing and predicting the next turn, designed by Felix Neubauer.'
 
   let meta = document.querySelector<HTMLMetaElement>('meta[name="description"]')
   if (!meta) {
@@ -49,33 +49,12 @@ onUnmounted(() => {
     <main id="top">
       <section class="hero vk-shell">
         <div class="hero-copy">
-          <p class="eyebrow">A strategy board game by Felix Neubauer</p>
-          <h1>
-            Veiled
-            <span>Kingdoms</span>
-          </h1>
-          <p class="hero-lead">
-            Hidden forces. Deadly games. Absolute power.
-          </p>
+          <h1>Veiled Kingdoms</h1>
           <p class="hero-intro">
-            I’m Felix, a doctoral researcher and software engineer based in
-            Germany. Beyond my research, I have been developing a dark fantasy
-            strategy game where every mask conceals a threat, and every move can
-            be a bluff.
+            A fast area-control game about hidden unit values, combined
+            abilities and committing to a tactic before you know exactly what
+            the next turn will bring.
           </p>
-
-          <div class="hero-actions">
-            <a class="button button-primary" href="#game">Discover the game</a>
-            <a class="button button-secondary" href="#contact">Meet at SPIEL</a>
-          </div>
-
-          <div class="spiel-note">
-            <span class="spiel-date">22–23<br />OCT</span>
-            <span>
-              <strong>SPIEL Essen 2026</strong>
-              Attending as a business visitor
-            </span>
-          </div>
         </div>
 
         <div class="hero-portrait">
@@ -110,7 +89,7 @@ onUnmounted(() => {
           </div>
           <div>
             <span>Playing time</span>
-            <strong>45–90 min</strong>
+            <strong>30–90 min</strong>
           </div>
           <div>
             <span>Age</span>
@@ -129,97 +108,68 @@ onUnmounted(() => {
 
       <section id="game" class="game-section vk-shell">
         <div class="section-heading">
-          <p class="eyebrow">Behind every mask</p>
-          <h2>Control the city.<br />Conceal your strength.</h2>
+          <h2>A strategy game built around hidden information.</h2>
         </div>
 
-        <blockquote class="world-story">
-          Beneath the fading splendour of <em>La Serenissima</em>, Venice’s
-          masked patrician Houses, the <em>casate</em>, turn on one another as the
-          Doge’s grip weakens. Each player leads one House, using trickery,
-          deceit and open combat to seize the citadels and sanctums of the
-          lagoon and establish dominance across its <em>sestieri</em>.
-        </blockquote>
-
         <div class="game-intro">
-          <p class="drop-cap">
-            Players command units with concealed values across a modular
-            hex-grid city, never knowing exactly how powerful an opponent is
-            until a confrontation forces the truth into the open.
-          </p>
           <p>
-            Each turn, cards move units, disrupt rivals and shape combat. Gold
-            from controlled citadels expands your deck, while a separate
-            once-per-turn choice lets you recruit one unit or train one already
-            in play. Victory comes from holding enough citadels and sanctums for
-            a full round, or eliminating the opposition before they can recover.
+            Veiled Kingdoms is a hidden-unit area-control game played on a
+            modular hex-grid city. The value and abilities inside each unit are
+            concealed from other players until combat or a special action
+            reveals them. Unit tokens can be combined, creating new ability
+            synergies and armies that develop differently from game to game.
+            Control of citadels and sanctums shapes the board, while combat
+            forces players to decide when a secret is worth revealing.
           </p>
         </div>
 
         <div class="pillars">
           <article>
-            <span class="pillar-number">01</span>
-            <div class="pillar-icon" aria-hidden="true">◈</div>
-            <h3>Hidden units &amp; bluffing</h3>
+            <h3>Hidden units and bluffing</h3>
             <p>
-              Unit values remain concealed behind masks. Attacks become a read
-              on your opponent: expose a royal powerhouse, threaten with a
-              weaker unit, or bait a costly defence.
+              Values and abilities stay concealed until combat or an action
+              reveals them. A weak unit can still threaten, bait or protect a
+              more valuable position.
             </p>
           </article>
           <article>
-            <span class="pillar-number">02</span>
-            <div class="pillar-icon" aria-hidden="true">♜</div>
-            <h3>Tactical building control</h3>
+            <h3>Area control</h3>
             <p>
-              Citadels fuel your economy, Sanctums expand your options, and
-              controlling enough buildings secures victory. Terrain bonuses
-              make every position matter.
+              Citadels and sanctums make positioning important. Capturing and
+              defending the right buildings creates the route to victory.
             </p>
           </article>
           <article>
-            <span class="pillar-number">03</span>
-            <div class="pillar-icon" aria-hidden="true">✦</div>
-            <h3>Deck-building momentum</h3>
+            <h3>Combined abilities</h3>
             <p>
-              A shared market lets every faction sharpen its own strategy with
-              movement, economy and tactical cards as the contest escalates.
+              Train units by combining tokens. Matching types strengthen an
+              ability; mixing types produces useful and sometimes unexpected
+              synergies.
             </p>
           </article>
           <article>
-            <span class="pillar-number">04</span>
-            <div class="pillar-icon" aria-hidden="true">◇</div>
-            <h3>Units that evolve</h3>
+            <h3>Prepare for next turn</h3>
             <p>
-              Train a unit with a new token to combine abilities, or match its
-              type to unlock an elite version. Each army develops differently
-              over the course of the game.
+              Choose a situational Tactic one turn in advance. Reading the board
+              well gives you an advantage, while a wrong prediction asks you to
+              adapt.
             </p>
           </article>
         </div>
 
         <div class="game-feel">
           <div>
-            <p class="eyebrow">The balance can turn quickly</p>
-            <h2>Every move can reveal a new path to victory.</h2>
+            <h2>Quick turns, different games.</h2>
           </div>
           <div class="game-feel-copy">
             <p>
-              A concealed unit, the right combination of abilities and a
-              well-timed card can transform a difficult position into a
-              breakthrough. Some effects reward a successful attack with more
-              cards or movement, allowing actions to flow into powerful
-              sequences. Even late in the game, a clever plan can bring victory
-              within reach in one or two turns.
+              A little uncertainty in movement keeps the board from becoming
+              predictable, without taking control away from the players.
             </p>
             <p>
-              This creates a lively back and forth where players bluff, adapt
-              and discover new synergies from game to game. Players leave the
-              table comparing bluffs and combinations, already planning what
-              they want to try next. Four-player games are played as two teams,
-              adding coordination to the hidden information. For groups seeking
-              still more variety, optional Twist cards change one rule for
-              everyone and reshape the strategy of an entire game.
+              Prepared Tactics reward players who anticipate the next turn.
+              Together with hidden strength and changing unit combinations, they
+              create varied games that stay focused and move quickly.
             </p>
           </div>
         </div>
@@ -228,13 +178,12 @@ onUnmounted(() => {
       <section id="development" class="development-section">
         <div class="vk-shell development-grid">
           <div class="development-copy">
-            <p class="eyebrow">From sketch to table</p>
             <h2>A prototype in motion</h2>
             <p>
               Veiled Kingdoms has grown through repeated physical prototypes:
-              revised unit figurines, iterated card systems, modular boards and
-              a complete rulebook. The visual language and components continue
-              to evolve alongside the gameplay.
+              revised unit figurines, a simpler Tactic system, modular boards
+              and a complete rulebook. The visual language and components
+              continue to evolve alongside the gameplay.
             </p>
             <p class="development-credit">
               Prototype development has been supported by Martin Neubauer, who
@@ -260,7 +209,10 @@ onUnmounted(() => {
             </picture>
             <figcaption>
               <strong>Prototype evolution</strong>
-              <span>Units, hidden tokens, buildings and cards across development</span>
+              <span
+                >Units, hidden tokens, buildings and cards across
+                development</span
+              >
             </figcaption>
           </figure>
         </div>
@@ -272,7 +224,6 @@ onUnmounted(() => {
         class="gallery-section vk-shell"
       >
         <div class="gallery-heading">
-          <p class="eyebrow">On the table</p>
           <h2>The world of Veiled Kingdoms</h2>
         </div>
         <div class="gallery-grid">
@@ -290,65 +241,46 @@ onUnmounted(() => {
         </div>
       </section>
 
-      <section class="publisher-section">
-        <div class="vk-shell">
-          <div class="publisher-card">
-            <div class="publisher-title">
-              <p class="eyebrow">The next chapter</p>
-              <h2>Seeking the right partners</h2>
-            </div>
-
-            <div class="publisher-copy">
-              <p>
-                The game has been thoroughly playtested and refined as a
-                complete physical prototype. I am now looking for a publisher
-                who sees the potential in its mix of hidden information,
-                evolving units and spatial strategy.
-              </p>
-              <p>
-                I am also keen to connect with producers and illustrators. The
-                current 3D-printed pieces communicate the gameplay clearly;
-                production versions could potentially use Re-Wood or another
-                wood-based composite, depending on the publisher’s production
-                vision.
-              </p>
-              <p>
-                The prototype artwork was created with the assistance of image
-                generation models and serves as a visual direction during
-                development. For the final product, I would like to collaborate
-                with a professional illustrator to create original artwork and
-                a cohesive visual identity.
-              </p>
-            </div>
-
-            <div class="publisher-needs" aria-label="Partnerships sought">
-              <span>Publishing</span>
-              <span>Production</span>
-              <span>Illustration</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="contact" class="contact-section">
         <div class="vk-shell contact-inner">
-          <p class="eyebrow">Let’s meet in Essen</p>
-          <h2>Interested in what lies<br />behind the veil?</h2>
-          <p>
-            I will attend SPIEL Essen as a business visitor on 22 and 23 October
-            2026. If you are a publisher, producer, illustrator, or know someone
-            who should see the game, I would be glad to arrange a conversation
-            and present the prototype.
-          </p>
-          <a
-            class="button button-primary contact-button"
-            href="https://www.linkedin.com/posts/neubauer-felix_spielessen-spiel2026-boardgames-activity-7486004316189786112-ixr4?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAADgsKZMBVVwkaXh9nGqwzV-hpCpWN9zUMaE"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Connect with me on LinkedIn
-            <span aria-hidden="true">↗</span>
-          </a>
+          <div class="contact-heading">
+            <h2>Interested in what lies behind the veil?</h2>
+            <a
+              class="button button-primary contact-button"
+              href="https://www.linkedin.com/posts/neubauer-felix_spielessen-spiel2026-boardgames-activity-7486004316189786112-ixr4?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAADgsKZMBVVwkaXh9nGqwzV-hpCpWN9zUMaE"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Connect with me on LinkedIn
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="contact-copy">
+            <p>
+              Veiled Kingdoms has been thoroughly playtested and refined as a
+              complete physical prototype. I am looking for a publisher who sees
+              potential in its mix of hidden information, combined unit
+              abilities, prediction and spatial strategy.
+            </p>
+            <p>
+              I am also keen to connect with producers and illustrators. The
+              current 3D-printed pieces communicate the gameplay clearly;
+              production versions could use Re-Wood or another wood-based
+              composite, depending on the publisher’s production vision.
+            </p>
+            <p>
+              The prototype artwork uses image generation as a visual direction
+              during development. For the final game, I would like to work with
+              a professional illustrator on original artwork and a cohesive
+              visual identity.
+            </p>
+            <p>
+              I will attend SPIEL Essen as a business visitor on 22 and 23
+              October 2026 and would be glad to arrange a conversation and
+              present the prototype.
+            </p>
+          </div>
         </div>
       </section>
     </main>
@@ -367,8 +299,6 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
-
 :global(body.vk-active) {
   background: #0e0717;
 }
@@ -402,7 +332,11 @@ onUnmounted(() => {
   min-height: 100vh;
   color: var(--ink);
   background:
-    radial-gradient(circle at 78% 8%, rgba(111, 48, 147, 0.3), transparent 28rem),
+    radial-gradient(
+      circle at 78% 8%,
+      rgba(111, 48, 147, 0.3),
+      transparent 28rem
+    ),
     var(--night);
   overflow: hidden;
   font-family: 'Inter', sans-serif;
@@ -612,7 +546,11 @@ onUnmounted(() => {
   position: absolute;
   z-index: 0;
   inset: 18% -8% -8% 20%;
-  background: radial-gradient(circle, rgba(109, 39, 144, 0.24), transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(109, 39, 144, 0.24),
+    transparent 70%
+  );
   content: '';
   filter: blur(36px);
 }
@@ -1018,7 +956,11 @@ onUnmounted(() => {
   position: relative;
   padding-block: 150px;
   background:
-    radial-gradient(circle at 50% 0%, rgba(112, 48, 160, 0.22), transparent 55%),
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(112, 48, 160, 0.22),
+      transparent 55%
+    ),
     #11081a;
 }
 
@@ -1268,6 +1210,424 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   .button {
     transition: none;
+  }
+}
+
+/* Restrained editorial treatment for the current prototype. */
+:global(body.vk-active) {
+  background: #1c1720;
+}
+
+.vk-page {
+  --ink: #eeeae3;
+  --ink-muted: #c1b7c3;
+  --violet: #896d96;
+  --violet-bright: #bda3c5;
+  --purple: #32263a;
+  --purple-soft: #44334c;
+  --night: #1c1720;
+  --night-soft: #261e2b;
+  --gold: #b49a62;
+  --gold-bright: #d0bd91;
+  --line: rgba(238, 234, 227, 0.17);
+  background: var(--night);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.vk-shell {
+  width: min(1120px, calc(100% - 48px));
+}
+
+.vk-nav {
+  position: relative;
+  width: min(1200px, calc(100% - 48px));
+  min-height: 72px;
+  border-color: var(--line);
+}
+
+.vk-nav nav {
+  gap: 26px;
+}
+
+.vk-nav nav a,
+.back-link {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+}
+
+.hero {
+  grid-template-columns: minmax(0, 0.9fr) minmax(400px, 1.1fr);
+  gap: clamp(42px, 7vw, 88px);
+  min-height: 680px;
+  padding-block: 72px 88px;
+}
+
+.hero h1 {
+  margin: 0 0 28px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(3.6rem, 6.6vw, 6.2rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+  text-shadow: none;
+}
+
+.hero-intro {
+  max-width: 500px;
+  color: var(--ink-muted);
+  font-size: clamp(1.05rem, 1.7vw, 1.26rem);
+  line-height: 1.65;
+}
+
+.hero-portrait::after {
+  display: none;
+}
+
+.portrait-frame {
+  aspect-ratio: 1 / 0.9;
+  background: #242126;
+}
+
+.portrait-frame figcaption {
+  right: 18px;
+  bottom: 16px;
+  left: 18px;
+}
+
+.portrait-frame figcaption span,
+.portrait-frame figcaption strong {
+  padding: 7px 9px;
+  background: rgba(24, 22, 25, 0.88);
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.facts {
+  background: var(--night-soft);
+  border-block: 1px solid var(--line);
+}
+
+.facts-grid {
+  border: 0;
+}
+
+.facts-grid div {
+  min-height: 104px;
+  padding: 24px 20px;
+  border-color: var(--line);
+}
+
+.facts-grid span {
+  color: var(--violet-bright);
+  letter-spacing: 0.08em;
+}
+
+.facts-grid strong {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.game-section {
+  padding-block: 108px 112px;
+}
+
+.section-heading {
+  display: block;
+  max-width: 880px;
+  margin-bottom: 48px;
+}
+
+.section-heading h2,
+.game-feel h2,
+.development-copy h2,
+.gallery-heading h2,
+.publisher-title h2,
+.contact-inner h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.3rem, 4.5vw, 4.25rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.game-intro {
+  display: block;
+  max-width: 780px;
+  margin: 0;
+  font-size: 1.04rem;
+  line-height: 1.75;
+}
+
+.pillars {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 56px;
+  margin-top: 72px;
+  border-bottom: 1px solid var(--line);
+}
+
+.pillars article {
+  min-height: 0;
+  padding: 26px 0 30px;
+  border-color: var(--line);
+}
+
+.pillars h3 {
+  min-height: 0;
+  margin: 0 0 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.pillars p {
+  max-width: 470px;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.game-feel {
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(42px, 7vw, 88px);
+  margin-top: 96px;
+  padding-top: 0;
+  border: 0;
+}
+
+.game-feel h2 {
+  font-size: clamp(2.2rem, 3.8vw, 3.7rem);
+}
+
+.game-feel-copy {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.development-section,
+.publisher-section {
+  background: var(--night-soft);
+}
+
+.development-section {
+  padding-block: 104px;
+  border-block: 1px solid var(--line);
+}
+
+.development-grid {
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(46px, 7vw, 84px);
+}
+
+.development-copy h2 {
+  margin-bottom: 24px;
+  font-size: clamp(2.2rem, 4vw, 3.7rem);
+}
+
+.development-copy > p:not(.eyebrow) {
+  line-height: 1.72;
+}
+
+.development-photo,
+.development-photo figcaption {
+  background: #242126;
+}
+
+.development-photo figcaption strong {
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.06em;
+}
+
+.gallery-section {
+  padding-block: 108px;
+}
+
+.gallery-heading {
+  margin-bottom: 42px;
+}
+
+.gallery-heading h2 {
+  font-size: clamp(2.2rem, 4vw, 3.7rem);
+}
+
+.gallery-grid {
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.publisher-section {
+  padding-block: 104px;
+  border-block: 1px solid var(--line);
+}
+
+.publisher-card {
+  gap: 60px;
+}
+
+.publisher-title h2 {
+  font-size: clamp(2.2rem, 4vw, 3.7rem);
+}
+
+.publisher-copy {
+  line-height: 1.75;
+}
+
+.publisher-needs {
+  gap: 12px 28px;
+  margin-top: 0;
+}
+
+.publisher-needs span {
+  padding-left: 0;
+  color: var(--ink-muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.publisher-needs span::before {
+  display: none;
+}
+
+.contact-section {
+  padding-block: 110px;
+  background: var(--night);
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(46px, 7vw, 84px);
+  align-items: start;
+  text-align: left;
+}
+
+.contact-inner h2 {
+  color: var(--ink);
+  font-size: clamp(2.2rem, 4vw, 3.7rem);
+}
+
+.contact-button {
+  margin-top: 30px;
+}
+
+.contact-copy {
+  color: var(--ink-muted);
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.contact-copy p {
+  margin: 0 0 20px;
+}
+
+.contact-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.button {
+  min-height: 48px;
+  border-radius: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.07em;
+}
+
+.button-primary,
+.button-primary:hover {
+  color: var(--ink);
+  background: var(--purple-soft);
+  box-shadow: none;
+}
+
+.button-primary:hover {
+  background: #49384e;
+}
+
+footer {
+  background: #141215;
+  border-color: var(--line);
+}
+
+.footer-inner strong {
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 980px) {
+  .hero {
+    grid-template-columns: 0.9fr 1.1fr;
+    min-height: 600px;
+  }
+
+  .game-intro {
+    margin: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .vk-shell {
+    width: min(100% - 32px, 600px);
+  }
+
+  .vk-nav {
+    width: calc(100% - 32px);
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-block: 62px 72px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.4rem, 17vw, 5.5rem);
+  }
+
+  .hero-portrait {
+    margin-top: 8px;
+  }
+
+  .portrait-frame {
+    aspect-ratio: 1 / 1;
+  }
+
+  .game-section,
+  .gallery-section,
+  .contact-section {
+    padding-block: 78px;
+  }
+
+  .game-intro,
+  .game-feel,
+  .development-grid,
+  .publisher-card,
+  .contact-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-inner {
+    gap: 34px;
+  }
+
+  .pillars {
+    grid-template-columns: 1fr;
+    margin-top: 52px;
+  }
+
+  .game-feel {
+    gap: 24px;
+    margin-top: 72px;
+  }
+
+  .development-section,
+  .publisher-section {
+    padding-block: 78px;
+  }
+
+  .gallery-grid {
+    justify-content: center;
   }
 }
 </style>
