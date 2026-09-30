@@ -241,7 +241,7 @@ onUnmounted(() => {
           </figure>
         </div>
         <p v-if="oldGalleryImages.length" class="gallery-old-label">
-          Photos of the older deck-building variant of the game
+          Photos of the older deck-building variant of the game. The new version without deck-building maintained all the part that made Veiled Kingdoms most fun but removed a lot of the complexity and made the game much faster too.
         </p>
         <div v-if="oldGalleryImages.length" class="gallery-grid">
           <figure
