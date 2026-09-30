@@ -7,11 +7,6 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 const useWebsiteBasePath = process.env.USE_WEBSITE_BASE_PATH === 'true';
-const galleryDirectory = fileURLToPath(
-  new URL('./public/veiled-kingdoms/gallery', import.meta.url),
-)
-const galleryModuleId = 'virtual:veiled-kingdoms-gallery'
-const resolvedGalleryModuleId = `\0${galleryModuleId}`
 const galleryImageExtensions = new Set([
   '.avif',
   '.gif',
@@ -49,9 +44,14 @@ function collectGalleryImages(directory: string): string[] {
   })
 }
 
-function veiledKingdomsGallery(): Plugin {
+function veiledKingdomsGallery(folderName: string, galleryModuleId: string): Plugin {
+  const galleryDirectory = fileURLToPath(
+    new URL(`./public/veiled-kingdoms/${folderName}`, import.meta.url),
+  )
+  const resolvedGalleryModuleId = `\0${galleryModuleId}`
+
   return {
-    name: 'veiled-kingdoms-gallery',
+    name: `veiled-kingdoms-${folderName}`,
     resolveId(id) {
       return id === galleryModuleId ? resolvedGalleryModuleId : undefined
     },
@@ -63,13 +63,13 @@ function veiledKingdomsGallery(): Plugin {
           .split(sep)
           .map(encodeURIComponent)
           .join('/')
-        return `/veiled-kingdoms/gallery/${galleryPath}`
+        return `/veiled-kingdoms/${folderName}/${galleryPath}`
       })
 
       return `export default ${JSON.stringify(images)}`
     },
     handleHotUpdate({ file, server }) {
-      if (!file.startsWith(galleryDirectory)) return
+      if (!file.startsWith(`${galleryDirectory}${sep}`)) return
 
       const galleryModule = server.moduleGraph.getModuleById(
         resolvedGalleryModuleId,
@@ -87,7 +87,8 @@ export default defineConfig({
   plugins: [
     vue(),
     vueDevTools(),
-    veiledKingdomsGallery(),
+    veiledKingdomsGallery('gallery', 'virtual:veiled-kingdoms-gallery'),
+    veiledKingdomsGallery('gallery_old', 'virtual:veiled-kingdoms-gallery-old'),
   ],
   build: {
     outDir: 'dist',

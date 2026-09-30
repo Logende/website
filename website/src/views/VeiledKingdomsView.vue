@@ -2,6 +2,7 @@
 import { onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import galleryImages from 'virtual:veiled-kingdoms-gallery'
+import oldGalleryImages from 'virtual:veiled-kingdoms-gallery-old'
 
 const previousTitle = document.title
 
@@ -39,7 +40,7 @@ onUnmounted(() => {
       <nav aria-label="Page navigation">
         <a href="#game">The game</a>
         <a href="#development">Development</a>
-        <a v-if="galleryImages.length" href="#gallery">Gallery</a>
+        <a v-if="galleryImages.length || oldGalleryImages.length" href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -73,7 +74,7 @@ onUnmounted(() => {
               />
             </picture>
             <figcaption>
-              <span>Designer &amp; developer</span>
+              <span>Spieleautor</span>
               <strong>Felix Neubauer</strong>
             </figcaption>
           </figure>
@@ -219,14 +220,14 @@ onUnmounted(() => {
       </section>
 
       <section
-        v-if="galleryImages.length"
+        v-if="galleryImages.length || oldGalleryImages.length"
         id="gallery"
         class="gallery-section vk-shell"
       >
         <div class="gallery-heading">
           <h2>The world of Veiled Kingdoms</h2>
         </div>
-        <div class="gallery-grid">
+        <div v-if="galleryImages.length" class="gallery-grid">
           <figure
             v-for="(image, index) in galleryImages"
             :key="image"
@@ -235,6 +236,22 @@ onUnmounted(() => {
             <img
               :src="image"
               :alt="`Veiled Kingdoms gallery photograph ${index + 1}`"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+        <p v-if="oldGalleryImages.length" class="gallery-old-label">
+          Photos of the older deck-building variant of the game
+        </p>
+        <div v-if="oldGalleryImages.length" class="gallery-grid">
+          <figure
+            v-for="(image, index) in oldGalleryImages"
+            :key="image"
+            class="gallery-item"
+          >
+            <img
+              :src="image"
+              :alt="`Older Veiled Kingdoms deck-building variant photograph ${index + 1}`"
               loading="lazy"
             />
           </figure>
@@ -1446,6 +1463,13 @@ footer {
 
 .gallery-heading {
   margin-bottom: 42px;
+}
+
+.gallery-old-label {
+  margin: 48px 0 20px;
+  color: var(--ink-muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
 }
 
 .gallery-heading h2 {
