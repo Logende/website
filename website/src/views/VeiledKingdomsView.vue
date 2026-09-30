@@ -89,11 +89,11 @@ onUnmounted(() => {
           </div>
           <div>
             <span>Playing time</span>
-            <strong>30–90 min</strong>
+            <strong>20–60 min</strong>
           </div>
           <div>
             <span>Age</span>
-            <strong>12+</strong>
+            <strong>10+</strong>
           </div>
           <div>
             <span>Setting</span>
@@ -265,8 +265,8 @@ onUnmounted(() => {
             </p>
             <p>
               I am also keen to connect with producers and illustrators. The
-              current 3D-printed pieces communicate the gameplay clearly;
-              production versions could use Re-Wood or another wood-based
+              current 3D-printed pieces are good for a prototype;
+              production versions could use RE-Wood or another wood-based
               composite, depending on the publisher’s production vision.
             </p>
             <p>
