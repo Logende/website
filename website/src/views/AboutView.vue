@@ -52,12 +52,10 @@
 
       <br />
 
-      Alongside that, I still enjoy building things outside my core research
-      area. Recent side projects include Veiled Kingdoms, a dark fantasy
-      strategy board game, and a simulator for it that I use to experiment with
-      reinforcement learning agents and AI-assisted development. Earlier on, I
-      worked as a freelancer, sold my own Java software, and built open-source
-      projects with more than a million downloads in total.
+      Alongside that, I enjoy building things outside my core research
+      area, especially game development. My most recent project is Veiled Kingdoms, a dark fantasy
+      strategy board game. Earlier on, I worked as a freelancer, sold my own Java software, and built open-source
+      projects and minigames with more than a million downloads in total.
 
       <br />
 
