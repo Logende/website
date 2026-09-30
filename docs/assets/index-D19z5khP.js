@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/VeiledKingdomsView-OE755ns9.js","assets/VeiledKingdomsView-DKnM52BS.css"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/VeiledKingdomsView-BnQhNieE.js","assets/VeiledKingdomsView-DKnM52BS.css"])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
@@ -16314,7 +16314,7 @@ const projects = [
   },
   {
     title: "Veiled Kingdoms",
-    description: "Developing a dark fantasy strategy board game of hidden units, bluffing, deck-building, and building control. Players command masked warlords on a hex-grid battlefield, reveal their true strength only in combat, and fight over Citadels and Sanctums through careful positioning, upgrades, and chained card plays. I develop  small utility TypeScript and Python tools to support the development (e.g., for rendering cards, the rulebook, box and the 3d models based on configuration files, schemas and images).",
+    description: "Developing a dark fantasy strategy board game of units with hidden values and abilities (which can be combined to unique synergies), bluffing, and building control. Players command the masked units on a hex-grid battlefield, reveal their true strength only in combat and when using special abilities, and fight over Citadels and Sanctums through careful positioning. At the end of each turn they commit a hidden tactic which is executed next turn and rewards prediction of the opponents moves. I develop  small utility TypeScript and Python tools to support the development (e.g., for rendering cards, the rulebook, box and the 3d models based on configuration files, schemas and images).",
     favorite: true,
     tags: [
       "TypeScript",
@@ -16352,7 +16352,7 @@ const projects = [
   },
   {
     title: "Veiled Kingdoms Simulator",
-    description: "Developing a simulator for my board game Veiled Kingdoms. This is my first bigger experience with vibe coding and using generative AI for a larger project with barely writing any code by hand. I am also using reinforcement learning to train agents in a league where they play against each other and against bots built with traditional heuristics.",
+    description: "Developing a simulator for my board game Veiled Kingdoms. I am also using reinforcement learning to train agents in a league where they play against each other and against bots built with traditional heuristics.",
     favorite: false,
     icon: "icon_veiled_kingdoms_simulator.png",
     size: "m",
@@ -75908,7 +75908,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-iaKdKnzZ.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-MB6Stu0m.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
@@ -75937,7 +75937,7 @@ const router = createRouter({
     {
       path: "/veiled-kingdoms",
       name: "veiled-kingdoms",
-      component: () => __vitePreload(() => import("./VeiledKingdomsView-OE755ns9.js"), true ? __vite__mapDeps([0,1]) : void 0)
+      component: () => __vitePreload(() => import("./VeiledKingdomsView-BnQhNieE.js"), true ? __vite__mapDeps([0,1]) : void 0)
     }
   ]
 });
