@@ -159,7 +159,7 @@
     },
     {
       "title": "Veiled Kingdoms",
-      "description": "Developing a dark fantasy strategy board game of hidden units, bluffing, deck-building, and building control. Players command masked warlords on a hex-grid battlefield, reveal their true strength only in combat, and fight over Citadels and Sanctums through careful positioning, upgrades, and chained card plays. I develop  small utility TypeScript and Python tools to support the development (e.g., for rendering cards, the rulebook, box and the 3d models based on configuration files, schemas and images).",
+      "description": "Developing a dark fantasy strategy board game of units with hidden values and abilities (which can be combined to unique synergies), bluffing, and building control. Players command the masked units on a hex-grid battlefield, reveal their true strength only in combat and when using special abilities, and fight over Citadels and Sanctums through careful positioning. At the end of each turn they commit a hidden tactic which is executed next turn and rewards prediction of the opponents moves. I develop  small utility TypeScript and Python tools to support the development (e.g., for rendering cards, the rulebook, box and the 3d models based on configuration files, schemas and images).",
       "favorite": true,
       "tags": [
         "TypeScript",
@@ -197,7 +197,7 @@
     },
     {
       "title": "Veiled Kingdoms Simulator",
-      "description": "Developing a simulator for my board game Veiled Kingdoms. This is my first bigger experience with vibe coding and using generative AI for a larger project with barely writing any code by hand. I am also using reinforcement learning to train agents in a league where they play against each other and against bots built with traditional heuristics.",
+      "description": "Developing a simulator for my board game Veiled Kingdoms. I am also using reinforcement learning to train agents in a league where they play against each other and against bots built with traditional heuristics.",
       "favorite": false,
       "icon": "icon_veiled_kingdoms_simulator.png",
       "size": "m",
