@@ -98,7 +98,7 @@ onUnmounted(() => {
           </div>
           <div>
             <span>Setting</span>
-            <strong>Venetian dark fantasy</strong>
+            <strong>Venetian fantasy</strong>
           </div>
           <div>
             <span>Stage</span>
