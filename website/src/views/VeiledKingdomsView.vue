@@ -11,7 +11,7 @@ onMounted(() => {
   document.title = 'Veiled Kingdoms | A board game by Felix Neubauer'
 
   const description =
-    'Veiled Kingdoms is a fast area-control board game of hidden units, combined abilities, bluffing and predicting the next turn, designed by Felix Neubauer.'
+    'Veiled Kingdoms is an accessible tactical area-control game for 2–4 players. Build units with hidden values and abilities, read your opponents, and plan secret Tactics one turn ahead.'
 
   let meta = document.querySelector<HTMLMetaElement>('meta[name="description"]')
   if (!meta) {
@@ -41,6 +41,7 @@ onUnmounted(() => {
         <a href="#game">The game</a>
         <a href="#development">Development</a>
         <a v-if="galleryImages.length || oldGalleryImages.length" href="#gallery">Gallery</a>
+        <a href="#masquerade">Alternative theme</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -52,9 +53,9 @@ onUnmounted(() => {
         <div class="hero-copy">
           <h1>Veiled Kingdoms</h1>
           <p class="hero-intro">
-            A fast area-control game about hidden unit values, combined
-            abilities and committing to a tactic before you know exactly what
-            the next turn will bring.
+            A tactical area-control game where you build units with hidden
+            strengths and abilities. Read your opponents’ moves, keep them
+            guessing about yours, and secretly plan a Tactic for your next turn.
           </p>
         </div>
 
@@ -97,8 +98,8 @@ onUnmounted(() => {
             <strong>10+</strong>
           </div>
           <div>
-            <span>Setting</span>
-            <strong>Venetian fantasy</strong>
+            <span>Rules explanation</span>
+            <strong>~5–10 min</strong>
           </div>
           <div>
             <span>Stage</span>
@@ -109,7 +110,7 @@ onUnmounted(() => {
 
       <section id="game" class="game-section vk-shell">
         <div class="section-heading">
-          <h2>A strategy game built around hidden information.</h2>
+          <h2>A strategy game built around hidden information, dedudction and bluffing.</h2>
         </div>
 
         <div class="game-intro">
@@ -126,11 +127,19 @@ onUnmounted(() => {
 
         <div class="pillars">
           <article>
-            <h3>Hidden units and bluffing</h3>
+            <h3>Configure hidden units</h3>
             <p>
-              Values and abilities stay concealed until combat or an action
-              reveals them. A weak unit can still threaten, bait or protect a
-              more valuable position.
+              Combine value and ability tokens to shape each unit. Matching
+              types strengthen an ability; mixing types creates new synergies.
+              How you distribute your best tokens is your choice.
+            </p>
+          </article>
+          <article>
+            <h3>Bluffing and deduction</h3>
+            <p>
+              Watch how opposing units move and act for clues about what they
+              hide. Your own movements can give away a strong unit or make a
+              weak one look dangerous.
             </p>
           </article>
           <article>
@@ -141,38 +150,12 @@ onUnmounted(() => {
             </p>
           </article>
           <article>
-            <h3>Combined abilities</h3>
+            <h3>Plan a secret Tactic</h3>
             <p>
-              Train units by combining tokens. Matching types strengthen an
-              ability; mixing types produces useful and sometimes unexpected
-              synergies.
+              At the end of each turn, choose a Tactic in secret for your next
+              turn. Its effect is strongest when you correctly anticipate the next turn (e.g., a Tactic which rewards destroying an opponent unit benefits, when in the next turn you manage to win a combat).
             </p>
           </article>
-          <article>
-            <h3>Prepare for next turn</h3>
-            <p>
-              Choose a situational Tactic one turn in advance. Reading the board
-              well gives you an advantage, while a wrong prediction asks you to
-              adapt.
-            </p>
-          </article>
-        </div>
-
-        <div class="game-feel">
-          <div>
-            <h2>Quick turns, different games.</h2>
-          </div>
-          <div class="game-feel-copy">
-            <p>
-              A little uncertainty in movement keeps the board from becoming
-              predictable, without taking control away from the players.
-            </p>
-            <p>
-              Prepared Tactics reward players who anticipate the next turn.
-              Together with hidden strength and changing unit combinations, they
-              create varied games that stay focused and move quickly.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -255,6 +238,46 @@ onUnmounted(() => {
               loading="lazy"
             />
           </figure>
+        </div>
+      </section>
+
+
+      <section id="masquerade" class="masquerade-section vk-shell" aria-labelledby="masquerade-title">
+        <div class="masquerade-card">
+          <h2 id="masquerade-title">
+            Alternative Theme: The Grand Masquerade Ball
+          </h2>
+          <p class="masquerade-story">
+            "Once a year, on the last night of Carnival, the Doge opens his
+            Venetian palazzo for a grand masquerade. Rival houses send masked
+            troupes across the ballroom to claim the finest boxes and win over
+            the bands. When two dancers meet, they settle their rivalry in a
+            dance-off. The more graceful dancer keeps the floor; the other
+            slips away to the cloakroom. Behind each mask are hidden talents,
+            and each house secretly prepares a Flourish for the next dance. At
+            midnight, one house is crowned Belle of the Ball."
+          </p>
+
+          <div class="masquerade-terms">
+            <table>
+              <thead>
+              <tr>
+                <th scope="col">Current prototype</th>
+                <th scope="col">At the masquerade</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr><td>Unit</td><td>Dancer</td></tr>
+              <tr><td>Unit token</td><td>Mask</td></tr>
+              <tr><td>Gold</td><td>Wine</td></tr>
+              <tr><td>Combat</td><td>Dance-off</td></tr>
+              <tr><td>Tactic</td><td>Flourish</td></tr>
+              <tr><td>Citadel</td><td>Box</td></tr>
+              <tr><td>Sanctum</td><td>Bandstand</td></tr>
+              <tr><td>Recruit / Train</td><td>Invite / Rehearse</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -1406,21 +1429,91 @@ footer {
   line-height: 1.65;
 }
 
-.game-feel {
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: clamp(42px, 7vw, 88px);
-  margin-top: 96px;
-  padding-top: 0;
-  border: 0;
-}
-
 .game-feel h2 {
   font-size: clamp(2.2rem, 3.8vw, 3.7rem);
 }
 
-.game-feel-copy {
-  font-size: 1rem;
+
+.masquerade-section {
+  padding-bottom: 108px;
+}
+
+.masquerade-card {
+  padding: clamp(28px, 5vw, 64px);
+  border: 1px solid var(--line);
+  background: var(--night-soft);
+}
+
+.masquerade-eyebrow {
+  margin: 0 0 16px;
+  color: var(--gold-bright);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.masquerade-card h2 {
+  max-width: 800px;
+  margin: 0 0 28px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
+.masquerade-story {
+  max-width: 780px;
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 1.04rem;
   line-height: 1.75;
+}
+
+.masquerade-terms {
+  margin-top: 42px;
+}
+
+.masquerade-terms h3 {
+  margin: 0 0 18px;
+  font-size: 1rem;
+}
+
+.masquerade-terms table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.masquerade-terms th,
+.masquerade-terms td {
+  width: 50%;
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.masquerade-terms th {
+  color: var(--gold-bright);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.masquerade-terms td {
+  font-size: 0.94rem;
+}
+
+.masquerade-terms td:first-child {
+  color: var(--ink-muted);
+}
+
+.masquerade-terms > p {
+  margin: 24px 0 0;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
 }
 
 .development-section,
@@ -1623,6 +1716,15 @@ footer {
     padding-block: 78px;
   }
 
+  .masquerade-section {
+    padding-bottom: 78px;
+  }
+
+  .masquerade-terms th,
+  .masquerade-terms td {
+    padding-inline: 8px;
+  }
+
   .game-intro,
   .game-feel,
   .development-grid,
@@ -1638,11 +1740,6 @@ footer {
   .pillars {
     grid-template-columns: 1fr;
     margin-top: 52px;
-  }
-
-  .game-feel {
-    gap: 24px;
-    margin-top: 72px;
   }
 
   .development-section,
