@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/VeiledKingdomsView-BSl2wqb0.js","assets/VeiledKingdomsView-Ca5FV0r1.css"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/VeiledKingdomsView-zQjLiXMW.js","assets/VeiledKingdomsView-Cy5vKUEs.css"])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
@@ -16314,7 +16314,7 @@ const projects = [
   },
   {
     title: "Veiled Kingdoms",
-    description: "Developing a Venetian masquerade themed fantasy strategy board game of units with hidden values and abilities (which can be combined to unique synergies), bluffing, and building control. Players command the masked units on a hex-grid battlefield, reveal their true strength only in combat and when using special abilities, and fight over Citadels and Sanctums through careful positioning. At the end of each turn they commit a hidden tactic which is executed next turn and rewards prediction of the opponents moves. I develop  small utility TypeScript and Python tools to support the development (e.g., for rendering cards, the rulebook, box and the 3d models based on configuration files, schemas and images).",
+    description: "Developing a fantasy strategy board game with a Venetian masquerade theme, combining hidden units, bluffing, deck-building, and building control. Players command masked units on a hex-grid battlefield, combine their abilities through training, and reveal their strength in combat or when using special abilities. They fight over Citadels and Sanctums through careful positioning, unit upgrades, and chained card plays, buying new cards from a shared market to develop their strategy. I also develop small TypeScript and Python tools to render cards, the rulebook, the box, and 3D models from configuration files, schemas, and images.",
     favorite: true,
     tags: [
       "TypeScript",
@@ -75908,7 +75908,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-D3VAPmX2.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-BWgIpHSH.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
@@ -75937,7 +75937,7 @@ const router = createRouter({
     {
       path: "/veiled-kingdoms",
       name: "veiled-kingdoms",
-      component: () => __vitePreload(() => import("./VeiledKingdomsView-BSl2wqb0.js"), true ? __vite__mapDeps([0,1]) : void 0)
+      component: () => __vitePreload(() => import("./VeiledKingdomsView-zQjLiXMW.js"), true ? __vite__mapDeps([0,1]) : void 0)
     }
   ]
 });
@@ -81356,6 +81356,7 @@ export {
   openBlock as h,
   createTextVNode as i,
   _export_sfc as j,
+  normalizeClass as n,
   onMounted as o,
   renderList as r,
   unref as u,
