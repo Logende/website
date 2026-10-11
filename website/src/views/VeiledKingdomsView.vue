@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
-import galleryImages from 'virtual:veiled-kingdoms-gallery'
-import oldGalleryImages from 'virtual:veiled-kingdoms-gallery-old'
+import variantGalleryImages from 'virtual:veiled-kingdoms-gallery'
+import deckbuildingGalleryImages from 'virtual:veiled-kingdoms-gallery-old'
 
 const previousTitle = document.title
 
@@ -11,7 +11,7 @@ onMounted(() => {
   document.title = 'Veiled Kingdoms | A board game by Felix Neubauer'
 
   const description =
-    'Veiled Kingdoms is an accessible tactical area-control game for 2–4 players. Build units with hidden values and abilities, read your opponents, and plan secret Tactics one turn ahead.'
+    'Veiled Kingdoms is a Venetian masquerade strategy board game for 2–4 players, combining hidden units, bluffing, deck-building and control of Citadels and Sanctums.'
 
   let meta = document.querySelector<HTMLMetaElement>('meta[name="description"]')
   if (!meta) {
@@ -40,7 +40,7 @@ onUnmounted(() => {
       <nav aria-label="Page navigation">
         <a href="#game">The game</a>
         <a href="#development">Development</a>
-        <a v-if="galleryImages.length || oldGalleryImages.length" href="#gallery">Gallery</a>
+        <a v-if="deckbuildingGalleryImages.length || variantGalleryImages.length" href="#gallery">Gallery</a>
         <a href="#masquerade">Alternative theme</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -53,9 +53,9 @@ onUnmounted(() => {
         <div class="hero-copy">
           <h1>Veiled Kingdoms</h1>
           <p class="hero-intro">
-            A tactical area-control game where you build units with hidden
-            strengths and abilities. Read your opponents’ moves, keep them
-            guessing about yours, and secretly plan a Tactic for your next turn.
+            A strategy board game of hidden units, bluffing and deck-building.
+            Combine unit abilities, use cards to move and fight, and control
+            the city’s citadels and sanctums.
           </p>
         </div>
 
@@ -91,15 +91,15 @@ onUnmounted(() => {
           </div>
           <div>
             <span>Playing time</span>
-            <strong>20–60 min</strong>
+            <strong>30–90 min</strong>
           </div>
           <div>
             <span>Age</span>
-            <strong>10+</strong>
+            <strong>12+</strong>
           </div>
           <div>
-            <span>Rules explanation</span>
-            <strong>~5–10 min</strong>
+            <span>Setting</span>
+            <strong>Venetian masquerade</strong>
           </div>
           <div>
             <span>Stage</span>
@@ -110,18 +110,18 @@ onUnmounted(() => {
 
       <section id="game" class="game-section vk-shell">
         <div class="section-heading">
-          <h2>A strategy game built around hidden information, dedudction and bluffing.</h2>
+          <h2>A strategy game built around hidden information, deduction and bluffing.</h2>
         </div>
 
         <div class="game-intro">
           <p>
-            Veiled Kingdoms is a hidden-unit area-control game played on a
-            modular hex-grid city. The value and abilities inside each unit are
-            concealed from other players until combat or a special action
-            reveals them. Unit tokens can be combined, creating new ability
+            Veiled Kingdoms combines deck-building and hidden-unit combat with
+            area control on a modular hex-grid city. The value and abilities
+            inside each unit are concealed from other players until combat or
+            a special action reveals them. Unit tokens can be combined, creating new ability
             synergies and armies that develop differently from game to game.
-            Control of citadels and sanctums shapes the board, while combat
-            forces players to decide when a secret is worth revealing.
+            Each turn, cards move units, disrupt rivals and shape combat. You
+            can also recruit one unit or train one already in play.
           </p>
         </div>
 
@@ -145,15 +145,17 @@ onUnmounted(() => {
           <article>
             <h3>Area control</h3>
             <p>
-              Citadels and sanctums make positioning important. Capturing and
-              defending the right buildings creates the route to victory.
+              Citadels provide gold to buy new cards, while sanctums let you
+              draw more cards each turn. Capturing and defending enough of
+              these buildings secures victory.
             </p>
           </article>
           <article>
-            <h3>Plan a secret Tactic</h3>
+            <h3>Build your deck</h3>
             <p>
-              At the end of each turn, choose a Tactic in secret for your next
-              turn. Its effect is strongest when you correctly anticipate the next turn (e.g., a Tactic which rewards destroying an opponent unit benefits, when in the next turn you manage to win a combat).
+              Buy movement, economy and tactical cards from a shared market.
+              Develop your own combinations and chain card effects to support
+              your units and respond to the changing board.
             </p>
           </article>
         </div>
@@ -165,7 +167,7 @@ onUnmounted(() => {
             <h2>A prototype in motion</h2>
             <p>
               Veiled Kingdoms has grown through repeated physical prototypes:
-              revised unit figurines, a simpler Tactic system, modular boards
+              revised unit figurines, iterated card systems, modular boards
               and a complete rulebook. The visual language and components
               continue to evolve alongside the gameplay.
             </p>
@@ -203,38 +205,61 @@ onUnmounted(() => {
       </section>
 
       <section
-        v-if="galleryImages.length || oldGalleryImages.length"
+        v-if="deckbuildingGalleryImages.length || variantGalleryImages.length"
         id="gallery"
         class="gallery-section vk-shell"
       >
         <div class="gallery-heading">
           <h2>The world of Veiled Kingdoms</h2>
         </div>
-        <div v-if="galleryImages.length" class="gallery-grid">
+        <div v-if="deckbuildingGalleryImages.length" class="gallery-grid">
           <figure
-            v-for="(image, index) in galleryImages"
+            v-for="(image, index) in deckbuildingGalleryImages"
             :key="image"
             class="gallery-item"
           >
             <img
               :src="image"
-              :alt="`Veiled Kingdoms gallery photograph ${index + 1}`"
+              :alt="`Veiled Kingdoms deck-building photograph ${index + 1}`"
               loading="lazy"
             />
           </figure>
         </div>
-        <p v-if="oldGalleryImages.length" class="gallery-old-label">
-          Photos of the older deck-building variant of the game. The new version without deck-building maintained all the part that made Veiled Kingdoms most fun but removed a lot of the complexity and made the game much faster too.
+        <p class="gallery-variants-description">Player aid</p>
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img
+              src="/veiled-kingdoms/player_screen.png"
+              alt="Player screen with unit information"
+              loading="lazy"
+            />
+          </figure>
+          <figure class="gallery-item">
+            <img
+              src="/veiled-kingdoms/turn_quick_guide.png"
+              alt="Turn quick guide card"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+        <p v-if="variantGalleryImages.length" class="gallery-variants-description">
+          Other tested variants of the game explored action selection using
+          stamina, with each additional move costing more, or a die. In some
+          versions, players committed a hidden tactic at the end of their turn
+          to take effect on their next turn, rewarding anticipation of how the
+          intervening turns would unfold. I also tested a larger unit figurine
+          that could be bought from the market and hold three tokens.
         </p>
-        <div v-if="oldGalleryImages.length" class="gallery-grid">
+        <div v-if="variantGalleryImages.length" class="gallery-grid">
           <figure
-            v-for="(image, index) in oldGalleryImages"
+            v-for="(image, index) in variantGalleryImages"
             :key="image"
             class="gallery-item"
+            :class="{ 'gallery-item--render': image.includes('2p_setup') }"
           >
             <img
               :src="image"
-              :alt="`Older Veiled Kingdoms deck-building variant photograph ${index + 1}`"
+              :alt="`Other tested Veiled Kingdoms variants photograph ${index + 1}`"
               loading="lazy"
             />
           </figure>
@@ -254,8 +279,8 @@ onUnmounted(() => {
             the bands. When two dancers meet, they settle their rivalry in a
             dance-off. The more graceful dancer keeps the floor; the other
             slips away to the cloakroom. Behind each mask are hidden talents,
-            and each house secretly prepares a Flourish for the next dance. At
-            midnight, one house is crowned Belle of the Ball."
+            and each house builds its own repertoire of Flourishes to outwit
+            its rivals. At midnight, one house is crowned Belle of the Ball."
           </p>
 
           <div class="masquerade-terms">
@@ -271,7 +296,7 @@ onUnmounted(() => {
               <tr><td>Unit token</td><td>Mask</td></tr>
               <tr><td>Gold</td><td>Wine</td></tr>
               <tr><td>Combat</td><td>Dance-off</td></tr>
-              <tr><td>Tactic</td><td>Flourish</td></tr>
+              <tr><td>Card</td><td>Flourish</td></tr>
               <tr><td>Citadel</td><td>Box</td></tr>
               <tr><td>Sanctum</td><td>Bandstand</td></tr>
               <tr><td>Recruit / Train</td><td>Invite / Rehearse</td></tr>
@@ -301,7 +326,7 @@ onUnmounted(() => {
               Veiled Kingdoms has been thoroughly playtested and refined as a
               complete physical prototype. I am looking for a publisher who sees
               potential in its mix of hidden information, combined unit
-              abilities, prediction and spatial strategy.
+              abilities, deck-building and spatial strategy.
             </p>
             <p>
               I am also keen to connect with producers and illustrators. The
@@ -1558,7 +1583,7 @@ footer {
   margin-bottom: 42px;
 }
 
-.gallery-old-label {
+.gallery-variants-description {
   margin: 48px 0 20px;
   color: var(--ink-muted);
   font-size: 0.86rem;
@@ -1568,6 +1593,18 @@ footer {
 .gallery-heading h2 {
   font-size: clamp(2.2rem, 4vw, 3.7rem);
 }
+
+/* Tabletop setup renders: one per row, all the same width. */
+.gallery-item--render {
+  flex-basis: 100%;
+  justify-content: flex-start;
+}
+
+.gallery-item--render img {
+  width: min(760px, 100%);
+  max-height: none;
+}
+
 
 .gallery-grid {
   gap: 12px;

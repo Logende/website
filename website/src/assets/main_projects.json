@@ -159,7 +159,7 @@
     },
     {
       "title": "Veiled Kingdoms",
-      "description": "Developing a Venetian masquerade themed fantasy strategy board game of units with hidden values and abilities (which can be combined to unique synergies), bluffing, and building control. Players command the masked units on a hex-grid battlefield, reveal their true strength only in combat and when using special abilities, and fight over Citadels and Sanctums through careful positioning. At the end of each turn they commit a hidden tactic which is executed next turn and rewards prediction of the opponents moves. I develop  small utility TypeScript and Python tools to support the development (e.g., for rendering cards, the rulebook, box and the 3d models based on configuration files, schemas and images).",
+      "description": "Developing a fantasy strategy board game with a Venetian masquerade theme, combining hidden units, bluffing, deck-building, and building control. Players command masked units on a hex-grid battlefield, combine their abilities through training, and reveal their strength in combat or when using special abilities. They fight over Citadels and Sanctums through careful positioning, unit upgrades, and chained card plays, buying new cards from a shared market to develop their strategy. I also develop small TypeScript and Python tools to render cards, the rulebook, the box, and 3D models from configuration files, schemas, and images.",
       "favorite": true,
       "tags": [
         "TypeScript",
