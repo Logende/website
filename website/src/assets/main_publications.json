@@ -266,8 +266,7 @@
       "related_projects": [
         "MetaConfigurator (Web Tool)"
       ]
-    }
-  ],
+    },
     {
       "title": "The preCICE v3 coupling library and the emerging preCICE ecosystem",
       "authors": [
@@ -314,4 +313,5 @@
         "Data-Model-Driven Management and Analysis of Chemistry Data"
       ]
     }
+  ]
 }
