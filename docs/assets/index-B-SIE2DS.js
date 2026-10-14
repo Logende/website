@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/VeiledKingdomsView-zQjLiXMW.js","assets/VeiledKingdomsView-Cy5vKUEs.css"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/VeiledKingdomsView-Bqts-xAo.js","assets/VeiledKingdomsView-Cy5vKUEs.css"])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
@@ -18826,6 +18826,56 @@ const publications = [
     ],
     related_projects: [
       "MetaConfigurator (Web Tool)"
+    ]
+  },
+  {
+    title: "The preCICE v3 coupling library and the emerging preCICE ecosystem",
+    authors: [
+      "Jun Chen",
+      "Gerasimos Chourdakis",
+      "Ishaan Desai",
+      "Carme Homs-Pons",
+      "Felix Neubauer",
+      "David Schneider",
+      "Miriam Schulte",
+      "Frédéric Simonis",
+      "Benjamin Uekermann"
+    ],
+    conference: "1st Stuttgart Research Software Day",
+    date: "2026-03-02",
+    doi: "10.5281/zenodo.18816001",
+    abstract: "Single computer models are often not enough to describe some phenomena. Examples are the flow inside your pulsating heart, the ice-sheet melting in the arctic, or a material with tangible behavior defined by phenomena at the smallest scales. The software library preCICE allows programmers and end users to combine existing models with minimal effort, producing accurate results and running on a laptop or a supercomputer. Recent improvements have made the software easier to use, faster, more accurate, and fitting for new types of coupling. We now need to guide the rapidly growing community with producing and sharing quality contributions, and to provide tools to make building complex simulation scenarios easier.",
+    tags: [
+      "Poster"
+    ],
+    related_projects: [
+      "preCICe (Coupling Library)"
+    ]
+  },
+  {
+    title: "Making Chemical Synthesis Data Machine-Readable, FAIR, and AI-Ready with a JSON Schema–Centric Approach",
+    authors: [
+      "Felix Neubauer",
+      "Kenichi Endo",
+      "Timo Watzenborn",
+      "Frederic Bender",
+      "Esengül Ciftci",
+      "Sabine Laschat",
+      "Niels Hansen",
+      "Simon Krause",
+      "Benjamin Uekermann",
+      "Jürgen Pleiss"
+    ],
+    conference: "Collaborative Research Center 1333 Status Meeting 2026",
+    date: "2026-09-24",
+    doi: "10.5281/zenodo.23364186",
+    abstract: "A poster about our JSON Schema-centric workflow for making synthesis data machine-readable, FAIR and AI-Ready.",
+    tags: [
+      "Poster"
+    ],
+    related_projects: [
+      "MetaConfigurator (Web Tool)",
+      "Data-Model-Driven Management and Analysis of Chemistry Data"
     ]
   }
 ];
@@ -75908,7 +75958,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-BWgIpHSH.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-BJKGkiuU.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
@@ -75937,7 +75987,7 @@ const router = createRouter({
     {
       path: "/veiled-kingdoms",
       name: "veiled-kingdoms",
-      component: () => __vitePreload(() => import("./VeiledKingdomsView-zQjLiXMW.js"), true ? __vite__mapDeps([0,1]) : void 0)
+      component: () => __vitePreload(() => import("./VeiledKingdomsView-Bqts-xAo.js"), true ? __vite__mapDeps([0,1]) : void 0)
     }
   ]
 });
