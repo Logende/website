@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/VeiledKingdomsView-Bqts-xAo.js","assets/VeiledKingdomsView-Cy5vKUEs.css"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/VeiledKingdomsView-D2tQ62J2.js","assets/VeiledKingdomsView-Cy5vKUEs.css"])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
@@ -18820,6 +18820,7 @@ const publications = [
     supervised_by: "Felix Neubauer",
     conference: "University of Stuttgart, Master Thesis",
     date: "2026-07-31",
+    doi: "10.18419/opus-19837",
     abstract: "Forschungsdaten liegen häufig in unterschiedlichen Dateiformaten und fachlichen Strukturen vor. Selbst bei JSON-Dokumenten können Feldnamen, Datentypen und Verschachtelungen so stark voneinander abweichen, dass eine direkte Weiterverarbeitung nicht möglich ist. Ein Zielschema beschreibt zwar die erwartete Struktur des Ergebnisses, enthält jedoch keine Regeln dafür, wie die Quelldaten zugeordnet, konvertiert oder neu zusammengesetzt werden müssen. Diese Arbeit untersucht daher, wie große Sprachmodelle zur Erzeugung solcher Transformationen eingesetzt werden können.\nAls Untersuchungs- und Implementierungsumgebung wird der MetaConfigurator erweitert. Für die JSON-Transformation werden die direkte Ziel-JSON-Erzeugung, die datenbasierte Transformationsfunktion und die schemabasierte Transformationsfunktion umgesetzt. Bei der datenbasierten Transformationsfunktion erhält das LLM die konkreten Quelldaten und das Zielschema. Bei der schemabasierten Transformationsfunktion erhält es stattdessen ein inferiertes Quellschema und das Zielschema. In beiden Fällen erzeugt das LLM eine JavaScript-Funktion oder einen JSONata-Ausdruck, die beziehungsweise der anschließend lokal auf die Quelldaten angewendet wird. Ergänzend entstehen eine regelbasierte Aufbereitung inferierter Schemata sowie ein AI-gestützter Import. Dieser umfasst den direkten AI-Import, die AI-Importfunktion aus Rohdaten und den parsergestützten Import mit optionaler AI-Normalisierung.\nDie Evaluation vergleicht die Verfahren hinsichtlich fachlicher Ergebnisqualität, technischer Verarbeitbarkeit und Tokenbedarf. Zusätzlich wird untersucht, welchen Einfluss Beispielwerte und automatisch erkannte Wertemengen im Quellschema haben und wie zuverlässig JavaScript und JSONata als Ausgabesprachen generiert werden können.\nDie Ergebnisse zeigen, dass die datenbasierte Transformationsfunktion besonders dann Vorteile besitzt, wenn konkrete Werte für die Zuordnung oder Berechnung benötigt werden. Sie erreicht eine hohe fachliche Qualität, erzeugt jedoch häufiger Funktionen, die nicht unmittelbar ausgeführt werden können. Die schemabasierte Transformationsfunktion erzielt bei strukturierten JSON-Daten eine vergleichbare Qualität, benötigt dabei aber deutlich weniger Modellinput. Ihre Qualität verbessert sich, wenn das inferierte Quellschema gezielt um wenige Beispielwerte oder erkannte Wertemengen ergänzt wird. Mehr Kontext führt dagegen nicht automatisch zu besseren Ergebnissen. Die direkte Ziel-JSON-Erzeugung ist für kleinere und einmalige Aufgaben einfach einsetzbar, verliert bei umfangreicheren Quelldokumenten jedoch an Zuverlässigkeit. Für die Erzeugung ausführbarer Transformationsfunktionen erweist sich JavaScript als deutlich robuster als JSONata. Enthalten Quelldaten eingebettete Tabellen, CSV-Inhalte oder Freitext, ist eine vorgelagerte Aufbereitung oder die Verwendung konkreter Quelldaten zweckmäßiger.",
     tags: [
       "MasterThesis"
@@ -75958,7 +75959,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-BJKGkiuU.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-CV-CZr-N.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
@@ -75987,7 +75988,7 @@ const router = createRouter({
     {
       path: "/veiled-kingdoms",
       name: "veiled-kingdoms",
-      component: () => __vitePreload(() => import("./VeiledKingdomsView-Bqts-xAo.js"), true ? __vite__mapDeps([0,1]) : void 0)
+      component: () => __vitePreload(() => import("./VeiledKingdomsView-D2tQ62J2.js"), true ? __vite__mapDeps([0,1]) : void 0)
     }
   ]
 });

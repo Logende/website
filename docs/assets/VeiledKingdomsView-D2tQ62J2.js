@@ -1,4 +1,4 @@
-import { d as defineComponent, o as onMounted, a as onUnmounted, c as createElementBlock, b as createBaseVNode, u as unref, e as createCommentVNode, f as createVNode, w as withCtx, g as createStaticVNode, F as Fragment, r as renderList, h as openBlock, i as createTextVNode, R as RouterLink, n as normalizeClass, j as _export_sfc } from "./index-B-SIE2DS.js";
+import { d as defineComponent, o as onMounted, a as onUnmounted, c as createElementBlock, b as createBaseVNode, u as unref, e as createCommentVNode, f as createVNode, w as withCtx, g as createStaticVNode, F as Fragment, r as renderList, h as openBlock, i as createTextVNode, R as RouterLink, n as normalizeClass, j as _export_sfc } from "./index-CSgdj_iP.js";
 const _imports_0 = "/veiled-kingdoms/vk_foto_1.webp";
 const _imports_1 = "/veiled-kingdoms/vk_foto_1.png";
 const _imports_2 = "/veiled-kingdoms/vk_prototypen.webp";
