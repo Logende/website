@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/VeiledKingdomsView-D2tQ62J2.js","assets/VeiledKingdomsView-Cy5vKUEs.css"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/VeiledKingdomsView-B5YxnNje.js","assets/VeiledKingdomsView-Cy5vKUEs.css"])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
@@ -12721,6 +12721,58 @@ function getProjectSlug(project) {
   const articleMatch = (_a = project.article) == null ? void 0 : _a.match(/articles\/([^/]+)\//);
   return (articleMatch == null ? void 0 : articleMatch[1]) ?? slugify(project.title);
 }
+function parseHttpUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:" ? url : void 0;
+  } catch {
+    return void 0;
+  }
+}
+function getYouTubeVideoId(url) {
+  const hostname = url.hostname.toLowerCase().replace(/^www\./, "");
+  if (hostname === "youtu.be") {
+    return url.pathname.split("/").filter(Boolean)[0];
+  }
+  if (hostname !== "youtube.com" && hostname !== "youtube-nocookie.com") {
+    return void 0;
+  }
+  if (url.pathname === "/watch") return url.searchParams.get("v") ?? void 0;
+  const [, route, videoId] = url.pathname.split("/");
+  return ["embed", "shorts", "live"].includes(route) ? videoId : void 0;
+}
+function getTibEmbedUrl(url) {
+  const hostname = url.hostname.toLowerCase().replace(/^www\./, "");
+  const mediaMatch = url.pathname.match(/^\/media\/(\d+)\/?$/);
+  return hostname === "av.tib.eu" && mediaMatch ? `https://av.tib.eu/player/${mediaMatch[1]}` : void 0;
+}
+function resolveVideo(source) {
+  const url = parseHttpUrl(source);
+  const youtubeId = url ? getYouTubeVideoId(url) : source;
+  if (youtubeId) {
+    const id3 = encodeURIComponent(youtubeId);
+    return {
+      href: (url == null ? void 0 : url.href) ?? `https://www.youtube.com/watch?v=${id3}`,
+      embedUrl: `https://www.youtube.com/embed/${id3}`
+    };
+  }
+  return { href: url.href, embedUrl: getTibEmbedUrl(url) };
+}
+const publicationGroups = [
+  "Articles",
+  "Talks",
+  "Posters",
+  "Student Projects"
+];
+function getPublicationGroup(pub) {
+  const hasTag = (...tags) => tags.some((tag2) => pub.tags.includes(tag2));
+  if (pub.supervised_by) return "Student Projects";
+  if (hasTag("JournalPaper", "ConferencePaper", "Preprint")) return "Articles";
+  if (hasTag("ConferenceTalk", "WorkshopTalk", "OtherTalk", "Workshop"))
+    return "Talks";
+  if (hasTag("Poster")) return "Posters";
+  return "Student Projects";
+}
 function hasClass(element3, className) {
   if (element3) {
     if (element3.classList) return element3.classList.contains(className);
@@ -16204,12 +16256,6 @@ const projects = [
     source_code: "https://github.com/MetaConfigurator/meta-configurator",
     project_page: "https://github.com/MetaConfigurator/meta-configurator",
     demo: "https://metaconfigurator.org",
-    videos: [
-      "7KylaPVl_y0",
-      "https://av.tib.eu/media/73764",
-      "DfS6PgMr1q0",
-      "1HT0Xb8tGUI"
-    ],
     relations: [
       {
         label: "inspiredBy",
@@ -16278,9 +16324,6 @@ const projects = [
         relatedProject: "MetaConfigurator (Web Tool)",
         note: "Uses MetaConfigurator to make it easier for users to edit configuration files, for example for the adapter configuration."
       }
-    ],
-    videos: [
-      "DgOKBeovu7o"
     ]
   },
   {
@@ -16298,11 +16341,6 @@ const projects = [
       start: "2014-01-01",
       end: "2017-12-31"
     },
-    videos: [
-      "py2VAddQ08c",
-      "gtbftSCVcBA",
-      "eI4PvR8_jdI"
-    ],
     article: "articles/manawars/article.html",
     relations: [
       {
@@ -16498,12 +16536,6 @@ const projects = [
       "Java"
     ],
     project_page: "https://www.spigotmc.org/resources/222/",
-    videos: [
-      "SgTBXMgOLk4",
-      "vx7YC4GCao4",
-      "ahyp1uYGgp8",
-      "XcafjVUTN8s"
-    ],
     relations: [
       {
         label: "inspiredBy",
@@ -16525,16 +16557,6 @@ const projects = [
     size: "m",
     tags: [
       "Java"
-    ],
-    videos: [
-      "6CYQ7yjqaNQ",
-      "923TrDl9CCk",
-      "Z2CHEuWZghk",
-      "5qIvDhrDQL0",
-      "AcCq3S5uSII",
-      "MEv5a-yioV4",
-      "teZhuoXXMFs",
-      "Z7DJub7N3oU"
     ],
     where: "Snapcraft/Fironus",
     relations: [
@@ -16558,9 +16580,6 @@ const projects = [
     size: "l",
     tags: [
       "Java"
-    ],
-    videos: [
-      "IZhnWrk9BYc"
     ],
     where: "Snapcraft/Fironus",
     relations: [
@@ -16664,9 +16683,6 @@ const projects = [
     size: "m",
     tags: [
       "Java"
-    ],
-    videos: [
-      "uvSfB7L9z-Q"
     ],
     article: "articles/manawar/article.html",
     relations: [
@@ -16858,9 +16874,6 @@ const projects = [
       end: "2016-09-11"
     },
     project_page: "https://dev.bukkit.org/projects/blockcommand",
-    videos: [
-      "Rl3Lw9ppvWw"
-    ],
     relations: [
       {
         label: "relatedTo",
@@ -18371,6 +18384,186 @@ const faStar = {
   iconName: "star",
   icon: [576, 512, [11088, 61446], "f005", "M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"]
 };
+const faVideo = {
+  prefix: "fas",
+  iconName: "video",
+  icon: [576, 512, ["video-camera"], "f03d", "M0 128C0 92.7 28.7 64 64 64l256 0c35.3 0 64 28.7 64 64l0 256c0 35.3-28.7 64-64 64L64 448c-35.3 0-64-28.7-64-64L0 128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2l0 256c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1l0-17.1 0-128 0-17.1 14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z"]
+};
+const videos = [
+  {
+    title: "Using AI for Research Data Management Software - HiRSE Summer of AI for RSE",
+    source: "7KylaPVl_y0",
+    related_projects: [
+      "MetaConfigurator (Web Tool)"
+    ]
+  },
+  {
+    title: "AI-assisted Model Driven Engineering",
+    source: "https://av.tib.eu/media/73764",
+    related_publications: [
+      "derse26-talk"
+    ],
+    related_projects: [
+      "MetaConfigurator (Web Tool)"
+    ]
+  },
+  {
+    title: "2025 Fall AC - AI-assisted JSON Schema Creation and Mapping",
+    source: "DfS6PgMr1q0",
+    related_publications: [
+      "allotrope-fall-2025-talk"
+    ],
+    related_projects: [
+      "MetaConfigurator (Web Tool)"
+    ]
+  },
+  {
+    title: "MetaConfigurator CSV Import and Schema Editing",
+    source: "1HT0Xb8tGUI",
+    related_projects: [
+      "MetaConfigurator (Web Tool)"
+    ]
+  },
+  {
+    title: "preCICE tooling overview & news",
+    source: "DgOKBeovu7o",
+    related_publications: [
+      "precice-workshop-2025-tooling-talk"
+    ],
+    related_projects: [
+      "preCICe (Coupling Library)"
+    ]
+  },
+  {
+    title: "ManaWars gameplay",
+    source: "py2VAddQ08c",
+    related_projects: [
+      "ManaWars (Mobile Game)"
+    ]
+  },
+  {
+    title: "ManaWars Gameplay - end game and final boss",
+    source: "gtbftSCVcBA",
+    related_projects: [
+      "ManaWars (Mobile Game)"
+    ]
+  },
+  {
+    title: "ManaWars Game Tour by the creator",
+    source: "eI4PvR8_jdI",
+    related_projects: [
+      "ManaWars (Mobile Game)"
+    ]
+  },
+  {
+    title: "Minecraft Admin How-To: BossShop",
+    source: "SgTBXMgOLk4",
+    related_projects: [
+      "BossShopPro (Plugin)"
+    ]
+  },
+  {
+    title: "Plugin Showcase - Boss Shop - WoopaGaming",
+    source: "vx7YC4GCao4",
+    related_projects: [
+      "BossShopPro (Plugin)"
+    ]
+  },
+  {
+    title: "Plugin Showcase - BossShop Revisted - WoopaGaming",
+    source: "ahyp1uYGgp8",
+    related_projects: [
+      "BossShopPro (Plugin)"
+    ]
+  },
+  {
+    title: "BossShopPro Plugin Review",
+    source: "XcafjVUTN8s",
+    related_projects: [
+      "BossShopPro (Plugin)"
+    ]
+  },
+  {
+    title: "EarthGames Video 1",
+    source: "6CYQ7yjqaNQ",
+    related_projects: [
+      "EarthGames (Minigame)"
+    ]
+  },
+  {
+    title: "Minecraft - Earthgames Minigame [Snapcraft]",
+    source: "923TrDl9CCk",
+    related_projects: [
+      "EarthGames (Minigame)"
+    ]
+  },
+  {
+    title: "EarthGames Video 2",
+    source: "Z2CHEuWZghk",
+    related_projects: [
+      "EarthGames (Minigame)"
+    ]
+  },
+  {
+    title: "Minecraft: Earth Games w/Mitch, Jerome & Quentin! TNT KILL FEED!",
+    source: "5qIvDhrDQL0",
+    related_projects: [
+      "EarthGames (Minigame)"
+    ]
+  },
+  {
+    title: "Minecraft Earth Games PVP w/ BajanCanadian and HuskyMudkipz",
+    source: "AcCq3S5uSII",
+    related_projects: [
+      "EarthGames (Minigame)"
+    ]
+  },
+  {
+    title: "Minecraft EARTH GAMES #1 with Vikkstar (Minecraft PVP War)",
+    source: "MEv5a-yioV4",
+    related_projects: [
+      "EarthGames (Minigame)"
+    ]
+  },
+  {
+    title: "Minecraft EARTH GAMES #2 with Vikkstar & Nooch (Minecraft PVP War)",
+    source: "teZhuoXXMFs",
+    related_projects: [
+      "EarthGames (Minigame)"
+    ]
+  },
+  {
+    title: "Minecraft EARTH GAMES #3 with Vikkstar",
+    source: "Z7DJub7N3oU",
+    related_projects: [
+      "EarthGames (Minigame)"
+    ]
+  },
+  {
+    title: "[ZombieV] Minecraft Minigame Trailer",
+    source: "IZhnWrk9BYc",
+    related_projects: [
+      "ZombieV (Minigame)"
+    ]
+  },
+  {
+    title: "ManaWar | Gameplay",
+    source: "uvSfB7L9z-Q",
+    related_projects: [
+      "ManaWar (Desktop Game)"
+    ]
+  },
+  {
+    title: "BlockCommand bukkit plugin",
+    source: "Rl3Lw9ppvWw",
+    related_projects: [
+      "BlockCommands (Plugin)"
+    ]
+  }
+];
+const videos$1 = {
+  videos
+};
 const _hoisted_1$c = { class: "publication-list" };
 const _hoisted_2$a = { class: "citation" };
 const _hoisted_3$7 = { class: "authors" };
@@ -18387,16 +18580,17 @@ const _hoisted_9$2 = {
   class: "url"
 };
 const _hoisted_10$2 = ["href"];
-const _hoisted_11$2 = {
+const _hoisted_11$2 = ["href", "title", "aria-label"];
+const _hoisted_12$2 = {
   key: 2,
   class: "pub-type pub-type--Supervision"
 };
-const _hoisted_12$2 = { key: 3 };
-const _hoisted_13$2 = {
+const _hoisted_13$2 = { key: 3 };
+const _hoisted_14$2 = {
   key: 0,
   class: "supervision-note"
 };
-const _hoisted_14$2 = {
+const _hoisted_15$1 = {
   key: 1,
   class: "abstract"
 };
@@ -18417,6 +18611,12 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
         month: "long",
         day: "numeric"
       });
+    }
+    function publicationVideos(pub) {
+      return videos$1.videos.filter((video) => {
+        var _a;
+        return (_a = video.related_publications) == null ? void 0 : _a.includes(pub.id);
+      }).map((video) => ({ ...video, ...resolveVideo(video.source) }));
     }
     function publicationTypeLabel(tag2) {
       return tag2.replace(/([a-z])([A-Z])/g, "$1 $2");
@@ -18448,28 +18648,42 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
                 }, toDisplayString(pub.link), 9, _hoisted_10$2),
                 _cache[2] || (_cache[2] = createTextVNode(". "))
               ])) : createCommentVNode("", true),
+              (openBlock(true), createElementBlock(Fragment, null, renderList(publicationVideos(pub), (video) => {
+                return openBlock(), createElementBlock("a", {
+                  key: video.source,
+                  class: "video-link",
+                  href: video.href,
+                  title: video.href,
+                  "aria-label": `Watch video: ${video.title}`,
+                  target: "_blank",
+                  rel: "noopener noreferrer"
+                }, [
+                  createVNode(unref(FontAwesomeIcon), { icon: unref(faVideo) }, null, 8, ["icon"])
+                ], 8, _hoisted_11$2);
+              }), 128)),
               (openBlock(true), createElementBlock(Fragment, null, renderList(pub.tags, (tag2) => {
                 return openBlock(), createElementBlock("span", {
                   class: normalizeClass(["pub-type", `pub-type--${tag2}`])
                 }, toDisplayString(publicationTypeLabel(tag2)), 3);
               }), 256)),
-              pub.supervised_by ? (openBlock(), createElementBlock("span", _hoisted_11$2, " Supervision ")) : createCommentVNode("", true),
-              pub.favorite ? (openBlock(), createElementBlock("span", _hoisted_12$2, [
+              pub.supervised_by ? (openBlock(), createElementBlock("span", _hoisted_12$2, " Supervision ")) : createCommentVNode("", true),
+              pub.favorite ? (openBlock(), createElementBlock("span", _hoisted_13$2, [
                 _cache[3] || (_cache[3] = createBaseVNode("span", null, " ", -1)),
                 createVNode(unref(FontAwesomeIcon), { icon: unref(faStar) }, null, 8, ["icon"])
               ])) : createCommentVNode("", true)
             ]),
-            pub.supervised_by ? (openBlock(), createElementBlock("p", _hoisted_13$2, " Supervised by " + toDisplayString(pub.supervised_by), 1)) : createCommentVNode("", true),
-            pub.abstract ? (openBlock(), createElementBlock("p", _hoisted_14$2, toDisplayString(pub.abstract), 1)) : createCommentVNode("", true)
+            pub.supervised_by ? (openBlock(), createElementBlock("p", _hoisted_14$2, " Supervised by " + toDisplayString(pub.supervised_by), 1)) : createCommentVNode("", true),
+            pub.abstract ? (openBlock(), createElementBlock("p", _hoisted_15$1, toDisplayString(pub.abstract), 1)) : createCommentVNode("", true)
           ]);
         }), 128))
       ]);
     };
   }
 });
-const PublicationList = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-aec7dda0"]]);
+const PublicationList = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-f3efdf2c"]]);
 const publications = [
   {
+    id: "metaconfigurator-journal-2024",
     title: "MetaConfigurator: A User-Friendly Tool for Editing Structured Data Files",
     authors: [
       "Felix Neubauer",
@@ -18492,6 +18706,7 @@ const publications = [
     favorite: true
   },
   {
+    id: "master-thesis-data-model-creation-2024",
     title: "Data model creation with MetaConfigurator",
     authors: [
       "Felix Neubauer"
@@ -18509,6 +18724,7 @@ const publications = [
     favorite: true
   },
   {
+    id: "derse25-talk",
     title: "Data Model Creation with MetaConfigurator",
     abstract: "In both research and industry, significant effort is devoted to the creation of standardized data models that ensure data adheres to a specific structures, enabling the development and use of common tools. These models (also called schemas) enable data validation and facilitate collaboration by making data interoperable across various systems. Tools can assist in the creation and maintenance of data models. We introduce MetaConfigurator [1], an open-source web-based schema editor and form generator for JSON schema and for JSON/YAML documents. It differs from other schema-to-UI approaches in the following ways:\n1) It allows data editing and schema editing within the same tool,\n2) It offers a unified view, which combines the benefits of a GUI, a text editor and a UML-like diagram view, and\n3) It supports advanced schema features, including conditions, constraints and composition.\n\nIn this talk, we demonstrate MetaConfigurator based on a real-world application in the field of Chemistry. We show how the tool can be used to streamline and simplify the process of data model creation. Furthermore, we use the tool to visualize and communicate data models with others. Using MetaConfigurator less mistakes are made and the entry barrier for data model creation is lowered.",
     authors: [
@@ -18528,6 +18744,7 @@ const publications = [
     derived_from: "10.18419/opus-15126"
   },
   {
+    id: "btw-2025-paper",
     title: "Data Model Creation with MetaConfigurator",
     authors: [
       "Felix Neubauer",
@@ -18548,6 +18765,7 @@ const publications = [
     derived_from: "10.18419/opus-15126"
   },
   {
+    id: "precice-workshop-2025-adapters-poster",
     title: "Standardizing preCICE Adapters with MetaConfigurator",
     authors: [
       "Felix Neubauer",
@@ -18567,6 +18785,7 @@ const publications = [
     ]
   },
   {
+    id: "models-2025-paper",
     title: "AI-assisted JSON Schema Creation and Mapping",
     authors: [
       "Felix Neubauer",
@@ -18587,6 +18806,7 @@ const publications = [
     favorite: true
   },
   {
+    id: "allotrope-fall-2025-talk",
     title: "AI-assisted JSON Schema Creation and Mapping",
     authors: [
       "Felix Neubauer",
@@ -18595,7 +18815,6 @@ const publications = [
     ],
     conference: "Allotrope Connect Fall 2025 Workshop",
     date: "2025-10-29",
-    link: "https://www.youtube.com/watch?v=DfS6PgMr1q0",
     tags: [
       "WorkshopTalk"
     ],
@@ -18605,6 +18824,7 @@ const publications = [
     derived_from: "10.1109/MODELS-C68889.2025.00019"
   },
   {
+    id: "coupled-problems-2025-talk",
     title: "A quick introduction to the coupling library preCICE",
     authors: [
       "Felix Neubauer",
@@ -18623,6 +18843,7 @@ const publications = [
     ]
   },
   {
+    id: "precice-workshop-2025-tooling-talk",
     title: "preCICE Tooling Overview & News",
     authors: [
       "Felix Neubauer",
@@ -18642,6 +18863,7 @@ const publications = [
     ]
   },
   {
+    id: "jcim-2026-mof-data-models",
     title: "Data Management and Analysis of Metal–Organic Framework Synthesis Using Data Models",
     authors: [
       "Felix Neubauer",
@@ -18667,6 +18889,7 @@ const publications = [
     favorite: true
   },
   {
+    id: "derse26-talk",
     title: "AI-assisted Model Driven Engineering",
     authors: [
       "Felix Neubauer",
@@ -18675,7 +18898,6 @@ const publications = [
     ],
     conference: "deRSE26 - 6th conference for Research Software Engineering in Germany (University of Stuttgart)",
     date: "2026-03-04",
-    doi: "https://doi.org/10.5446/73764",
     abstract: "Model-Driven Engineering (MDE) places models at the core of system and data engineering processes. In the\ncontext of research data, these models are typically expressed as schemas that define the structure and semantics of datasets. However, many domains still lack standardized models, and creating them remains a significant barrier, especially for non-experts. We present a hybrid approach that combines large language models (LLMs) with deterministic techniques to enable JSON Schema creation, modification, and schema mapping based on natural language inputs by the user. These capabilities are integrated into the open-source tool MetaConfigurator, which already provides visual model editing, validation, code generation, and form generation from models. For data integration, we generate schema mappings from heterogeneous JSON, CSV, XML, and YAML data using LLMs, while ensuring scalability and reliability through deterministic execution of generated mapping rules. The applicability of our work is demonstrated in an application example in the field of chemistry. By combining natural language interaction with deterministic safeguards, this work significantly lowers the barrier to structured data modeling and data integration for non-experts.",
     tags: [
       "ConferenceTalk"
@@ -18686,6 +18908,7 @@ const publications = [
     derived_from: "10.1109/MODELS-C68889.2025.00019"
   },
   {
+    id: "research-software-day-2026-metaconfigurator-poster",
     title: "MetaConfigurator: A Powerful JSON Schema Editor and Forms/Code Generator",
     authors: [
       "Felix Neubauer",
@@ -18704,6 +18927,7 @@ const publications = [
     ]
   },
   {
+    id: "research-project-llm-fine-tuning-2026",
     title: "Fine-tuning Large Language Models for JSON Schema Generation and Modification",
     authors: [
       "Durga Lakshmi Sajith"
@@ -18720,6 +18944,7 @@ const publications = [
     ]
   },
   {
+    id: "master-thesis-semantic-web-2026",
     title: "Connecting MetaConfigurator to the Semantic Web: RDF Authoring, Ontology Integration, and Knowledge Graph Support.",
     authors: [
       "Mahdi Jafarkhani"
@@ -18738,6 +18963,7 @@ const publications = [
     ]
   },
   {
+    id: "master-thesis-shacl-bridge-2026",
     title: "Bridging SHACL and JSON Schema: Design, Implementation, and Evaluation of Bidirectional Conversions for JSON and JSON-LD Documents",
     authors: [
       "Giridhar Chinnikkaramadom Govindan"
@@ -18755,6 +18981,7 @@ const publications = [
     ]
   },
   {
+    id: "nfdi4chem-2026-workshop",
     title: "Data-model-driven RDM workflows for chemistry",
     authors: [
       "Jürgen Pleiss",
@@ -18773,7 +19000,8 @@ const publications = [
     ]
   },
   {
-    title: "MetaConfigurator: AI-Assisted RDF Authoring from JSON Data",
+    id: "eceasst-2026-rdf-authoring",
+    title: "AI-Assisted RDF Authoring from JSON Data",
     authors: [
       "Felix Neubauer",
       "Mahdi Jafarkhani",
@@ -18781,18 +19009,19 @@ const publications = [
       "Jürgen Pleiss",
       "Benjamin Uekermann"
     ],
-    conference: "Preprint. Submitted as post-proceedings for the deRSE26 conference.",
-    date: "2026-06-05",
-    doi: "10.48550/arXiv.2606.07094",
-    abstract: "Scientific workflows increasingly generate structured JSON data that is easy to exchange but difficult to interpret consistently across systems due to lacking semantic interoperability. While JSON Schema ensures structural validation, it provides no native support for Linked Data semantics. This paper presents an RDF Authoring View extending the open-source JSON Schema editor MetaConfigurator, enabling researchers to transform existing JSON, YAML, or CSV data into RDF using AI-assisted RML mappings, refine triples, execute SPARQL queries, visualize knowledge graphs, and export RDF serializations within a single integrated web interface. This workflow is supported by ontology-aware IRI auto-completion, bidirectional synchronization between JSON-LD text views and RDF triple tables, and AI-assisted SPARQL query generation from natural language hints. We demonstrate the workflow using laboratory data from metal-organic framework (MOF) synthesis experiments. Protocol data describing reagents, procedure steps, and quantities is converted from JSON to ontology-based JSON-LD via RML mappings. We then refine the semantic representation, query relationships between experimental conditions and outcomes, and explore the resulting knowledge graph interactively. This integrated environment bridges conventional structured data management with Semantic Web technologies while preserving experimental context and lowering technical barriers through AI assistance.",
+    conference: "Electronic Communications of the EASST, Vol. 86, No. 1",
+    date: "2026-11-02",
+    doi: "10.14279/eceasst.v86.1.2789",
+    abstract: "Scientific workflows increasingly produce structured JSON data that is easy to exchange but hard to interpret consistently across systems: JSON Schema validates structure, but carries no Linked Data semantics. We present an RDF Authoring View that extends the open-source JSON Schema editor MetaConfigurator into an integrated, AI-assisted environment for turning existing JSON, YAML, XML, or CSV data into RDF within a single web interface. Researchers generate RML mappings with AI assistance, refine the resulting triples, edit JSON-LD @context definitions with ontology-aware IRI auto-completion, run SPARQL queries drafted from natural-language hints, and explore the data as an interactive knowledge graph. Across these steps, the AI drafts artifacts while the researcher stays in control through an explicit human-in-the-loop review. We demonstrate the workflow on laboratory data from metal-organic framework (MOF) synthesis, reuse established vocabularies aligned with the NFDI4Chem ecosystem, and validate the generated RDF against a SHACL shape.",
     tags: [
-      "Preprint"
+      "JournalPaper"
     ],
     related_projects: [
       "MetaConfigurator (Web Tool)"
     ]
   },
   {
+    id: "tse-2026-schema-converters",
     title: "Orchestrating Black-Box Schema Converters: An Empirical Study of Automated, Quality-Ranked Conversion Across Heterogeneous Schema Languages",
     authors: [
       "Felix Neubauer",
@@ -18800,12 +19029,12 @@ const publications = [
       "Jürgen Pleiss",
       "Benjamin Uekermann"
     ],
-    conference: "Preprint.",
-    date: "2026-06-24",
-    doi: "10.48550/arXiv.2606.26180",
+    conference: "IEEE Transactions on Software Engineering",
+    date: "2026-11-03",
+    doi: "10.1109/TSE.2026.3750568",
     abstract: "Modern software systems routinely need the same data model in several schema languages: a model may exist as JSON Schema for a web API, as XSD for data exchange, and as SHACL for a knowledge graph. Keeping these representations consistent as the model evolves is a recurring construction and maintenance burden, because converters between schema languages are hard to find, scattered across ecosystems, of uneven quality, and frequently lossy. We study, empirically, to what extent such imperfect, heterogeneous converters can be orchestrated into automated, reproducible, and quality-ranked conversions, and where the current converter landscape reaches its limits. Our approach models schema languages as nodes and converters, treated as black boxes, as directed edges, so that conversions become paths that are discovered, executed, ranked, and reported with full per-step provenance, with failures handled by trying alternatives. We realize it as the open-source Schema Conversion Orchestrator, integrate it into MetaConfigurator, and evaluate it on 60 conversion tasks built from real-world schemas across five schema languages, using agent-assisted, human-reviewed quality annotations. Orchestration surfaces a usable result for 43 of 60 tasks; the remaining failures localize concrete gaps in the converter landscape. We discuss implications for tool builders and for measuring conversion quality.",
     tags: [
-      "Preprint"
+      "JournalPaper"
     ],
     related_projects: [
       "Schema Conversion Orchestrator (Tool)",
@@ -18813,6 +19042,7 @@ const publications = [
     ]
   },
   {
+    id: "master-thesis-llm-json-transformations-2026",
     title: "LLM-gestützte JSON-Transformationen im MetaConfigurator",
     authors: [
       "Robin Schalkowsky"
@@ -18830,6 +19060,7 @@ const publications = [
     ]
   },
   {
+    id: "research-software-day-2026-precice-poster",
     title: "The preCICE v3 coupling library and the emerging preCICE ecosystem",
     authors: [
       "Jun Chen",
@@ -18854,6 +19085,7 @@ const publications = [
     ]
   },
   {
+    id: "crc1333-2026-synthesis-data-poster",
     title: "Making Chemical Synthesis Data Machine-Readable, FAIR, and AI-Ready with a JSON Schema–Centric Approach",
     authors: [
       "Felix Neubauer",
@@ -18873,6 +19105,57 @@ const publications = [
     abstract: "A poster about our JSON Schema-centric workflow for making synthesis data machine-readable, FAIR and AI-Ready.",
     tags: [
       "Poster"
+    ],
+    related_projects: [
+      "MetaConfigurator (Web Tool)",
+      "Data-Model-Driven Management and Analysis of Chemistry Data"
+    ]
+  },
+  {
+    id: "master-thesis-precice-ai-assistant-2026",
+    title: "Design and Implementation of an AI Assistant for the Multi-Physics Coupling Library preCICE",
+    authors: [
+      "Vaibhav Dange"
+    ],
+    supervised_by: "Felix Neubauer",
+    conference: "University of Stuttgart, Master Thesis",
+    date: "2026-10-20",
+    abstract: "Multiphysics simulation software - preCICE, is a powerful enabler of partitioned coupled simulations, yet its configuration complexity and steep learning curve present a considerable barrier to new and occasional users. This thesis investigates how an intelligent, context-aware assistant can lower this barrier by integrating natural-language interaction directly into the local preCICE simulation environment. General-purpose language model assistants lack domain specific information and thus lack in providing better results and responses and are therefore unable to provide actionable, context-specific guidance. To address this gap, two complementary prototypes were designed and implemented. The first is a preCICE-focused MCP server that exposes project discovery, configuration inspection, log analysis, a dual lexical-and-semantic knowledge base built from the preCICE documentation, forum, and issue tracker, and a wrapper around the official precice-cli, to any MCP-compatible client. The second is a self-contained agentic client built with LangGraph that runs a ReAct-style tool-calling loop, combines a purpose-built retrieval pipeline with the same class of project, configuration, and log tools, and can drive the MCP server as a subprocess. Both prototypes ground the language model in the user’s actual project state rather than relying on its training data alone.\nThe prototypes are evaluated through functional testing and a scenario-based comparison spanning simulation setup, configuration error detection, and log analysis, contrasting usability, response accuracy, local integration, and extensibility against each other and against an ungrounded baseline. Accuracy is assessed across two retrieval modes, several language models of differing capability, and question sets of increasing difficulty.\nResults indicate measurable improvements over an ungrounded baseline on preCICE-related tasks, suggesting that grounded, tool-integrated language-model assistants can meaningfully narrow the usability gap in scientific simulation software and point toward an architecture that generalises to other simulation frameworks.",
+    tags: [
+      "MasterThesis"
+    ],
+    related_projects: [
+      "preCICe (Coupling Library)"
+    ]
+  },
+  {
+    id: "master-thesis-mutation-testing-2026",
+    title: "Mutation-Based Testing and Invariant Inference for the Web-Based Multi-View Editor MetaConfigurator",
+    authors: [
+      "Apoorva Jeyaram"
+    ],
+    supervised_by: "Felix Neubauer",
+    conference: "University of Stuttgart, Master Thesis",
+    date: "2026-10-31",
+    abstract: "Multi-view web editors, which show the same data in several views, can contain defects that appear only after particular sequences of user actions. Hand-written tests can miss such defects if the relevant sequences have not been anticipated. This thesis presents a testing tool for MetaConfigurator, a web editor for JSON Schema and JSON data. The tool explores the editor through randomised sequences of editing actions and checks 30 hand-written invariants after every step, for example that the views stay consistent with the underlying data. An inference engine analyses recorded editor states and proposes additional invariants, which are reviewed before being used in subsequent runs. When a violation is detected, the corresponding action sequence is reduced to a shorter sequence that reproduces the failure and is stored for regression testing in continuous integration.\nAcross 464 runs comprising 20,621 steps, the tool found 12 bugs in MetaConfigurator, 11 of them confirmed as defects, and three of the 12 were detected only through inferred invariants. The rules of the inference engine covered 25 of the 30 hand-written invariants, which is all but one of the 26 that its templates can express. The reduction process shortened 11 failing runs from 560 planned steps in total to 32 steps, and all 11 resulting regression sequences reproduced their target failures in five out of five replays.",
+    tags: [
+      "MasterThesis"
+    ],
+    related_projects: [
+      "MetaConfigurator (Web Tool)"
+    ]
+  },
+  {
+    id: "nfdi4chem-stammtisch-2026-talk",
+    title: "Schema-based research data management: concept, tools, and use case in MOF synthesis with ELN",
+    authors: [
+      "Kenichi Endo",
+      "Felix Neubauer"
+    ],
+    conference: "NFDI4Chem Stammtisch",
+    date: "2026-10-30",
+    tags: [
+      "OtherTalk"
     ],
     related_projects: [
       "MetaConfigurator (Web Tool)",
@@ -29985,7 +30268,7 @@ const _hoisted_10$1 = ["href"];
 const _hoisted_11$1 = { class: "badge-link" };
 const _hoisted_12$1 = ["innerHTML"];
 const _hoisted_13$1 = { class: "project-videos" };
-const _hoisted_14$1 = ["src"];
+const _hoisted_14$1 = ["title", "src"];
 const _hoisted_15 = ["href"];
 const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   __name: "ProjectCard",
@@ -30014,54 +30297,14 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
     const articleContent = ref("");
     const projectSlug = computed(() => getProjectSlug(props.projectData));
     const showVideos = ref(false);
-    const videoOrVideos = props.projectData.videos ? props.projectData.videos.length > 1 ? "Videos" : "Video" : "No Video";
-    function parseHttpUrl(value) {
-      try {
-        const url = new URL(value);
-        return url.protocol === "http:" || url.protocol === "https:" ? url : void 0;
-      } catch {
-        return void 0;
-      }
-    }
-    function getYouTubeVideoId(url) {
-      const hostname = url.hostname.toLowerCase().replace(/^www\./, "");
-      if (hostname === "youtu.be") {
-        return url.pathname.split("/").filter(Boolean)[0];
-      }
-      if (hostname !== "youtube.com" && hostname !== "youtube-nocookie.com") {
-        return void 0;
-      }
-      if (url.pathname === "/watch") return url.searchParams.get("v") ?? void 0;
-      const [, route2, videoId] = url.pathname.split("/");
-      return ["embed", "shorts", "live"].includes(route2) ? videoId : void 0;
-    }
-    function getTibEmbedUrl(url) {
-      const hostname = url.hostname.toLowerCase().replace(/^www\./, "");
-      const mediaMatch = url.pathname.match(/^\/media\/(\d+)\/?$/);
-      return hostname === "av.tib.eu" && mediaMatch ? `https://av.tib.eu/player/${mediaMatch[1]}` : void 0;
-    }
     const projectVideos = computed(
-      () => (props.projectData.videos ?? []).map((source) => {
-        const url = parseHttpUrl(source);
-        if (url) {
-          const youtubeVideoId = getYouTubeVideoId(url);
-          if (youtubeVideoId) {
-            return {
-              type: "embed",
-              source,
-              embedUrl: `https://www.youtube.com/embed/${encodeURIComponent(youtubeVideoId)}`
-            };
-          }
-          const tibEmbedUrl = getTibEmbedUrl(url);
-          if (tibEmbedUrl) return { type: "embed", source, embedUrl: tibEmbedUrl };
-          return { type: "link", source, href: url.href };
-        }
-        return {
-          type: "embed",
-          source,
-          embedUrl: `https://www.youtube.com/embed/${encodeURIComponent(source)}`
-        };
-      })
+      () => videos$1.videos.filter((video) => {
+        var _a;
+        return (_a = video.related_projects) == null ? void 0 : _a.includes(props.projectData.title);
+      }).map((video) => ({ ...video, ...resolveVideo(video.source) }))
+    );
+    const videoOrVideos = computed(
+      () => projectVideos.value.length > 1 ? "Videos" : "Video"
     );
     function openArticle() {
       updateArticleUrl();
@@ -30198,13 +30441,13 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
               }, _cache[9] || (_cache[9] = [
                 createBaseVNode("span", { class: "badge-link" }, "Try It Out", -1)
               ]), 8, _hoisted_10$1)) : createCommentVNode("", true),
-              _ctx.projectData.videos ? (openBlock(), createElementBlock("a", {
+              projectVideos.value.length ? (openBlock(), createElementBlock("a", {
                 key: 5,
                 onClick: _cache[2] || (_cache[2] = ($event) => showVideos.value = true),
                 target: "_blank",
                 title: "Watch Video"
               }, [
-                createBaseVNode("span", _hoisted_11$1, "Watch " + toDisplayString(unref(videoOrVideos)) + " (" + toDisplayString(_ctx.projectData.videos.length) + ")", 1)
+                createBaseVNode("span", _hoisted_11$1, "Watch " + toDisplayString(videoOrVideos.value) + " (" + toDisplayString(projectVideos.value.length) + ")", 1)
               ])) : createCommentVNode("", true)
             ])
           ]),
@@ -30256,7 +30499,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
           closable: true
         }, {
           header: withCtx(() => [
-            createBaseVNode("h3", null, toDisplayString(_ctx.projectData.title + " " + unref(videoOrVideos)), 1)
+            createBaseVNode("h3", null, toDisplayString(_ctx.projectData.title + " " + videoOrVideos.value), 1)
           ]),
           default: withCtx(() => [
             createBaseVNode("div", _hoisted_13$1, [
@@ -30265,8 +30508,10 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                   key: video.source,
                   class: "project-video"
                 }, [
-                  video.type === "embed" ? (openBlock(), createElementBlock("iframe", {
+                  createBaseVNode("h4", null, toDisplayString(video.title), 1),
+                  video.embedUrl ? (openBlock(), createElementBlock("iframe", {
                     key: 0,
+                    title: video.title,
                     width: "560",
                     height: "315",
                     src: video.embedUrl,
@@ -30277,7 +30522,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
                     href: video.href,
                     target: "_blank",
                     rel: "noopener noreferrer"
-                  }, toDisplayString(video.source), 9, _hoisted_15))
+                  }, toDisplayString(video.href), 9, _hoisted_15))
                 ]);
               }), 128))
             ])
@@ -30288,7 +30533,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const ProjectCard = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-317e3714"]]);
+const ProjectCard = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-a023d1a9"]]);
 var FilterMatchMode = {
   STARTS_WITH: "startsWith",
   CONTAINS: "contains",
@@ -37597,28 +37842,11 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
         return matchesType && matchesProject && matchesSupervision;
       })
     );
-    const groupDefinitions = [
-      { key: "Journal", label: "Journal Articles" },
-      { key: "PaperPreprint", label: "Conference Papers & Preprints" },
-      { key: "TalkPosterWorkshop", label: "Talks, Posters & Workshops" },
-      { key: "Thesis", label: "Theses" },
-      { key: "Supervised", label: "Supervised Student Projects" }
-    ];
-    function publicationGroup(pub) {
-      if (pub.supervised_by) return "Supervised";
-      const tags = pub.tags;
-      if (tags.includes("JournalPaper")) return "Journal";
-      if (tags.includes("ConferencePaper") || tags.includes("Preprint"))
-        return "PaperPreprint";
-      if (tags.includes("ConferenceTalk") || tags.includes("WorkshopTalk") || tags.includes("OtherTalk") || tags.includes("Poster") || tags.includes("Workshop"))
-        return "TalkPosterWorkshop";
-      return "Thesis";
-    }
     const groupedPublications = computed(
-      () => groupDefinitions.map((group2) => ({
-        ...group2,
+      () => publicationGroups.map((label3) => ({
+        label: label3,
         publications: filteredPublications.value.filter(
-          (pub) => publicationGroup(pub) === group2.key
+          (pub) => getPublicationGroup(pub) === label3
         )
       })).filter((group2) => group2.publications.length > 0)
     );
@@ -37657,7 +37885,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
         ]),
         (openBlock(true), createElementBlock(Fragment, null, renderList(groupedPublications.value, (group2) => {
           return openBlock(), createElementBlock("div", {
-            key: group2.key,
+            key: group2.label,
             class: "publication-group"
           }, [
             createBaseVNode("h2", _hoisted_6$1, [
@@ -37674,7 +37902,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const PublicationsView = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-cf783929"]]);
+const PublicationsView = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-fdfe46df"]]);
 const PublicationsView$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   default: PublicationsView
@@ -75959,7 +76187,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => __vitePreload(() => import("./AboutView-CV-CZr-N.js"), true ? [] : void 0)
+      component: () => __vitePreload(() => import("./AboutView-CLQWbefk.js"), true ? [] : void 0)
     },
     {
       path: "/projects",
@@ -75988,7 +76216,7 @@ const router = createRouter({
     {
       path: "/veiled-kingdoms",
       name: "veiled-kingdoms",
-      component: () => __vitePreload(() => import("./VeiledKingdomsView-D2tQ62J2.js"), true ? __vite__mapDeps([0,1]) : void 0)
+      component: () => __vitePreload(() => import("./VeiledKingdomsView-B5YxnNje.js"), true ? __vite__mapDeps([0,1]) : void 0)
     }
   ]
 });
