@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "title": "Videos",
+  "properties": {
+    "videos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "source": {
+            "description": "YouTube video ID or full video URL; supported providers are embedded and other URLs are linked",
+            "type": "string"
+          },
+          "related_publications": {
+            "description": "Values of the `id` field of publications in main_publications.json",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "related_projects": {
+            "description": "Titles of projects in main_projects.json",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "title",
+          "source"
+        ]
+      }
+    }
+  }
+}

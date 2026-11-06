@@ -1,0 +1,174 @@
+{
+  "videos": [
+    {
+      "title": "Using AI for Research Data Management Software - HiRSE Summer of AI for RSE",
+      "source": "7KylaPVl_y0",
+      "related_projects": [
+        "MetaConfigurator (Web Tool)"
+      ]
+    },
+    {
+      "title": "AI-assisted Model Driven Engineering",
+      "source": "https://av.tib.eu/media/73764",
+      "related_publications": [
+        "derse26-talk"
+      ],
+      "related_projects": [
+        "MetaConfigurator (Web Tool)"
+      ]
+    },
+    {
+      "title": "2025 Fall AC - AI-assisted JSON Schema Creation and Mapping",
+      "source": "DfS6PgMr1q0",
+      "related_publications": [
+        "allotrope-fall-2025-talk"
+      ],
+      "related_projects": [
+        "MetaConfigurator (Web Tool)"
+      ]
+    },
+    {
+      "title": "MetaConfigurator CSV Import and Schema Editing",
+      "source": "1HT0Xb8tGUI",
+      "related_projects": [
+        "MetaConfigurator (Web Tool)"
+      ]
+    },
+    {
+      "title": "preCICE tooling overview & news",
+      "source": "DgOKBeovu7o",
+      "related_publications": [
+        "precice-workshop-2025-tooling-talk"
+      ],
+      "related_projects": [
+        "preCICe (Coupling Library)"
+      ]
+    },
+    {
+      "title": "ManaWars gameplay",
+      "source": "py2VAddQ08c",
+      "related_projects": [
+        "ManaWars (Mobile Game)"
+      ]
+    },
+    {
+      "title": "ManaWars Gameplay - end game and final boss",
+      "source": "gtbftSCVcBA",
+      "related_projects": [
+        "ManaWars (Mobile Game)"
+      ]
+    },
+    {
+      "title": "ManaWars Game Tour by the creator",
+      "source": "eI4PvR8_jdI",
+      "related_projects": [
+        "ManaWars (Mobile Game)"
+      ]
+    },
+    {
+      "title": "Minecraft Admin How-To: BossShop",
+      "source": "SgTBXMgOLk4",
+      "related_projects": [
+        "BossShopPro (Plugin)"
+      ]
+    },
+    {
+      "title": "Plugin Showcase - Boss Shop - WoopaGaming",
+      "source": "vx7YC4GCao4",
+      "related_projects": [
+        "BossShopPro (Plugin)"
+      ]
+    },
+    {
+      "title": "Plugin Showcase - BossShop Revisted - WoopaGaming",
+      "source": "ahyp1uYGgp8",
+      "related_projects": [
+        "BossShopPro (Plugin)"
+      ]
+    },
+    {
+      "title": "BossShopPro Plugin Review",
+      "source": "XcafjVUTN8s",
+      "related_projects": [
+        "BossShopPro (Plugin)"
+      ]
+    },
+    {
+      "title": "EarthGames Video 1",
+      "source": "6CYQ7yjqaNQ",
+      "related_projects": [
+        "EarthGames (Minigame)"
+      ]
+    },
+    {
+      "title": "Minecraft - Earthgames Minigame [Snapcraft]",
+      "source": "923TrDl9CCk",
+      "related_projects": [
+        "EarthGames (Minigame)"
+      ]
+    },
+    {
+      "title": "EarthGames Video 2",
+      "source": "Z2CHEuWZghk",
+      "related_projects": [
+        "EarthGames (Minigame)"
+      ]
+    },
+    {
+      "title": "Minecraft: Earth Games w/Mitch, Jerome & Quentin! TNT KILL FEED!",
+      "source": "5qIvDhrDQL0",
+      "related_projects": [
+        "EarthGames (Minigame)"
+      ]
+    },
+    {
+      "title": "Minecraft Earth Games PVP w/ BajanCanadian and HuskyMudkipz",
+      "source": "AcCq3S5uSII",
+      "related_projects": [
+        "EarthGames (Minigame)"
+      ]
+    },
+    {
+      "title": "Minecraft EARTH GAMES #1 with Vikkstar (Minecraft PVP War)",
+      "source": "MEv5a-yioV4",
+      "related_projects": [
+        "EarthGames (Minigame)"
+      ]
+    },
+    {
+      "title": "Minecraft EARTH GAMES #2 with Vikkstar & Nooch (Minecraft PVP War)",
+      "source": "teZhuoXXMFs",
+      "related_projects": [
+        "EarthGames (Minigame)"
+      ]
+    },
+    {
+      "title": "Minecraft EARTH GAMES #3 with Vikkstar",
+      "source": "Z7DJub7N3oU",
+      "related_projects": [
+        "EarthGames (Minigame)"
+      ]
+    },
+    {
+      "title": "[ZombieV] Minecraft Minigame Trailer",
+      "source": "IZhnWrk9BYc",
+      "related_projects": [
+        "ZombieV (Minigame)"
+      ]
+    },
+    {
+      "title": "ManaWar | Gameplay",
+      "source": "uvSfB7L9z-Q",
+      "related_projects": [
+        "ManaWar (Desktop Game)"
+      ]
+    },
+    {
+      "title": "BlockCommand bukkit plugin",
+      "source": "Rl3Lw9ppvWw",
+      "related_projects": [
+        "BlockCommands (Plugin)"
+      ]
+    }
+  ]
+}

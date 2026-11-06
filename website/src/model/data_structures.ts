@@ -11,7 +11,6 @@ export interface Project {
   project_page?: string
   article?: string
   demo?: string
-  videos?: string[]
   relations?: ProjectRelation[]
 }
 
@@ -30,6 +29,7 @@ export interface ProjectRelation {
 }
 
 export interface Publication {
+  id: string
   title: string
   abstract?: string
   authors: string[]
@@ -54,6 +54,13 @@ export interface Publication {
     | 'Workshop')[],
   derived_from?: string,
   favorite?: boolean
+}
+
+export interface Video {
+  title: string
+  source: string // YouTube video ID or full video URL
+  related_publications?: string[] // publication ids
+  related_projects?: string[] // project titles
 }
 
 export interface WorkExperience {

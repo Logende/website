@@ -5,6 +5,7 @@ import type { Publication } from '@/model/data_structures'
 import MultiSelect from 'primevue/multiselect'
 import ToggleSwitch from 'primevue/toggleswitch'
 import { computed, ref } from 'vue'
+import { getPublicationGroup, publicationGroups } from '@/utils'
 
 type PublicationTag = Publication['tags'][number]
 const allPublications = publications.publications as Publication[]
@@ -33,7 +34,8 @@ const filteredPublications = computed(() =>
   allPublications.filter(pub => {
     const matchesType =
       // there must be an overlap of selectedTags and publication.tags
-      selectedTags.value.length === 0 || selectedTags.value.some(tag => pub.tags.includes(tag))
+      selectedTags.value.length === 0 ||
+      selectedTags.value.some(tag => pub.tags.includes(tag))
 
     const matchesProject =
       selectedProjects.value.length === 0 ||
@@ -45,48 +47,12 @@ const filteredPublications = computed(() =>
   }),
 )
 
-// Ordered groups for the "all publications" overview. Each publication is placed
-// into a single group, so the most relevant works (peer-reviewed papers) appear
-// first and supervised student projects come last.
-type GroupKey =
-  | 'Journal'
-  | 'PaperPreprint'
-  | 'TalkPosterWorkshop'
-  | 'Thesis'
-  | 'Supervised'
-
-const groupDefinitions: { key: GroupKey; label: string }[] = [
-  { key: 'Journal', label: 'Journal Articles' },
-  { key: 'PaperPreprint', label: 'Conference Papers & Preprints' },
-  { key: 'TalkPosterWorkshop', label: 'Talks, Posters & Workshops' },
-  { key: 'Thesis', label: 'Theses' },
-  { key: 'Supervised', label: 'Supervised Student Projects' },
-]
-
-function publicationGroup(pub: Publication): GroupKey {
-  // Student work the user supervised is always grouped last, regardless of type.
-  if (pub.supervised_by) return 'Supervised'
-  const tags = pub.tags
-  if (tags.includes('JournalPaper')) return 'Journal'
-  if (tags.includes('ConferencePaper') || tags.includes('Preprint'))
-    return 'PaperPreprint'
-  if (
-    tags.includes('ConferenceTalk') ||
-    tags.includes('WorkshopTalk') ||
-    tags.includes('OtherTalk') ||
-    tags.includes('Poster') ||
-    tags.includes('Workshop')
-  )
-    return 'TalkPosterWorkshop'
-  return 'Thesis'
-}
-
 const groupedPublications = computed(() =>
-  groupDefinitions
-    .map(group => ({
-      ...group,
+  publicationGroups
+    .map(label => ({
+      label,
       publications: filteredPublications.value.filter(
-        pub => publicationGroup(pub) === group.key,
+        pub => getPublicationGroup(pub) === label,
       ),
     }))
     .filter(group => group.publications.length > 0),
@@ -128,7 +94,7 @@ const groupedPublications = computed(() =>
 
     <div
       v-for="group in groupedPublications"
-      :key="group.key"
+      :key="group.label"
       class="publication-group"
     >
       <h2 class="group-heading">

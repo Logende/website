@@ -48,12 +48,6 @@
       "source_code": "https://github.com/MetaConfigurator/meta-configurator",
       "project_page": "https://github.com/MetaConfigurator/meta-configurator",
       "demo": "https://metaconfigurator.org",
-      "videos": [
-        "7KylaPVl_y0",
-        "https://av.tib.eu/media/73764",
-        "DfS6PgMr1q0",
-        "1HT0Xb8tGUI"
-      ],
       "relations": [
         {
           "label": "inspiredBy",
@@ -123,9 +117,6 @@
           "relatedProject": "MetaConfigurator (Web Tool)",
           "note": "Uses MetaConfigurator to make it easier for users to edit configuration files, for example for the adapter configuration."
         }
-      ],
-      "videos": [
-        "DgOKBeovu7o"
       ]
     },
     {
@@ -143,11 +134,6 @@
         "start": "2014-01-01",
         "end": "2017-12-31"
       },
-      "videos": [
-        "py2VAddQ08c",
-        "gtbftSCVcBA",
-        "eI4PvR8_jdI"
-      ],
       "article": "articles/manawars/article.html",
       "relations": [
         {
@@ -343,12 +329,6 @@
         "Java"
       ],
       "project_page": "https://www.spigotmc.org/resources/222/",
-      "videos": [
-        "SgTBXMgOLk4",
-        "vx7YC4GCao4",
-        "ahyp1uYGgp8",
-        "XcafjVUTN8s"
-      ],
       "relations": [
         {
           "label": "inspiredBy",
@@ -370,16 +350,6 @@
       "size": "m",
       "tags": [
         "Java"
-      ],
-      "videos": [
-        "6CYQ7yjqaNQ",
-        "923TrDl9CCk",
-        "Z2CHEuWZghk",
-        "5qIvDhrDQL0",
-        "AcCq3S5uSII",
-        "MEv5a-yioV4",
-        "teZhuoXXMFs",
-        "Z7DJub7N3oU"
       ],
       "where": "Snapcraft/Fironus",
       "relations": [
@@ -403,9 +373,6 @@
       "size": "l",
       "tags": [
         "Java"
-      ],
-      "videos": [
-        "IZhnWrk9BYc"
       ],
       "where": "Snapcraft/Fironus",
       "relations": [
@@ -509,9 +476,6 @@
       "size": "m",
       "tags": [
         "Java"
-      ],
-      "videos": [
-        "uvSfB7L9z-Q"
       ],
       "article": "articles/manawar/article.html",
       "relations": [
@@ -703,9 +667,6 @@
         "end": "2016-09-11"
       },
       "project_page": "https://dev.bukkit.org/projects/blockcommand",
-      "videos": [
-        "Rl3Lw9ppvWw"
-      ],
       "relations": [
         {
           "label": "relatedTo",

@@ -10,6 +10,10 @@ Editor for the education document: Click [here](https://www.metaconfigurator.org
 
 Editor for the projects document: Click [here](https://www.metaconfigurator.org/?schema=https://github.com/Logende/website/blob/main/website/src/assets/main_projects.schema.json&data=https://github.com/Logende/website/blob/main/website/src/assets/main_projects.json).
 
+## Videos
+
+Editor for the videos document: Click [here](https://www.metaconfigurator.org/?schema=https://github.com/Logende/website/blob/main/website/src/assets/main_videos.schema.json&data=https://github.com/Logende/website/blob/main/website/src/assets/main_videos.json).
+
 ## Work Experiences
 
 Editor for the work experiences document: Click [here](https://www.metaconfigurator.org/?schema=https://github.com/Logende/website/blob/main/website/src/assets/main_work_experiences.schema.json&data=https://github.com/Logende/website/blob/main/website/src/assets/main_work_experiences.json).

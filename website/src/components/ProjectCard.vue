@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { Project, Publication } from '@/model/data_structures'
+import type { Project, Publication, Video } from '@/model/data_structures'
 import { formatTimeRange } from '@/utils'
-import { getProjectSlug } from '@/utils'
+import { getProjectSlug, resolveVideo } from '@/utils'
 import Card from 'primevue/card'
 import Dialog from 'primevue/dialog'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -9,6 +9,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { computed, type ComputedRef, type Ref, ref, watch } from 'vue'
 import PublicationList from '@/components/PublicationList.vue'
 import publications from '@/assets/main_publications.json'
+import videos from '@/assets/main_videos.json'
 import MarkdownArticle from '@/components/MarkdownArticle.vue'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -35,79 +36,13 @@ const articleContent = ref<string>('')
 const projectSlug = computed(() => getProjectSlug(props.projectData))
 
 const showVideos: Ref<boolean> = ref<boolean>(false)
-const videoOrVideos: string = props.projectData.videos
-  ? props.projectData.videos.length > 1
-    ? 'Videos'
-    : 'Video'
-  : 'No Video'
-
-type ProjectVideo =
-  | { type: 'embed'; source: string; embedUrl: string }
-  | { type: 'link'; source: string; href: string }
-
-function parseHttpUrl(value: string): URL | undefined {
-  try {
-    const url = new URL(value)
-    return url.protocol === 'http:' || url.protocol === 'https:'
-      ? url
-      : undefined
-  } catch {
-    return undefined
-  }
-}
-
-function getYouTubeVideoId(url: URL): string | undefined {
-  const hostname = url.hostname.toLowerCase().replace(/^www\./, '')
-
-  if (hostname === 'youtu.be') {
-    return url.pathname.split('/').filter(Boolean)[0]
-  }
-
-  if (hostname !== 'youtube.com' && hostname !== 'youtube-nocookie.com') {
-    return undefined
-  }
-
-  if (url.pathname === '/watch') return url.searchParams.get('v') ?? undefined
-
-  const [, route, videoId] = url.pathname.split('/')
-  return ['embed', 'shorts', 'live'].includes(route) ? videoId : undefined
-}
-
-function getTibEmbedUrl(url: URL): string | undefined {
-  const hostname = url.hostname.toLowerCase().replace(/^www\./, '')
-  const mediaMatch = url.pathname.match(/^\/media\/(\d+)\/?$/)
-
-  return hostname === 'av.tib.eu' && mediaMatch
-    ? `https://av.tib.eu/player/${mediaMatch[1]}`
-    : undefined
-}
-
-const projectVideos = computed<ProjectVideo[]>(() =>
-  (props.projectData.videos ?? []).map(source => {
-    const url = parseHttpUrl(source)
-
-    if (url) {
-      const youtubeVideoId = getYouTubeVideoId(url)
-      if (youtubeVideoId) {
-        return {
-          type: 'embed',
-          source,
-          embedUrl: `https://www.youtube.com/embed/${encodeURIComponent(youtubeVideoId)}`,
-        }
-      }
-
-      const tibEmbedUrl = getTibEmbedUrl(url)
-      if (tibEmbedUrl) return { type: 'embed', source, embedUrl: tibEmbedUrl }
-
-      return { type: 'link', source, href: url.href }
-    }
-
-    return {
-      type: 'embed',
-      source,
-      embedUrl: `https://www.youtube.com/embed/${encodeURIComponent(source)}`,
-    }
-  }),
+const projectVideos = computed(() =>
+  (videos.videos as Video[])
+    .filter(video => video.related_projects?.includes(props.projectData.title))
+    .map(video => ({ ...video, ...resolveVideo(video.source) })),
+)
+const videoOrVideos = computed(() =>
+  projectVideos.value.length > 1 ? 'Videos' : 'Video',
 )
 
 function openArticle() {
@@ -261,13 +196,13 @@ watch(showArticle, isOpen => {
           <span class="badge-link">Try It Out</span>
         </a>
         <a
-          v-if="projectData.videos"
+          v-if="projectVideos.length"
           @click="showVideos = true"
           target="_blank"
           title="Watch Video"
         >
           <span class="badge-link"
-            >Watch {{ videoOrVideos }} ({{ projectData.videos.length }})</span
+            >Watch {{ videoOrVideos }} ({{ projectVideos.length }})</span
           >
         </a>
       </div>
@@ -319,8 +254,10 @@ watch(showArticle, isOpen => {
         :key="video.source"
         class="project-video"
       >
+        <h4>{{ video.title }}</h4>
         <iframe
-          v-if="video.type === 'embed'"
+          v-if="video.embedUrl"
+          :title="video.title"
           width="560"
           height="315"
           :src="video.embedUrl"
@@ -333,7 +270,7 @@ watch(showArticle, isOpen => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          {{ video.source }}
+          {{ video.href }}
         </a>
       </div>
     </div>

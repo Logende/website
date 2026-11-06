@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import type { Publication } from '@/model/data_structures'
-import {faStar} from "@fortawesome/free-solid-svg-icons";
+import type { Publication, Video } from '@/model/data_structures'
+import videos from '@/assets/main_videos.json'
+import { resolveVideo } from '@/utils'
+import {faStar, faVideo} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 defineProps<{
   publications: Publication[]
@@ -18,6 +20,12 @@ function formattedDate(pub: Publication): string {
     month: 'long',
     day: 'numeric',
   })
+}
+
+function publicationVideos(pub: Publication) {
+  return (videos.videos as Video[])
+    .filter(video => video.related_publications?.includes(pub.id))
+    .map(video => ({ ...video, ...resolveVideo(video.source) }))
 }
 
 function publicationTypeLabel(tag: string): string {
@@ -54,6 +62,19 @@ function publicationTypeLabel(tag: string): string {
         >
           <a :href="pub.link" target="_blank"> {{ pub.link }} </a>.
         </span>
+
+        <a
+          v-for="video in publicationVideos(pub)"
+          :key="video.source"
+          class="video-link"
+          :href="video.href"
+          :title="video.href"
+          :aria-label="`Watch video: ${video.title}`"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FontAwesomeIcon :icon="faVideo" />
+        </a>
 
         <span v-for="tag in pub.tags" class="pub-type" :class="`pub-type--${tag}`">
           {{ publicationTypeLabel(tag) }}
@@ -121,6 +142,10 @@ function publicationTypeLabel(tag: string): string {
 .citation .doi a {
   color: inherit;
   text-decoration: underline;
+}
+
+.video-link {
+  margin-left: 0.4rem;
 }
 
 .meta {

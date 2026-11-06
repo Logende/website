@@ -6,6 +6,10 @@
       "items": {
         "type": "object",
         "properties": {
+          "id": {
+            "description": "Unique slug, used by videos in main_videos.json to reference this publication",
+            "type": "string"
+          },
           "title": {
             "type": "string"
           },
@@ -71,6 +75,7 @@
           }
         },
         "required": [
+          "id",
           "title",
           "authors",
           "conference",
