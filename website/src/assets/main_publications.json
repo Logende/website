@@ -377,6 +377,20 @@
         "MetaConfigurator (Web Tool)",
         "Data-Model-Driven Management and Analysis of Chemistry Data"
       ]
+    },
+    {
+      "id": "sfb1333-2026-talk",
+      "title": "A JSON Schema–Centered Approach to Making Chemical Synthesis Experiments Reproducible, Interoperable, Machine-Readable, and AI-Ready",
+      "authors": [
+        "Felix Neubauer"
+      ],
+      "conference": "CRC 1333 Graduate Seminar",
+      "date": "2026-11-12",
+      "tags": ["OtherTalk"],
+      "related_projects": [
+        "MetaConfigurator (Web Tool)",
+        "Data-Model-Driven Management and Analysis of Chemistry Data"
+      ]
     }
   ]
 }
